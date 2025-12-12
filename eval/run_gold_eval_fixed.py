@@ -91,8 +91,8 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
         # 向后兼容：默认使用eval_outputs
         log_dir = "eval_outputs"
     
-    # 输出文件路径（使用配置的项目根目录）
-    test_output_file = f"{PROJECT_ROOT}/{log_dir}/{instance_id}_test_output.txt"
+    # 输出文件路径（使用配置的项目根目录，在脚本中使用变量）
+    test_output_file = f"${{PROJECT_ROOT}}/{log_dir}/{instance_id}_test_output.txt"
 
     # 生成脚本 - 严格按照SWE-bench的顺序
     # 使用单引号包裹整个bash命令，避免双引号嵌套问题
@@ -106,7 +106,7 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
         'source /opt/miniconda3/bin/activate &&',
         f'conda activate {env_name} &&',
         f'PROJECT_ROOT="{PROJECT_ROOT}" &&',  # 设置项目根目录环境变量
-        f'mkdir -p "$PROJECT_ROOT/{log_dir}" &&',  # 使用环境变量创建日志目录
+        f'mkdir -p "${{PROJECT_ROOT}}/{log_dir}" &&',  # 使用环境变量创建日志目录
         f'cd {repo_directory} &&',
         '',
     ]
@@ -131,13 +131,13 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
         # 转换路径为基于$PROJECT_ROOT的相对路径
         if patch_file_path.startswith(PROJECT_ROOT):
             patch_rel = patch_file_path[len(PROJECT_ROOT)+1:]
-            patch_script_path = f'"$PROJECT_ROOT/{patch_rel}"'
+            patch_script_path = f'"${{PROJECT_ROOT}}/{patch_rel}"'
         else:
             patch_script_path = f'"{patch_file_path}"'
         
-        converted_patch = '"$PROJECT_ROOT/tmp_patch_converted.diff"'
-        apply_script_path = '"$PROJECT_ROOT/eval/apply_agentless.py"'
-        parser_script_path = '"$PROJECT_ROOT/eval/agentless_parser.py"'
+        converted_patch = '"${PROJECT_ROOT}/tmp_patch_converted.diff"'
+        apply_script_path = '"${PROJECT_ROOT}/eval/apply_agentless.py"'
+        parser_script_path = '"${PROJECT_ROOT}/eval/agentless_parser.py"'
 
         script_lines.extend([
             'echo "" &&',
@@ -157,7 +157,7 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
         # 转换patch路径为基于$PROJECT_ROOT的相对路径
         if patch_file_path.startswith(PROJECT_ROOT):
             patch_rel = patch_file_path[len(PROJECT_ROOT)+1:]
-            actual_patch = f'"$PROJECT_ROOT/{patch_rel}"'
+            actual_patch = f'"${{PROJECT_ROOT}}/{patch_rel}"'
         else:
             actual_patch = f'"{patch_file_path}"'
 
@@ -223,7 +223,7 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
     # 将test patch路径转换为基于$PROJECT_ROOT的相对路径
     if test_patch_file_path.startswith(PROJECT_ROOT):
         test_patch_rel = test_patch_file_path[len(PROJECT_ROOT)+1:]  # +1 for /
-        test_patch_script_path = f'"$PROJECT_ROOT/{test_patch_rel}"'
+        test_patch_script_path = f'"${{PROJECT_ROOT}}/{test_patch_rel}"'
     else:
         # 如果已经是相对路径，直接使用
         test_patch_script_path = f'"{test_patch_file_path}"'
