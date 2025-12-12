@@ -8,7 +8,7 @@ __pycache__/
 *.pid
 *.tmp
 
-# Intermediate results (regenerate as needed)
+# Intermediate results
 *_results.csv
 *_results.json
 *_instances.txt
