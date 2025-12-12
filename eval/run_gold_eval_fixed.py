@@ -17,6 +17,9 @@ import time
 from pathlib import Path
 from datasets import load_dataset
 
+# 添加父目录到路径，以便导入siflow_utils等模块
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from siflow.types import TaskVolume, TaskEnv, TaskUserSelectedInstance
 from siflow_utils import create_siflow_client, get_image_registry_url
 from siflow_config import RESOURCE_POOL, INSTANCE_TYPE
@@ -25,7 +28,9 @@ from swebench.harness.test_spec.python import get_test_directives, get_modified_
 from swebench.harness.test_spec.test_spec import TestSpec, make_test_spec
 from swebench.harness.grading import get_eval_tests_report, get_resolution_status
 from swebench.harness.log_parsers import MAP_REPO_TO_PARSER
-from fix_build_issues import should_apply_fix
+from build.fix_build_issues import should_apply_fix
+from method_config import get_method_config, DEFAULT_METHOD
+from patch_processors import get_processor
 
 
 def get_image_version_for_instance(instance_id: str) -> str:
@@ -42,7 +47,7 @@ def get_image_version_for_instance(instance_id: str) -> str:
     return "2.0.0"  # 原始镜像
 
 
-def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file_path):
+def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file_path, method_config=None):
     """
     生成评估脚本 - 严格遵循SWE-bench逻辑
 
@@ -51,6 +56,7 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
         specs: 配置规范
         patch_file_path: patch文件路径 (.diff或.agentless_raw)
         test_patch_file_path: test patch文件路径
+        method_config: 方法配置（如果为None，则自动检测）
 
     关键顺序:
     0. (如果是.agentless_raw) 应用SEARCH/REPLACE并生成diff
@@ -76,8 +82,15 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
     # 获取test patch修改的测试文件
     test_files = get_modified_files(test_patch)
 
+    # 确定日志目录
+    if method_config:
+        log_dir = method_config['log_dir']
+    else:
+        # 向后兼容：默认使用eval_outputs
+        log_dir = "eval_outputs"
+    
     # 输出文件路径
-    test_output_file = f"/volume/ai-infra/rhjiang/SWE-bench-cc/siflow/3-layer-test/eval_outputs/{instance_id}_test_output.txt"
+    test_output_file = f"/volume/ai-infra/rhjiang/SWE-bench-cc/siflow/3-layer-test/{log_dir}/{instance_id}_test_output.txt"
 
     # 生成脚本 - 严格按照SWE-bench的顺序
     # 使用单引号包裹整个bash命令，避免双引号嵌套问题
@@ -91,12 +104,27 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
         'source /opt/miniconda3/bin/activate &&',
         f'conda activate {env_name} &&',
         f'cd {repo_directory} &&',
-        'mkdir -p /volume/ai-infra/rhjiang/SWE-bench-cc/siflow/3-layer-test/eval_outputs &&',
+        f'mkdir -p /volume/ai-infra/rhjiang/SWE-bench-cc/siflow/3-layer-test/{log_dir} &&',
         '',
     ]
 
+    # 检测patch格式并处理
+    patch_file = Path(patch_file_path)
+    format_type = None
+    if method_config:
+        processor = get_processor(method_config['format_type'])
+        if processor and processor.can_handle(patch_file):
+            format_type = method_config['format_type']
+    
+    # 向后兼容：如果没有method_config，使用文件扩展名判断
+    if format_type is None:
+        if '.agentless_raw' in str(patch_file_path):
+            format_type = "agentless"
+        else:
+            format_type = "diff"
+    
     # 如果是agentless格式，先转换
-    if '.agentless_raw' in str(patch_file_path):
+    if format_type == "agentless":
         converted_patch = str(patch_file_path).replace('.agentless_raw', '_converted.diff')
         apply_script_path = '/volume/ai-infra/rhjiang/SWE-bench-cc/siflow/3-layer-test/apply_agentless.py'
         parser_script_path = '/volume/ai-infra/rhjiang/SWE-bench-cc/siflow/3-layer-test/agentless_parser.py'
@@ -236,7 +264,7 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
     return '\n'.join(script_lines)
 
 
-def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wait=True, patch_type="gold", task_name_suffix=""):
+def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wait=True, patch_type="gold", task_name_suffix="", method_name=None):
     """
     为单个instance运行patch评测 - 使用修复后的评估逻辑
 
@@ -245,11 +273,26 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
         image_version: 镜像版本（None时自动选择：有修复用2.1.0，否则用2.0.0）
         timeout: 超时时间（秒）
         wait: 是否等待任务完成
-        patch_type: patch类型 ("gold" 或 "model")
+        patch_type: patch类型 ("gold" 或 "model") - 向后兼容参数
+        task_name_suffix: 任务名称后缀
+        method_name: 方法名称（优先使用，如果为None则从patch_type推断）
     """
-    patch_type_name = "Gold Patch" if patch_type == "gold" else "Model Patch"
+    # 确定方法名称
+    if method_name is None:
+        if patch_type == "gold":
+            method_name = "gold"
+        else:
+            method_name = DEFAULT_METHOD  # 默认使用agentless
+    
+    # 获取方法配置
+    method_config = get_method_config(method_name)
+    if not method_config:
+        print(f"  ⚠️  警告: 未找到方法配置 '{method_name}'，使用默认配置")
+        method_config = get_method_config(DEFAULT_METHOD)
+    
+    display_name = method_config.get('display_name', method_name)
     print(f"\n{'='*70}")
-    print(f"运行 {patch_type_name} 评测 (修复版本): {instance_id}")
+    print(f"运行 {display_name} 评测: {instance_id}")
     print(f"{'='*70}\n")
 
     # 1. 从 Dataset 获取实例信息
@@ -276,49 +319,54 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
         if image_version == "2.1.0":
             print(f"  ℹ️  使用修复后的镜像版本: 2.1.0")
 
-    # 4. 读取patch (从dataset，SWE-bench标准做法)
-    print(f"\n📄 读取 {patch_type} patch...")
-    if patch_type == "gold":
+    # 4. 读取patch
+    print(f"\n📄 读取 {display_name} patch...")
+    if method_name == "gold":
         # Gold patch从dataset的'patch'字段读取
         gold_patch = instance['patch']
-    else:
-        # Model patch从文件读取（已经在model目录）
-        model_patch_dir = Path("/volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model")
-        model_patch_file = model_patch_dir / f"{instance_id}.diff"
-        agentless_file = model_patch_dir / f"{instance_id}.agentless_raw"
-
-        # 优先检查agentless格式
-        if agentless_file.exists():
-            print(f"  ✓ 检测到 Agentless 格式patch")
-            # Agentless文件已在正确位置，直接使用
-            patch_file_path = str(agentless_file)
-            gold_patch = None  # 不需要读取内容，直接用文件路径
-        elif model_patch_file.exists():
-            patch_file_path = str(model_patch_file)
-            gold_patch = None
-        else:
-            print(f"  ❌ 找不到 model patch (.diff 或 .agentless_raw)")
-            return {"success": False, "error": "Model patch not found"}
-
-
-    # 5. 将patch写入volume挂载的目录（仅gold patch需要写入）
-    if patch_type == "gold":
         print(f"  ✓ Patch 大小: {len(gold_patch)} 字节")
 
         # Gold patch需要从dataset写入文件
-        patch_dir = Path("/volume/ai-infra/rhjiang/SWE-bench-cc/predictions/gold")
+        patch_dir = Path("patches/gold")
         patch_dir.mkdir(parents=True, exist_ok=True)
 
         patch_file = patch_dir / f"{instance_id}.diff"
         patch_file.write_text(gold_patch)
         patch_file_path = str(patch_file)
+        print(f"  ✓ Patch已写入: {patch_file_path}")
     else:
-        # Model patch已在文件系统，patch_file_path已设置
-        print(f"  ✓ Patch文件: {patch_file_path}")
+        # 从patches/{method_name}/目录读取
+        patch_dir = Path(f"patches/{method_config['name']}")
+        patch_file_path = None
+        gold_patch = None
+        
+        # 按优先级检查文件扩展名
+        for ext in method_config['file_extensions']:
+            candidate = patch_dir / f"{instance_id}{ext}"
+            if candidate.exists():
+                patch_file_path = str(candidate)
+                print(f"  ✓ 找到patch文件: {candidate.name}")
+                break
+        
+        if not patch_file_path:
+            # 向后兼容：检查旧路径
+            old_model_dir = Path("/volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model")
+            for ext in method_config['file_extensions']:
+                candidate = old_model_dir / f"{instance_id}{ext}"
+                if candidate.exists():
+                    patch_file_path = str(candidate)
+                    print(f"  ✓ 找到patch文件（旧路径）: {candidate.name}")
+                    break
+        
+        if not patch_file_path:
+            print(f"  ❌ 找不到 {display_name} patch文件")
+            print(f"     查找路径: {patch_dir}/")
+            print(f"     支持的扩展名: {method_config['file_extensions']}")
+            return {"success": False, "error": f"Patch file not found for method {method_name}"}
 
-    # 写入test patch文件到test_patches目录
+    # 写入test patch文件
     test_patch = instance['test_patch']
-    test_patch_dir = Path("/volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches")
+    test_patch_dir = Path("patches/test")
     test_patch_dir.mkdir(parents=True, exist_ok=True)
     test_patch_file = test_patch_dir / f"{instance_id}.diff"
     test_patch_file.write_text(test_patch)
@@ -342,9 +390,9 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
 
     print(f"  ✓ Instance 镜像: {instance_image_url}")
 
-    # 8. 生成评估脚本 (使用修复后的版本，传递patch文件路径)
+    # 8. 生成评估脚本 (使用修复后的版本，传递patch文件路径和方法配置)
     print(f"\n📝 生成评估脚本 (修复版本)...")
-    eval_script = generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file_path)
+    eval_script = generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file_path, method_config)
 
     script_lines = eval_script.split('\n')
     print(f"  ✓ 脚本生成完成 ({len(script_lines)} 行)")
@@ -356,7 +404,7 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
     print(f"    5. 运行测试")
 
     # 7. 获取需要的环境变量（用于修复）
-    from fix_build_issues import get_env_vars
+    from build.fix_build_issues import get_env_vars
     env_vars = get_env_vars(instance_id)
 
     # 7. 创建评测任务
@@ -366,11 +414,8 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
     short_id = instance_id.split('__')[-1] if '__' in instance_id else instance_id[:10]
     short_ts = str(timestamp)[-6:]
 
-    # 根据patch类型设置不同的前缀
-    if patch_type == "model":
-        prefix_code = "mp"  # mp = model-patch
-    else:
-        prefix_code = "gf"  # gf = gold-fixed
+    # 根据方法配置设置任务前缀
+    prefix_code = method_config['task_prefix']
 
     # 构建任务名称：如果有suffix则不加时间戳，否则加时间戳
     if task_name_suffix:
@@ -378,12 +423,13 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
     else:
         task_name_prefix = f"eval-{short_id}-{prefix_code}-{short_ts}"
 
-    print(f"  ✓ 任务名称前缀: {task_name_prefix} (patch_type: {patch_type})")
+    print(f"  ✓ 任务名称前缀: {task_name_prefix} (method: {method_name})")
 
     # 构建task_env列表
     task_env_list = [
         TaskEnv(env_key="INSTANCE_ID", env_value=instance_id, hide=False),
-        TaskEnv(env_key="PATCH_TYPE", env_value=patch_type, hide=False),
+        TaskEnv(env_key="PATCH_TYPE", env_value=patch_type, hide=False),  # 向后兼容
+        TaskEnv(env_key="METHOD_NAME", env_value=method_name, hide=False),
         TaskEnv(env_key="EVAL_VERSION", env_value="fixed", hide=False),
     ]
 
@@ -461,7 +507,8 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
                 print(f"✅ 任务执行成功！")
 
                 # 读取保存的测试输出
-                output_dir = Path("./eval_outputs")
+                log_dir = method_config['log_dir']
+                output_dir = Path(f"./{log_dir}")
                 test_output_file = output_dir / f"{instance_id}_test_output.txt"
 
                 # 等待文件写入（最多10秒）
