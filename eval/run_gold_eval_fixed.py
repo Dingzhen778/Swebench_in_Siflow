@@ -659,12 +659,130 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
 
             elif task.status in ["Failed", "Error"]:
                 print()
-                print(f"❌ 任务执行失败: {task.status}")
+                print(f"⚠️  任务状态: {task.status}，但仍尝试分析日志文件...")
+                
+                # 即使任务失败，也尝试读取日志文件分析resolve状态
+                log_dir = method_config['log_dir']
+                output_dir = Path(f"./{log_dir}")
+                test_output_file = output_dir / f"{instance_id}_test_output.txt"
+                
+                if test_output_file.exists():
+                    print(f"  ✓ 找到日志文件，开始分析...")
+                    try:
+                        test_output = test_output_file.read_text()
+                        
+                        # 检查是否有测试输出标记
+                        if START_TEST_OUTPUT not in test_output or END_TEST_OUTPUT not in test_output:
+                            print(f"  ⚠️  警告: 测试输出中缺少标记")
+                        else:
+                            print(f"  ✓ 找到测试输出标记")
+                        
+                        # 从测试输出中提取exit_code
+                        exit_code = -1
+                        if "SWEBENCH_TEST_EXIT_CODE=" in test_output:
+                            try:
+                                for line in test_output.split('\n'):
+                                    if 'SWEBENCH_TEST_EXIT_CODE=' in line:
+                                        exit_code = int(line.split('=')[1].strip())
+                                        break
+                            except (ValueError, IndexError):
+                                exit_code = -1
+                        
+                        # 使用log parser解析测试结果
+                        repo = instance['repo']
+                        log_parser = MAP_REPO_TO_PARSER[repo]
+                        status_map = log_parser(test_output, instance)
+                        
+                        print(f"  ✓ 解析到 {len(status_map)} 个测试结果")
+                        
+                        # 获取FAIL_TO_PASS和PASS_TO_PASS测试列表
+                        import json
+                        fail_to_pass_str = instance.get('FAIL_TO_PASS', '[]')
+                        pass_to_pass_str = instance.get('PASS_TO_PASS', '[]')
+                        
+                        fail_to_pass = json.loads(fail_to_pass_str) if isinstance(fail_to_pass_str, str) else fail_to_pass_str
+                        pass_to_pass = json.loads(pass_to_pass_str) if isinstance(pass_to_pass_str, str) else pass_to_pass_str
+                        
+                        gold_results = {
+                            FAIL_TO_PASS: fail_to_pass,
+                            PASS_TO_PASS: pass_to_pass
+                        }
+                        
+                        # 生成测试报告
+                        report = get_eval_tests_report(status_map, gold_results)
+                        resolution_status = get_resolution_status(report)
+                        
+                        # 判断是否resolved
+                        resolved = (resolution_status == "RESOLVED_FULL")
+                        
+                        # 打印详细的测试结果
+                        print(f"\n  📊 测试结果统计:")
+                        print(f"  {'='*60}")
+                        
+                        # FAIL_TO_PASS
+                        f2p_pass = len(report[FAIL_TO_PASS]['success'])
+                        f2p_total = len(fail_to_pass)
+                        print(f"\n  🎯 FAIL_TO_PASS: {f2p_pass}/{f2p_total} passed")
+                        
+                        if f2p_pass > 0:
+                            print(f"     ✅ 成功:")
+                            for test in report[FAIL_TO_PASS]['success'][:3]:
+                                print(f"        • {test}")
+                            if f2p_pass > 3:
+                                print(f"        ... 及其他 {f2p_pass - 3} 个")
+                        
+                        if report[FAIL_TO_PASS]['failure']:
+                            print(f"     ❌ 失败:")
+                            for test in report[FAIL_TO_PASS]['failure'][:3]:
+                                print(f"        • {test}")
+                            if len(report[FAIL_TO_PASS]['failure']) > 3:
+                                print(f"        ... 及其他 {len(report[FAIL_TO_PASS]['failure']) - 3} 个")
+                        
+                        # PASS_TO_PASS
+                        p2p_pass = len(report[PASS_TO_PASS]['success'])
+                        p2p_total = len(pass_to_pass)
+                        print(f"\n  🛡️  PASS_TO_PASS: {p2p_pass}/{p2p_total} passed")
+                        
+                        if report[PASS_TO_PASS]['failure']:
+                            print(f"     ⚠️  回归:")
+                            for test in report[PASS_TO_PASS]['failure'][:3]:
+                                print(f"        • {test}")
+                            if len(report[PASS_TO_PASS]['failure']) > 3:
+                                print(f"        ... 及其他 {len(report[PASS_TO_PASS]['failure']) - 3} 个")
+                        
+                        print(f"\n  {'='*60}")
+                        print(f"  最终状态: {resolution_status}")
+                        print(f"  退出码: {exit_code}")
+                        
+                        if resolved:
+                            print(f"  ✅ RESOLVED_FULL - 完全解决问题！")
+                        else:
+                            print(f"  ❌ {resolution_status} - 未完全解决问题")
+                        
+                        return {
+                            "success": True,  # 即使任务失败，但日志分析成功
+                            "instance_id": instance_id,
+                            "task_uuid": task_uuid,
+                            "resolved": resolved,
+                            "resolution_status": resolution_status,
+                            "exit_code": exit_code,
+                            "report": report,
+                            "execution_time": int(time.time() - start_time),
+                            "test_output_file": str(test_output_file),
+                            "task_status": task.status  # 记录原始任务状态
+                        }
+                    except Exception as e:
+                        print(f"  ⚠️  分析日志失败: {e}")
+                        import traceback
+                        traceback.print_exc()
+                
+                # 如果没有日志文件或分析失败，返回失败
                 return {
                     "success": False,
                     "instance_id": instance_id,
                     "task_uuid": task_uuid,
-                    "status": "failed"
+                    "status": "failed",
+                    "error": "Task failed and no valid log file found"
                 }
 
         except Exception as e:
