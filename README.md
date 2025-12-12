@@ -18,8 +18,70 @@ SWE-bench评估系统的SiFlow平台实现，支持3层Docker镜像构建和Gold
 ├── run_gold_eval_fixed.py              # 运行Gold Patch评估
 ├── run_model_eval.py                   # 运行Model Patch评估
 ├── agentless_parser.py                 # 解析Agentless SEARCH/REPLACE格式
-└── apply_agentless.py                  # 应用Agentless格式patch
+├── apply_agentless.py                  # 应用Agentless格式patch
+├── requirements.txt                    # Python依赖列表
+├── .gitignore                          # Git忽略规则
+└── eval_outputs/                       # 评估输出目录
 ```
+
+## 核心文件说明
+
+### 镜像构建相关
+- **build_all_images.py** - 批量构建镜像的主入口脚本
+  - 支持一键构建所有层级（base/env/instance）
+  - 支持指定版本（2.0.0/2.1.0）和强制重建
+  - 可从JSON文件批量构建特定instances
+
+- **build_layer1_base.py** - 构建Layer 1: Base镜像
+  - 所有instance共享的基础镜像
+  - 包含系统依赖、git、conda等基础工具
+
+- **build_layer2_env.py** - 构建Layer 2: Environment镜像
+  - 每个Python版本一个环境镜像（约60个）
+  - 包含特定Python版本的conda环境
+
+- **build_layer3_instance.py** - 构建Layer 3: Instance镜像
+  - 每个instance一个镜像
+  - 克隆代码仓库并安装项目依赖
+  - 支持2.0.0和2.1.0两种构建逻辑
+
+- **fix_build_issues.py** - 特殊instance的构建修复配置 ⚠️
+  - 定义26个特殊instance的环境变量、安装命令和pre_install修复
+  - 20个sphinx-doc instances + 6个其他instances
+  - 这些instances需要使用2.1.0版本镜像
+
+### 评估相关
+- **run_gold_eval_fixed.py** - 运行Gold Patch评估
+  - 应用官方gold patch并运行测试
+  - 验证patch是否能正确修复问题
+  - 输出RESOLVED_FULL/RESOLVED_NO状态
+
+- **run_model_eval.py** - 运行Model Patch评估
+  - 应用模型生成的patch并运行测试
+  - 支持标准diff格式和Agentless格式
+  - 评估模型的修复能力
+
+### Patch格式处理
+- **agentless_parser.py** - 解析Agentless SEARCH/REPLACE格式
+  - 解析特殊的<<<<<<< SEARCH/=======/>>>>>>> REPLACE块
+  - 提取要替换的代码和新代码
+
+- **apply_agentless.py** - 应用Agentless格式patch
+  - 将SEARCH/REPLACE块应用到文件
+  - 生成标准diff格式用于评估
+
+### 配置和工具
+- **siflow_config.py** - SiFlow平台配置
+  - 资源池、实例类型、镜像拉取策略等配置
+  - 统一管理平台参数
+
+- **siflow_utils.py** - SiFlow工具函数
+  - 创建SiFlow客户端
+  - 查询镜像、提交任务等通用函数
+
+- **repo_version_to_python.py** - Repo和Python版本映射
+  - 定义每个仓库对应的Python版本
+  - 用于构建Environment镜像
 
 ## 快速开始
 
