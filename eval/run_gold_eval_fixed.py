@@ -326,8 +326,9 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
         gold_patch = instance['patch']
         print(f"  ✓ Patch 大小: {len(gold_patch)} 字节")
 
-        # Gold patch需要从dataset写入文件
-        patch_dir = Path("patches/gold")
+        # Gold patch需要从dataset写入文件（使用绝对路径）
+        base_dir = Path("/volume/ai-infra/rhjiang/SWE-bench-cc/siflow/3-layer-test")
+        patch_dir = base_dir / "patches/gold"
         patch_dir.mkdir(parents=True, exist_ok=True)
 
         patch_file = patch_dir / f"{instance_id}.diff"
@@ -335,8 +336,9 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
         patch_file_path = str(patch_file)
         print(f"  ✓ Patch已写入: {patch_file_path}")
     else:
-        # 从patches/{method_name}/目录读取
-        patch_dir = Path(f"patches/{method_config['name']}")
+        # 从patches/{method_name}/目录读取（使用绝对路径）
+        base_dir = Path("/volume/ai-infra/rhjiang/SWE-bench-cc/siflow/3-layer-test")
+        patch_dir = base_dir / f"patches/{method_config['name']}"
         patch_file_path = None
         gold_patch = None
         
@@ -364,9 +366,10 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
             print(f"     支持的扩展名: {method_config['file_extensions']}")
             return {"success": False, "error": f"Patch file not found for method {method_name}"}
 
-    # 写入test patch文件
+    # 写入test patch文件（使用绝对路径，确保容器内能找到）
     test_patch = instance['test_patch']
-    test_patch_dir = Path("patches/test")
+    base_dir = Path("/volume/ai-infra/rhjiang/SWE-bench-cc/siflow/3-layer-test")
+    test_patch_dir = base_dir / "patches/test"
     test_patch_dir.mkdir(parents=True, exist_ok=True)
     test_patch_file = test_patch_dir / f"{instance_id}.diff"
     test_patch_file.write_text(test_patch)

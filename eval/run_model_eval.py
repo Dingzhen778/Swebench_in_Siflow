@@ -28,8 +28,9 @@ def find_patch_file(instance_id: str, method_config: dict) -> Path:
     Returns:
         patch文件路径，如果不存在则返回None
     """
-    # 优先从patches/{method_name}/目录查找
-    patch_dir = Path(f"patches/{method_config['name']}")
+    # 优先从patches/{method_name}/目录查找（使用绝对路径）
+    base_dir = Path("/volume/ai-infra/rhjiang/SWE-bench-cc/siflow/3-layer-test")
+    patch_dir = base_dir / f"patches/{method_config['name']}"
     
     for ext in method_config['file_extensions']:
         candidate = patch_dir / f"{instance_id}{ext}"
