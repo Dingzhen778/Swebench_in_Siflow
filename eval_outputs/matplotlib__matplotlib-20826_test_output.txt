@@ -21,7 +21,7 @@ s........s......s..s........s.....s..s...s........s..s..s.....s......... [ 14%]
 s....................................................................... [ 72%]
 .........................................................s.............. [ 82%]
 .......F.F.............................................................. [ 92%]
-...........................................................              [100%]
+...........................................F...............              [100%]
 
 =================================== FAILURES ===================================
 _______________________________ test_bar_pandas ________________________________
@@ -292,6 +292,51 @@ result = array([[0],
 E           ValueError: Multi-dimensional indexing (e.g. `obj[:, None]`) is no longer supported. Convert to a numpy array before indexing instead.
 
 /opt/miniconda3/envs/testbed/lib/python3.8/site-packages/pandas/core/indexers/utils.py:343: ValueError
+_________________________ test_shared_axes_clear[png] __________________________
+
+ext = 'png'
+request = <FixtureRequest for <Function test_shared_axes_clear[png]>>, args = ()
+kwargs = {}, file_name = 'test_shared_axes_clear[png]'
+fig_test = <Figure size 640x480 with 4 Axes>
+fig_ref = <Figure size 640x480 with 4 Axes>, n_figs = 2
+test_image_path = PosixPath('/testbed/result_images/test_axes/test_shared_axes_clear[png].png')
+ref_image_path = PosixPath('/testbed/result_images/test_axes/test_shared_axes_clear[png]-expected.png')
+
+    @pytest.mark.parametrize("ext", extensions)
+    def wrapper(*args, ext, request, **kwargs):
+        if 'ext' in old_sig.parameters:
+            kwargs['ext'] = ext
+        if 'request' in old_sig.parameters:
+            kwargs['request'] = request
+    
+        file_name = "".join(c for c in request.node.name
+                            if c in ALLOWED_CHARS)
+        try:
+            fig_test = plt.figure("test")
+            fig_ref = plt.figure("reference")
+            # Keep track of number of open figures, to make sure test
+            # doesn't create any new ones
+            n_figs = len(plt.get_fignums())
+            func(*args, fig_test=fig_test, fig_ref=fig_ref, **kwargs)
+            if len(plt.get_fignums()) > n_figs:
+                raise RuntimeError('Number of open figures changed during '
+                                   'test. Make sure you are plotting to '
+                                   'fig_test or fig_ref, or if this is '
+                                   'deliberate explicitly close the '
+                                   'new figure(s) inside the test.')
+            test_image_path = result_dir / (file_name + "." + ext)
+            ref_image_path = result_dir / (file_name + "-expected." + ext)
+            fig_test.savefig(test_image_path)
+            fig_ref.savefig(ref_image_path)
+>           _raise_on_image_difference(
+                ref_image_path, test_image_path, tol=tol
+            )
+E           matplotlib.testing.exceptions.ImageComparisonFailure: images not close (RMS 12.919):
+E           	result_images/test_axes/test_shared_axes_clear[png].png
+E           	result_images/test_axes/test_shared_axes_clear[png]-expected.png
+E           	result_images/test_axes/test_shared_axes_clear[png]-failed-diff.png
+
+lib/matplotlib/testing/decorators.py:444: ImageComparisonFailure
 ==================================== PASSES ====================================
 ___________________ TestScatter.test_scatter_c[c_case9-None] ___________________
 ------------------------------ Captured log call -------------------------------
@@ -961,7 +1006,6 @@ PASSED lib/matplotlib/tests/test_axes.py::test_relative_ticklabel_sizes[12]
 PASSED lib/matplotlib/tests/test_axes.py::test_multiplot_autoscale
 PASSED lib/matplotlib/tests/test_axes.py::test_sharing_does_not_link_positions
 PASSED lib/matplotlib/tests/test_axes.py::test_2dcolor_plot[pdf]
-PASSED lib/matplotlib/tests/test_axes.py::test_shared_axes_clear[png]
 PASSED lib/matplotlib/tests/test_axes.py::test_shared_axes_retick
 PASSED lib/matplotlib/tests/test_axes.py::test_ylabel_ha_with_position[left]
 PASSED lib/matplotlib/tests/test_axes.py::test_ylabel_ha_with_position[center]
@@ -987,6 +1031,7 @@ FAILED lib/matplotlib/tests/test_axes.py::test_errorbar[png] - matplotlib.tes...
 FAILED lib/matplotlib/tests/test_axes.py::test_errorbar[pdf] - matplotlib.tes...
 FAILED lib/matplotlib/tests/test_axes.py::test_pandas_indexing_dates - ValueE...
 FAILED lib/matplotlib/tests/test_axes.py::test_pandas_index_shape - ValueErro...
-================== 8 failed, 674 passed, 63 skipped in 56.95s ==================
+FAILED lib/matplotlib/tests/test_axes.py::test_shared_axes_clear[png] - matpl...
+================== 9 failed, 673 passed, 63 skipped in 57.63s ==================
 >>>>> End Test Output
 SWEBENCH_TEST_EXIT_CODE=1

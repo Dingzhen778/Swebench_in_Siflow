@@ -8,13 +8,26 @@ PYTHONPATH=/testbed:
 platform linux -- Python 3.11.14, pytest-9.0.2, pluggy-1.6.0
 rootdir: /testbed
 configfile: pytest.ini
-plugins: timeout-2.4.0, rerunfailures-16.1, cov-7.0.0, xdist-3.8.0
+plugins: timeout-2.4.0, cov-7.0.0, rerunfailures-16.1, xdist-3.8.0
 collected 112 items
 
 lib/matplotlib/tests/test_figure.py .s......s..s.....s..s............... [ 32%]
 ......................ss................................................ [ 96%]
-....                                                                     [100%]
+...F                                                                     [100%]
 
+=================================== FAILURES ===================================
+____________________ test_unpickle_with_device_pixel_ratio _____________________
+
+    def test_unpickle_with_device_pixel_ratio():
+        fig = Figure(dpi=42)
+        fig.canvas._set_device_pixel_ratio(7)
+        assert fig.dpi == 42*7
+        fig2 = pickle.loads(pickle.dumps(fig))
+>       assert fig2.dpi == 42
+E       assert 294 == 42
+E        +  where 294 = <Figure size 2352x1764 with 0 Axes>.dpi
+
+lib/matplotlib/tests/test_figure.py:1391: AssertionError
 ==================================== PASSES ====================================
 =========================== short test summary info ============================
 PASSED lib/matplotlib/tests/test_figure.py::test_align_labels[png]
@@ -121,9 +134,9 @@ PASSED lib/matplotlib/tests/test_figure.py::test_ginput
 PASSED lib/matplotlib/tests/test_figure.py::test_waitforbuttonpress
 PASSED lib/matplotlib/tests/test_figure.py::test_kwargs_pass
 PASSED lib/matplotlib/tests/test_figure.py::test_deepcopy
-PASSED lib/matplotlib/tests/test_figure.py::test_unpickle_with_device_pixel_ratio
 SKIPPED [6] ../opt/miniconda3/envs/testbed/lib/python3.11/contextlib.py:81: Cannot compare svg files on this system
 SKIPPED [1] lib/matplotlib/testing/compare.py:285: Don't know how to convert .svg files to png
-======================= 105 passed, 7 skipped in 12.41s ========================
+FAILED lib/matplotlib/tests/test_figure.py::test_unpickle_with_device_pixel_ratio
+================== 1 failed, 104 passed, 7 skipped in 13.26s ===================
 >>>>> End Test Output
-SWEBENCH_TEST_EXIT_CODE=0
+SWEBENCH_TEST_EXIT_CODE=1

@@ -11,15 +11,15 @@ architecture:       64-bit
 cache:              no
 ground types:       python 
 numpy:              None
-random seed:        39083666
-hash randomization: on (PYTHONHASHSEED=2365258683)
+random seed:        55645618
+hash randomization: on (PYTHONHASHSEED=2650936616)
 
 sympy/physics/tests/test_secondquant.py[53] 
 test_PermutationOperator ok
 test_index_permutations_with_dummies ok
 test_dagger ok
 test_operator ok
-test_create ok
+test_create F
 test_annihilate ok
 test_basic_state ok
 test_basic_apply ok
@@ -30,17 +30,17 @@ test_symbolic_matrix_elements ok
 test_matrix_elements ok
 test_fixed_bosonic_basis ok
 test_sho Slow w
-test_commutation ok
-test_create_f ok
+test_commutation F
+test_create_f F
 test_annihilate_f ok
 test_create_b ok
 test_annihilate_b ok
 test_wicks ok
-test_NO ok
+test_NO F
 test_sorting ok
 test_contraction ok
 test_evaluate_deltas ok
-test_Tensors ok
+test_Tensors F
 test_fully_contracted ok
 test_substitute_dummies_without_dummies ok
 test_substitute_dummies_NO_operator ok
@@ -66,10 +66,48 @@ test_equivalent_internal_lines_VT2conjT2_ambiguous_order_AT ok
 test_equivalent_internal_lines_VT2_AT ok
 test_internal_external_VT2T2_AT ok
 test_internal_external_pqrs_AT ok
-test_issue_19661 ok
-test_canonical_ordering_AntiSymmetricTensor ok                              [OK]
+test_issue_19661 F
+test_canonical_ordering_AntiSymmetricTensor ok                            [FAIL]
 
 
-============ tests finished: 52 passed, 1 skipped, in 9.83 seconds =============
+________________________________________________________________________________
+_____________ sympy/physics/tests/test_secondquant.py:test_create ______________
+Traceback (most recent call last):
+  File "/testbed/sympy/physics/tests/test_secondquant.py", line 97, in test_create
+    assert latex(o) == "{b^\\dagger_{i}}"
+AssertionError
+________________________________________________________________________________
+___________ sympy/physics/tests/test_secondquant.py:test_commutation ___________
+Traceback (most recent call last):
+  File "/testbed/sympy/physics/tests/test_secondquant.py", line 261, in test_commutation
+    assert latex(c) == r'\left[{a^\dagger_{a}} a_{i},{a^\dagger_{b}} a_{j}\right]'
+AssertionError
+________________________________________________________________________________
+____________ sympy/physics/tests/test_secondquant.py:test_create_f _____________
+Traceback (most recent call last):
+  File "/testbed/sympy/physics/tests/test_secondquant.py", line 291, in test_create_f
+    assert latex(Fd(p)) == r'{a^\dagger_{p}}'
+AssertionError
+________________________________________________________________________________
+_______________ sympy/physics/tests/test_secondquant.py:test_NO ________________
+Traceback (most recent call last):
+  File "/testbed/sympy/physics/tests/test_secondquant.py", line 429, in test_NO
+    assert latex(no) == r'\left\{{a^\dagger_{a}} {a^\dagger_{i}}\right\}'
+AssertionError
+________________________________________________________________________________
+_____________ sympy/physics/tests/test_secondquant.py:test_Tensors _____________
+Traceback (most recent call last):
+  File "/testbed/sympy/physics/tests/test_secondquant.py", line 534, in test_Tensors
+    assert latex(tabij) == '{t^{ab}_{ij}}'
+AssertionError
+________________________________________________________________________________
+___________ sympy/physics/tests/test_secondquant.py:test_issue_19661 ___________
+Traceback (most recent call last):
+  File "/testbed/sympy/physics/tests/test_secondquant.py", line 1260, in test_issue_19661
+    assert latex(Commutator(Bd(a)**2, B(a))
+AssertionError
+
+======= tests finished: 46 passed, 6 failed, 1 skipped, in 11.59 seconds =======
+DO *NOT* COMMIT!
 >>>>> End Test Output
-SWEBENCH_TEST_EXIT_CODE=0
+SWEBENCH_TEST_EXIT_CODE=1

@@ -11,18 +11,28 @@ architecture:       64-bit
 cache:              no
 ground types:       python 
 numpy:              None
-random seed:        95417730
-hash randomization: on (PYTHONHASHSEED=4056770550)
+random seed:        92807668
+hash randomization: on (PYTHONHASHSEED=2825172809)
 
 sympy/sets/tests/test_contains.py[6] 
 test_contains_basic ok
 test_issue_6194 ok
 test_issue_10326 ok
 test_binary_symbols ok
-test_as_set ok
-test_type_error ok                                                          [OK]
+test_as_set E
+test_type_error ok                                                        [FAIL]
 
 
-================== tests finished: 6 passed, in 0.08 seconds ===================
+________________________________________________________________________________
+________________ sympy/sets/tests/test_contains.py:test_as_set _________________
+Traceback (most recent call last):
+  File "/testbed/sympy/sets/tests/test_contains.py", line 44, in test_as_set
+    assert Contains(x, FiniteSet(y)).as_set() == FiniteSet(y)
+  File "/testbed/sympy/sets/contains.py", line 48, in as_set
+    if self.lhs.is_Symbol and self.rhs.is_Set:
+AttributeError: 'Contains' object has no attribute 'lhs'
+
+=========== tests finished: 5 passed, 1 exceptions, in 0.09 seconds ============
+DO *NOT* COMMIT!
 >>>>> End Test Output
-SWEBENCH_TEST_EXIT_CODE=0
+SWEBENCH_TEST_EXIT_CODE=1

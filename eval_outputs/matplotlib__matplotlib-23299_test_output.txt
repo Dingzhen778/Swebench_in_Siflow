@@ -8,13 +8,13 @@ PYTHONPATH=/testbed:
 platform linux -- Python 3.11.14, pytest-9.0.2, pluggy-1.6.0
 rootdir: /testbed
 configfile: pytest.ini
-plugins: timeout-2.4.0, cov-7.0.0, rerunfailures-16.1, xdist-3.8.0
+plugins: cov-7.0.0, timeout-2.4.0, xdist-3.8.0, rerunfailures-16.1
 collected 208 items
 
 lib/matplotlib/tests/test_rcparams.py ..FF.............................. [ 16%]
 ........................................................................ [ 50%]
 ........................................................................ [ 85%]
-............................s.                                           [100%]
+.........................F..s.                                           [100%]
 
 =================================== FAILURES ===================================
 _____________________________ test_rcparams_update _____________________________
@@ -130,6 +130,19 @@ E            Failed: DID NOT WARN. No warnings of type (<class 'UserWarning'>,) 
 E             Emitted warnings: [].
 
 lib/matplotlib/tests/test_rcparams.py:115: Failed
+_______________________ test_no_backend_reset_rccontext ________________________
+
+    def test_no_backend_reset_rccontext():
+        assert mpl.rcParams['backend'] != 'module://aardvark'
+        with mpl.rc_context():
+            mpl.rcParams['backend'] = 'module://aardvark'
+>       assert mpl.rcParams['backend'] == 'module://aardvark'
+E       AssertionError: assert 'agg' == 'module://aardvark'
+E         
+E         - module://aardvark
+E         + agg
+
+lib/matplotlib/tests/test_rcparams.py:503: AssertionError
 ==================================== PASSES ====================================
 =========================== short test summary info ============================
 PASSED lib/matplotlib/tests/test_rcparams.py::test_rcparams
@@ -333,13 +346,13 @@ PASSED lib/matplotlib/tests/test_rcparams.py::test_validate_fontstretch[20.6-20]
 PASSED lib/matplotlib/tests/test_rcparams.py::test_validate_fontstretch[20.6-ValueError]
 PASSED lib/matplotlib/tests/test_rcparams.py::test_validate_fontstretch[stretch7-ValueError]
 PASSED lib/matplotlib/tests/test_rcparams.py::test_keymaps
-PASSED lib/matplotlib/tests/test_rcparams.py::test_no_backend_reset_rccontext
 PASSED lib/matplotlib/tests/test_rcparams.py::test_rcparams_reset_after_fail
 PASSED lib/matplotlib/tests/test_rcparams.py::test_backend_fallback_headless
 PASSED lib/matplotlib/tests/test_rcparams.py::test_deprecation
 SKIPPED [1] lib/matplotlib/tests/test_rcparams.py:534: headless
 FAILED lib/matplotlib/tests/test_rcparams.py::test_rcparams_update - Failed: ...
 FAILED lib/matplotlib/tests/test_rcparams.py::test_rcparams_init - Failed: DI...
-=================== 2 failed, 205 passed, 1 skipped in 4.26s ===================
+FAILED lib/matplotlib/tests/test_rcparams.py::test_no_backend_reset_rccontext
+=================== 3 failed, 204 passed, 1 skipped in 3.74s ===================
 >>>>> End Test Output
 SWEBENCH_TEST_EXIT_CODE=1

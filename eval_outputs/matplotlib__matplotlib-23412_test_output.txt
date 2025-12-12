@@ -8,19 +8,62 @@ PYTHONPATH=/testbed:
 platform linux -- Python 3.11.14, pytest-9.0.2, pluggy-1.6.0
 rootdir: /testbed
 configfile: pytest.ini
-plugins: timeout-2.4.0, cov-7.0.0, rerunfailures-16.1, xdist-3.8.0
+plugins: cov-7.0.0, rerunfailures-16.1, xdist-3.8.0, timeout-2.4.0
 collected 55 items
 
-lib/matplotlib/tests/test_patches.py ........s..s..s...s.....s...s...... [ 63%]
+lib/matplotlib/tests/test_patches.py ....F...s..s..s...s.....s...s...... [ 63%]
 ....ss..............                                                     [100%]
 
+=================================== FAILURES ===================================
+_______________________ test_dash_offset_patch_draw[png] _______________________
+
+ext = 'png'
+request = <FixtureRequest for <Function test_dash_offset_patch_draw[png]>>
+args = (), kwargs = {}, file_name = 'test_dash_offset_patch_draw[png]'
+fig_test = <Figure size 640x480 with 1 Axes>
+fig_ref = <Figure size 640x480 with 1 Axes>, figs = []
+test_image_path = PosixPath('/testbed/result_images/test_patches/test_dash_offset_patch_draw[png].png')
+ref_image_path = PosixPath('/testbed/result_images/test_patches/test_dash_offset_patch_draw[png]-expected.png')
+
+    @pytest.mark.parametrize("ext", extensions)
+    def wrapper(*args, ext, request, **kwargs):
+        if 'ext' in old_sig.parameters:
+            kwargs['ext'] = ext
+        if 'request' in old_sig.parameters:
+            kwargs['request'] = request
+    
+        file_name = "".join(c for c in request.node.name
+                            if c in ALLOWED_CHARS)
+        try:
+            fig_test = plt.figure("test")
+            fig_ref = plt.figure("reference")
+            with _collect_new_figures() as figs:
+                func(*args, fig_test=fig_test, fig_ref=fig_ref, **kwargs)
+            if figs:
+                raise RuntimeError('Number of open figures changed during '
+                                   'test. Make sure you are plotting to '
+                                   'fig_test or fig_ref, or if this is '
+                                   'deliberate explicitly close the '
+                                   'new figure(s) inside the test.')
+            test_image_path = result_dir / (file_name + "." + ext)
+            ref_image_path = result_dir / (file_name + "-expected." + ext)
+            fig_test.savefig(test_image_path)
+            fig_ref.savefig(ref_image_path)
+>           _raise_on_image_difference(
+                ref_image_path, test_image_path, tol=tol
+            )
+E           matplotlib.testing.exceptions.ImageComparisonFailure: images not close (RMS 24.315):
+E           	result_images/test_patches/test_dash_offset_patch_draw[png].png
+E           	result_images/test_patches/test_dash_offset_patch_draw[png]-expected.png
+E           	result_images/test_patches/test_dash_offset_patch_draw[png]-failed-diff.png
+
+lib/matplotlib/testing/decorators.py:478: ImageComparisonFailure
 ==================================== PASSES ====================================
 =========================== short test summary info ============================
 PASSED lib/matplotlib/tests/test_patches.py::test_Polygon_close
 PASSED lib/matplotlib/tests/test_patches.py::test_corner_center
 PASSED lib/matplotlib/tests/test_patches.py::test_rotate_rect
 PASSED lib/matplotlib/tests/test_patches.py::test_rotate_rect_draw[png]
-PASSED lib/matplotlib/tests/test_patches.py::test_dash_offset_patch_draw[png]
 PASSED lib/matplotlib/tests/test_patches.py::test_negative_rect
 PASSED lib/matplotlib/tests/test_patches.py::test_clip_to_bbox[png]
 PASSED lib/matplotlib/tests/test_patches.py::test_clip_to_bbox[pdf]
@@ -64,6 +107,7 @@ PASSED lib/matplotlib/tests/test_patches.py::test_default_linestyle
 PASSED lib/matplotlib/tests/test_patches.py::test_default_capstyle
 PASSED lib/matplotlib/tests/test_patches.py::test_default_joinstyle
 SKIPPED [8] ../opt/miniconda3/envs/testbed/lib/python3.11/contextlib.py:81: Cannot compare svg files on this system
-======================== 47 passed, 8 skipped in 3.93s =========================
+FAILED lib/matplotlib/tests/test_patches.py::test_dash_offset_patch_draw[png]
+=================== 1 failed, 46 passed, 8 skipped in 3.78s ====================
 >>>>> End Test Output
-SWEBENCH_TEST_EXIT_CODE=0
+SWEBENCH_TEST_EXIT_CODE=1
