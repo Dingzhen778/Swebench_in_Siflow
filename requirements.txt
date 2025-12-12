@@ -1,0 +1,10 @@
+# SWE-bench SiFlow评估系统依赖
+
+# HuggingFace datasets
+datasets>=2.14.0
+
+# SiFlow SDK
+siflowkit>=0.1.0
+
+# SWE-bench核心包（从父目录安装）
+# cd ../.. && pip install -e .
