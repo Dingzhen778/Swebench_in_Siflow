@@ -1,0 +1,191 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ tox --current-env -epy39 -v -- tests/roots/test-directive-include/baz/baz.rst tests/roots/test-directive-include/conf.py tests/roots/test-directive-include/foo.rst tests/test_directive_other.py
+py39: commands[0]> python -X dev -X warn_default_encoding -m pytest -rA --durations 25 tests/roots/test-directive-include/baz/baz.rst tests/roots/test-directive-include/conf.py tests/roots/test-directive-include/foo.rst tests/test_directive_other.py
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.25, pytest-8.4.2, pluggy-1.6.0
+cachedir: .tox/py39/.pytest_cache
+libraries: Sphinx-7.2.0+/3a6a4e621, docutils-0.20.1
+base tmp_path: /tmp/pytest-of-root/pytest-0
+rootdir: /testbed
+configfile: pyproject.toml
+collected 9 items
+
+tests/test_directive_other.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[31mF[0m[31m                                  [100%][0m
+
+=================================== FAILURES ===================================
+[31m[1m________________________ test_include_source_read_event ________________________[0m
+
+app = <SphinxTestApp buildername='html'>
+
+    [0m[37m@pytest[39;49;00m.mark.sphinx(testroot=[33m'[39;49;00m[33mdirective-include[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_include_source_read_event[39;49;00m(app):[90m[39;49;00m
+        sources_reported = {}[90m[39;49;00m
+    [90m[39;49;00m
+        [94mdef[39;49;00m[90m [39;49;00m[92msource_read_handler[39;49;00m(app, doc, source):[90m[39;49;00m
+            sources_reported[doc] = source[[94m0[39;49;00m][90m[39;49;00m
+    [90m[39;49;00m
+        app.connect([33m"[39;49;00m[33msource-read[39;49;00m[33m"[39;49;00m, source_read_handler)[90m[39;49;00m
+        text = ([33m"[39;49;00m[33m.. include:: baz/baz.rst[39;49;00m[33m\n[39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                [33m"[39;49;00m[33m   :start-line: 4[39;49;00m[33m\n[39;49;00m[33m\n[39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                [33m"[39;49;00m[33m.. include:: text.txt[39;49;00m[33m\n[39;49;00m[33m"[39;49;00m[90m[39;49;00m
+                [33m"[39;49;00m[33m   :literal:    [39;49;00m[33m\n[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+        app.env.find_files(app.config, app.builder)[90m[39;49;00m
+        restructuredtext.parse(app, text, [33m'[39;49;00m[33mindex[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+        [94massert[39;49;00m [33m"[39;49;00m[33mindex[39;49;00m[33m"[39;49;00m [95min[39;49;00m sources_reported[90m[39;49;00m
+        [94massert[39;49;00m [33m"[39;49;00m[33mtext.txt[39;49;00m[33m"[39;49;00m [95mnot[39;49;00m [95min[39;49;00m sources_reported  [90m# text was included as literal, no rst parsing[39;49;00m[90m[39;49;00m
+>       [94massert[39;49;00m [33m"[39;49;00m[33mbaz/baz[39;49;00m[33m"[39;49;00m [95min[39;49;00m sources_reported[90m[39;49;00m
+[1m[31mE       AssertionError: assert 'baz/baz' in {'index': '.. include:: baz/baz.rst\n   :start-line: 4\n\n.. include:: text.txt\n   :literal:    \n'}[0m
+
+[1m[31mtests/test_directive_other.py[0m:169: AssertionError
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/directive-include
+# outdir: /tmp/pytest-of-root/pytest-0/directive-include/_build/html
+# status: 
+[01mRunning Sphinx v7.2.0+/3a6a4e621[39;49;00m
+
+# warning: 
+
+[31m[1m________________ test_include_source_read_event_nested_includes ________________[0m
+
+app = <SphinxTestApp buildername='html'>
+
+    [0m[37m@pytest[39;49;00m.mark.sphinx(testroot=[33m'[39;49;00m[33mdirective-include[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_include_source_read_event_nested_includes[39;49;00m(app):[90m[39;49;00m
+    [90m[39;49;00m
+        [94mdef[39;49;00m[90m [39;49;00m[92msource_read_handler[39;49;00m(app, doc, source):[90m[39;49;00m
+            text = source[[94m0[39;49;00m].replace([33m"[39;49;00m[33m#magical[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mamazing[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+            source[[94m0[39;49;00m] = text[90m[39;49;00m
+    [90m[39;49;00m
+        app.connect([33m"[39;49;00m[33msource-read[39;49;00m[33m"[39;49;00m, source_read_handler)[90m[39;49;00m
+        text = ([33m"[39;49;00m[33m.. include:: baz/baz.rst[39;49;00m[33m\n[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+        app.env.find_files(app.config, app.builder)[90m[39;49;00m
+        doctree = restructuredtext.parse(app, text, [33m'[39;49;00m[33mindex[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+        assert_node(doctree, addnodes.document)[90m[39;49;00m
+        [94massert[39;49;00m [96mlen[39;49;00m(doctree.children) == [94m3[39;49;00m[90m[39;49;00m
+        assert_node(doctree.children[[94m1[39;49;00m], nodes.paragraph)[90m[39;49;00m
+>       [94massert[39;49;00m doctree.children[[94m1[39;49;00m].rawsource == [33m"[39;49;00m[33mThe amazing foo.[39;49;00m[33m"[39;49;00m[90m[39;49;00m
+[1m[31mE       AssertionError: assert 'The #magical foo.' == 'The amazing foo.'[0m
+[1m[31mE         [0m
+[1m[31mE         [0m[91m- The amazing foo.[39;49;00m[90m[39;49;00m[0m
+[1m[31mE         [92m+ The #magical foo.[39;49;00m[90m[39;49;00m[0m
+
+[1m[31mtests/test_directive_other.py[0m:187: AssertionError
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/directive-include
+# outdir: /tmp/pytest-of-root/pytest-0/directive-include/_build/html
+# status: 
+[01mRunning Sphinx v7.2.0+/3a6a4e621[39;49;00m
+
+# warning: 
+
+==================================== PASSES ====================================
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/toctree-glob
+# outdir: /tmp/pytest-of-root/pytest-0/toctree-glob/_build/html
+# status: 
+[01mRunning Sphinx v7.2.0+/3a6a4e621[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/toctree-glob
+# outdir: /tmp/pytest-of-root/pytest-0/toctree-glob/_build/html
+# status: 
+[01mRunning Sphinx v7.2.0+/3a6a4e621[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/toctree-glob
+# outdir: /tmp/pytest-of-root/pytest-0/toctree-glob/_build/html
+# status: 
+[01mRunning Sphinx v7.2.0+/3a6a4e621[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/toctree-glob
+# outdir: /tmp/pytest-of-root/pytest-0/toctree-glob/_build/html
+# status: 
+[01mRunning Sphinx v7.2.0+/3a6a4e621[39;49;00m
+
+# warning: 
+[91m/tmp/pytest-of-root/pytest-0/toctree-glob/index.rst:1: WARNING: duplicated entry found in toctree: foo[39;49;00m
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/toctree-glob
+# outdir: /tmp/pytest-of-root/pytest-0/toctree-glob/_build/html
+# status: 
+[01mRunning Sphinx v7.2.0+/3a6a4e621[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/toctree-glob
+# outdir: /tmp/pytest-of-root/pytest-0/toctree-glob/_build/html
+# status: 
+[01mRunning Sphinx v7.2.0+/3a6a4e621[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/toctree-glob
+# outdir: /tmp/pytest-of-root/pytest-0/toctree-glob/_build/html
+# status: 
+[01mRunning Sphinx v7.2.0+/3a6a4e621[39;49;00m
+
+# warning: 
+[91m/tmp/pytest-of-root/pytest-0/toctree-glob/index.rst:1: WARNING: duplicated entry found in toctree: foo[39;49;00m
+
+============================= slowest 25 durations =============================
+0.28s setup    tests/test_directive_other.py::test_toctree
+0.03s call     tests/test_directive_other.py::test_toctree_glob
+0.01s call     tests/test_directive_other.py::test_toctree
+0.01s setup    tests/test_directive_other.py::test_relative_toctree
+0.01s setup    tests/test_directive_other.py::test_reversed_toctree
+0.01s setup    tests/test_directive_other.py::test_toctree_twice
+0.01s setup    tests/test_directive_other.py::test_include_source_read_event
+0.01s setup    tests/test_directive_other.py::test_toctree_urls_and_titles
+0.01s setup    tests/test_directive_other.py::test_include_source_read_event_nested_includes
+0.01s setup    tests/test_directive_other.py::test_toctree_glob
+0.01s setup    tests/test_directive_other.py::test_toctree_glob_and_url
+
+(14 durations < 0.005s hidden.  Use -vv to show these durations.)
+[36m[1m=========================== short test summary info ============================[0m
+[32mPASSED[0m tests/test_directive_other.py::[1mtest_toctree[0m
+[32mPASSED[0m tests/test_directive_other.py::[1mtest_relative_toctree[0m
+[32mPASSED[0m tests/test_directive_other.py::[1mtest_toctree_urls_and_titles[0m
+[32mPASSED[0m tests/test_directive_other.py::[1mtest_toctree_glob[0m
+[32mPASSED[0m tests/test_directive_other.py::[1mtest_toctree_glob_and_url[0m
+[32mPASSED[0m tests/test_directive_other.py::[1mtest_reversed_toctree[0m
+[32mPASSED[0m tests/test_directive_other.py::[1mtest_toctree_twice[0m
+[31mFAILED[0m tests/test_directive_other.py::[1mtest_include_source_read_event[0m - AssertionError: assert 'baz/baz' in {'index': '.. include:: baz/baz.rst\n  ...
+[31mFAILED[0m tests/test_directive_other.py::[1mtest_include_source_read_event_nested_includes[0m - AssertionError: assert 'The #magical foo.' == 'The amazing foo.'
+[31m========================= [31m[1m2 failed[0m, [32m7 passed[0m[31m in 0.55s[0m[31m ==========================[0m
+py39: exit 1 (1.01 seconds) /testbed> python -X dev -X warn_default_encoding -m pytest -rA --durations 25 tests/roots/test-directive-include/baz/baz.rst tests/roots/test-directive-include/conf.py tests/roots/test-directive-include/foo.rst tests/test_directive_other.py pid=43
+  py39: FAIL code 1 (1.02=setup[0.01]+cmd[1.01] seconds)
+  evaluation failed :( (1.08 seconds)
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

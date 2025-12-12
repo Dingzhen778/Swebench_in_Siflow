@@ -1,0 +1,29 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ ./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 admin_scripts.tests
+Testing against Django installed in '/testbed/django'
+Importing application admin_scripts
+Traceback (most recent call last):
+  File "/testbed/./tests/runtests.py", line 773, in <module>
+    failures = django_tests(
+  File "/testbed/./tests/runtests.py", line 432, in django_tests
+    failures = test_runner.run_tests(test_labels)
+  File "/testbed/django/test/runner.py", line 1045, in run_tests
+    suite = self.build_suite(test_labels, extra_tests)
+  File "/testbed/django/test/runner.py", line 895, in build_suite
+    tests = self.load_tests_for_label(label, discover_kwargs)
+  File "/testbed/django/test/runner.py", line 846, in load_tests_for_label
+    tests = self.test_loader.loadTestsFromName(label)
+  File "/opt/miniconda3/envs/testbed/lib/python3.9/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+  File "/testbed/tests/admin_scripts/tests.py", line 28, in <module>
+    from django.core.management.commands.runserver import Command as RunserverCommand
+  File "/testbed/django/core/management/commands/runserver.py", line 147
+    "Quit the server with %(quit_command)s."
+    ^
+SyntaxError: invalid syntax
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

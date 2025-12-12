@@ -1,0 +1,28 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ PYTHONWARNINGS=ignore::UserWarning,ignore::SyntaxWarning
++ bin/test -C --verbose sympy/sets/tests/test_contains.py
+============================= test process starts ==============================
+executable:         /opt/miniconda3/envs/testbed/bin/python  (3.9.25-final-0) [CPython]
+architecture:       64-bit
+cache:              no
+ground types:       python 
+numpy:              None
+random seed:        95417730
+hash randomization: on (PYTHONHASHSEED=4056770550)
+
+sympy/sets/tests/test_contains.py[6] 
+test_contains_basic ok
+test_issue_6194 ok
+test_issue_10326 ok
+test_binary_symbols ok
+test_as_set ok
+test_type_error ok                                                          [OK]
+
+
+================== tests finished: 6 passed, in 0.08 seconds ===================
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=0

@@ -1,0 +1,59 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ ./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 i18n.tests template_tests.filter_tests.test_date
+Traceback (most recent call last):
+  File "/testbed/./tests/runtests.py", line 27, in <module>
+    from django.test import TestCase, TransactionTestCase
+  File "/testbed/django/test/__init__.py", line 3, in <module>
+    from django.test.client import AsyncClient, AsyncRequestFactory, Client, RequestFactory
+  File "/testbed/django/test/client.py", line 15, in <module>
+    from django.core.handlers.asgi import ASGIRequest
+  File "/testbed/django/core/handlers/asgi.py", line 11, in <module>
+    from django.core.handlers import base
+  File "/testbed/django/core/handlers/base.py", line 11, in <module>
+    from django.urls import get_resolver, set_urlconf
+  File "/testbed/django/urls/__init__.py", line 1, in <module>
+    from .base import (
+  File "/testbed/django/urls/base.py", line 8, in <module>
+    from .exceptions import NoReverseMatch, Resolver404
+  File "/testbed/django/urls/exceptions.py", line 1, in <module>
+    from django.http import Http404
+  File "/testbed/django/http/__init__.py", line 8, in <module>
+    from django.http.response import (
+  File "/testbed/django/http/response.py", line 16, in <module>
+    from django.core.serializers.json import DjangoJSONEncoder
+  File "/testbed/django/core/serializers/__init__.py", line 23, in <module>
+    from django.core.serializers.base import SerializerDoesNotExist
+  File "/testbed/django/core/serializers/base.py", line 9, in <module>
+    from django.db import models
+  File "/testbed/django/db/models/__init__.py", line 3, in <module>
+    from django.db.models.aggregates import *  # NOQA
+  File "/testbed/django/db/models/aggregates.py", line 5, in <module>
+    from django.db.models.expressions import Case, Func, Star, When
+  File "/testbed/django/db/models/expressions.py", line 12, in <module>
+    from django.db.models import fields
+  File "/testbed/django/db/models/fields/__init__.py", line 12, in <module>
+    from django import forms
+  File "/testbed/django/forms/__init__.py", line 6, in <module>
+    from django.forms.boundfield import *  # NOQA
+  File "/testbed/django/forms/boundfield.py", line 4, in <module>
+    from django.forms.utils import pretty_name
+  File "/testbed/django/forms/utils.py", line 7, in <module>
+    from django.forms.renderers import get_default_renderer
+  File "/testbed/django/forms/renderers.py", line 5, in <module>
+    from django.template.backends.django import DjangoTemplates
+  File "/testbed/django/template/__init__.py", line 44, in <module>
+    from .engine import Engine
+  File "/testbed/django/template/engine.py", line 7, in <module>
+    from .base import Template
+  File "/testbed/django/template/base.py", line 59, in <module>
+    from django.utils.formats import localize
+  File "/testbed/django/utils/formats.py", line 142
+    return val If format_type is a lazy string, it will be forced to a string.
+               ^
+SyntaxError: invalid syntax
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

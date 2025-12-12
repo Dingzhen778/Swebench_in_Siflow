@@ -1,0 +1,794 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ pytest -rA lib/matplotlib/tests/test_figure.py
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-9.0.2, pluggy-1.6.0
+rootdir: /testbed
+configfile: pytest.ini
+plugins: rerunfailures-16.1, xdist-3.8.0, timeout-2.4.0, cov-7.0.0
+collected 145 items
+
+lib/matplotlib/tests/test_figure.py .s......s..s.....s.F..s............. [ 24%]
+..............................ss........................................ [ 74%]
+....FFF.F.F.FF....F..................                                    [100%]
+
+=================================== FAILURES ===================================
+___________________________ test_suptitle_subfigures ___________________________
+
+    def test_suptitle_subfigures():
+        fig = plt.figure(figsize=(4, 3))
+>       sf1, sf2 = fig.subfigures(1, 2)
+                   ^^^^^^^^^^^^^^^^^^^^
+
+lib/matplotlib/tests/test_figure.py:293: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Figure size 320x240 with 0 Axes>, nrows = 1, ncols = 2, squeeze = True
+wspace = None, hspace = None, width_ratios = None, height_ratios = None
+kwargs = {}, gs = GridSpec(1, 2), sfarr = array([[None, None]], dtype=object)
+i = 0, j = 0, subfig = <matplotlib.figure.SubFigure object at 0x149afc9a8750>
+
+    def subfigures(self, nrows=1, ncols=1, squeeze=True,
+                   wspace=None, hspace=None,
+                   width_ratios=None, height_ratios=None,
+                   **kwargs):
+        """
+        Add a set of subfigures to this figure or subfigure.
+    
+        A subfigure has the same artist methods as a figure, and is logically
+        the same as a figure, but cannot print itself.
+        See :doc:`/gallery/subplots_axes_and_figures/subfigures`.
+    
+        .. note::
+            The *subfigure* concept is new in v3.4, and the API is still provisional.
+    
+        Parameters
+        ----------
+        nrows, ncols : int, default: 1
+            Number of rows/columns of the subfigure grid.
+    
+        squeeze : bool, default: True
+            If True, extra dimensions are squeezed out from the returned
+            array of subfigures.
+    
+        wspace, hspace : float, default: None
+            The amount of width/height reserved for space between subfigures,
+            expressed as a fraction of the average subfigure width/height.
+            If not given, the values will be inferred from a figure or
+            rcParams when necessary.
+    
+        width_ratios : array-like of length *ncols*, optional
+            Defines the relative widths of the columns. Each column gets a
+            relative width of ``width_ratios[i] / sum(width_ratios)``.
+            If not given, all columns will have the same width.
+    
+        height_ratios : array-like of length *nrows*, optional
+            Defines the relative heights of the rows. Each row gets a
+            relative height of ``height_ratios[i] / sum(height_ratios)``.
+            If not given, all rows will have the same height.
+        """
+        gs = GridSpec(nrows=nrows, ncols=ncols, figure=self,
+                      wspace=wspace, hspace=hspace,
+                      width_ratios=width_ratios,
+                      height_ratios=height_ratios)
+    
+        sfarr = np.empty((nrows, ncols), dtype=object)
+        for i in range(ncols):
+            for j in range(nrows):
+                subfig = self.add_subfigure(gs[j, i], **kwargs)
+>               subfig.set_subplotspec(gs[j, i])
+                ^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'SubFigure' object has no attribute 'set_subplotspec'
+
+lib/matplotlib/figure.py:1593: AttributeError
+_____________________________ test_subfigure[png] ______________________________
+
+    @image_comparison(['test_subfigure.png'], style='mpl20',
+                      savefig_kwarg={'facecolor': 'teal'})
+    def test_subfigure():
+        np.random.seed(19680801)
+        fig = plt.figure(layout='constrained')
+>       sub = fig.subfigures(1, 2)
+              ^^^^^^^^^^^^^^^^^^^^
+
+lib/matplotlib/tests/test_figure.py:1264: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Figure size 640x480 with 0 Axes>, nrows = 1, ncols = 2, squeeze = True
+wspace = None, hspace = None, width_ratios = None, height_ratios = None
+kwargs = {}, gs = GridSpec(1, 2), sfarr = array([[None, None]], dtype=object)
+i = 0, j = 0, subfig = <matplotlib.figure.SubFigure object at 0x149af7244f10>
+
+    def subfigures(self, nrows=1, ncols=1, squeeze=True,
+                   wspace=None, hspace=None,
+                   width_ratios=None, height_ratios=None,
+                   **kwargs):
+        """
+        Add a set of subfigures to this figure or subfigure.
+    
+        A subfigure has the same artist methods as a figure, and is logically
+        the same as a figure, but cannot print itself.
+        See :doc:`/gallery/subplots_axes_and_figures/subfigures`.
+    
+        .. note::
+            The *subfigure* concept is new in v3.4, and the API is still provisional.
+    
+        Parameters
+        ----------
+        nrows, ncols : int, default: 1
+            Number of rows/columns of the subfigure grid.
+    
+        squeeze : bool, default: True
+            If True, extra dimensions are squeezed out from the returned
+            array of subfigures.
+    
+        wspace, hspace : float, default: None
+            The amount of width/height reserved for space between subfigures,
+            expressed as a fraction of the average subfigure width/height.
+            If not given, the values will be inferred from a figure or
+            rcParams when necessary.
+    
+        width_ratios : array-like of length *ncols*, optional
+            Defines the relative widths of the columns. Each column gets a
+            relative width of ``width_ratios[i] / sum(width_ratios)``.
+            If not given, all columns will have the same width.
+    
+        height_ratios : array-like of length *nrows*, optional
+            Defines the relative heights of the rows. Each row gets a
+            relative height of ``height_ratios[i] / sum(height_ratios)``.
+            If not given, all rows will have the same height.
+        """
+        gs = GridSpec(nrows=nrows, ncols=ncols, figure=self,
+                      wspace=wspace, hspace=hspace,
+                      width_ratios=width_ratios,
+                      height_ratios=height_ratios)
+    
+        sfarr = np.empty((nrows, ncols), dtype=object)
+        for i in range(ncols):
+            for j in range(nrows):
+                subfig = self.add_subfigure(gs[j, i], **kwargs)
+>               subfig.set_subplotspec(gs[j, i])
+                ^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'SubFigure' object has no attribute 'set_subplotspec'
+
+lib/matplotlib/figure.py:1593: AttributeError
+___________________________ test_subfigure_tightbbox ___________________________
+
+    def test_subfigure_tightbbox():
+        # test that we can get the tightbbox with a subfigure...
+        fig = plt.figure(layout='constrained')
+>       sub = fig.subfigures(1, 2)
+              ^^^^^^^^^^^^^^^^^^^^
+
+lib/matplotlib/tests/test_figure.py:1286: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Figure size 640x480 with 0 Axes>, nrows = 1, ncols = 2, squeeze = True
+wspace = None, hspace = None, width_ratios = None, height_ratios = None
+kwargs = {}, gs = GridSpec(1, 2), sfarr = array([[None, None]], dtype=object)
+i = 0, j = 0, subfig = <matplotlib.figure.SubFigure object at 0x149af7996dd0>
+
+    def subfigures(self, nrows=1, ncols=1, squeeze=True,
+                   wspace=None, hspace=None,
+                   width_ratios=None, height_ratios=None,
+                   **kwargs):
+        """
+        Add a set of subfigures to this figure or subfigure.
+    
+        A subfigure has the same artist methods as a figure, and is logically
+        the same as a figure, but cannot print itself.
+        See :doc:`/gallery/subplots_axes_and_figures/subfigures`.
+    
+        .. note::
+            The *subfigure* concept is new in v3.4, and the API is still provisional.
+    
+        Parameters
+        ----------
+        nrows, ncols : int, default: 1
+            Number of rows/columns of the subfigure grid.
+    
+        squeeze : bool, default: True
+            If True, extra dimensions are squeezed out from the returned
+            array of subfigures.
+    
+        wspace, hspace : float, default: None
+            The amount of width/height reserved for space between subfigures,
+            expressed as a fraction of the average subfigure width/height.
+            If not given, the values will be inferred from a figure or
+            rcParams when necessary.
+    
+        width_ratios : array-like of length *ncols*, optional
+            Defines the relative widths of the columns. Each column gets a
+            relative width of ``width_ratios[i] / sum(width_ratios)``.
+            If not given, all columns will have the same width.
+    
+        height_ratios : array-like of length *nrows*, optional
+            Defines the relative heights of the rows. Each row gets a
+            relative height of ``height_ratios[i] / sum(height_ratios)``.
+            If not given, all rows will have the same height.
+        """
+        gs = GridSpec(nrows=nrows, ncols=ncols, figure=self,
+                      wspace=wspace, hspace=hspace,
+                      width_ratios=width_ratios,
+                      height_ratios=height_ratios)
+    
+        sfarr = np.empty((nrows, ncols), dtype=object)
+        for i in range(ncols):
+            for j in range(nrows):
+                subfig = self.add_subfigure(gs[j, i], **kwargs)
+>               subfig.set_subplotspec(gs[j, i])
+                ^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'SubFigure' object has no attribute 'set_subplotspec'
+
+lib/matplotlib/figure.py:1593: AttributeError
+______________________________ test_subfigure_dpi ______________________________
+
+    def test_subfigure_dpi():
+        fig = plt.figure(dpi=100)
+>       sub_fig = fig.subfigures()
+                  ^^^^^^^^^^^^^^^^
+
+lib/matplotlib/tests/test_figure.py:1295: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Figure size 800x600 with 0 Axes>, nrows = 1, ncols = 1, squeeze = True
+wspace = None, hspace = None, width_ratios = None, height_ratios = None
+kwargs = {}, gs = GridSpec(1, 1), sfarr = array([[None]], dtype=object), i = 0
+j = 0, subfig = <matplotlib.figure.SubFigure object at 0x149af7282010>
+
+    def subfigures(self, nrows=1, ncols=1, squeeze=True,
+                   wspace=None, hspace=None,
+                   width_ratios=None, height_ratios=None,
+                   **kwargs):
+        """
+        Add a set of subfigures to this figure or subfigure.
+    
+        A subfigure has the same artist methods as a figure, and is logically
+        the same as a figure, but cannot print itself.
+        See :doc:`/gallery/subplots_axes_and_figures/subfigures`.
+    
+        .. note::
+            The *subfigure* concept is new in v3.4, and the API is still provisional.
+    
+        Parameters
+        ----------
+        nrows, ncols : int, default: 1
+            Number of rows/columns of the subfigure grid.
+    
+        squeeze : bool, default: True
+            If True, extra dimensions are squeezed out from the returned
+            array of subfigures.
+    
+        wspace, hspace : float, default: None
+            The amount of width/height reserved for space between subfigures,
+            expressed as a fraction of the average subfigure width/height.
+            If not given, the values will be inferred from a figure or
+            rcParams when necessary.
+    
+        width_ratios : array-like of length *ncols*, optional
+            Defines the relative widths of the columns. Each column gets a
+            relative width of ``width_ratios[i] / sum(width_ratios)``.
+            If not given, all columns will have the same width.
+    
+        height_ratios : array-like of length *nrows*, optional
+            Defines the relative heights of the rows. Each row gets a
+            relative height of ``height_ratios[i] / sum(height_ratios)``.
+            If not given, all rows will have the same height.
+        """
+        gs = GridSpec(nrows=nrows, ncols=ncols, figure=self,
+                      wspace=wspace, hspace=hspace,
+                      width_ratios=width_ratios,
+                      height_ratios=height_ratios)
+    
+        sfarr = np.empty((nrows, ncols), dtype=object)
+        for i in range(ncols):
+            for j in range(nrows):
+                subfig = self.add_subfigure(gs[j, i], **kwargs)
+>               subfig.set_subplotspec(gs[j, i])
+                ^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'SubFigure' object has no attribute 'set_subplotspec'
+
+lib/matplotlib/figure.py:1593: AttributeError
+__________________________ test_subfigure_double[png] __________________________
+
+    @image_comparison(['test_subfigure_double.png'], style='mpl20',
+                      savefig_kwarg={'facecolor': 'teal'})
+    def test_subfigure_double():
+        # test assigning the subfigure via subplotspec
+        np.random.seed(19680801)
+    
+        fig = plt.figure(layout='constrained', figsize=(10, 8))
+    
+        fig.suptitle('fig')
+    
+>       subfigs = fig.subfigures(1, 2, wspace=0.07)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+lib/matplotlib/tests/test_figure.py:1336: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Figure size 1000x800 with 0 Axes>, nrows = 1, ncols = 2, squeeze = True
+wspace = 0.07, hspace = None, width_ratios = None, height_ratios = None
+kwargs = {}, gs = GridSpec(1, 2), sfarr = array([[None, None]], dtype=object)
+i = 0, j = 0, subfig = <matplotlib.figure.SubFigure object at 0x149af7a41a50>
+
+    def subfigures(self, nrows=1, ncols=1, squeeze=True,
+                   wspace=None, hspace=None,
+                   width_ratios=None, height_ratios=None,
+                   **kwargs):
+        """
+        Add a set of subfigures to this figure or subfigure.
+    
+        A subfigure has the same artist methods as a figure, and is logically
+        the same as a figure, but cannot print itself.
+        See :doc:`/gallery/subplots_axes_and_figures/subfigures`.
+    
+        .. note::
+            The *subfigure* concept is new in v3.4, and the API is still provisional.
+    
+        Parameters
+        ----------
+        nrows, ncols : int, default: 1
+            Number of rows/columns of the subfigure grid.
+    
+        squeeze : bool, default: True
+            If True, extra dimensions are squeezed out from the returned
+            array of subfigures.
+    
+        wspace, hspace : float, default: None
+            The amount of width/height reserved for space between subfigures,
+            expressed as a fraction of the average subfigure width/height.
+            If not given, the values will be inferred from a figure or
+            rcParams when necessary.
+    
+        width_ratios : array-like of length *ncols*, optional
+            Defines the relative widths of the columns. Each column gets a
+            relative width of ``width_ratios[i] / sum(width_ratios)``.
+            If not given, all columns will have the same width.
+    
+        height_ratios : array-like of length *nrows*, optional
+            Defines the relative heights of the rows. Each row gets a
+            relative height of ``height_ratios[i] / sum(height_ratios)``.
+            If not given, all rows will have the same height.
+        """
+        gs = GridSpec(nrows=nrows, ncols=ncols, figure=self,
+                      wspace=wspace, hspace=hspace,
+                      width_ratios=width_ratios,
+                      height_ratios=height_ratios)
+    
+        sfarr = np.empty((nrows, ncols), dtype=object)
+        for i in range(ncols):
+            for j in range(nrows):
+                subfig = self.add_subfigure(gs[j, i], **kwargs)
+>               subfig.set_subplotspec(gs[j, i])
+                ^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'SubFigure' object has no attribute 'set_subplotspec'
+
+lib/matplotlib/figure.py:1593: AttributeError
+_____________________________ test_subfigure_ticks _____________________________
+
+    @mpl.style.context('mpl20')
+    def test_subfigure_ticks():
+        # This tests a tick-spacing error that only seems applicable
+        # when the subfigures are saved to file.  It is very hard to replicate
+        fig = plt.figure(constrained_layout=True, figsize=(10, 3))
+        # create left/right subfigs nested in bottom subfig
+>       (subfig_bl, subfig_br) = fig.subfigures(1, 2, wspace=0.01,
+                                                width_ratios=[7, 2])
+
+lib/matplotlib/tests/test_figure.py:1403: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Figure size 1000x300 with 0 Axes>, nrows = 1, ncols = 2, squeeze = True
+wspace = 0.01, hspace = None, width_ratios = [7, 2], height_ratios = None
+kwargs = {}, gs = GridSpec(1, 2, width_ratios=[7, 2])
+sfarr = array([[None, None]], dtype=object), i = 0, j = 0
+subfig = <matplotlib.figure.SubFigure object at 0x149af7717790>
+
+    def subfigures(self, nrows=1, ncols=1, squeeze=True,
+                   wspace=None, hspace=None,
+                   width_ratios=None, height_ratios=None,
+                   **kwargs):
+        """
+        Add a set of subfigures to this figure or subfigure.
+    
+        A subfigure has the same artist methods as a figure, and is logically
+        the same as a figure, but cannot print itself.
+        See :doc:`/gallery/subplots_axes_and_figures/subfigures`.
+    
+        .. note::
+            The *subfigure* concept is new in v3.4, and the API is still provisional.
+    
+        Parameters
+        ----------
+        nrows, ncols : int, default: 1
+            Number of rows/columns of the subfigure grid.
+    
+        squeeze : bool, default: True
+            If True, extra dimensions are squeezed out from the returned
+            array of subfigures.
+    
+        wspace, hspace : float, default: None
+            The amount of width/height reserved for space between subfigures,
+            expressed as a fraction of the average subfigure width/height.
+            If not given, the values will be inferred from a figure or
+            rcParams when necessary.
+    
+        width_ratios : array-like of length *ncols*, optional
+            Defines the relative widths of the columns. Each column gets a
+            relative width of ``width_ratios[i] / sum(width_ratios)``.
+            If not given, all columns will have the same width.
+    
+        height_ratios : array-like of length *nrows*, optional
+            Defines the relative heights of the rows. Each row gets a
+            relative height of ``height_ratios[i] / sum(height_ratios)``.
+            If not given, all rows will have the same height.
+        """
+        gs = GridSpec(nrows=nrows, ncols=ncols, figure=self,
+                      wspace=wspace, hspace=hspace,
+                      width_ratios=width_ratios,
+                      height_ratios=height_ratios)
+    
+        sfarr = np.empty((nrows, ncols), dtype=object)
+        for i in range(ncols):
+            for j in range(nrows):
+                subfig = self.add_subfigure(gs[j, i], **kwargs)
+>               subfig.set_subplotspec(gs[j, i])
+                ^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'SubFigure' object has no attribute 'set_subplotspec'
+
+lib/matplotlib/figure.py:1593: AttributeError
+______________________________ test_subfigure_pdf ______________________________
+
+    def test_subfigure_pdf():
+        fig = plt.figure(layout='constrained')
+>       sub_fig = fig.subfigures()
+                  ^^^^^^^^^^^^^^^^
+
+lib/matplotlib/tests/test_figure.py:1444: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Figure size 640x480 with 0 Axes>, nrows = 1, ncols = 1, squeeze = True
+wspace = None, hspace = None, width_ratios = None, height_ratios = None
+kwargs = {}, gs = GridSpec(1, 1), sfarr = array([[None]], dtype=object), i = 0
+j = 0, subfig = <matplotlib.figure.SubFigure object at 0x149afc8b9290>
+
+    def subfigures(self, nrows=1, ncols=1, squeeze=True,
+                   wspace=None, hspace=None,
+                   width_ratios=None, height_ratios=None,
+                   **kwargs):
+        """
+        Add a set of subfigures to this figure or subfigure.
+    
+        A subfigure has the same artist methods as a figure, and is logically
+        the same as a figure, but cannot print itself.
+        See :doc:`/gallery/subplots_axes_and_figures/subfigures`.
+    
+        .. note::
+            The *subfigure* concept is new in v3.4, and the API is still provisional.
+    
+        Parameters
+        ----------
+        nrows, ncols : int, default: 1
+            Number of rows/columns of the subfigure grid.
+    
+        squeeze : bool, default: True
+            If True, extra dimensions are squeezed out from the returned
+            array of subfigures.
+    
+        wspace, hspace : float, default: None
+            The amount of width/height reserved for space between subfigures,
+            expressed as a fraction of the average subfigure width/height.
+            If not given, the values will be inferred from a figure or
+            rcParams when necessary.
+    
+        width_ratios : array-like of length *ncols*, optional
+            Defines the relative widths of the columns. Each column gets a
+            relative width of ``width_ratios[i] / sum(width_ratios)``.
+            If not given, all columns will have the same width.
+    
+        height_ratios : array-like of length *nrows*, optional
+            Defines the relative heights of the rows. Each row gets a
+            relative height of ``height_ratios[i] / sum(height_ratios)``.
+            If not given, all rows will have the same height.
+        """
+        gs = GridSpec(nrows=nrows, ncols=ncols, figure=self,
+                      wspace=wspace, hspace=hspace,
+                      width_ratios=width_ratios,
+                      height_ratios=height_ratios)
+    
+        sfarr = np.empty((nrows, ncols), dtype=object)
+        for i in range(ncols):
+            for j in range(nrows):
+                subfig = self.add_subfigure(gs[j, i], **kwargs)
+>               subfig.set_subplotspec(gs[j, i])
+                ^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'SubFigure' object has no attribute 'set_subplotspec'
+
+lib/matplotlib/figure.py:1593: AttributeError
+________________________ test_subfigures_wspace_hspace _________________________
+
+    def test_subfigures_wspace_hspace():
+>       sub_figs = plt.figure().subfigures(2, 3, hspace=0.5, wspace=1/6.)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+lib/matplotlib/tests/test_figure.py:1453: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Figure size 640x480 with 0 Axes>, nrows = 2, ncols = 3, squeeze = True
+wspace = 0.16666666666666666, hspace = 0.5, width_ratios = None
+height_ratios = None, kwargs = {}, gs = GridSpec(2, 3)
+sfarr = array([[None, None, None],
+       [None, None, None]], dtype=object)
+i = 0, j = 0, subfig = <matplotlib.figure.SubFigure object at 0x149af7816dd0>
+
+    def subfigures(self, nrows=1, ncols=1, squeeze=True,
+                   wspace=None, hspace=None,
+                   width_ratios=None, height_ratios=None,
+                   **kwargs):
+        """
+        Add a set of subfigures to this figure or subfigure.
+    
+        A subfigure has the same artist methods as a figure, and is logically
+        the same as a figure, but cannot print itself.
+        See :doc:`/gallery/subplots_axes_and_figures/subfigures`.
+    
+        .. note::
+            The *subfigure* concept is new in v3.4, and the API is still provisional.
+    
+        Parameters
+        ----------
+        nrows, ncols : int, default: 1
+            Number of rows/columns of the subfigure grid.
+    
+        squeeze : bool, default: True
+            If True, extra dimensions are squeezed out from the returned
+            array of subfigures.
+    
+        wspace, hspace : float, default: None
+            The amount of width/height reserved for space between subfigures,
+            expressed as a fraction of the average subfigure width/height.
+            If not given, the values will be inferred from a figure or
+            rcParams when necessary.
+    
+        width_ratios : array-like of length *ncols*, optional
+            Defines the relative widths of the columns. Each column gets a
+            relative width of ``width_ratios[i] / sum(width_ratios)``.
+            If not given, all columns will have the same width.
+    
+        height_ratios : array-like of length *nrows*, optional
+            Defines the relative heights of the rows. Each row gets a
+            relative height of ``height_ratios[i] / sum(height_ratios)``.
+            If not given, all rows will have the same height.
+        """
+        gs = GridSpec(nrows=nrows, ncols=ncols, figure=self,
+                      wspace=wspace, hspace=hspace,
+                      width_ratios=width_ratios,
+                      height_ratios=height_ratios)
+    
+        sfarr = np.empty((nrows, ncols), dtype=object)
+        for i in range(ncols):
+            for j in range(nrows):
+                subfig = self.add_subfigure(gs[j, i], **kwargs)
+>               subfig.set_subplotspec(gs[j, i])
+                ^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'SubFigure' object has no attribute 'set_subplotspec'
+
+lib/matplotlib/figure.py:1593: AttributeError
+_______________________________ test_kwargs_pass _______________________________
+
+    def test_kwargs_pass():
+        fig = Figure(label='whole Figure')
+>       sub_fig = fig.subfigures(1, 1, label='sub figure')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+lib/matplotlib/tests/test_figure.py:1561: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Figure size 640x480 with 0 Axes>, nrows = 1, ncols = 1, squeeze = True
+wspace = None, hspace = None, width_ratios = None, height_ratios = None
+kwargs = {'label': 'sub figure'}, gs = GridSpec(1, 1)
+sfarr = array([[None]], dtype=object), i = 0, j = 0
+subfig = <matplotlib.figure.SubFigure object at 0x149af7269990>
+
+    def subfigures(self, nrows=1, ncols=1, squeeze=True,
+                   wspace=None, hspace=None,
+                   width_ratios=None, height_ratios=None,
+                   **kwargs):
+        """
+        Add a set of subfigures to this figure or subfigure.
+    
+        A subfigure has the same artist methods as a figure, and is logically
+        the same as a figure, but cannot print itself.
+        See :doc:`/gallery/subplots_axes_and_figures/subfigures`.
+    
+        .. note::
+            The *subfigure* concept is new in v3.4, and the API is still provisional.
+    
+        Parameters
+        ----------
+        nrows, ncols : int, default: 1
+            Number of rows/columns of the subfigure grid.
+    
+        squeeze : bool, default: True
+            If True, extra dimensions are squeezed out from the returned
+            array of subfigures.
+    
+        wspace, hspace : float, default: None
+            The amount of width/height reserved for space between subfigures,
+            expressed as a fraction of the average subfigure width/height.
+            If not given, the values will be inferred from a figure or
+            rcParams when necessary.
+    
+        width_ratios : array-like of length *ncols*, optional
+            Defines the relative widths of the columns. Each column gets a
+            relative width of ``width_ratios[i] / sum(width_ratios)``.
+            If not given, all columns will have the same width.
+    
+        height_ratios : array-like of length *nrows*, optional
+            Defines the relative heights of the rows. Each row gets a
+            relative height of ``height_ratios[i] / sum(height_ratios)``.
+            If not given, all rows will have the same height.
+        """
+        gs = GridSpec(nrows=nrows, ncols=ncols, figure=self,
+                      wspace=wspace, hspace=hspace,
+                      width_ratios=width_ratios,
+                      height_ratios=height_ratios)
+    
+        sfarr = np.empty((nrows, ncols), dtype=object)
+        for i in range(ncols):
+            for j in range(nrows):
+                subfig = self.add_subfigure(gs[j, i], **kwargs)
+>               subfig.set_subplotspec(gs[j, i])
+                ^^^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'SubFigure' object has no attribute 'set_subplotspec'
+
+lib/matplotlib/figure.py:1593: AttributeError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED lib/matplotlib/tests/test_figure.py::test_align_labels[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_align_labels_stray_axes
+PASSED lib/matplotlib/tests/test_figure.py::test_figure_label
+PASSED lib/matplotlib/tests/test_figure.py::test_fignum_exists
+PASSED lib/matplotlib/tests/test_figure.py::test_clf_keyword
+PASSED lib/matplotlib/tests/test_figure.py::test_figure[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_figure[pdf]
+PASSED lib/matplotlib/tests/test_figure.py::test_figure_legend[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_figure_legend[pdf]
+PASSED lib/matplotlib/tests/test_figure.py::test_gca
+PASSED lib/matplotlib/tests/test_figure.py::test_add_subplot_subclass
+PASSED lib/matplotlib/tests/test_figure.py::test_add_subplot_invalid
+PASSED lib/matplotlib/tests/test_figure.py::test_suptitle[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_suptitle[pdf]
+PASSED lib/matplotlib/tests/test_figure.py::test_suptitle_fontproperties
+PASSED lib/matplotlib/tests/test_figure.py::test_get_suptitle_supxlabel_supylabel
+PASSED lib/matplotlib/tests/test_figure.py::test_alpha[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_too_many_figures
+PASSED lib/matplotlib/tests/test_figure.py::test_iterability_axes_argument
+PASSED lib/matplotlib/tests/test_figure.py::test_set_fig_size
+PASSED lib/matplotlib/tests/test_figure.py::test_axes_remove
+PASSED lib/matplotlib/tests/test_figure.py::test_figaspect
+PASSED lib/matplotlib/tests/test_figure.py::test_autofmt_xdate[both]
+PASSED lib/matplotlib/tests/test_figure.py::test_autofmt_xdate[major]
+PASSED lib/matplotlib/tests/test_figure.py::test_autofmt_xdate[minor]
+PASSED lib/matplotlib/tests/test_figure.py::test_change_dpi
+PASSED lib/matplotlib/tests/test_figure.py::test_invalid_figure_size[1-nan]
+PASSED lib/matplotlib/tests/test_figure.py::test_invalid_figure_size[-1-1]
+PASSED lib/matplotlib/tests/test_figure.py::test_invalid_figure_size[inf-1]
+PASSED lib/matplotlib/tests/test_figure.py::test_invalid_figure_add_axes
+PASSED lib/matplotlib/tests/test_figure.py::test_subplots_shareax_loglabels
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_warns
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_backend
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_pixel_ratio[Agg]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_pixel_ratio[Cairo]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_preserve_layout_engine
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_locate_colorbar
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_transparent[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_figure_repr
+PASSED lib/matplotlib/tests/test_figure.py::test_valid_layouts
+PASSED lib/matplotlib/tests/test_figure.py::test_invalid_layouts
+PASSED lib/matplotlib/tests/test_figure.py::test_tightlayout_autolayout_deconflict[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_layout_change_warning[constrained]
+PASSED lib/matplotlib/tests/test_figure.py::test_layout_change_warning[compressed]
+PASSED lib/matplotlib/tests/test_figure.py::test_add_artist[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_add_artist[pdf]
+PASSED lib/matplotlib/tests/test_figure.py::test_fspath[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_fspath[pdf]
+PASSED lib/matplotlib/tests/test_figure.py::test_fspath[ps]
+PASSED lib/matplotlib/tests/test_figure.py::test_fspath[eps]
+PASSED lib/matplotlib/tests/test_figure.py::test_fspath[svg]
+PASSED lib/matplotlib/tests/test_figure.py::test_tightbbox
+PASSED lib/matplotlib/tests/test_figure.py::test_axes_removal
+PASSED lib/matplotlib/tests/test_figure.py::test_removed_axis
+PASSED lib/matplotlib/tests/test_figure.py::test_figure_clear[clear]
+PASSED lib/matplotlib/tests/test_figure.py::test_figure_clear[clf]
+PASSED lib/matplotlib/tests/test_figure.py::test_clf_not_redefined
+PASSED lib/matplotlib/tests/test_figure.py::test_picking_does_not_stale
+PASSED lib/matplotlib/tests/test_figure.py::test_add_subplot_twotuple
+PASSED lib/matplotlib/tests/test_figure.py::test_animated_with_canvas_change[pdf]
+PASSED lib/matplotlib/tests/test_figure.py::test_animated_with_canvas_change[eps]
+PASSED lib/matplotlib/tests/test_figure.py::test_animated_with_canvas_change[png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_basic[x0-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_basic[x1-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_basic[x2-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_basic[x3-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_all_nested[png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_nested[png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_nested_tuple[png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_nested_width_ratios
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_nested_height_ratios
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_empty[x0-None-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_empty[x1-SKIP-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_empty[x2-0-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_empty[x3-None-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_empty[x4-SKIP-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_empty[x5-0-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_fail_list_of_str
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_subplot_kw[subplot_kw0-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_subplot_kw[subplot_kw1-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_subplot_kw[None-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_per_subplot_kw[BC-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_per_subplot_kw[multi_value1-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_string_parser
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_per_subplot_kw_expander
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_extra_per_subplot_kw
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_single_str_input[AAA\nBBB-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_single_str_input[\nAAA\nBBB\n-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_single_str_input[ABC\nDEF-png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_fail[x0-(?m)we found that the label .A. specifies a non-rectangular or non-contiguous area.]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_fail[x1-There are duplicate keys .* between the outer layout]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_fail[AAA\nc\nBBB-All of the rows must be the same length]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_fail[x3-All of the rows must be the same length]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_hashable_keys[png]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_user_order[abc]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_user_order[cab]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_user_order[bca]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_user_order[cba]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_user_order[acb]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_user_order[bac]
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_nested_user_order
+PASSED lib/matplotlib/tests/test_figure.py::TestSubplotMosaic::test_share_all
+PASSED lib/matplotlib/tests/test_figure.py::test_reused_gridspec
+PASSED lib/matplotlib/tests/test_figure.py::test_subfigure_ss[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_subfigure_spanning
+PASSED lib/matplotlib/tests/test_figure.py::test_subfigure_scatter_size[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_add_subplot_kwargs
+PASSED lib/matplotlib/tests/test_figure.py::test_add_axes_kwargs
+PASSED lib/matplotlib/tests/test_figure.py::test_ginput
+PASSED lib/matplotlib/tests/test_figure.py::test_waitforbuttonpress
+PASSED lib/matplotlib/tests/test_figure.py::test_rcparams[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_deepcopy
+PASSED lib/matplotlib/tests/test_figure.py::test_unpickle_with_device_pixel_ratio
+PASSED lib/matplotlib/tests/test_figure.py::test_gridspec_no_mutate_input
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata[eps]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata[pdf]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata[png]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata[ps]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata[svg]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata[svgz]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata_error[jpeg]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata_error[jpg]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata_error[tif]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata_error[tiff]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata_error[webp]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata_error[raw]
+PASSED lib/matplotlib/tests/test_figure.py::test_savefig_metadata_error[rgba]
+PASSED lib/matplotlib/tests/test_figure.py::test_get_constrained_layout_pads
+SKIPPED [6] ../opt/miniconda3/envs/testbed/lib/python3.11/contextlib.py:81: Cannot compare svg files because Inkscape is not installed
+SKIPPED [1] lib/matplotlib/testing/compare.py:285: Don't know how to convert .svg files to png
+FAILED lib/matplotlib/tests/test_figure.py::test_suptitle_subfigures - Attrib...
+FAILED lib/matplotlib/tests/test_figure.py::test_subfigure[png] - AttributeEr...
+FAILED lib/matplotlib/tests/test_figure.py::test_subfigure_tightbbox - Attrib...
+FAILED lib/matplotlib/tests/test_figure.py::test_subfigure_dpi - AttributeErr...
+FAILED lib/matplotlib/tests/test_figure.py::test_subfigure_double[png] - Attr...
+FAILED lib/matplotlib/tests/test_figure.py::test_subfigure_ticks - AttributeE...
+FAILED lib/matplotlib/tests/test_figure.py::test_subfigure_pdf - AttributeErr...
+FAILED lib/matplotlib/tests/test_figure.py::test_subfigures_wspace_hspace - A...
+FAILED lib/matplotlib/tests/test_figure.py::test_kwargs_pass - AttributeError...
+================== 9 failed, 129 passed, 7 skipped in 12.65s ===================
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

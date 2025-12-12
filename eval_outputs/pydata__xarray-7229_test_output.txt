@@ -1,0 +1,58 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ pytest -rA xarray/tests/test_computation.py
+============================= test session starts ==============================
+platform linux -- Python 3.10.19, pytest-7.4.0, pluggy-1.6.0
+rootdir: /testbed
+configfile: setup.cfg
+plugins: xdist-3.8.0, hypothesis-6.148.7, timeout-2.4.0, cov-7.0.0, env-1.2.0
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+______________ ERROR collecting xarray/tests/test_computation.py _______________
+/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/runner.py:341: in from_call
+    result: Optional[TResult] = func()
+/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/runner.py:372: in <lambda>
+    call = CallInfo.from_call(lambda: list(collector.collect()), "collect")
+/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/python.py:531: in collect
+    self._inject_setup_module_fixture()
+/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/python.py:545: in _inject_setup_module_fixture
+    self.obj, ("setUpModule", "setup_module")
+/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/python.py:310: in obj
+    self._obj = obj = self._getobj()
+/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/python.py:528: in _getobj
+    return self._importtestmodule()
+/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/python.py:617: in _importtestmodule
+    mod = import_path(self.path, mode=importmode, root=self.config.rootpath)
+/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/pathlib.py:565: in import_path
+    importlib.import_module(module_name)
+/opt/miniconda3/envs/testbed/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1050: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1027: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1006: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:688: in _load_unlocked
+    ???
+/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/assertion/rewrite.py:178: in exec_module
+    exec(co, module.__dict__)
+xarray/tests/test_computation.py:2031: in <module>
+    xr.Dataset(
+xarray/core/dataset.py:605: in __init__
+    variables, coord_names, dims, indexes, _ = merge_data_and_coords(
+xarray/core/merge.py:575: in merge_data_and_coords
+    return merge_core(
+xarray/core/merge.py:757: in merge_core
+    variables, out_indexes = merge_collected(
+E   TypeError: merge_collected() got an unexpected keyword argument 'keep_coords'
+=========================== short test summary info ============================
+ERROR xarray/tests/test_computation.py - TypeError: merge_collected() got an ...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.97s ===============================
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=2

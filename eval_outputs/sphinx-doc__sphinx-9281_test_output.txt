@@ -1,0 +1,217 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ tox --current-env -epy39 -v -- tests/test_util_inspect.py
+py39: commands[0]> python -X dev -m pytest -rA --durations 25 tests/test_util_inspect.py
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.25, pytest-8.4.2, pluggy-1.6.0
+cachedir: .tox/py39/.pytest_cache
+libraries: Sphinx-4.1.0, docutils-0.17.1
+base tempdir: /tmp/pytest-of-root/pytest-0
+rootdir: /testbed
+configfile: setup.cfg
+plugins: cov-7.0.0
+collected 39 items
+
+tests/test_util_inspect.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31m       [100%][0m
+
+=================================== FAILURES ===================================
+[31m[1m_________________________ test_object_description_enum _________________________[0m
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mtest_object_description_enum[39;49;00m():[90m[39;49;00m
+        [94mclass[39;49;00m[90m [39;49;00m[04m[92mMyEnum[39;49;00m(enum.Enum):[90m[39;49;00m
+            FOO = [94m1[39;49;00m[90m[39;49;00m
+            BAR = [94m2[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+>       [94massert[39;49;00m inspect.object_description(MyEnum.FOO) == [33m"[39;49;00m[33mMyEnum.FOO[39;49;00m[33m"[39;49;00m[90m[39;49;00m
+[1m[31mE       AssertionError: assert '<MyEnum.FOO: 1>' == 'MyEnum.FOO'[0m
+[1m[31mE         [0m
+[1m[31mE         [0m[91m- MyEnum.FOO[39;49;00m[90m[39;49;00m[0m
+[1m[31mE         [92m+ <MyEnum.FOO: 1>[39;49;00m[90m[39;49;00m[0m
+[1m[31mE         ? +          ++++[90m[39;49;00m[0m
+
+[1m[31mtests/test_util_inspect.py[0m:525: AssertionError
+[33m=============================== warnings summary ===============================[0m
+sphinx/util/docutils.py:44
+  /testbed/sphinx/util/docutils.py:44: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    __version_info__ = tuple(LooseVersion(docutils.__version__).version)
+
+sphinx/highlighting.py:67
+  /testbed/sphinx/highlighting.py:67: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    if tuple(LooseVersion(pygmentsversion).version) <= (2, 7, 4):
+
+sphinx/registry.py:24
+  /testbed/sphinx/registry.py:24: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+    from pkg_resources import iter_entry_points
+
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('sphinxcontrib')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+==================================== PASSES ====================================
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v4.1.0[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v4.1.0[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v4.1.0[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v4.1.0[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v4.1.0[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v4.1.0[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v4.1.0[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v4.1.0[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/root
+# outdir: /tmp/pytest-of-root/pytest-0/root/_build/html
+# status: 
+[01mRunning Sphinx v4.1.0[39;49;00m
+
+# warning: 
+
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v4.1.0[39;49;00m
+
+# warning: 
+
+============================= slowest 25 durations =============================
+0.28s setup    tests/test_util_inspect.py::test_signature_annotations_py38
+0.01s setup    tests/test_util_inspect.py::test_isproperty
+0.01s setup    tests/test_util_inspect.py::test_isclassmethod
+0.01s setup    tests/test_util_inspect.py::test_isbuiltin
+0.01s setup    tests/test_util_inspect.py::test_isstaticmethod
+0.01s setup    tests/test_util_inspect.py::test_iscoroutinefunction
+0.01s setup    tests/test_util_inspect.py::test_isfunction
+0.01s setup    tests/test_util_inspect.py::test_isgenericalias
+0.01s setup    tests/test_util_inspect.py::test_isdescriptor
+0.01s setup    tests/test_util_inspect.py::test_isattributedescriptor
+
+(15 durations < 0.005s hidden.  Use -vv to show these durations.)
+[36m[1m=========================== short test summary info ============================[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_TypeAliasNamespace[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_partial[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_methods[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_partialmethod[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_annotations[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_annotations_py38[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_from_str_basic[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_from_str_default_values[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_from_str_annotations[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_from_str_complex_annotations[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_from_str_kwonly_args[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_from_str_positionaly_only_args[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_from_str_invalid[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_signature_from_ast[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_safe_getattr_with_default[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_safe_getattr_with_exception[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_safe_getattr_with_property_exception[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_safe_getattr_with___dict___override[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_dictionary_sorting[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_set_sorting[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_set_sorting_fallback[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_frozenset_sorting[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_frozenset_sorting_fallback[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_dict_customtype[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_getslots[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_isclassmethod[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_isstaticmethod[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_iscoroutinefunction[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_isfunction[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_isbuiltin[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_isdescriptor[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_isattributedescriptor[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_isproperty[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_isgenericalias[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_unpartial[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_getdoc_inherited_decorated_method[0m
+[32mPASSED[0m tests/test_util_inspect.py::[1mtest_is_builtin_class_method[0m
+[31mFAILED[0m tests/test_util_inspect.py::[1mtest_object_description_enum[0m - AssertionError: assert '<MyEnum.FOO: 1>' == 'MyEnum.FOO'
+[31m=================== [31m[1m1 failed[0m, [32m38 passed[0m, [33m7 warnings[0m[31m in 0.56s[0m[31m ===================[0m
+py39: exit 1 (1.04 seconds) /testbed> python -X dev -m pytest -rA --durations 25 tests/test_util_inspect.py pid=71
+  py39: FAIL code 1 (1.05=setup[0.01]+cmd[1.04] seconds)
+  evaluation failed :( (1.11 seconds)
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

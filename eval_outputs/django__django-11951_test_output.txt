@@ -1,0 +1,69 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ ./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 bulk_create.tests
+Testing against Django installed in '/testbed/django'
+Importing application bulk_create
+Skipping setup of unused database(s): other.
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+Operations to perform:
+  Synchronize unmigrated apps: auth, bulk_create, contenttypes, messages, sessions, staticfiles
+  Apply all migrations: admin, sites
+Synchronizing apps without migrations:
+  Creating tables...
+    Creating table django_content_type
+    Creating table auth_permission
+    Creating table auth_group
+    Creating table auth_user
+    Creating table django_session
+    Creating table bulk_create_country
+    Creating table bulk_create_proxymulticountry
+    Creating table bulk_create_restaurant
+    Creating table bulk_create_pizzeria
+    Creating table bulk_create_state
+    Creating table bulk_create_twofields
+    Creating table bulk_create_nofields
+    Creating table bulk_create_nullablefields
+    Running deferred SQL...
+Running migrations:
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying sites.0001_initial... OK
+  Applying sites.0002_alter_domain_unique... OK
+Traceback (most recent call last):
+  File "./tests/runtests.py", line 566, in <module>
+    options.start_at, options.start_after, options.pdb,
+  File "./tests/runtests.py", line 308, in django_tests
+    extra_tests=extra_tests,
+  File "/testbed/django/test/runner.py", line 684, in run_tests
+    old_config = self.setup_databases(aliases=databases)
+  File "/testbed/django/test/runner.py", line 606, in setup_databases
+    self.parallel, **kwargs
+  File "/testbed/django/test/utils.py", line 173, in setup_databases
+    serialize=connection.settings_dict.get('TEST', {}).get('SERIALIZE', True),
+  File "/testbed/django/db/backends/base/creation.py", line 72, in create_test_db
+    run_syncdb=True,
+  File "/testbed/django/core/management/__init__.py", line 168, in call_command
+    return command.execute(*args, **defaults)
+  File "/testbed/django/core/management/base.py", line 369, in execute
+    output = self.handle(*args, **options)
+  File "/testbed/django/core/management/base.py", line 83, in wrapped
+    res = handle_func(*args, **kwargs)
+  File "/testbed/django/core/management/commands/migrate.py", line 256, in handle
+    self.verbosity, self.interactive, connection.alias, apps=post_migrate_apps, plan=plan,
+  File "/testbed/django/core/management/sql.py", line 50, in emit_post_migrate_signal
+    **kwargs
+  File "/testbed/django/dispatch/dispatcher.py", line 175, in send
+    for receiver in self._live_receivers(sender)
+  File "/testbed/django/dispatch/dispatcher.py", line 175, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "/testbed/django/contrib/contenttypes/management/__init__.py", line 131, in create_contenttypes
+    ContentType.objects.using(using).bulk_create(cts)
+  File "/testbed/django/db/models/query.py", line 476, in bulk_create
+    max_batch_size = connection.ops.max_bulk_insert(batch_size, objs, fields)
+AttributeError: 'DatabaseOperations' object has no attribute 'max_bulk_insert'
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

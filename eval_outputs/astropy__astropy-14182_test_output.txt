@@ -1,0 +1,89 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ pytest -rA astropy/io/ascii/tests/test_rst.py
+<frozen importlib._bootstrap>:228: RuntimeWarning: numpy.ndarray size changed, may indicate binary incompatibility. Expected 80 from C header, got 96 from PyObject
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.25, pytest-7.4.0, pluggy-1.3.0
+
+Running tests with Astropy version 5.3.dev134+g37d8abe8a.d20251211.
+Running tests in astropy/io/ascii/tests/test_rst.py.
+
+Date: 2025-12-11T15:22:37
+
+Platform: Linux-5.15.0-94-generic-x86_64-with-glibc2.35
+
+Executable: /opt/miniconda3/envs/testbed/bin/python
+
+Full Python Version: 
+3.9.25 (main, Nov  3 2025, 22:33:05) 
+[GCC 11.2.0]
+
+encodings: sys: utf-8, locale: UTF-8, filesystem: utf-8
+byteorder: little
+float info: dig: 15, mant_dig: 15
+
+Package versions: 
+Numpy: 1.25.2
+Scipy: not available
+Matplotlib: not available
+h5py: not available
+Pandas: not available
+PyERFA: 2.0.0.3
+Cython: not available
+Scikit-image: not available
+asdf: not available
+pyarrow: not available
+
+Using Astropy options: remote_data: none.
+
+CI: undefined
+ARCH_ON_CI: undefined
+IS_CRON: undefined
+
+rootdir: /testbed
+configfile: setup.cfg
+plugins: doctestplus-1.0.0, xdist-3.3.1, arraydiff-0.5.0, astropy-0.10.0, mock-3.11.1, cov-4.1.0, filter-subpackage-0.1.2, remotedata-0.4.0, astropy-header-0.2.2, openfiles-0.5.0, hypothesis-6.82.6
+collected 10 items
+
+astropy/io/ascii/tests/test_rst.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[31m                            [100%][0m
+
+=================================== FAILURES ===================================
+[31m[1m__________________________ test_rst_with_header_rows ___________________________[0m
+
+    def test_rst_with_header_rows():
+        """Round-trip a table with header_rows specified"""
+        lines = [
+            "======= ======== ====",
+            "   wave response ints",
+            "     nm       ct     ",
+            "float64  float32 int8",
+            "======= ======== ====",
+            "  350.0      1.0    1",
+            "  950.0      2.0    2",
+            "======= ======== ====",
+        ]
+        tbl = QTable.read(lines, format="ascii.rst", header_rows=["name", "unit", "dtype"])
+>       assert tbl["wave"].unit == u.nm
+[1m[31mE       assert None == Unit("nm")[0m
+[1m[31mE        +  where None = <Column name='wave' dtype='str7' length=4>\nfloat64\n=======\n  350.0\n  950.0.unit[0m
+[1m[31mE        +  and   Unit("nm") = u.nm[0m
+
+[1m[31mastropy/io/ascii/tests/test_rst.py[0m:207: AssertionError
+==================================== PASSES ====================================
+[36m[1m=========================== short test summary info ============================[0m
+[32mPASSED[0m astropy/io/ascii/tests/test_rst.py::[1mtest_read_normal[0m
+[32mPASSED[0m astropy/io/ascii/tests/test_rst.py::[1mtest_read_normal_names[0m
+[32mPASSED[0m astropy/io/ascii/tests/test_rst.py::[1mtest_read_normal_names_include[0m
+[32mPASSED[0m astropy/io/ascii/tests/test_rst.py::[1mtest_read_normal_exclude[0m
+[32mPASSED[0m astropy/io/ascii/tests/test_rst.py::[1mtest_read_unbounded_right_column[0m
+[32mPASSED[0m astropy/io/ascii/tests/test_rst.py::[1mtest_read_unbounded_right_column_header[0m
+[32mPASSED[0m astropy/io/ascii/tests/test_rst.py::[1mtest_read_right_indented_table[0m
+[32mPASSED[0m astropy/io/ascii/tests/test_rst.py::[1mtest_trailing_spaces_in_row_definition[0m
+[32mPASSED[0m astropy/io/ascii/tests/test_rst.py::[1mtest_write_normal[0m
+[31mFAILED[0m astropy/io/ascii/tests/test_rst.py::[1mtest_rst_with_header_rows[0m - assert None == Unit("nm")
+[31m========================= [31m[1m1 failed[0m, [32m9 passed[0m[31m in 0.04s[0m[31m ==========================[0m
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

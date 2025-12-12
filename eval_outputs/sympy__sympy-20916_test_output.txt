@@ -1,0 +1,33 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ PYTHONWARNINGS=ignore::UserWarning,ignore::SyntaxWarning
++ bin/test -C --verbose sympy/printing/tests/test_conventions.py sympy/testing/quality_unicode.py
+============================= test process starts ==============================
+executable:         /opt/miniconda3/envs/testbed/bin/python  (3.9.25-final-0) [CPython]
+architecture:       64-bit
+cache:              no
+ground types:       python 
+numpy:              None
+random seed:        56316697
+hash randomization: on (PYTHONHASHSEED=3048788164)
+
+sympy/printing/tests/test_conventions.py[3] 
+test_super_sub F
+test_requires_partial ok
+test_requires_partial_unspecified_variables f                             [FAIL]
+
+
+________________________________________________________________________________
+___________ sympy/printing/tests/test_conventions.py:test_super_sub ____________
+Traceback (most recent call last):
+  File "/testbed/sympy/printing/tests/test_conventions.py", line 35, in test_super_sub
+    assert split_super_sub("w𝟙") == ("w", [], ["𝟙"])
+AssertionError
+
+=== tests finished: 1 passed, 1 failed, 1 expected to fail, in 0.08 seconds ====
+DO *NOT* COMMIT!
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

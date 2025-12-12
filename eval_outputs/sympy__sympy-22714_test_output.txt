@@ -1,0 +1,45 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ PYTHONWARNINGS=ignore::UserWarning,ignore::SyntaxWarning
++ bin/test -C --verbose sympy/geometry/tests/test_point.py
+============================= test process starts ==============================
+executable:         /opt/miniconda3/envs/testbed/bin/python  (3.9.25-final-0) [CPython]
+architecture:       64-bit
+cache:              no
+ground types:       python 
+numpy:              None
+random seed:        64356167
+hash randomization: on (PYTHONHASHSEED=1470288631)
+
+sympy/geometry/tests/test_point.py[13] 
+test_point ok
+test_point3D ok
+test_Point2D ok
+test_issue_9214 ok
+test_issue_11617 ok
+test_transform ok
+test_concyclic_doctest_bug ok
+test_arguments ok
+test_unit ok
+test_dot ok
+test__normalize_dimension ok
+test_issue_22684 E
+test_direction_cosine ok                                                  [FAIL]
+
+
+________________________________________________________________________________
+_____________ sympy/geometry/tests/test_point.py:test_issue_22684 ______________
+Traceback (most recent call last):
+  File "/testbed/sympy/geometry/tests/test_point.py", line 459, in test_issue_22684
+    Point(1, 2)
+  File "/testbed/sympy/geometry/point.py", line 162, in __new__
+    raise ValueError('Imaginary coordinates are not permitted.')
+ValueError: Imaginary coordinates are not permitted.
+
+=========== tests finished: 12 passed, 1 exceptions, in 3.72 seconds ===========
+DO *NOT* COMMIT!
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

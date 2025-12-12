@@ -1,0 +1,27 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ pytest -rA tests/lint/unittest_lint.py
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/_pytest/config/__init__.py:318: PluggyTeardownRaisedWarning: A plugin raised an exception during an old-style hookwrapper teardown.
+Plugin: helpconfig, Hook: pytest_cmdline_parse
+ConftestImportFailure: UnboundLocalError: local variable 'os' referenced before assignment (from /testbed/tests/conftest.py)
+For more information see https://pluggy.readthedocs.io/en/stable/api_reference.html#pluggy.PluggyTeardownRaisedWarning
+  config = pluginmanager.hook.pytest_cmdline_parse(
+ImportError while loading conftest '/testbed/tests/conftest.py'.
+tests/conftest.py:8: in <module>
+    from pylint import checkers
+pylint/checkers/__init__.py:49: in <module>
+    from pylint.checkers.base_checker import BaseChecker, BaseTokenChecker
+pylint/checkers/base_checker.py:22: in <module>
+    from pylint.config import OptionsProviderMixIn
+pylint/config/__init__.py:106: in <module>
+    PYLINTRC = find_pylintrc()
+pylint/config/__init__.py:99: in find_pylintrc
+    for config_file in find_default_config_files():
+pylint/config/find_default_config_files.py:38: in find_default_config_files
+    if os.path.isfile(config_name):
+E   UnboundLocalError: local variable 'os' referenced before assignment
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=4

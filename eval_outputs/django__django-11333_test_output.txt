@@ -1,0 +1,37 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ ./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 urlpatterns.test_resolvers
+Testing against Django installed in '/testbed/django'
+Importing application urlpatterns
+Skipping setup of unused database(s): default, other.
+Traceback (most recent call last):
+  File "./tests/runtests.py", line 564, in <module>
+    options.start_at, options.start_after,
+  File "./tests/runtests.py", line 310, in django_tests
+    extra_tests=extra_tests,
+  File "/testbed/django/test/runner.py", line 651, in run_tests
+    self.run_checks()
+  File "/testbed/django/test/runner.py", line 589, in run_checks
+    call_command('check', verbosity=self.verbosity)
+  File "/testbed/django/core/management/__init__.py", line 160, in call_command
+    return command.execute(*args, **defaults)
+  File "/testbed/django/core/management/base.py", line 369, in execute
+    output = self.handle(*args, **options)
+  File "/testbed/django/core/management/commands/check.py", line 64, in handle
+    fail_level=getattr(checks, options['fail_level']),
+  File "/testbed/django/core/management/base.py", line 395, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/testbed/django/core/management/base.py", line 382, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/testbed/django/core/checks/registry.py", line 72, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/testbed/django/core/checks/urls.py", line 39, in check_url_namespaces_unique
+    resolver = get_resolver()
+  File "/testbed/django/urls/resolvers.py", line 69, in get_resolver
+    urlconf = get_urlconf()
+NameError: name 'get_urlconf' is not defined
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

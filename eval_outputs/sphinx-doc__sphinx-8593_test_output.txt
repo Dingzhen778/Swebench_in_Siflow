@@ -1,0 +1,195 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ tox --current-env -epy39 -v -- tests/roots/test-ext-autodoc/target/private.py tests/test_ext_autodoc_private_members.py
+py39: commands[0]> python -X dev -m pytest -rA --durations 25 tests/roots/test-ext-autodoc/target/private.py tests/test_ext_autodoc_private_members.py
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.25, pytest-8.4.2, pluggy-1.6.0
+cachedir: .tox/py39/.pytest_cache
+libraries: Sphinx-3.5.0+/6caa8458a, docutils-0.22.3
+base tempdir: /tmp/pytest-of-root/pytest-0
+rootdir: /testbed
+configfile: setup.cfg
+plugins: cov-7.0.0
+collected 3 items
+
+tests/test_ext_autodoc_private_members.py [31mF[0m[31mF[0m[31mF[0m[31m                            [100%][0m
+
+=================================== FAILURES ===================================
+[31m[1m______________________________ test_private_field ______________________________[0m
+
+app = <SphinxTestApp buildername='html'>
+
+    [0m[37m@pytest[39;49;00m.mark.sphinx([33m'[39;49;00m[33mhtml[39;49;00m[33m'[39;49;00m, testroot=[33m'[39;49;00m[33mext-autodoc[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_private_field[39;49;00m(app):[90m[39;49;00m
+        app.config.autoclass_content = [33m'[39;49;00m[33mclass[39;49;00m[33m'[39;49;00m[90m[39;49;00m
+        options = {[33m"[39;49;00m[33mmembers[39;49;00m[33m"[39;49;00m: [94mNone[39;49;00m}[90m[39;49;00m
+        actual = do_autodoc(app, [33m'[39;49;00m[33mmodule[39;49;00m[33m'[39;49;00m, [33m'[39;49;00m[33mtarget.private[39;49;00m[33m'[39;49;00m, options)[90m[39;49;00m
+>       [94massert[39;49;00m [96mlist[39;49;00m(actual) == [[90m[39;49;00m
+            [33m'[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m.. py:module:: target.private[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m.. py:data:: _PUBLIC_CONSTANT[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m   :module: target.private[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m   :value: None[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m   :meta public:[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m.. py:function:: _public_function(name)[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m   :module: target.private[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m   public_function is a docstring().[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m   :meta public:[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+            [33m'[39;49;00m[33m'[39;49;00m,[90m[39;49;00m
+        ][90m[39;49;00m
+[1m[31mE       AssertionError: assert ['', '.. py:m...private', ...] == ['', '.. py:m...private', ...][0m
+[1m[31mE         [0m
+[1m[31mE         At index 4 diff: [0m[33m'[39;49;00m[33m.. py:data:: PRIVATE_CONSTANT[39;49;00m[33m'[39;49;00m[90m[39;49;00m != [0m[33m'[39;49;00m[33m.. py:data:: _PUBLIC_CONSTANT[39;49;00m[33m'[39;49;00m[90m[39;49;00m[0m
+[1m[31mE         Use -v to get more diff[0m
+
+[1m[31mtests/test_ext_autodoc_private_members.py[0m:21: AssertionError
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v3.5.0+/6caa8458a[39;49;00m
+
+# warning: 
+[91mWARNING: while setting up extension sphinx.addnodes: node class 'meta' is already registered, its visitors will be overridden[39;49;00m
+
+[31m[1m____________________ test_private_field_and_private_members ____________________[0m
+
+app = <SphinxTestApp buildername='html'>
+
+    [0m[37m@pytest[39;49;00m.mark.sphinx([33m'[39;49;00m[33mhtml[39;49;00m[33m'[39;49;00m, testroot=[33m'[39;49;00m[33mext-autodoc[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_private_field_and_private_members[39;49;00m(app):[90m[39;49;00m
+        app.config.autoclass_content = [33m'[39;49;00m[33mclass[39;49;00m[33m'[39;49;00m[90m[39;49;00m
+        options = {[33m"[39;49;00m[33mmembers[39;49;00m[33m"[39;49;00m: [94mNone[39;49;00m,[90m[39;49;00m
+                   [33m"[39;49;00m[33mprivate-members[39;49;00m[33m"[39;49;00m: [94mNone[39;49;00m}[90m[39;49;00m
+>       actual = do_autodoc(app, [33m'[39;49;00m[33mmodule[39;49;00m[33m'[39;49;00m, [33m'[39;49;00m[33mtarget.private[39;49;00m[33m'[39;49;00m, options)[90m[39;49;00m
+
+[1m[31mtests/test_ext_autodoc_private_members.py[0m:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31mtests/test_ext_autodoc.py[0m:43: in do_autodoc
+    [0mdocumenter.generate()[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:968: in generate
+    [0m[96mself[39;49;00m.document_members(all_members)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:831: in document_members
+    [0mclasses = [[96mcls[39;49;00m [94mfor[39;49;00m [96mcls[39;49;00m [95min[39;49;00m [96mself[39;49;00m.documenters.values()[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:832: in <listcomp>
+    [0m[94mif[39;49;00m [96mcls[39;49;00m.can_document_member(member, mname, isattr, [96mself[39;49;00m)][90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'sphinx.ext.autodoc.DataDocumenter'>, member = None
+membername = '_PUBLIC_CONSTANT', isattr = True
+parent = <sphinx.ext.autodoc.ModuleDocumenter object at 0x153022ae6460>
+
+    [0m[37m@classmethod[39;49;00m[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mcan_document_member[39;49;00m([96mcls[39;49;00m, member: Any, membername: [96mstr[39;49;00m, isattr: [96mbool[39;49;00m, parent: Any[90m[39;49;00m
+                            ) -> [96mbool[39;49;00m:[90m[39;49;00m
+>       [94mif[39;49;00m membername.startswith([33m'[39;49;00m[33m_[39;49;00m[33m'[39;49;00m) [95mand[39;49;00m [33m'[39;49;00m[33m:meta public:[39;49;00m[33m'[39;49;00m [95min[39;49;00m inspect.getdoc(member):[90m[39;49;00m
+[1m[31mE       TypeError: argument of type 'NoneType' is not iterable[0m
+
+[1m[31msphinx/ext/autodoc/__init__.py[0m:1868: TypeError
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v3.5.0+/6caa8458a[39;49;00m
+
+# warning: 
+[91mWARNING: while setting up extension sphinx.addnodes: node class 'meta' is already registered, its visitors will be overridden[39;49;00m
+
+[31m[1m_____________________________ test_private_members _____________________________[0m
+
+app = <SphinxTestApp buildername='html'>
+
+    [0m[37m@pytest[39;49;00m.mark.sphinx([33m'[39;49;00m[33mhtml[39;49;00m[33m'[39;49;00m, testroot=[33m'[39;49;00m[33mext-autodoc[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_private_members[39;49;00m(app):[90m[39;49;00m
+        app.config.autoclass_content = [33m'[39;49;00m[33mclass[39;49;00m[33m'[39;49;00m[90m[39;49;00m
+        options = {[33m"[39;49;00m[33mmembers[39;49;00m[33m"[39;49;00m: [94mNone[39;49;00m,[90m[39;49;00m
+                   [33m"[39;49;00m[33mprivate-members[39;49;00m[33m"[39;49;00m: [33m"[39;49;00m[33m_PUBLIC_CONSTANT,_public_function[39;49;00m[33m"[39;49;00m}[90m[39;49;00m
+>       actual = do_autodoc(app, [33m'[39;49;00m[33mmodule[39;49;00m[33m'[39;49;00m, [33m'[39;49;00m[33mtarget.private[39;49;00m[33m'[39;49;00m, options)[90m[39;49;00m
+
+[1m[31mtests/test_ext_autodoc_private_members.py[0m:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31mtests/test_ext_autodoc.py[0m:43: in do_autodoc
+    [0mdocumenter.generate()[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:968: in generate
+    [0m[96mself[39;49;00m.document_members(all_members)[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:831: in document_members
+    [0mclasses = [[96mcls[39;49;00m [94mfor[39;49;00m [96mcls[39;49;00m [95min[39;49;00m [96mself[39;49;00m.documenters.values()[90m[39;49;00m
+[1m[31msphinx/ext/autodoc/__init__.py[0m:832: in <listcomp>
+    [0m[94mif[39;49;00m [96mcls[39;49;00m.can_document_member(member, mname, isattr, [96mself[39;49;00m)][90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'sphinx.ext.autodoc.DataDocumenter'>, member = None
+membername = '_PUBLIC_CONSTANT', isattr = True
+parent = <sphinx.ext.autodoc.ModuleDocumenter object at 0x15302298bdc0>
+
+    [0m[37m@classmethod[39;49;00m[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mcan_document_member[39;49;00m([96mcls[39;49;00m, member: Any, membername: [96mstr[39;49;00m, isattr: [96mbool[39;49;00m, parent: Any[90m[39;49;00m
+                            ) -> [96mbool[39;49;00m:[90m[39;49;00m
+>       [94mif[39;49;00m membername.startswith([33m'[39;49;00m[33m_[39;49;00m[33m'[39;49;00m) [95mand[39;49;00m [33m'[39;49;00m[33m:meta public:[39;49;00m[33m'[39;49;00m [95min[39;49;00m inspect.getdoc(member):[90m[39;49;00m
+[1m[31mE       TypeError: argument of type 'NoneType' is not iterable[0m
+
+[1m[31msphinx/ext/autodoc/__init__.py[0m:1868: TypeError
+--------------------------- Captured stdout teardown ---------------------------
+# testroot: root
+# builder: html
+# srcdir: /tmp/pytest-of-root/pytest-0/ext-autodoc
+# outdir: /tmp/pytest-of-root/pytest-0/ext-autodoc/_build/html
+# status: 
+[01mRunning Sphinx v3.5.0+/6caa8458a[39;49;00m
+
+# warning: 
+[91mWARNING: while setting up extension sphinx.addnodes: node class 'meta' is already registered, its visitors will be overridden[39;49;00m
+
+[33m=============================== warnings summary ===============================[0m
+sphinx/util/docutils.py:45
+  /testbed/sphinx/util/docutils.py:45: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    __version_info__ = tuple(LooseVersion(docutils.__version__).version)
+
+sphinx/registry.py:22
+  /testbed/sphinx/registry.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+    from pkg_resources import iter_entry_points
+
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('sphinxcontrib')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+sphinx/directives/patches.py:14
+  /testbed/sphinx/directives/patches.py:14: DeprecationWarning: The `docutils.parsers.rst.directive.html` module will be removed in Docutils 2.0. Since Docutils 0.18, the "Meta" node is defined in `docutils.parsers.rst.directives.misc`.
+    from docutils.parsers.rst.directives import html, images, tables
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 25 durations =============================
+0.23s setup    tests/test_ext_autodoc_private_members.py::test_private_field
+0.03s call     tests/test_ext_autodoc_private_members.py::test_private_field
+0.01s setup    tests/test_ext_autodoc_private_members.py::test_private_members
+0.01s setup    tests/test_ext_autodoc_private_members.py::test_private_field_and_private_members
+
+(5 durations < 0.005s hidden.  Use -vv to show these durations.)
+[36m[1m=========================== short test summary info ============================[0m
+[31mFAILED[0m tests/test_ext_autodoc_private_members.py::[1mtest_private_field[0m - AssertionError: assert ['', '.. py:m...private', ...] == ['', '.. py:m...pr...
+[31mFAILED[0m tests/test_ext_autodoc_private_members.py::[1mtest_private_field_and_private_members[0m - TypeError: argument of type 'NoneType' is not iterable
+[31mFAILED[0m tests/test_ext_autodoc_private_members.py::[1mtest_private_members[0m - TypeError: argument of type 'NoneType' is not iterable
+[31m======================== [31m[1m3 failed[0m, [33m7 warnings[0m[31m in 0.63s[0m[31m =========================[0m
+py39: exit 1 (1.14 seconds) /testbed> python -X dev -m pytest -rA --durations 25 tests/roots/test-ext-autodoc/target/private.py tests/test_ext_autodoc_private_members.py pid=68
+  py39: FAIL code 1 (1.15=setup[0.01]+cmd[1.14] seconds)
+  evaluation failed :( (1.21 seconds)
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

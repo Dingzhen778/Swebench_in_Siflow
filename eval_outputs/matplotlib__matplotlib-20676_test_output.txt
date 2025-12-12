@@ -1,0 +1,265 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ pytest -rA lib/matplotlib/tests/test_widgets.py
+============================= test session starts ==============================
+platform linux -- Python 3.8.20, pytest-8.3.5, pluggy-1.5.0
+rootdir: /testbed
+configfile: pytest.ini
+plugins: xdist-3.6.1, timeout-2.4.0, cov-5.0.0, rerunfailures-14.0
+collected 36 items
+
+lib/matplotlib/tests/test_widgets.py F....FFF..FF..................s.... [ 97%]
+.                                                                        [100%]
+
+=================================== FAILURES ===================================
+___________________________ test_rectangle_selector ____________________________
+
+    def test_rectangle_selector():
+        check_rectangle()
+    
+        with pytest.warns(
+            MatplotlibDeprecationWarning,
+                match="Support for drawtype='line' is deprecated"):
+>           check_rectangle(drawtype='line', useblit=False)
+E           matplotlib._api.deprecation.MatplotlibDeprecationWarning: 
+E           The 'drawtype' parameter of __init__() was deprecated in Matplotlib 3.5 and will be removed two minor releases later. If any parameter follows 'drawtype', they should be passed as keyword, not positionally.
+
+lib/matplotlib/tests/test_widgets.py:45: MatplotlibDeprecationWarning
+______________________________ test_span_selector ______________________________
+
+    def test_span_selector():
+>       check_span('horizontal', minspan=10, useblit=True)
+
+lib/matplotlib/tests/test_widgets.py:221: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+lib/matplotlib/tests/test_widgets.py:209: in check_span
+    do_event(tool, 'press', xdata=100, ydata=100, button=1)
+lib/matplotlib/testing/widgets.py:84: in do_event
+    func(event)
+lib/matplotlib/widgets.py:1913: in press
+    self._press(event)
+lib/matplotlib/widgets.py:2193: in _press
+    self.ax.set_xlim(v, v)
+lib/matplotlib/axes/_base.py:3713: in set_xlim
+    _api.warn_external(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+message = 'Attempting to set identical left == right == 100.0 results in singular transformations; automatically expanding.'
+category = None
+
+    def warn_external(message, category=None):
+        """
+        `warnings.warn` wrapper that sets *stacklevel* to "outside Matplotlib".
+    
+        The original emitter of the warning can be obtained by patching this
+        function back to `warnings.warn`, i.e. ``_api.warn_external =
+        warnings.warn`` (or ``functools.partial(warnings.warn, stacklevel=2)``,
+        etc.).
+        """
+        frame = sys._getframe()
+        for stacklevel in itertools.count(1):  # lgtm[py/unused-loop-variable]
+            if frame is None:
+                # when called in embedded context may hit frame is None
+                break
+            if not re.match(r"\A(matplotlib|mpl_toolkits)(\Z|\.(?!tests\.))",
+                            # Work around sphinx-gallery not setting __name__.
+                            frame.f_globals.get("__name__", "")):
+                break
+            frame = frame.f_back
+>       warnings.warn(message, category, stacklevel)
+E       UserWarning: Attempting to set identical left == right == 100.0 results in singular transformations; automatically expanding.
+
+lib/matplotlib/_api/__init__.py:263: UserWarning
+________________________ test_span_selector_drag[True] _________________________
+
+drag_from_anywhere = True
+
+    @pytest.mark.parametrize('drag_from_anywhere', [True, False])
+    def test_span_selector_drag(drag_from_anywhere):
+        ax = get_ax()
+    
+        def onselect(epress, erelease):
+            pass
+    
+        # Create span
+        tool = widgets.SpanSelector(ax, onselect, 'horizontal', interactive=True,
+                                    drag_from_anywhere=drag_from_anywhere)
+>       do_event(tool, 'press', xdata=10, ydata=10, button=1)
+
+lib/matplotlib/tests/test_widgets.py:236: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+lib/matplotlib/testing/widgets.py:84: in do_event
+    func(event)
+lib/matplotlib/widgets.py:1913: in press
+    self._press(event)
+lib/matplotlib/widgets.py:2193: in _press
+    self.ax.set_xlim(v, v)
+lib/matplotlib/axes/_base.py:3713: in set_xlim
+    _api.warn_external(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+message = 'Attempting to set identical left == right == 10.0 results in singular transformations; automatically expanding.'
+category = None
+
+    def warn_external(message, category=None):
+        """
+        `warnings.warn` wrapper that sets *stacklevel* to "outside Matplotlib".
+    
+        The original emitter of the warning can be obtained by patching this
+        function back to `warnings.warn`, i.e. ``_api.warn_external =
+        warnings.warn`` (or ``functools.partial(warnings.warn, stacklevel=2)``,
+        etc.).
+        """
+        frame = sys._getframe()
+        for stacklevel in itertools.count(1):  # lgtm[py/unused-loop-variable]
+            if frame is None:
+                # when called in embedded context may hit frame is None
+                break
+            if not re.match(r"\A(matplotlib|mpl_toolkits)(\Z|\.(?!tests\.))",
+                            # Work around sphinx-gallery not setting __name__.
+                            frame.f_globals.get("__name__", "")):
+                break
+            frame = frame.f_back
+>       warnings.warn(message, category, stacklevel)
+E       UserWarning: Attempting to set identical left == right == 10.0 results in singular transformations; automatically expanding.
+
+lib/matplotlib/_api/__init__.py:263: UserWarning
+________________________ test_span_selector_drag[False] ________________________
+
+drag_from_anywhere = False
+
+    @pytest.mark.parametrize('drag_from_anywhere', [True, False])
+    def test_span_selector_drag(drag_from_anywhere):
+        ax = get_ax()
+    
+        def onselect(epress, erelease):
+            pass
+    
+        # Create span
+        tool = widgets.SpanSelector(ax, onselect, 'horizontal', interactive=True,
+                                    drag_from_anywhere=drag_from_anywhere)
+>       do_event(tool, 'press', xdata=10, ydata=10, button=1)
+
+lib/matplotlib/tests/test_widgets.py:236: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+lib/matplotlib/testing/widgets.py:84: in do_event
+    func(event)
+lib/matplotlib/widgets.py:1913: in press
+    self._press(event)
+lib/matplotlib/widgets.py:2193: in _press
+    self.ax.set_xlim(v, v)
+lib/matplotlib/axes/_base.py:3713: in set_xlim
+    _api.warn_external(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+message = 'Attempting to set identical left == right == 10.0 results in singular transformations; automatically expanding.'
+category = None
+
+    def warn_external(message, category=None):
+        """
+        `warnings.warn` wrapper that sets *stacklevel* to "outside Matplotlib".
+    
+        The original emitter of the warning can be obtained by patching this
+        function back to `warnings.warn`, i.e. ``_api.warn_external =
+        warnings.warn`` (or ``functools.partial(warnings.warn, stacklevel=2)``,
+        etc.).
+        """
+        frame = sys._getframe()
+        for stacklevel in itertools.count(1):  # lgtm[py/unused-loop-variable]
+            if frame is None:
+                # when called in embedded context may hit frame is None
+                break
+            if not re.match(r"\A(matplotlib|mpl_toolkits)(\Z|\.(?!tests\.))",
+                            # Work around sphinx-gallery not setting __name__.
+                            frame.f_globals.get("__name__", "")):
+                break
+            frame = frame.f_back
+>       warnings.warn(message, category, stacklevel)
+E       UserWarning: Attempting to set identical left == right == 10.0 results in singular transformations; automatically expanding.
+
+lib/matplotlib/_api/__init__.py:263: UserWarning
+_____________________ test_span_selector_bound[horizontal] _____________________
+
+direction = 'horizontal'
+
+    @pytest.mark.parametrize('direction', ("horizontal", "vertical"))
+    def test_span_selector_bound(direction):
+        fig, ax = plt.subplots(1, 1)
+        ax.plot([10, 20], [10, 30])
+        ax.figure.canvas.draw()
+        x_bound = ax.get_xbound()
+        y_bound = ax.get_ybound()
+    
+        tool = widgets.SpanSelector(ax, print, direction, interactive=True)
+>       assert ax.get_xbound() == x_bound
+E       assert (0.0, 20.0) == (10.0, 20.0)
+E         
+E         At index 0 diff: 0.0 != 10.0
+E         Use -v to get more diff
+
+lib/matplotlib/tests/test_widgets.py:314: AssertionError
+______________________ test_span_selector_bound[vertical] ______________________
+
+direction = 'vertical'
+
+    @pytest.mark.parametrize('direction', ("horizontal", "vertical"))
+    def test_span_selector_bound(direction):
+        fig, ax = plt.subplots(1, 1)
+        ax.plot([10, 20], [10, 30])
+        ax.figure.canvas.draw()
+        x_bound = ax.get_xbound()
+        y_bound = ax.get_ybound()
+    
+        tool = widgets.SpanSelector(ax, print, direction, interactive=True)
+        assert ax.get_xbound() == x_bound
+>       assert ax.get_ybound() == y_bound
+E       assert (0.0, 30.0) == (10.0, 30.0)
+E         
+E         At index 0 diff: 0.0 != 10.0
+E         Use -v to get more diff
+
+lib/matplotlib/tests/test_widgets.py:315: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED lib/matplotlib/tests/test_widgets.py::test_rectangle_drag[True-new_center0]
+PASSED lib/matplotlib/tests/test_widgets.py::test_rectangle_drag[False-new_center1]
+PASSED lib/matplotlib/tests/test_widgets.py::test_ellipse
+PASSED lib/matplotlib/tests/test_widgets.py::test_rectangle_handles
+PASSED lib/matplotlib/tests/test_widgets.py::test_span_selector_direction
+PASSED lib/matplotlib/tests/test_widgets.py::test_tool_line_handle
+PASSED lib/matplotlib/tests/test_widgets.py::test_lasso_selector
+PASSED lib/matplotlib/tests/test_widgets.py::test_CheckButtons
+PASSED lib/matplotlib/tests/test_widgets.py::test_TextBox
+PASSED lib/matplotlib/tests/test_widgets.py::test_check_radio_buttons_image[png]
+PASSED lib/matplotlib/tests/test_widgets.py::test_check_bunch_of_radio_buttons[png]
+PASSED lib/matplotlib/tests/test_widgets.py::test_slider_slidermin_slidermax_invalid
+PASSED lib/matplotlib/tests/test_widgets.py::test_slider_slidermin_slidermax
+PASSED lib/matplotlib/tests/test_widgets.py::test_slider_valmin_valmax
+PASSED lib/matplotlib/tests/test_widgets.py::test_slider_valstep_snapping
+PASSED lib/matplotlib/tests/test_widgets.py::test_slider_horizontal_vertical
+PASSED lib/matplotlib/tests/test_widgets.py::test_range_slider[horizontal]
+PASSED lib/matplotlib/tests/test_widgets.py::test_range_slider[vertical]
+PASSED lib/matplotlib/tests/test_widgets.py::test_polygon_selector
+PASSED lib/matplotlib/tests/test_widgets.py::test_MultiCursor[True-True]
+PASSED lib/matplotlib/tests/test_widgets.py::test_MultiCursor[True-False]
+PASSED lib/matplotlib/tests/test_widgets.py::test_MultiCursor[False-True]
+PASSED lib/matplotlib/tests/test_widgets.py::test_rect_visibility[png]
+PASSED lib/matplotlib/tests/test_widgets.py::test_rect_visibility[pdf]
+PASSED lib/matplotlib/tests/test_widgets.py::test_polygon_selector_remove[1]
+PASSED lib/matplotlib/tests/test_widgets.py::test_polygon_selector_remove[2]
+PASSED lib/matplotlib/tests/test_widgets.py::test_polygon_selector_remove[3]
+PASSED lib/matplotlib/tests/test_widgets.py::test_polygon_selector_remove_first_point
+PASSED lib/matplotlib/tests/test_widgets.py::test_polygon_selector_redraw
+SKIPPED [1] lib/matplotlib/testing/compare.py:274: Don't know how to convert .svg files to png
+FAILED lib/matplotlib/tests/test_widgets.py::test_rectangle_selector - matplo...
+FAILED lib/matplotlib/tests/test_widgets.py::test_span_selector - UserWarning...
+FAILED lib/matplotlib/tests/test_widgets.py::test_span_selector_drag[True] - ...
+FAILED lib/matplotlib/tests/test_widgets.py::test_span_selector_drag[False]
+FAILED lib/matplotlib/tests/test_widgets.py::test_span_selector_bound[horizontal]
+FAILED lib/matplotlib/tests/test_widgets.py::test_span_selector_bound[vertical]
+=================== 6 failed, 29 passed, 1 skipped in 6.23s ====================
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

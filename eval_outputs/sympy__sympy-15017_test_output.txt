@@ -1,0 +1,50 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ PYTHONWARNINGS=ignore::UserWarning,ignore::SyntaxWarning
++ bin/test -C --verbose sympy/tensor/array/tests/test_immutable_ndim_array.py
+============================= test process starts ==============================
+executable:         /opt/miniconda3/envs/testbed/bin/python  (3.9.25-final-0) [CPython]
+architecture:       64-bit
+cache:              no
+ground types:       python 
+numpy:              None
+random seed:        70703332
+hash randomization: on (PYTHONHASHSEED=2778206990)
+
+sympy/tensor/array/tests/test_immutable_ndim_array.py[16] 
+test_ndim_array_initiation E
+test_reshape ok
+test_iterator ok
+test_sparse ok
+test_calculation ok
+test_ndim_array_converting ok
+test_converting_functions ok
+test_equality ok
+test_arithmetic ok
+test_higher_dimenions ok
+test_rebuild_immutable_arrays ok
+test_slices ok
+test_diff_and_applyfunc ok
+test_op_priority ok
+test_symbolic_indexing ok
+test_issue_12665 ok                                                       [FAIL]
+
+
+________________________________________________________________________________
+ sympy/tensor/array/tests/test_immutable_ndim_array.py:test_ndim_array_initiation 
+Traceback (most recent call last):
+  File "/testbed/sympy/tensor/array/tests/test_immutable_ndim_array.py", line 84, in test_ndim_array_initiation
+    assert rank_zero_array[0] == x
+  File "/testbed/sympy/tensor/array/dense_ndim_array.py", line 67, in __getitem__
+    index = self._parse_index(index)
+  File "/testbed/sympy/tensor/array/ndim_array.py", line 70, in _parse_index
+    raise ValueError("index out of range")
+ValueError: index out of range
+
+=========== tests finished: 15 passed, 1 exceptions, in 0.04 seconds ===========
+DO *NOT* COMMIT!
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

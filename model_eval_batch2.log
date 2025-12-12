@@ -1,0 +1,2379 @@
+2025-12-11 15:07:40,939 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:07:40,977 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:07:41,182 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:41,823 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:42,027 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/datasets/princeton-nlp/SWE-bench_Verified/revision/c104f840cc67f8b6eec6f759ebc8b2693d585d4a "HTTP/1.1 200 OK"
+2025-12-11 15:07:42,226 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:42,551 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:07:42,746 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/data?recursive=true&expand=false "HTTP/1.1 200 OK"
+2025-12-11 15:07:42,943 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/datasets/princeton-nlp/SWE-bench_Verified/tree/c104f840cc67f8b6eec6f759ebc8b2693d585d4a?recursive=false&expand=false "HTTP/1.1 200 OK"
+2025-12-11 15:07:43,143 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:43,234 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-astropy-astropy-14369 "HTTP/1.1 200 OK"
+2025-12-11 15:07:43,326 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:07:45,531 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:07:45,569 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:07:45,769 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:45,973 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:46,170 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:46,381 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:07:46,580 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:46,663 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-astropy-astropy-14598 "HTTP/1.1 200 OK"
+2025-12-11 15:07:46,744 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:07:48,941 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:07:48,979 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:07:49,180 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:49,383 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:49,583 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:49,795 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:07:50,250 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:50,341 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-astropy-astropy-7671 "HTTP/1.1 200 OK"
+2025-12-11 15:07:50,427 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:07:52,626 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:07:52,664 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:07:52,857 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:53,061 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:53,264 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:53,470 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:07:53,672 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:53,756 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-11239 "HTTP/1.1 200 OK"
+2025-12-11 15:07:53,837 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:07:56,032 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:07:56,069 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:07:56,261 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:56,467 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:56,949 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:57,169 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:07:57,418 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:07:57,505 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-11333 "HTTP/1.1 200 OK"
+2025-12-11 15:07:57,591 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:07:59,787 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:07:59,825 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:08:00,061 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:00,267 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:00,467 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:00,698 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:08:00,901 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:00,987 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-11490 "HTTP/1.1 200 OK"
+2025-12-11 15:08:01,072 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:08:03,273 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:08:03,311 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:08:03,502 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:03,708 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:03,910 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:04,132 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:08:04,329 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:04,418 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-12273 "HTTP/1.1 200 OK"
+2025-12-11 15:08:04,508 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:08:06,717 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:08:06,755 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:08:06,953 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:07,155 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:07,351 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:07,559 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:08:07,759 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:07,902 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-12276 "HTTP/1.1 200 OK"
+2025-12-11 15:08:07,987 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:08:10,187 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:08:10,225 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:08:10,425 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:10,631 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:10,829 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:11,040 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:08:11,235 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:11,321 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-12304 "HTTP/1.1 200 OK"
+2025-12-11 15:08:11,409 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:08:13,608 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:08:13,646 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:08:13,838 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:14,041 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:14,250 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:14,458 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:08:14,661 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:14,747 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-12308 "HTTP/1.1 200 OK"
+2025-12-11 15:08:14,836 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:08:47,137 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:08:47,175 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:08:47,363 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:47,958 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:48,164 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:48,449 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:08:48,643 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:48,729 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-13551 "HTTP/1.1 200 OK"
+2025-12-11 15:08:48,814 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:08:51,013 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:08:51,052 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:08:51,254 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:51,455 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:51,724 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:52,219 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:08:52,415 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:52,507 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-14011 "HTTP/1.1 200 OK"
+2025-12-11 15:08:52,608 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:08:54,808 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:08:54,846 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:08:55,042 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:55,248 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:55,444 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:55,652 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:08:55,851 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:55,939 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-14170 "HTTP/1.1 200 OK"
+2025-12-11 15:08:56,026 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:08:58,227 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:08:58,265 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:08:58,466 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:58,668 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:58,872 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:59,351 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:08:59,551 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:08:59,668 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-14311 "HTTP/1.1 200 OK"
+2025-12-11 15:08:59,754 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:09:01,954 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:09:01,992 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:09:02,188 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:02,391 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:02,590 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:02,804 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:09:03,002 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:03,088 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-14349 "HTTP/1.1 200 OK"
+2025-12-11 15:09:03,177 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:09:05,372 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:09:05,411 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:09:05,604 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:05,810 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:06,026 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:06,237 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:09:06,437 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:06,524 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-14404 "HTTP/1.1 200 OK"
+2025-12-11 15:09:06,615 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:09:08,814 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:09:08,851 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:09:09,046 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:09,250 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:09,446 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:09,737 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:09:09,936 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:10,022 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-14500 "HTTP/1.1 200 OK"
+2025-12-11 15:09:10,109 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:09:12,307 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:09:12,345 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:09:12,541 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:12,744 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:12,954 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:13,164 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:09:13,358 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:13,444 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-14999 "HTTP/1.1 200 OK"
+2025-12-11 15:09:13,536 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:09:15,733 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:09:15,771 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:09:15,969 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:16,172 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:16,389 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:16,606 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:09:16,805 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:16,894 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-15022 "HTTP/1.1 200 OK"
+2025-12-11 15:09:16,982 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:09:19,183 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:09:19,221 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:09:19,418 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:19,619 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:19,818 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:20,030 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:09:20,235 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:20,327 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-15098 "HTTP/1.1 200 OK"
+2025-12-11 15:09:20,416 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:09:52,752 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:09:52,790 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:09:52,986 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:53,620 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:53,828 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:54,149 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:09:54,340 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:54,424 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-15268 "HTTP/1.1 200 OK"
+2025-12-11 15:09:54,513 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:09:56,713 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:09:56,751 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:09:56,944 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:57,141 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:57,340 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:57,546 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:09:57,744 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:09:57,831 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-15368 "HTTP/1.1 200 OK"
+2025-12-11 15:09:57,921 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:10:00,122 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:10:00,160 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:10:00,359 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:00,557 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:00,755 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:00,978 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:10:01,174 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:01,267 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-15382 "HTTP/1.1 200 OK"
+2025-12-11 15:10:01,370 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:10:03,574 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:10:03,612 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:10:03,812 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:04,007 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:04,216 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:04,631 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:10:04,827 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:04,915 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-15741 "HTTP/1.1 200 OK"
+2025-12-11 15:10:05,002 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:10:07,390 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:10:07,428 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:10:07,626 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:07,829 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:08,025 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:08,498 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:10:08,697 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:08,787 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-16082 "HTTP/1.1 200 OK"
+2025-12-11 15:10:08,870 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:10:11,062 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:10:11,100 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:10:11,296 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:11,491 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:11,686 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:11,891 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:10:12,098 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:12,190 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-16255 "HTTP/1.1 200 OK"
+2025-12-11 15:10:12,282 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:10:14,481 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:10:14,520 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:10:14,718 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:14,916 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:15,115 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:15,333 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:10:15,531 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:15,622 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-16315 "HTTP/1.1 200 OK"
+2025-12-11 15:10:15,712 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:10:17,913 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:10:17,951 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:10:18,147 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:18,343 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:18,538 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:18,746 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:10:18,944 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:19,028 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-16429 "HTTP/1.1 200 OK"
+2025-12-11 15:10:19,110 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:10:21,304 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:10:21,341 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:10:21,535 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:21,731 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:21,929 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:22,140 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:10:22,340 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:22,431 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-django-django-16612 "HTTP/1.1 200 OK"
+2025-12-11 15:10:22,542 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:10:24,740 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:10:24,778 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:10:24,975 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:25,171 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:25,370 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:25,614 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:10:25,808 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:25,894 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-matplotlib-matplotlib-25775 "HTTP/1.1 200 OK"
+2025-12-11 15:10:25,989 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:10:58,297 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:10:58,336 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:10:58,529 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:59,145 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:59,337 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:59,668 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:10:59,861 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:10:59,949 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-matplotlib-matplotlib-25960 "HTTP/1.1 200 OK"
+2025-12-11 15:11:00,034 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:11:02,228 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:11:02,266 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:11:02,462 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:03,247 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:03,448 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:03,658 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:11:03,856 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:03,945 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-pydata-xarray-3305 "HTTP/1.1 200 OK"
+2025-12-11 15:11:04,036 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:11:06,235 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:11:06,273 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:11:06,469 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:06,667 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:06,867 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:07,076 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:11:07,269 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:07,357 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-pydata-xarray-4966 "HTTP/1.1 200 OK"
+2025-12-11 15:11:07,445 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:11:09,643 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:11:09,681 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:11:09,877 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:10,076 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:10,272 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:10,577 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:11:10,771 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:10,857 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-pylint-dev-pylint-4551 "HTTP/1.1 200 OK"
+2025-12-11 15:11:10,944 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:11:13,145 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:11:13,183 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:11:13,384 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:13,586 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:13,792 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:13,998 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:11:14,198 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:14,283 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-pylint-dev-pylint-6386 "HTTP/1.1 200 OK"
+2025-12-11 15:11:14,368 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:11:16,562 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:11:16,599 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:11:16,800 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:16,995 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:17,200 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:17,420 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:11:17,624 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:17,713 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-pytest-dev-pytest-7521 "HTTP/1.1 200 OK"
+2025-12-11 15:11:17,805 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:11:20,007 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:11:20,045 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:11:20,248 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:20,447 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:20,652 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:20,866 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:11:21,063 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:21,155 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-pytest-dev-pytest-8399 "HTTP/1.1 200 OK"
+2025-12-11 15:11:21,243 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:11:23,443 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:11:23,481 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:11:23,680 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:23,880 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:24,078 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:24,292 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:11:24,491 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:24,604 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-scikit-learn-scikit-learn-10908 "HTTP/1.1 200 OK"
+2025-12-11 15:11:24,684 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:11:26,882 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:11:26,921 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:11:27,109 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:27,305 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:27,500 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:27,810 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:11:28,010 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:28,100 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-scikit-learn-scikit-learn-11578 "HTTP/1.1 200 OK"
+2025-12-11 15:11:28,184 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:11:30,380 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:11:30,417 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:11:30,620 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:30,817 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:31,030 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:31,243 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:11:31,437 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:11:31,527 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-scikit-learn-scikit-learn-13135 "HTTP/1.1 200 OK"
+2025-12-11 15:11:31,648 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:12:03,987 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:12:04,025 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:12:04,222 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:04,855 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:05,052 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:05,382 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:12:05,575 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:05,664 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-scikit-learn-scikit-learn-14629 "HTTP/1.1 200 OK"
+2025-12-11 15:12:05,751 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:12:07,950 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:12:07,988 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:12:08,184 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:08,383 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:08,579 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:08,784 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:12:09,003 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:09,099 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-scikit-learn-scikit-learn-14894 "HTTP/1.1 200 OK"
+2025-12-11 15:12:09,181 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:12:11,405 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:12:11,443 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:12:11,643 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:11,844 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:12,049 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:12,257 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:12:12,459 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:12,549 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-scikit-learn-scikit-learn-26194 "HTTP/1.1 200 OK"
+2025-12-11 15:12:12,636 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:12:14,829 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:12:14,867 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:12:15,060 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:15,259 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:15,457 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:15,660 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:12:15,865 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:15,952 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-sphinx-doc-sphinx-10466 "HTTP/1.1 200 OK"
+2025-12-11 15:12:16,032 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:12:18,235 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:12:18,273 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:12:18,468 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:18,720 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:18,924 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:19,130 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:12:19,325 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:19,408 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-sphinx-doc-sphinx-8265 "HTTP/1.1 200 OK"
+2025-12-11 15:12:19,498 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:12:21,702 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:12:21,740 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:12:21,946 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:22,145 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:22,340 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:22,536 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:12:22,743 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:22,830 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-sphinx-doc-sphinx-9658 "HTTP/1.1 200 OK"
+2025-12-11 15:12:22,915 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:12:25,123 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:12:25,161 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:12:25,363 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:25,560 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:25,761 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:25,975 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:12:26,172 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:26,258 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-sympy-sympy-14531 "HTTP/1.1 200 OK"
+2025-12-11 15:12:26,344 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:12:28,550 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:12:28,587 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:12:28,795 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:28,993 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:29,197 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:29,397 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:12:29,592 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:29,682 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-sympy-sympy-18211 "HTTP/1.1 200 OK"
+2025-12-11 15:12:29,772 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:12:31,964 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:12:32,002 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:12:32,196 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:32,400 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:32,595 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:32,797 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:12:32,994 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:33,077 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-sympy-sympy-19954 "HTTP/1.1 200 OK"
+2025-12-11 15:12:33,161 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+2025-12-11 15:12:35,358 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2025-12-11 15:12:35,396 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/princeton-nlp/SWE-bench_Verified/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/README.md "HTTP/1.1 200 OK"
+2025-12-11 15:12:35,594 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:35,791 - httpx - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/princeton-nlp/SWE-bench_Verified/princeton-nlp/SWE-bench_Verified.py "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:35,988 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:36,209 - httpx - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=princeton-nlp/SWE-bench_Verified "HTTP/1.1 200 OK"
+2025-12-11 15:12:36,407 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/datasets/princeton-nlp/SWE-bench_Verified/resolve/c104f840cc67f8b6eec6f759ebc8b2693d585d4a/dataset_infos.json "HTTP/1.1 404 Not Found"
+2025-12-11 15:12:36,497 - httpx - INFO - HTTP Request: GET https://console.siflow.cn/sfapi/aiapi/v1/image-sync-server/images-management?page=1&pageSize=100&filter.major_category=siflow&filter.image_build_type=custom&filter.keyword=swebench-instance-sympy-sympy-20916 "HTTP/1.1 200 OK"
+2025-12-11 15:12:36,589 - httpx - INFO - HTTP Request: POST https://console.siflow.cn/sfapi/task-service/v1/tasks "HTTP/1.1 200 OK"
+📋 加载了 50 个实例
+
+======================================================================
+开始批量评估 - 50个Model Patches
+======================================================================
+总实例数: 50
+最大并发: 10
+检查间隔: 30秒
+======================================================================
+
+
+──────────────────────────────────────────────────────────────────────
+迭代 #1 - 15:07:40
+待处理: 50, 运行中: 0, 已完成: 0
+──────────────────────────────────────────────────────────────────────
+
+🚀 提交任务: astropy__astropy-14369
+
+======================================================================
+运行 Model Patch 评测 (修复版本): astropy__astropy-14369
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: astropy/astropy
+  ✓ Version: 5.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/astropy__astropy-14369.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/astropy__astropy-14369.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-astropy-astropy-14369:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-astropy-astropy-14369:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-astropy-14369-mp-436863 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: c474911a-e4f1-4890-9b6e-0339a70241ca
+  ✅ 任务已提交: c474911a-e4f1-4890-9b6e-0339a70241ca
+
+🚀 提交任务: astropy__astropy-14598
+
+======================================================================
+运行 Model Patch 评测 (修复版本): astropy__astropy-14598
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: astropy/astropy
+  ✓ Version: 5.2
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/astropy__astropy-14598.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/astropy__astropy-14598.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-astropy-astropy-14598:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-astropy-astropy-14598:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-astropy-14598-mp-436866 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: fca15da2-5582-4cab-8b37-d4c84f04d237
+  ✅ 任务已提交: fca15da2-5582-4cab-8b37-d4c84f04d237
+
+🚀 提交任务: astropy__astropy-7671
+
+======================================================================
+运行 Model Patch 评测 (修复版本): astropy__astropy-7671
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: astropy/astropy
+  ✓ Version: 1.3
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/astropy__astropy-7671.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/astropy__astropy-7671.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-astropy-astropy-7671:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-astropy-astropy-7671:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-astropy-7671-mp-436870 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: c9904759-5f84-4d5d-9ac8-56ba2560c311
+  ✅ 任务已提交: c9904759-5f84-4d5d-9ac8-56ba2560c311
+
+🚀 提交任务: django__django-11239
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-11239
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 3.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-11239.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-11239.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-11239:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-11239:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-11239-mp-436873 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: f3e7690d-eb4a-45f4-9f75-217cfc1c558b
+  ✅ 任务已提交: f3e7690d-eb4a-45f4-9f75-217cfc1c558b
+
+🚀 提交任务: django__django-11333
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-11333
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 3.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-11333.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-11333.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-11333:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-11333:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-11333-mp-436877 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: ef228cf3-065f-4e8f-b470-5fe541ab452f
+  ✅ 任务已提交: ef228cf3-065f-4e8f-b470-5fe541ab452f
+
+🚀 提交任务: django__django-11490
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-11490
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 3.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-11490.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-11490.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-11490:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-11490:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-11490-mp-436880 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 34d9a9d9-8ec8-4fd2-bf00-a7040efb7a4d
+  ✅ 任务已提交: 34d9a9d9-8ec8-4fd2-bf00-a7040efb7a4d
+
+🚀 提交任务: django__django-12273
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-12273
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 3.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-12273.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-12273.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-12273:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-12273:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-12273-mp-436884 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 99dcc3e9-94a4-48b0-92ae-42475437a40f
+  ✅ 任务已提交: 99dcc3e9-94a4-48b0-92ae-42475437a40f
+
+🚀 提交任务: django__django-12276
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-12276
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 3.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-12276.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-12276.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-12276:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-12276:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-12276-mp-436887 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: fcb34dfd-3934-4b84-b6ed-7507ee7816b9
+  ✅ 任务已提交: fcb34dfd-3934-4b84-b6ed-7507ee7816b9
+
+🚀 提交任务: django__django-12304
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-12304
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 3.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-12304.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-12304.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-12304:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-12304:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-12304-mp-436891 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: a4f59ee9-48a3-41a6-985b-f15ba3246eab
+  ✅ 任务已提交: a4f59ee9-48a3-41a6-985b-f15ba3246eab
+
+🚀 提交任务: django__django-12308
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-12308
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 3.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-12308.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-12308.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-12308:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-12308:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-12308-mp-436894 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: d7cc2300-47ae-43bc-bdf1-c87118e5acce
+  ✅ 任务已提交: d7cc2300-47ae-43bc-bdf1-c87118e5acce
+  ⚠️ 查询任务状态失败 astropy__astropy-14369: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ astropy__astropy-14369: error (33s)
+  ⚠️ 查询任务状态失败 astropy__astropy-14598: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ astropy__astropy-14598: error (30s)
+  ⚠️ 查询任务状态失败 astropy__astropy-7671: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ astropy__astropy-7671: error (26s)
+  ⚠️ 查询任务状态失败 django__django-11239: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-11239: error (23s)
+  ⚠️ 查询任务状态失败 django__django-11333: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-11333: error (19s)
+  ⚠️ 查询任务状态失败 django__django-11490: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-11490: error (15s)
+  ⚠️ 查询任务状态失败 django__django-12273: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-12273: error (12s)
+  ⚠️ 查询任务状态失败 django__django-12276: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-12276: error (8s)
+  ⚠️ 查询任务状态失败 django__django-12304: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-12304: error (5s)
+  ⚠️ 查询任务状态失败 django__django-12308: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-12308: error (2s)
+
+📊 当前统计:
+  RESOLVED_FULL: 0/10
+  Resolve率: 0.0%
+
+⏳ 等待 30 秒...
+
+──────────────────────────────────────────────────────────────────────
+迭代 #2 - 15:08:46
+待处理: 40, 运行中: 0, 已完成: 10
+──────────────────────────────────────────────────────────────────────
+
+🚀 提交任务: django__django-13551
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-13551
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 3.2
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-13551.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-13551.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-13551:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-13551:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-13551-mp-436928 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: aaf15a13-8248-40e2-a855-e7904a9242c5
+  ✅ 任务已提交: aaf15a13-8248-40e2-a855-e7904a9242c5
+
+🚀 提交任务: django__django-14011
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-14011
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-14011.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-14011.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-14011:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-14011:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-14011-mp-436932 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 812aac28-f5b7-4041-919e-328093ce91da
+  ✅ 任务已提交: 812aac28-f5b7-4041-919e-328093ce91da
+
+🚀 提交任务: django__django-14170
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-14170
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-14170.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-14170.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-14170:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-14170:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-14170-mp-436935 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: f4483547-15cb-4745-9d7b-2dcb1a252c7c
+  ✅ 任务已提交: f4483547-15cb-4745-9d7b-2dcb1a252c7c
+
+🚀 提交任务: django__django-14311
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-14311
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-14311.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-14311.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-14311:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-14311:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-14311-mp-436939 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 1569c5f4-ec94-4267-a23a-c183eacfdf78
+  ✅ 任务已提交: 1569c5f4-ec94-4267-a23a-c183eacfdf78
+
+🚀 提交任务: django__django-14349
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-14349
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-14349.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-14349.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-14349:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-14349:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-14349-mp-436943 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 2d2fd15d-c33a-4588-abda-9ce3a498fc8e
+  ✅ 任务已提交: 2d2fd15d-c33a-4588-abda-9ce3a498fc8e
+
+🚀 提交任务: django__django-14404
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-14404
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-14404.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-14404.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-14404:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-14404:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-14404-mp-436946 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 25c4c01a-8507-498f-b4b9-e4cc1d1f6f5e
+  ✅ 任务已提交: 25c4c01a-8507-498f-b4b9-e4cc1d1f6f5e
+
+🚀 提交任务: django__django-14500
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-14500
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-14500.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-14500.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-14500:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-14500:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-14500-mp-436950 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 61e97d47-ed74-4907-afde-a4a0c19986e1
+  ✅ 任务已提交: 61e97d47-ed74-4907-afde-a4a0c19986e1
+
+🚀 提交任务: django__django-14999
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-14999
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-14999.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-14999.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-14999:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-14999:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-14999-mp-436953 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 8fb5a946-5393-4215-a96e-876951bd8da7
+  ✅ 任务已提交: 8fb5a946-5393-4215-a96e-876951bd8da7
+
+🚀 提交任务: django__django-15022
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-15022
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-15022.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-15022.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-15022:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-15022:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-15022-mp-436956 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 9af8f149-f9ed-43e3-9f2e-06d654f87ebe
+  ✅ 任务已提交: 9af8f149-f9ed-43e3-9f2e-06d654f87ebe
+
+🚀 提交任务: django__django-15098
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-15098
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-15098.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-15098.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-15098:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-15098:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-15098-mp-436960 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: da51f69a-2f46-496d-b602-35e669a98e08
+  ✅ 任务已提交: da51f69a-2f46-496d-b602-35e669a98e08
+  ⚠️ 查询任务状态失败 django__django-13551: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-13551: error (33s)
+  ⚠️ 查询任务状态失败 django__django-14011: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-14011: error (29s)
+  ⚠️ 查询任务状态失败 django__django-14170: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-14170: error (26s)
+  ⚠️ 查询任务状态失败 django__django-14311: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-14311: error (22s)
+  ⚠️ 查询任务状态失败 django__django-14349: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-14349: error (19s)
+  ⚠️ 查询任务状态失败 django__django-14404: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-14404: error (15s)
+  ⚠️ 查询任务状态失败 django__django-14500: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-14500: error (12s)
+  ⚠️ 查询任务状态失败 django__django-14999: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-14999: error (8s)
+  ⚠️ 查询任务状态失败 django__django-15022: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-15022: error (5s)
+  ⚠️ 查询任务状态失败 django__django-15098: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-15098: error (2s)
+
+📊 当前统计:
+  RESOLVED_FULL: 0/20
+  Resolve率: 0.0%
+
+⏳ 等待 30 秒...
+
+──────────────────────────────────────────────────────────────────────
+迭代 #3 - 15:09:52
+待处理: 30, 运行中: 0, 已完成: 20
+──────────────────────────────────────────────────────────────────────
+
+🚀 提交任务: django__django-15268
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-15268
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-15268.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-15268.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-15268:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-15268:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-15268-mp-436994 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: d022db1b-b038-4a4f-bb99-10ad0a86e932
+  ✅ 任务已提交: d022db1b-b038-4a4f-bb99-10ad0a86e932
+
+🚀 提交任务: django__django-15368
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-15368
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-15368.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-15368.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-15368:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-15368:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-15368-mp-436997 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 51c3ed28-0610-4ab2-922c-cb02144ef6f1
+  ✅ 任务已提交: 51c3ed28-0610-4ab2-922c-cb02144ef6f1
+
+🚀 提交任务: django__django-15382
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-15382
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-15382.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-15382.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-15382:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-15382:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-15382-mp-437001 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: ccacd073-8171-4c36-9cc2-f2c2fec7905f
+  ✅ 任务已提交: ccacd073-8171-4c36-9cc2-f2c2fec7905f
+
+🚀 提交任务: django__django-15741
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-15741
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.2
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-15741.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-15741.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-15741:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-15741:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-15741-mp-437004 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 53ab5789-31bd-4cf3-ae9e-73952498a2b2
+  ✅ 任务已提交: 53ab5789-31bd-4cf3-ae9e-73952498a2b2
+
+🚀 提交任务: django__django-16082
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-16082
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.2
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-16082.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-16082.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-16082:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-16082:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-16082-mp-437008 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 03f72306-4b3c-4bbf-9510-78a43ac5ba72
+  ✅ 任务已提交: 03f72306-4b3c-4bbf-9510-78a43ac5ba72
+
+🚀 提交任务: django__django-16255
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-16255
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.2
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-16255.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-16255.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-16255:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-16255:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-16255-mp-437012 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: e4dca2bf-f9a1-4486-920d-b75c99abee98
+  ✅ 任务已提交: e4dca2bf-f9a1-4486-920d-b75c99abee98
+
+🚀 提交任务: django__django-16315
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-16315
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.2
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-16315.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-16315.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-16315:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-16315:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-16315-mp-437015 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: ef258518-10a1-4beb-96e2-e9254129f8f8
+  ✅ 任务已提交: ef258518-10a1-4beb-96e2-e9254129f8f8
+
+🚀 提交任务: django__django-16429
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-16429
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 4.2
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-16429.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-16429.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-16429:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-16429:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-16429-mp-437019 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: cc4f4877-f474-4e63-8fd5-c700a55c9138
+  ✅ 任务已提交: cc4f4877-f474-4e63-8fd5-c700a55c9138
+
+🚀 提交任务: django__django-16612
+
+======================================================================
+运行 Model Patch 评测 (修复版本): django__django-16612
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: django/django
+  ✓ Version: 5.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/django__django-16612.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/django__django-16612.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-django-django-16612:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-django-django-16612:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-django-16612-mp-437022 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 943205c0-36df-46d8-bd9c-693fa545e7df
+  ✅ 任务已提交: 943205c0-36df-46d8-bd9c-693fa545e7df
+
+🚀 提交任务: matplotlib__matplotlib-25775
+
+======================================================================
+运行 Model Patch 评测 (修复版本): matplotlib__matplotlib-25775
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: matplotlib/matplotlib
+  ✓ Version: 3.7
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/matplotlib__matplotlib-25775.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/matplotlib__matplotlib-25775.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-matplotlib-matplotlib-25775:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-matplotlib-matplotlib-25775:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-matplotlib-25775-mp-437025 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 5f78f672-e8b8-4ec2-8b73-d1aa5c7cf0be
+  ✅ 任务已提交: 5f78f672-e8b8-4ec2-8b73-d1aa5c7cf0be
+  ⚠️ 查询任务状态失败 django__django-15268: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-15268: error (33s)
+  ⚠️ 查询任务状态失败 django__django-15368: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-15368: error (30s)
+  ⚠️ 查询任务状态失败 django__django-15382: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-15382: error (26s)
+  ⚠️ 查询任务状态失败 django__django-15741: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-15741: error (22s)
+  ⚠️ 查询任务状态失败 django__django-16082: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-16082: error (19s)
+  ⚠️ 查询任务状态失败 django__django-16255: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-16255: error (15s)
+  ⚠️ 查询任务状态失败 django__django-16315: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-16315: error (12s)
+  ⚠️ 查询任务状态失败 django__django-16429: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-16429: error (8s)
+  ⚠️ 查询任务状态失败 django__django-16612: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ django__django-16612: error (5s)
+  ⚠️ 查询任务状态失败 matplotlib__matplotlib-25775: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ matplotlib__matplotlib-25775: error (2s)
+
+📊 当前统计:
+  RESOLVED_FULL: 0/30
+  Resolve率: 0.0%
+
+⏳ 等待 30 秒...
+
+──────────────────────────────────────────────────────────────────────
+迭代 #4 - 15:10:58
+待处理: 20, 运行中: 0, 已完成: 30
+──────────────────────────────────────────────────────────────────────
+
+🚀 提交任务: matplotlib__matplotlib-25960
+
+======================================================================
+运行 Model Patch 评测 (修复版本): matplotlib__matplotlib-25960
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: matplotlib/matplotlib
+  ✓ Version: 3.7
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/matplotlib__matplotlib-25960.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/matplotlib__matplotlib-25960.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-matplotlib-matplotlib-25960:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-matplotlib-matplotlib-25960:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-matplotlib-25960-mp-437059 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 9ecee87c-6ae6-4636-90d1-b843dffd157b
+  ✅ 任务已提交: 9ecee87c-6ae6-4636-90d1-b843dffd157b
+
+🚀 提交任务: pydata__xarray-3305
+
+======================================================================
+运行 Model Patch 评测 (修复版本): pydata__xarray-3305
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: pydata/xarray
+  ✓ Version: 0.12
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/pydata__xarray-3305.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/pydata__xarray-3305.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-pydata-xarray-3305:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-pydata-xarray-3305:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-xarray-3305-mp-437063 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: f37c9c01-5555-478e-a1b9-f90e58044d0f
+  ✅ 任务已提交: f37c9c01-5555-478e-a1b9-f90e58044d0f
+
+🚀 提交任务: pydata__xarray-4966
+
+======================================================================
+运行 Model Patch 评测 (修复版本): pydata__xarray-4966
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: pydata/xarray
+  ✓ Version: 0.12
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/pydata__xarray-4966.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/pydata__xarray-4966.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-pydata-xarray-4966:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-pydata-xarray-4966:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-xarray-4966-mp-437067 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: f75124db-2a8b-48df-826a-b6b508b2947c
+  ✅ 任务已提交: f75124db-2a8b-48df-826a-b6b508b2947c
+
+🚀 提交任务: pylint-dev__pylint-4551
+
+======================================================================
+运行 Model Patch 评测 (修复版本): pylint-dev__pylint-4551
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: pylint-dev/pylint
+  ✓ Version: 2.9
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/pylint-dev__pylint-4551.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/pylint-dev__pylint-4551.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-pylint-dev-pylint-4551:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-pylint-dev-pylint-4551:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-pylint-4551-mp-437070 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 996333fb-9ab9-4daa-993c-4f2bf9943843
+  ✅ 任务已提交: 996333fb-9ab9-4daa-993c-4f2bf9943843
+
+🚀 提交任务: pylint-dev__pylint-6386
+
+======================================================================
+运行 Model Patch 评测 (修复版本): pylint-dev__pylint-6386
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: pylint-dev/pylint
+  ✓ Version: 2.14
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/pylint-dev__pylint-6386.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/pylint-dev__pylint-6386.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-pylint-dev-pylint-6386:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-pylint-dev-pylint-6386:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-pylint-6386-mp-437074 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: c7e42276-0863-4563-b96b-093bf86a1e30
+  ✅ 任务已提交: c7e42276-0863-4563-b96b-093bf86a1e30
+
+🚀 提交任务: pytest-dev__pytest-7521
+
+======================================================================
+运行 Model Patch 评测 (修复版本): pytest-dev__pytest-7521
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: pytest-dev/pytest
+  ✓ Version: 6.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/pytest-dev__pytest-7521.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/pytest-dev__pytest-7521.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-pytest-dev-pytest-7521:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-pytest-dev-pytest-7521:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-pytest-7521-mp-437077 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: ec872a79-9bb6-4ef8-ae3e-1371eee0f040
+  ✅ 任务已提交: ec872a79-9bb6-4ef8-ae3e-1371eee0f040
+
+🚀 提交任务: pytest-dev__pytest-8399
+
+======================================================================
+运行 Model Patch 评测 (修复版本): pytest-dev__pytest-8399
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: pytest-dev/pytest
+  ✓ Version: 6.3
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/pytest-dev__pytest-8399.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/pytest-dev__pytest-8399.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-pytest-dev-pytest-8399:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-pytest-dev-pytest-8399:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-pytest-8399-mp-437081 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 87680af9-f202-4bf6-b9d3-6a7768fd703b
+  ✅ 任务已提交: 87680af9-f202-4bf6-b9d3-6a7768fd703b
+
+🚀 提交任务: scikit-learn__scikit-learn-10908
+
+======================================================================
+运行 Model Patch 评测 (修复版本): scikit-learn__scikit-learn-10908
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: scikit-learn/scikit-learn
+  ✓ Version: 0.20
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/scikit-learn__scikit-learn-10908.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/scikit-learn__scikit-learn-10908.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-scikit-learn-scikit-learn-10908:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-scikit-learn-scikit-learn-10908:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-scikit-learn-10908-mp-437084 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: ab5c976c-3037-4542-9d45-2972698365bb
+  ✅ 任务已提交: ab5c976c-3037-4542-9d45-2972698365bb
+
+🚀 提交任务: scikit-learn__scikit-learn-11578
+
+======================================================================
+运行 Model Patch 评测 (修复版本): scikit-learn__scikit-learn-11578
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: scikit-learn/scikit-learn
+  ✓ Version: 0.20
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/scikit-learn__scikit-learn-11578.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/scikit-learn__scikit-learn-11578.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-scikit-learn-scikit-learn-11578:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-scikit-learn-scikit-learn-11578:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-scikit-learn-11578-mp-437088 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 05121069-aa73-4d4f-997f-34d10ee929d4
+  ✅ 任务已提交: 05121069-aa73-4d4f-997f-34d10ee929d4
+
+🚀 提交任务: scikit-learn__scikit-learn-13135
+
+======================================================================
+运行 Model Patch 评测 (修复版本): scikit-learn__scikit-learn-13135
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: scikit-learn/scikit-learn
+  ✓ Version: 0.21
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/scikit-learn__scikit-learn-13135.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/scikit-learn__scikit-learn-13135.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-scikit-learn-scikit-learn-13135:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-scikit-learn-scikit-learn-13135:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-scikit-learn-13135-mp-437091 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 4b806ebe-4cc8-4579-87f2-115874bfcd3d
+  ✅ 任务已提交: 4b806ebe-4cc8-4579-87f2-115874bfcd3d
+  ⚠️ 查询任务状态失败 matplotlib__matplotlib-25960: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ matplotlib__matplotlib-25960: error (33s)
+  ⚠️ 查询任务状态失败 pydata__xarray-3305: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ pydata__xarray-3305: error (29s)
+  ⚠️ 查询任务状态失败 pydata__xarray-4966: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ pydata__xarray-4966: error (26s)
+  ⚠️ 查询任务状态失败 pylint-dev__pylint-4551: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ pylint-dev__pylint-4551: error (22s)
+  ⚠️ 查询任务状态失败 pylint-dev__pylint-6386: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ pylint-dev__pylint-6386: error (19s)
+  ⚠️ 查询任务状态失败 pytest-dev__pytest-7521: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ pytest-dev__pytest-7521: error (15s)
+  ⚠️ 查询任务状态失败 pytest-dev__pytest-8399: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ pytest-dev__pytest-8399: error (12s)
+  ⚠️ 查询任务状态失败 scikit-learn__scikit-learn-10908: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ scikit-learn__scikit-learn-10908: error (8s)
+  ⚠️ 查询任务状态失败 scikit-learn__scikit-learn-11578: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ scikit-learn__scikit-learn-11578: error (5s)
+  ⚠️ 查询任务状态失败 scikit-learn__scikit-learn-13135: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ scikit-learn__scikit-learn-13135: error (2s)
+
+📊 当前统计:
+  RESOLVED_FULL: 0/40
+  Resolve率: 0.0%
+
+⏳ 等待 30 秒...
+
+──────────────────────────────────────────────────────────────────────
+迭代 #5 - 15:12:03
+待处理: 10, 运行中: 0, 已完成: 40
+──────────────────────────────────────────────────────────────────────
+
+🚀 提交任务: scikit-learn__scikit-learn-14629
+
+======================================================================
+运行 Model Patch 评测 (修复版本): scikit-learn__scikit-learn-14629
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: scikit-learn/scikit-learn
+  ✓ Version: 0.22
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/scikit-learn__scikit-learn-14629.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/scikit-learn__scikit-learn-14629.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-scikit-learn-scikit-learn-14629:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-scikit-learn-scikit-learn-14629:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-scikit-learn-14629-mp-437125 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 00779efa-4f36-437d-9532-cc9368d89683
+  ✅ 任务已提交: 00779efa-4f36-437d-9532-cc9368d89683
+
+🚀 提交任务: scikit-learn__scikit-learn-14894
+
+======================================================================
+运行 Model Patch 评测 (修复版本): scikit-learn__scikit-learn-14894
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: scikit-learn/scikit-learn
+  ✓ Version: 0.22
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/scikit-learn__scikit-learn-14894.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/scikit-learn__scikit-learn-14894.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-scikit-learn-scikit-learn-14894:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-scikit-learn-scikit-learn-14894:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-scikit-learn-14894-mp-437129 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 5d17b861-2f06-4dda-b232-2fba68e30df6
+  ✅ 任务已提交: 5d17b861-2f06-4dda-b232-2fba68e30df6
+
+🚀 提交任务: scikit-learn__scikit-learn-26194
+
+======================================================================
+运行 Model Patch 评测 (修复版本): scikit-learn__scikit-learn-26194
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: scikit-learn/scikit-learn
+  ✓ Version: 1.3
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/scikit-learn__scikit-learn-26194.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/scikit-learn__scikit-learn-26194.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-scikit-learn-scikit-learn-26194:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-scikit-learn-scikit-learn-26194:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-scikit-learn-26194-mp-437132 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 5a51bbdf-bee4-4f2a-af8c-5dec59b0f16e
+  ✅ 任务已提交: 5a51bbdf-bee4-4f2a-af8c-5dec59b0f16e
+
+🚀 提交任务: sphinx-doc__sphinx-10466
+
+======================================================================
+运行 Model Patch 评测 (修复版本): sphinx-doc__sphinx-10466
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: sphinx-doc/sphinx
+  ✓ Version: 5.0
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/sphinx-doc__sphinx-10466.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/sphinx-doc__sphinx-10466.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-sphinx-doc-sphinx-10466:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-sphinx-doc-sphinx-10466:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-sphinx-10466-mp-437135 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 7b2bc314-0893-4405-9f17-7ec6f55a3f2b
+  ✅ 任务已提交: 7b2bc314-0893-4405-9f17-7ec6f55a3f2b
+
+🚀 提交任务: sphinx-doc__sphinx-8265
+
+======================================================================
+运行 Model Patch 评测 (修复版本): sphinx-doc__sphinx-8265
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: sphinx-doc/sphinx
+  ✓ Version: 3.3
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/sphinx-doc__sphinx-8265.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/sphinx-doc__sphinx-8265.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-sphinx-doc-sphinx-8265:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-sphinx-doc-sphinx-8265:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-sphinx-8265-mp-437139 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 1537ad34-3244-48e9-a661-5d7916a5ffb6
+  ✅ 任务已提交: 1537ad34-3244-48e9-a661-5d7916a5ffb6
+
+🚀 提交任务: sphinx-doc__sphinx-9658
+
+======================================================================
+运行 Model Patch 评测 (修复版本): sphinx-doc__sphinx-9658
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: sphinx-doc/sphinx
+  ✓ Version: 4.3
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/sphinx-doc__sphinx-9658.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/sphinx-doc__sphinx-9658.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-sphinx-doc-sphinx-9658:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-sphinx-doc-sphinx-9658:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-sphinx-9658-mp-437142 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: a0e3f757-c287-4003-bb34-3181f41e5eda
+  ✅ 任务已提交: a0e3f757-c287-4003-bb34-3181f41e5eda
+
+🚀 提交任务: sympy__sympy-14531
+
+======================================================================
+运行 Model Patch 评测 (修复版本): sympy__sympy-14531
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: sympy/sympy
+  ✓ Version: 1.1
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/sympy__sympy-14531.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/sympy__sympy-14531.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-sympy-sympy-14531:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-sympy-sympy-14531:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-sympy-14531-mp-437146 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: cdaaaad3-9120-4745-91c5-4f55aeefe3fb
+  ✅ 任务已提交: cdaaaad3-9120-4745-91c5-4f55aeefe3fb
+
+🚀 提交任务: sympy__sympy-18211
+
+======================================================================
+运行 Model Patch 评测 (修复版本): sympy__sympy-18211
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: sympy/sympy
+  ✓ Version: 1.6
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/sympy__sympy-18211.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/sympy__sympy-18211.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-sympy-sympy-18211:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-sympy-sympy-18211:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-sympy-18211-mp-437149 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: fb3607c9-fc72-46d3-b371-5de7399c2461
+  ✅ 任务已提交: fb3607c9-fc72-46d3-b371-5de7399c2461
+
+🚀 提交任务: sympy__sympy-19954
+
+======================================================================
+运行 Model Patch 评测 (修复版本): sympy__sympy-19954
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: sympy/sympy
+  ✓ Version: 1.7
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/sympy__sympy-19954.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/sympy__sympy-19954.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-sympy-sympy-19954:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-sympy-sympy-19954:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-sympy-19954-mp-437153 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: 3d23c1fd-f962-429d-ad12-7b05f2c81f78
+  ✅ 任务已提交: 3d23c1fd-f962-429d-ad12-7b05f2c81f78
+
+🚀 提交任务: sympy__sympy-20916
+
+======================================================================
+运行 Model Patch 评测 (修复版本): sympy__sympy-20916
+======================================================================
+
+📥 正在从 Dataset 加载实例信息...
+  ✓ Repo: sympy/sympy
+  ✓ Version: 1.8
+
+📄 读取 model patch...
+  ✓ 检测到 Agentless 格式patch
+  ✓ Patch文件: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model/sympy__sympy-20916.agentless_raw
+  ✓ Test patch已写入: /volume/ai-infra/rhjiang/SWE-bench-cc/predictions/test_patches/sympy__sympy-20916.diff
+
+📌 初始化 SiFlow 客户端...
+🔍 正在查询 instance 镜像: swebench-instance-sympy-sympy-20916:2.0.0
+  ✓ Instance 镜像: registry-cn-shanghai.siflow.cn/ai-infra/swebench-instance-sympy-sympy-20916:2.0.0-v1
+
+📝 生成评估脚本 (修复版本)...
+  ✓ 脚本生成完成 (104 行)
+
+  关键步骤:
+    1. 应用 Gold Patch 到源代码
+    2. 重新安装仓库
+    3. 重置测试文件
+    4. 应用 Test Patch
+    5. 运行测试
+
+🚀 创建 SiFlow 评测任务...
+  ✓ 任务名称前缀: eval-sympy-20916-mp-437156 (patch_type: model)
+  ✅ 任务创建成功
+     Task UUID: c96e45be-657b-4ec5-a508-fb2f81c1ebd8
+  ✅ 任务已提交: c96e45be-657b-4ec5-a508-fb2f81c1ebd8
+  ⚠️ 查询任务状态失败 scikit-learn__scikit-learn-14629: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ scikit-learn__scikit-learn-14629: error (32s)
+  ⚠️ 查询任务状态失败 scikit-learn__scikit-learn-14894: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ scikit-learn__scikit-learn-14894: error (29s)
+  ⚠️ 查询任务状态失败 scikit-learn__scikit-learn-26194: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ scikit-learn__scikit-learn-26194: error (25s)
+  ⚠️ 查询任务状态失败 sphinx-doc__sphinx-10466: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ sphinx-doc__sphinx-10466: error (22s)
+  ⚠️ 查询任务状态失败 sphinx-doc__sphinx-8265: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ sphinx-doc__sphinx-8265: error (19s)
+  ⚠️ 查询任务状态失败 sphinx-doc__sphinx-9658: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ sphinx-doc__sphinx-9658: error (15s)
+  ⚠️ 查询任务状态失败 sympy__sympy-14531: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ sympy__sympy-14531: error (12s)
+  ⚠️ 查询任务状态失败 sympy__sympy-18211: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ sympy__sympy-18211: error (8s)
+  ⚠️ 查询任务状态失败 sympy__sympy-19954: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ sympy__sympy-19954: error (5s)
+  ⚠️ 查询任务状态失败 sympy__sympy-20916: Tasks.list() got an unexpected keyword argument 'keyword'
+  ❌ sympy__sympy-20916: error (2s)
+
+📊 当前统计:
+  RESOLVED_FULL: 0/50
+  Resolve率: 0.0%
+
+======================================================================
+✅ 批量评估完成！
+======================================================================
+总耗时: 4分57秒
+
+📊 最终统计:
+  总数: 50
+  RESOLVED_FULL: 0
+  RESOLVED_NO: 0
+  Resolve率: 0.0%
+
+✅ 结果已保存到: model_patch_50_results.json

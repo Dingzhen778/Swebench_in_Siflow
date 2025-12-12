@@ -1,0 +1,28 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ ./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 model_forms.models model_forms.test_modelchoicefield model_forms.tests
+Testing against Django installed in '/testbed/django'
+Importing application model_forms
+Traceback (most recent call last):
+  File "./tests/runtests.py", line 571, in <module>
+    options.start_at, options.start_after, options.pdb, options.buffer,
+  File "./tests/runtests.py", line 309, in django_tests
+    extra_tests=extra_tests,
+  File "/testbed/django/test/runner.py", line 693, in run_tests
+    suite = self.build_suite(test_labels, extra_tests)
+  File "/testbed/django/test/runner.py", line 550, in build_suite
+    tests = self.test_loader.loadTestsFromName(label)
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/unittest/loader.py", line 153, in loadTestsFromName
+    module = __import__(module_name)
+  File "/testbed/tests/model_forms/tests.py", line 36, in <module>
+    class ImageFileForm(forms.ModelForm):
+  File "/testbed/django/forms/models.py", line 259, in __new__
+    apply_limit_choices_to=False,
+  File "/testbed/django/forms/models.py", line 183, in fields_for_model
+    if isinstance(formfield.widget, RadioSelect) and not f.blank:
+NameError: name 'RadioSelect' is not defined
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

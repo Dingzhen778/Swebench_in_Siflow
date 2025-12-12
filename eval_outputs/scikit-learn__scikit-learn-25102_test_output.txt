@@ -1,0 +1,152 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ pytest -rA sklearn/feature_selection/tests/test_base.py sklearn/feature_selection/tests/test_feature_select.py
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.25, pytest-8.4.2, pluggy-1.5.0
+rootdir: /testbed
+configfile: setup.cfg
+collected 61 items
+
+sklearn/feature_selection/tests/test_base.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[31m                      [  9%][0m
+sklearn/feature_selection/tests/test_feature_select.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31m [ 37%]
+[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[31m                                   [100%][0m
+
+=================================== FAILURES ===================================
+[31m[1m____________________________ test_output_dataframe _____________________________[0m
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mtest_output_dataframe[39;49;00m():[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Check output dtypes for dataframes is consistent with the input dtypes."""[39;49;00m[90m[39;49;00m
+        pd = pytest.importorskip([33m"[39;49;00m[33mpandas[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+    [90m[39;49;00m
+        X = pd.DataFrame([90m[39;49;00m
+            {[90m[39;49;00m
+                [33m"[39;49;00m[33ma[39;49;00m[33m"[39;49;00m: pd.Series([[94m1.0[39;49;00m, [94m2.4[39;49;00m, [94m4.5[39;49;00m], dtype=np.float32),[90m[39;49;00m
+                [33m"[39;49;00m[33mb[39;49;00m[33m"[39;49;00m: pd.Series([[33m"[39;49;00m[33ma[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mb[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33ma[39;49;00m[33m"[39;49;00m], dtype=[33m"[39;49;00m[33mcategory[39;49;00m[33m"[39;49;00m),[90m[39;49;00m
+                [33m"[39;49;00m[33mc[39;49;00m[33m"[39;49;00m: pd.Series([[33m"[39;49;00m[33mj[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mb[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mb[39;49;00m[33m"[39;49;00m], dtype=[33m"[39;49;00m[33mcategory[39;49;00m[33m"[39;49;00m),[90m[39;49;00m
+                [33m"[39;49;00m[33md[39;49;00m[33m"[39;49;00m: pd.Series([[94m3.0[39;49;00m, [94m2.4[39;49;00m, [94m1.2[39;49;00m], dtype=np.float64),[90m[39;49;00m
+            }[90m[39;49;00m
+        )[90m[39;49;00m
+    [90m[39;49;00m
+        [94mfor[39;49;00m step [95min[39;49;00m [[94m2[39;49;00m, [94m3[39;49;00m]:[90m[39;49;00m
+            sel = StepSelector(step=step).set_output(transform=[33m"[39;49;00m[33mpandas[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+            sel.fit(X)[90m[39;49;00m
+    [90m[39;49;00m
+            output = sel.transform(X)[90m[39;49;00m
+            [94mfor[39;49;00m name, dtype [95min[39;49;00m output.dtypes.items():[90m[39;49;00m
+>               [94massert[39;49;00m dtype == X.dtypes[name][90m[39;49;00m
+[1m[31mE               AssertionError: assert dtype('O') == dtype('float32')[0m
+
+[1m[31msklearn/feature_selection/tests/test_base.py[0m:140: AssertionError
+[31m[1m_________________________ test_dataframe_output_dtypes _________________________[0m
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mtest_dataframe_output_dtypes[39;49;00m():[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Check that the output datafarme dtypes are the same as the input.[39;49;00m
+    [33m[39;49;00m
+    [33m    Non-regression test for gh-24860.[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        pd = pytest.importorskip([33m"[39;49;00m[33mpandas[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+    [90m[39;49;00m
+        X, y = load_iris(return_X_y=[94mTrue[39;49;00m, as_frame=[94mTrue[39;49;00m)[90m[39;49;00m
+        X = X.astype([90m[39;49;00m
+            {[90m[39;49;00m
+                [33m"[39;49;00m[33mpetal length (cm)[39;49;00m[33m"[39;49;00m: np.float32,[90m[39;49;00m
+                [33m"[39;49;00m[33mpetal width (cm)[39;49;00m[33m"[39;49;00m: np.float64,[90m[39;49;00m
+            }[90m[39;49;00m
+        )[90m[39;49;00m
+        X[[33m"[39;49;00m[33mpetal_width_binned[39;49;00m[33m"[39;49;00m] = pd.cut(X[[33m"[39;49;00m[33mpetal width (cm)[39;49;00m[33m"[39;49;00m], bins=[94m10[39;49;00m)[90m[39;49;00m
+    [90m[39;49;00m
+        column_order = X.columns[90m[39;49;00m
+    [90m[39;49;00m
+        [94mdef[39;49;00m[90m [39;49;00m[92mselector[39;49;00m(X, y):[90m[39;49;00m
+            ranking = {[90m[39;49;00m
+                [33m"[39;49;00m[33msepal length (cm)[39;49;00m[33m"[39;49;00m: [94m1[39;49;00m,[90m[39;49;00m
+                [33m"[39;49;00m[33msepal width (cm)[39;49;00m[33m"[39;49;00m: [94m2[39;49;00m,[90m[39;49;00m
+                [33m"[39;49;00m[33mpetal length (cm)[39;49;00m[33m"[39;49;00m: [94m3[39;49;00m,[90m[39;49;00m
+                [33m"[39;49;00m[33mpetal width (cm)[39;49;00m[33m"[39;49;00m: [94m4[39;49;00m,[90m[39;49;00m
+                [33m"[39;49;00m[33mpetal_width_binned[39;49;00m[33m"[39;49;00m: [94m5[39;49;00m,[90m[39;49;00m
+            }[90m[39;49;00m
+            [94mreturn[39;49;00m np.asarray([ranking[name] [94mfor[39;49;00m name [95min[39;49;00m column_order])[90m[39;49;00m
+    [90m[39;49;00m
+        univariate_filter = SelectKBest(selector, k=[94m3[39;49;00m).set_output(transform=[33m"[39;49;00m[33mpandas[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+        output = univariate_filter.fit_transform(X, y)[90m[39;49;00m
+    [90m[39;49;00m
+        assert_array_equal([90m[39;49;00m
+            output.columns, [[33m"[39;49;00m[33mpetal length (cm)[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mpetal width (cm)[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mpetal_width_binned[39;49;00m[33m"[39;49;00m][90m[39;49;00m
+        )[90m[39;49;00m
+        [94mfor[39;49;00m name, dtype [95min[39;49;00m output.dtypes.items():[90m[39;49;00m
+>           [94massert[39;49;00m dtype == X.dtypes[name][90m[39;49;00m
+[1m[31mE           AssertionError: assert dtype('O') == dtype('float32')[0m
+
+[1m[31msklearn/feature_selection/tests/test_feature_select.py[0m:984: AssertionError
+==================================== PASSES ====================================
+[32m[1m_____________________________ test_transform_dense _____________________________[0m
+---------------------------- Captured stdout setup -----------------------------
+I: Seeding RNGs with 916244608
+[36m[1m=========================== short test summary info ============================[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_base.py::[1mtest_transform_dense[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_base.py::[1mtest_transform_sparse[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_base.py::[1mtest_inverse_transform_dense[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_base.py::[1mtest_inverse_transform_sparse[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_base.py::[1mtest_get_support[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_oneway_vs_scipy_stats[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_oneway_ints[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_classif[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_r_regression[True][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_r_regression[False][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_regression[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_regression_input_dtype[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_regression_center[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_r_regression_force_finite[X0-y0-expected_corr_coef0-True][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_r_regression_force_finite[X1-y1-expected_corr_coef1-True][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_r_regression_force_finite[X2-y2-expected_corr_coef2-False][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_r_regression_force_finite[X3-y3-expected_corr_coef3-False][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_regression_corner_case[X0-y0-expected_f_statistic0-expected_p_values0-True][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_regression_corner_case[X1-y1-expected_f_statistic1-expected_p_values1-True][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_regression_corner_case[X2-y2-expected_f_statistic2-expected_p_values2-True][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_regression_corner_case[X3-y3-expected_f_statistic3-expected_p_values3-True][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_regression_corner_case[X4-y4-expected_f_statistic4-expected_p_values4-False][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_regression_corner_case[X5-y5-expected_f_statistic5-expected_p_values5-False][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_regression_corner_case[X6-y6-expected_f_statistic6-expected_p_values6-False][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_regression_corner_case[X7-y7-expected_f_statistic7-expected_p_values7-False][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_classif_multi_class[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_percentile_classif[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_percentile_classif_sparse[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_kbest_classif[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_kbest_all[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_kbest_zero[float32][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_kbest_zero[float64][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_heuristics_classif[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_percentile_regression[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_percentile_regression_full[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_kbest_regression[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_heuristics_regression[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_boundary_case_ch2[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_fdr_regression[1-0.001][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_fdr_regression[1-0.01][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_fdr_regression[1-0.1][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_fdr_regression[5-0.001][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_fdr_regression[5-0.01][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_fdr_regression[5-0.1][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_fdr_regression[10-0.001][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_fdr_regression[10-0.01][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_fdr_regression[10-0.1][0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_select_fwe_regression[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_selectkbest_tiebreaking[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_selectpercentile_tiebreaking[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_tied_pvalues[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_scorefunc_multilabel[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_tied_scores[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_nans[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_invalid_k[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_f_classif_constant_feature[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_no_feature_selected[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_mutual_info_classif[0m
+[32mPASSED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_mutual_info_regression[0m
+[31mFAILED[0m sklearn/feature_selection/tests/test_base.py::[1mtest_output_dataframe[0m - AssertionError: assert dtype('O') == dtype('float32')
+[31mFAILED[0m sklearn/feature_selection/tests/test_feature_select.py::[1mtest_dataframe_output_dtypes[0m - AssertionError: assert dtype('O') == dtype('float32')
+[31m=================== [31m[1m2 failed[0m, [32m59 passed[0m, [33m1 warning[0m[31m in 1.56s[0m[31m ====================[0m
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

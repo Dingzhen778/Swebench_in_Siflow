@@ -1,0 +1,11 @@
+# Python缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 日志文件
+nohup.out
+
+# 临时文件
+*.swp
+*~

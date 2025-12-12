@@ -1,0 +1,1048 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ pytest -rA sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py
+============================= test session starts ==============================
+platform linux -- Python 3.6.13, pytest-6.2.4, py-1.11.0, pluggy-0.13.1
+rootdir: /testbed, configfile: setup.cfg
+collected 80 items
+
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py . [  1%]
+.......................................................................................................................................................................... [ 91%]
+..... [ 91%]
+........                                                                  [100%]
+
+==================================== PASSES ====================================
+______ test_early_stopping_regression[neg_mean_squared_error-0.1-5-1e-07] ______
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 47.097 s
+Binning 0.000 GB of validation data: 125.601 s
+Fitting gradient boosted rounds:
+[1/200] 1 tree, 7 leaves, max depth = 3, train score: -14933.30065, val score: -9147.45505, in 61.798s
+[2/200] 1 tree, 7 leaves, max depth = 3, train score: -12696.31486, val score: -10179.76766, in 61.100s
+[3/200] 1 tree, 7 leaves, max depth = 3, train score: -10858.64123, val score: -9837.00593, in 67.701s
+[4/200] 1 tree, 7 leaves, max depth = 4, train score: -9368.81837, val score: -10419.26747, in 68.699s
+[5/200] 1 tree, 7 leaves, max depth = 3, train score: -8084.07195, val score: -11229.12184, in 83.400s
+Fit 5 trees in 515.398 s, (35 total leaves)
+Time spent computing histograms: 88.795s
+Time spent finding best splits:  50.901s
+Time spent applying splits:      104.606s
+Time spent predicting:           6.798s
+______ test_early_stopping_regression[neg_mean_squared_error-None-5-0.1] _______
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 113.398 s
+Fitting gradient boosted rounds:
+[1/200] 1 tree, 8 leaves, max depth = 4, train score: -14225.47693, in 84.299s
+[2/200] 1 tree, 8 leaves, max depth = 4, train score: -12176.96503, in 66.400s
+[3/200] 1 tree, 8 leaves, max depth = 4, train score: -10249.37480, in 39.600s
+[4/200] 1 tree, 8 leaves, max depth = 4, train score: -8688.02670, in 83.200s
+[5/200] 1 tree, 8 leaves, max depth = 4, train score: -7478.47398, in 59.700s
+[6/200] 1 tree, 7 leaves, max depth = 4, train score: -6428.70959, in 40.900s
+[7/200] 1 tree, 7 leaves, max depth = 5, train score: -5483.47343, in 70.200s
+[8/200] 1 tree, 8 leaves, max depth = 4, train score: -4676.16481, in 78.200s
+[9/200] 1 tree, 7 leaves, max depth = 5, train score: -4027.81069, in 51.500s
+[10/200] 1 tree, 8 leaves, max depth = 6, train score: -3479.43963, in 100.200s
+[11/200] 1 tree, 8 leaves, max depth = 5, train score: -3033.81730, in 31.701s
+[12/200] 1 tree, 8 leaves, max depth = 7, train score: -2650.46139, in 65.399s
+[13/200] 1 tree, 8 leaves, max depth = 5, train score: -2311.20825, in 77.003s
+[14/200] 1 tree, 8 leaves, max depth = 4, train score: -1991.69147, in 58.597s
+[15/200] 1 tree, 7 leaves, max depth = 5, train score: -1744.11691, in 95.900s
+[16/200] 1 tree, 8 leaves, max depth = 5, train score: -1538.03353, in 52.200s
+[17/200] 1 tree, 8 leaves, max depth = 4, train score: -1333.36533, in 54.199s
+[18/200] 1 tree, 7 leaves, max depth = 5, train score: -1176.11817, in 86.400s
+[19/200] 1 tree, 8 leaves, max depth = 5, train score: -1044.90030, in 118.100s
+[20/200] 1 tree, 9 leaves, max depth = 5, train score: -911.89338, in 63.001s
+[21/200] 1 tree, 9 leaves, max depth = 6, train score: -800.92275, in 99.199s
+[22/200] 1 tree, 8 leaves, max depth = 5, train score: -716.89535, in 84.800s
+[23/200] 1 tree, 7 leaves, max depth = 6, train score: -654.42760, in 96.601s
+[24/200] 1 tree, 9 leaves, max depth = 6, train score: -579.73365, in 89.600s
+[25/200] 1 tree, 8 leaves, max depth = 5, train score: -515.78194, in 111.599s
+[26/200] 1 tree, 8 leaves, max depth = 5, train score: -459.32122, in 126.000s
+[27/200] 1 tree, 8 leaves, max depth = 5, train score: -409.24650, in 77.700s
+[28/200] 1 tree, 9 leaves, max depth = 6, train score: -367.47790, in 73.302s
+[29/200] 1 tree, 8 leaves, max depth = 5, train score: -335.66521, in 97.999s
+[30/200] 1 tree, 9 leaves, max depth = 5, train score: -297.76401, in 35.798s
+[31/200] 1 tree, 8 leaves, max depth = 6, train score: -272.96701, in 74.000s
+[32/200] 1 tree, 9 leaves, max depth = 6, train score: -248.19832, in 120.301s
+[33/200] 1 tree, 9 leaves, max depth = 7, train score: -225.81113, in 48.900s
+[34/200] 1 tree, 8 leaves, max depth = 5, train score: -205.90128, in 25.099s
+[35/200] 1 tree, 8 leaves, max depth = 5, train score: -189.92080, in 62.601s
+[36/200] 1 tree, 8 leaves, max depth = 7, train score: -176.85519, in 48.299s
+[37/200] 1 tree, 9 leaves, max depth = 6, train score: -163.84071, in 60.600s
+[38/200] 1 tree, 8 leaves, max depth = 7, train score: -150.32988, in 54.101s
+[39/200] 1 tree, 8 leaves, max depth = 5, train score: -139.70658, in 103.899s
+[40/200] 1 tree, 7 leaves, max depth = 4, train score: -129.94358, in 118.999s
+[41/200] 1 tree, 8 leaves, max depth = 6, train score: -121.59335, in 144.200s
+[42/200] 1 tree, 8 leaves, max depth = 6, train score: -111.89196, in 49.401s
+[43/200] 1 tree, 8 leaves, max depth = 7, train score: -104.45571, in 66.199s
+[44/200] 1 tree, 9 leaves, max depth = 6, train score: -97.88336, in 143.800s
+[45/200] 1 tree, 8 leaves, max depth = 7, train score: -90.87299, in 85.001s
+[46/200] 1 tree, 7 leaves, max depth = 6, train score: -85.43359, in 68.801s
+[47/200] 1 tree, 8 leaves, max depth = 6, train score: -80.05618, in 93.699s
+[48/200] 1 tree, 8 leaves, max depth = 7, train score: -74.68913, in 50.802s
+[49/200] 1 tree, 8 leaves, max depth = 7, train score: -70.65725, in 118.397s
+[50/200] 1 tree, 9 leaves, max depth = 7, train score: -65.66765, in 150.001s
+[51/200] 1 tree, 9 leaves, max depth = 7, train score: -59.75878, in 69.398s
+[52/200] 1 tree, 9 leaves, max depth = 7, train score: -56.10258, in 27.803s
+[53/200] 1 tree, 7 leaves, max depth = 5, train score: -51.34178, in 84.700s
+[54/200] 1 tree, 9 leaves, max depth = 8, train score: -47.82090, in 117.200s
+[55/200] 1 tree, 9 leaves, max depth = 6, train score: -42.45177, in 61.598s
+[56/200] 1 tree, 9 leaves, max depth = 7, train score: -39.48291, in 117.300s
+[57/200] 1 tree, 8 leaves, max depth = 6, train score: -36.44386, in 85.199s
+[58/200] 1 tree, 8 leaves, max depth = 6, train score: -34.28559, in 64.302s
+[59/200] 1 tree, 8 leaves, max depth = 7, train score: -31.95874, in 23.500s
+[60/200] 1 tree, 9 leaves, max depth = 6, train score: -29.25862, in 171.999s
+[61/200] 1 tree, 9 leaves, max depth = 7, train score: -27.72101, in 161.299s
+[62/200] 1 tree, 8 leaves, max depth = 7, train score: -26.30325, in 93.400s
+[63/200] 1 tree, 9 leaves, max depth = 7, train score: -24.65700, in 106.802s
+[64/200] 1 tree, 8 leaves, max depth = 7, train score: -23.47527, in 88.500s
+[65/200] 1 tree, 8 leaves, max depth = 7, train score: -22.14954, in 187.399s
+[66/200] 1 tree, 8 leaves, max depth = 7, train score: -21.11851, in 67.298s
+[67/200] 1 tree, 9 leaves, max depth = 7, train score: -19.91447, in 98.702s
+[68/200] 1 tree, 8 leaves, max depth = 7, train score: -18.78488, in 122.300s
+[69/200] 1 tree, 9 leaves, max depth = 8, train score: -17.74892, in 93.400s
+[70/200] 1 tree, 7 leaves, max depth = 6, train score: -17.00395, in 168.799s
+[71/200] 1 tree, 9 leaves, max depth = 8, train score: -16.01575, in 174.399s
+[72/200] 1 tree, 8 leaves, max depth = 6, train score: -15.10901, in 220.300s
+[73/200] 1 tree, 8 leaves, max depth = 6, train score: -14.44367, in 209.900s
+[74/200] 1 tree, 9 leaves, max depth = 7, train score: -13.62321, in 204.100s
+[75/200] 1 tree, 8 leaves, max depth = 7, train score: -12.96723, in 123.300s
+[76/200] 1 tree, 8 leaves, max depth = 6, train score: -12.43202, in 216.000s
+[77/200] 1 tree, 9 leaves, max depth = 7, train score: -11.79314, in 138.201s
+[78/200] 1 tree, 8 leaves, max depth = 6, train score: -11.23240, in 134.700s
+[79/200] 1 tree, 10 leaves, max depth = 8, train score: -10.68134, in 99.098s
+[80/200] 1 tree, 9 leaves, max depth = 7, train score: -10.15603, in 169.702s
+[81/200] 1 tree, 9 leaves, max depth = 7, train score: -9.64009, in 190.999s
+[82/200] 1 tree, 8 leaves, max depth = 6, train score: -9.21361, in 52.102s
+[83/200] 1 tree, 9 leaves, max depth = 7, train score: -8.73431, in 250.198s
+[84/200] 1 tree, 8 leaves, max depth = 7, train score: -8.33448, in 153.799s
+[85/200] 1 tree, 9 leaves, max depth = 6, train score: -7.99919, in 222.100s
+[86/200] 1 tree, 8 leaves, max depth = 7, train score: -7.62291, in 197.000s
+[87/200] 1 tree, 9 leaves, max depth = 7, train score: -7.26931, in 191.400s
+[88/200] 1 tree, 9 leaves, max depth = 7, train score: -6.92953, in 192.200s
+[89/200] 1 tree, 9 leaves, max depth = 6, train score: -6.55974, in 156.602s
+[90/200] 1 tree, 9 leaves, max depth = 8, train score: -6.26552, in 136.600s
+[91/200] 1 tree, 9 leaves, max depth = 7, train score: -6.02406, in 105.700s
+[92/200] 1 tree, 8 leaves, max depth = 7, train score: -5.76306, in 256.097s
+[93/200] 1 tree, 8 leaves, max depth = 6, train score: -5.53783, in 187.502s
+[94/200] 1 tree, 8 leaves, max depth = 7, train score: -5.29419, in 110.897s
+[95/200] 1 tree, 9 leaves, max depth = 7, train score: -5.05433, in 131.100s
+[96/200] 1 tree, 9 leaves, max depth = 7, train score: -4.82937, in 245.500s
+[97/200] 1 tree, 9 leaves, max depth = 7, train score: -4.62345, in 182.300s
+[98/200] 1 tree, 8 leaves, max depth = 7, train score: -4.43211, in 45.399s
+[99/200] 1 tree, 9 leaves, max depth = 7, train score: -4.23661, in 151.301s
+[100/200] 1 tree, 9 leaves, max depth = 6, train score: -4.03495, in 207.201s
+[101/200] 1 tree, 8 leaves, max depth = 6, train score: -3.87910, in 114.101s
+[102/200] 1 tree, 9 leaves, max depth = 7, train score: -3.71716, in 106.400s
+[103/200] 1 tree, 9 leaves, max depth = 7, train score: -3.55866, in 240.299s
+[104/200] 1 tree, 8 leaves, max depth = 7, train score: -3.40824, in 131.099s
+[105/200] 1 tree, 8 leaves, max depth = 6, train score: -3.26870, in 162.402s
+[106/200] 1 tree, 8 leaves, max depth = 7, train score: -3.13239, in 126.600s
+[107/200] 1 tree, 9 leaves, max depth = 8, train score: -3.00236, in 139.199s
+[108/200] 1 tree, 8 leaves, max depth = 7, train score: -2.88012, in 191.998s
+[109/200] 1 tree, 8 leaves, max depth = 5, train score: -2.77238, in 61.299s
+[110/200] 1 tree, 9 leaves, max depth = 7, train score: -2.65749, in 183.702s
+[111/200] 1 tree, 9 leaves, max depth = 7, train score: -2.54903, in 37.101s
+[112/200] 1 tree, 8 leaves, max depth = 6, train score: -2.45330, in 216.398s
+[113/200] 1 tree, 9 leaves, max depth = 8, train score: -2.35016, in 238.300s
+[114/200] 1 tree, 8 leaves, max depth = 7, train score: -2.25157, in 189.101s
+[115/200] 1 tree, 8 leaves, max depth = 7, train score: -2.16238, in 153.298s
+[116/200] 1 tree, 9 leaves, max depth = 7, train score: -2.07315, in 177.400s
+[117/200] 1 tree, 8 leaves, max depth = 7, train score: -1.99111, in 205.301s
+[118/200] 1 tree, 9 leaves, max depth = 7, train score: -1.91103, in 67.500s
+[119/200] 1 tree, 9 leaves, max depth = 7, train score: -1.83423, in 52.400s
+[120/200] 1 tree, 8 leaves, max depth = 6, train score: -1.75617, in 249.198s
+[121/200] 1 tree, 8 leaves, max depth = 5, train score: -1.69233, in 163.500s
+[122/200] 1 tree, 8 leaves, max depth = 6, train score: -1.62507, in 187.200s
+[123/200] 1 tree, 8 leaves, max depth = 7, train score: -1.56136, in 188.800s
+[124/200] 1 tree, 8 leaves, max depth = 5, train score: -1.50232, in 218.299s
+[125/200] 1 tree, 9 leaves, max depth = 8, train score: -1.44286, in 123.300s
+[126/200] 1 tree, 9 leaves, max depth = 8, train score: -1.38574, in 200.500s
+[127/200] 1 tree, 8 leaves, max depth = 7, train score: -1.33112, in 211.500s
+[128/200] 1 tree, 8 leaves, max depth = 7, train score: -1.27793, in 207.000s
+[129/200] 1 tree, 8 leaves, max depth = 6, train score: -1.22784, in 239.701s
+[130/200] 1 tree, 8 leaves, max depth = 7, train score: -1.17825, in 130.199s
+[131/200] 1 tree, 9 leaves, max depth = 7, train score: -1.13201, in 205.200s
+[132/200] 1 tree, 10 leaves, max depth = 8, train score: -1.08851, in 198.501s
+[133/200] 1 tree, 9 leaves, max depth = 8, train score: -1.04661, in 54.901s
+[134/200] 1 tree, 7 leaves, max depth = 5, train score: -1.00801, in 109.097s
+[135/200] 1 tree, 9 leaves, max depth = 7, train score: -0.96822, in 169.901s
+[136/200] 1 tree, 8 leaves, max depth = 7, train score: -0.93049, in 149.300s
+[137/200] 1 tree, 8 leaves, max depth = 6, train score: -0.89478, in 111.501s
+[138/200] 1 tree, 9 leaves, max depth = 7, train score: -0.85961, in 244.899s
+[139/200] 1 tree, 8 leaves, max depth = 6, train score: -0.82579, in 197.100s
+[140/200] 1 tree, 8 leaves, max depth = 6, train score: -0.79411, in 281.700s
+[141/200] 1 tree, 7 leaves, max depth = 6, train score: -0.76506, in 206.700s
+[142/200] 1 tree, 8 leaves, max depth = 7, train score: -0.73536, in 199.599s
+[143/200] 1 tree, 9 leaves, max depth = 7, train score: -0.70690, in 218.301s
+[144/200] 1 tree, 8 leaves, max depth = 7, train score: -0.68008, in 87.502s
+[145/200] 1 tree, 8 leaves, max depth = 5, train score: -0.65577, in 225.198s
+[146/200] 1 tree, 9 leaves, max depth = 7, train score: -0.63126, in 69.902s
+[147/200] 1 tree, 8 leaves, max depth = 6, train score: -0.60730, in 346.798s
+[148/200] 1 tree, 9 leaves, max depth = 5, train score: -0.58326, in 255.100s
+[149/200] 1 tree, 7 leaves, max depth = 5, train score: -0.56165, in 237.902s
+[150/200] 1 tree, 9 leaves, max depth = 6, train score: -0.53979, in 311.998s
+[151/200] 1 tree, 9 leaves, max depth = 8, train score: -0.51940, in 216.700s
+[152/200] 1 tree, 9 leaves, max depth = 7, train score: -0.49971, in 121.502s
+[153/200] 1 tree, 9 leaves, max depth = 7, train score: -0.48096, in 159.798s
+[154/200] 1 tree, 9 leaves, max depth = 6, train score: -0.46280, in 297.300s
+Fit 154 trees in 20725.900 s, (1283 total leaves)
+Time spent computing histograms: 3260.965s
+Time spent finding best splits:  1255.709s
+Time spent applying splits:      2781.437s
+Time spent predicting:           131.568s
+_______________ test_early_stopping_regression[None-0.1-5-1e-07] _______________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 99.398 s
+Binning 0.000 GB of validation data: 110.002 s
+Fitting gradient boosted rounds:
+[1/200] 1 tree, 7 leaves, max depth = 3, train score: 0.15607, val score: -0.11700, in 57.800s
+[2/200] 1 tree, 7 leaves, max depth = 3, train score: 0.28249, val score: -0.24305, in 68.100s
+[3/200] 1 tree, 7 leaves, max depth = 3, train score: 0.38634, val score: -0.20120, in 30.999s
+[4/200] 1 tree, 7 leaves, max depth = 4, train score: 0.47054, val score: -0.27230, in 85.300s
+[5/200] 1 tree, 7 leaves, max depth = 3, train score: 0.54314, val score: -0.37119, in 28.001s
+Fit 5 trees in 479.700 s, (35 total leaves)
+Time spent computing histograms: 58.797s
+Time spent finding best splits:  33.500s
+Time spent applying splits:      83.999s
+Time spent predicting:           7.698s
+_______________ test_early_stopping_regression[None-None-5-0.1] ________________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 0.101 s
+Fitting gradient boosted rounds:
+[1/200] 1 tree, 8 leaves, max depth = 4, train score: 0.15089, in 61.497s
+[2/200] 1 tree, 8 leaves, max depth = 4, train score: 0.27316, in 21.798s
+[3/200] 1 tree, 8 leaves, max depth = 4, train score: 0.38822, in 65.801s
+[4/200] 1 tree, 8 leaves, max depth = 4, train score: 0.48142, in 58.399s
+[5/200] 1 tree, 8 leaves, max depth = 4, train score: 0.55361, in 39.302s
+[6/200] 1 tree, 7 leaves, max depth = 4, train score: 0.61627, in 23.098s
+[7/200] 1 tree, 7 leaves, max depth = 5, train score: 0.67269, in 79.000s
+[8/200] 1 tree, 8 leaves, max depth = 4, train score: 0.72088, in 63.200s
+[9/200] 1 tree, 7 leaves, max depth = 5, train score: 0.75958, in 56.700s
+[10/200] 1 tree, 8 leaves, max depth = 6, train score: 0.79231, in 95.601s
+[11/200] 1 tree, 8 leaves, max depth = 5, train score: 0.81891, in 50.998s
+[12/200] 1 tree, 8 leaves, max depth = 7, train score: 0.84180, in 96.900s
+[13/200] 1 tree, 8 leaves, max depth = 5, train score: 0.86205, in 97.601s
+[14/200] 1 tree, 8 leaves, max depth = 4, train score: 0.88112, in 99.198s
+[15/200] 1 tree, 7 leaves, max depth = 5, train score: 0.89589, in 53.801s
+[16/200] 1 tree, 8 leaves, max depth = 5, train score: 0.90820, in 9.698s
+Fit 16 trees in 972.698 s, (124 total leaves)
+Time spent computing histograms: 279.892s
+Time spent finding best splits:  114.710s
+Time spent applying splits:      267.197s
+Time spent predicting:           14.495s
+_______________ test_early_stopping_regression[loss-0.1-5-1e-07] _______________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 144.897 s
+Binning 0.000 GB of validation data: 16.003 s
+Fitting gradient boosted rounds:
+[1/200] 1 tree, 7 leaves, max depth = 3, train loss: 7466.65033, val loss: 4573.72752, in 21.600s
+[2/200] 1 tree, 7 leaves, max depth = 3, train loss: 6348.15743, val loss: 5089.88383, in 53.297s
+[3/200] 1 tree, 7 leaves, max depth = 3, train loss: 5429.32062, val loss: 4918.50296, in 64.400s
+[4/200] 1 tree, 7 leaves, max depth = 4, train loss: 4684.40919, val loss: 5209.63373, in 26.602s
+[5/200] 1 tree, 7 leaves, max depth = 3, train loss: 4042.03598, val loss: 5614.56092, in 28.798s
+Fit 5 trees in 355.599 s, (35 total leaves)
+Time spent computing histograms: 64.699s
+Time spent finding best splits:  34.502s
+Time spent applying splits:      67.401s
+Time spent predicting:           3.100s
+_______________ test_early_stopping_regression[loss-None-5-0.1] ________________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 47.992 s
+Fitting gradient boosted rounds:
+[1/200] 1 tree, 8 leaves, max depth = 4, train loss: 7112.73847, in 82.700s
+[2/200] 1 tree, 8 leaves, max depth = 4, train loss: 6088.48251, in 84.300s
+[3/200] 1 tree, 8 leaves, max depth = 4, train loss: 5124.68740, in 77.500s
+[4/200] 1 tree, 8 leaves, max depth = 4, train loss: 4344.01335, in 74.500s
+[5/200] 1 tree, 8 leaves, max depth = 4, train loss: 3739.23699, in 65.601s
+[6/200] 1 tree, 7 leaves, max depth = 4, train loss: 3214.35480, in 20.000s
+[7/200] 1 tree, 7 leaves, max depth = 5, train loss: 2741.73671, in 25.999s
+[8/200] 1 tree, 8 leaves, max depth = 4, train loss: 2338.08241, in 57.301s
+[9/200] 1 tree, 7 leaves, max depth = 5, train loss: 2013.90534, in 18.102s
+[10/200] 1 tree, 8 leaves, max depth = 6, train loss: 1739.71981, in 67.298s
+[11/200] 1 tree, 8 leaves, max depth = 5, train loss: 1516.90865, in 70.700s
+[12/200] 1 tree, 8 leaves, max depth = 7, train loss: 1325.23069, in 46.999s
+[13/200] 1 tree, 8 leaves, max depth = 5, train loss: 1155.60412, in 39.800s
+[14/200] 1 tree, 8 leaves, max depth = 4, train loss: 995.84574, in 22.303s
+[15/200] 1 tree, 7 leaves, max depth = 5, train loss: 872.05846, in 19.400s
+[16/200] 1 tree, 8 leaves, max depth = 5, train loss: 769.01676, in 7.700s
+[17/200] 1 tree, 8 leaves, max depth = 4, train loss: 666.68267, in 17.699s
+[18/200] 1 tree, 7 leaves, max depth = 5, train loss: 588.05909, in 17.000s
+[19/200] 1 tree, 8 leaves, max depth = 5, train loss: 522.45015, in 36.999s
+[20/200] 1 tree, 9 leaves, max depth = 5, train loss: 455.94669, in 60.701s
+[21/200] 1 tree, 9 leaves, max depth = 6, train loss: 400.46137, in 27.701s
+[22/200] 1 tree, 8 leaves, max depth = 5, train loss: 358.44767, in 48.399s
+[23/200] 1 tree, 7 leaves, max depth = 6, train loss: 327.21380, in 60.098s
+[24/200] 1 tree, 9 leaves, max depth = 6, train loss: 289.86683, in 44.401s
+[25/200] 1 tree, 8 leaves, max depth = 5, train loss: 257.89097, in 46.498s
+[26/200] 1 tree, 8 leaves, max depth = 5, train loss: 229.66061, in 8.104s
+[27/200] 1 tree, 8 leaves, max depth = 5, train loss: 204.62325, in 49.897s
+[28/200] 1 tree, 9 leaves, max depth = 6, train loss: 183.73895, in 68.000s
+[29/200] 1 tree, 8 leaves, max depth = 5, train loss: 167.83260, in 40.003s
+[30/200] 1 tree, 9 leaves, max depth = 5, train loss: 148.88201, in 19.297s
+[31/200] 1 tree, 8 leaves, max depth = 6, train loss: 136.48351, in 34.501s
+[32/200] 1 tree, 9 leaves, max depth = 6, train loss: 124.09916, in 41.698s
+[33/200] 1 tree, 9 leaves, max depth = 7, train loss: 112.90556, in 72.103s
+[34/200] 1 tree, 8 leaves, max depth = 5, train loss: 102.95064, in 67.797s
+[35/200] 1 tree, 8 leaves, max depth = 5, train loss: 94.96040, in 37.503s
+[36/200] 1 tree, 8 leaves, max depth = 7, train loss: 88.42759, in 81.997s
+[37/200] 1 tree, 9 leaves, max depth = 6, train loss: 81.92035, in 59.200s
+[38/200] 1 tree, 8 leaves, max depth = 7, train loss: 75.16494, in 87.700s
+[39/200] 1 tree, 8 leaves, max depth = 5, train loss: 69.85329, in 81.403s
+[40/200] 1 tree, 7 leaves, max depth = 4, train loss: 64.97179, in 66.497s
+[41/200] 1 tree, 8 leaves, max depth = 6, train loss: 60.79667, in 29.400s
+[42/200] 1 tree, 8 leaves, max depth = 6, train loss: 55.94598, in 17.300s
+[43/200] 1 tree, 8 leaves, max depth = 7, train loss: 52.22785, in 51.399s
+[44/200] 1 tree, 9 leaves, max depth = 6, train loss: 48.94168, in 65.301s
+[45/200] 1 tree, 8 leaves, max depth = 7, train loss: 45.43650, in 73.598s
+[46/200] 1 tree, 7 leaves, max depth = 6, train loss: 42.71680, in 74.100s
+[47/200] 1 tree, 8 leaves, max depth = 6, train loss: 40.02809, in 38.700s
+[48/200] 1 tree, 8 leaves, max depth = 7, train loss: 37.34457, in 54.603s
+[49/200] 1 tree, 8 leaves, max depth = 7, train loss: 35.32862, in 74.197s
+[50/200] 1 tree, 9 leaves, max depth = 7, train loss: 32.83382, in 93.500s
+[51/200] 1 tree, 9 leaves, max depth = 7, train loss: 29.87939, in 72.600s
+[52/200] 1 tree, 9 leaves, max depth = 7, train loss: 28.05129, in 59.702s
+[53/200] 1 tree, 7 leaves, max depth = 5, train loss: 25.67089, in 45.698s
+[54/200] 1 tree, 9 leaves, max depth = 8, train loss: 23.91045, in 49.502s
+[55/200] 1 tree, 9 leaves, max depth = 6, train loss: 21.22589, in 28.000s
+[56/200] 1 tree, 9 leaves, max depth = 7, train loss: 19.74145, in 13.498s
+[57/200] 1 tree, 8 leaves, max depth = 6, train loss: 18.22193, in 59.700s
+[58/200] 1 tree, 8 leaves, max depth = 6, train loss: 17.14279, in 73.198s
+[59/200] 1 tree, 8 leaves, max depth = 7, train loss: 15.97937, in 34.900s
+[60/200] 1 tree, 9 leaves, max depth = 6, train loss: 14.62931, in 19.700s
+[61/200] 1 tree, 9 leaves, max depth = 7, train loss: 13.86051, in 53.900s
+[62/200] 1 tree, 8 leaves, max depth = 7, train loss: 13.15163, in 78.700s
+[63/200] 1 tree, 9 leaves, max depth = 7, train loss: 12.32850, in 16.503s
+[64/200] 1 tree, 8 leaves, max depth = 7, train loss: 11.73763, in 32.897s
+[65/200] 1 tree, 8 leaves, max depth = 7, train loss: 11.07477, in 67.502s
+[66/200] 1 tree, 8 leaves, max depth = 7, train loss: 10.55925, in 77.798s
+[67/200] 1 tree, 9 leaves, max depth = 7, train loss: 9.95723, in 62.700s
+[68/200] 1 tree, 8 leaves, max depth = 7, train loss: 9.39244, in 87.900s
+[69/200] 1 tree, 9 leaves, max depth = 8, train loss: 8.87446, in 73.300s
+[70/200] 1 tree, 7 leaves, max depth = 6, train loss: 8.50197, in 76.300s
+[71/200] 1 tree, 9 leaves, max depth = 8, train loss: 8.00788, in 54.000s
+[72/200] 1 tree, 8 leaves, max depth = 6, train loss: 7.55450, in 39.900s
+[73/200] 1 tree, 8 leaves, max depth = 6, train loss: 7.22184, in 64.300s
+[74/200] 1 tree, 9 leaves, max depth = 7, train loss: 6.81160, in 36.101s
+[75/200] 1 tree, 8 leaves, max depth = 7, train loss: 6.48362, in 67.499s
+[76/200] 1 tree, 8 leaves, max depth = 6, train loss: 6.21601, in 24.702s
+[77/200] 1 tree, 9 leaves, max depth = 7, train loss: 5.89657, in 45.700s
+[78/200] 1 tree, 8 leaves, max depth = 6, train loss: 5.61620, in 51.298s
+[79/200] 1 tree, 10 leaves, max depth = 8, train loss: 5.34067, in 29.704s
+[80/200] 1 tree, 9 leaves, max depth = 7, train loss: 5.07802, in 62.202s
+[81/200] 1 tree, 9 leaves, max depth = 7, train loss: 4.82004, in 57.599s
+[82/200] 1 tree, 8 leaves, max depth = 6, train loss: 4.60681, in 80.000s
+[83/200] 1 tree, 9 leaves, max depth = 7, train loss: 4.36715, in 31.003s
+[84/200] 1 tree, 8 leaves, max depth = 7, train loss: 4.16724, in 31.100s
+[85/200] 1 tree, 9 leaves, max depth = 6, train loss: 3.99960, in 28.803s
+[86/200] 1 tree, 8 leaves, max depth = 7, train loss: 3.81145, in 85.397s
+[87/200] 1 tree, 9 leaves, max depth = 7, train loss: 3.63466, in 80.901s
+[88/200] 1 tree, 9 leaves, max depth = 7, train loss: 3.46476, in 20.001s
+[89/200] 1 tree, 9 leaves, max depth = 6, train loss: 3.27987, in 12.698s
+[90/200] 1 tree, 9 leaves, max depth = 8, train loss: 3.13276, in 27.802s
+[91/200] 1 tree, 9 leaves, max depth = 7, train loss: 3.01203, in 14.700s
+[92/200] 1 tree, 8 leaves, max depth = 7, train loss: 2.88153, in 30.600s
+[93/200] 1 tree, 8 leaves, max depth = 6, train loss: 2.76891, in 25.201s
+[94/200] 1 tree, 8 leaves, max depth = 7, train loss: 2.64709, in 54.697s
+[95/200] 1 tree, 9 leaves, max depth = 7, train loss: 2.52717, in 80.600s
+[96/200] 1 tree, 9 leaves, max depth = 7, train loss: 2.41469, in 18.201s
+[97/200] 1 tree, 9 leaves, max depth = 7, train loss: 2.31173, in 11.501s
+[98/200] 1 tree, 8 leaves, max depth = 7, train loss: 2.21605, in 64.197s
+[99/200] 1 tree, 9 leaves, max depth = 7, train loss: 2.11831, in 60.800s
+[100/200] 1 tree, 9 leaves, max depth = 6, train loss: 2.01748, in 55.702s
+[101/200] 1 tree, 8 leaves, max depth = 6, train loss: 1.93955, in 52.900s
+[102/200] 1 tree, 9 leaves, max depth = 7, train loss: 1.85858, in 38.997s
+[103/200] 1 tree, 9 leaves, max depth = 7, train loss: 1.77933, in 83.401s
+[104/200] 1 tree, 8 leaves, max depth = 7, train loss: 1.70412, in 34.600s
+[105/200] 1 tree, 8 leaves, max depth = 6, train loss: 1.63435, in 51.799s
+[106/200] 1 tree, 8 leaves, max depth = 7, train loss: 1.56619, in 27.600s
+[107/200] 1 tree, 9 leaves, max depth = 8, train loss: 1.50118, in 74.200s
+[108/200] 1 tree, 8 leaves, max depth = 7, train loss: 1.44006, in 31.700s
+[109/200] 1 tree, 8 leaves, max depth = 5, train loss: 1.38619, in 15.503s
+[110/200] 1 tree, 9 leaves, max depth = 7, train loss: 1.32874, in 33.897s
+[111/200] 1 tree, 9 leaves, max depth = 7, train loss: 1.27452, in 49.300s
+[112/200] 1 tree, 8 leaves, max depth = 6, train loss: 1.22665, in 30.903s
+[113/200] 1 tree, 9 leaves, max depth = 8, train loss: 1.17508, in 54.697s
+[114/200] 1 tree, 8 leaves, max depth = 7, train loss: 1.12579, in 27.100s
+[115/200] 1 tree, 8 leaves, max depth = 7, train loss: 1.08119, in 66.201s
+[116/200] 1 tree, 9 leaves, max depth = 7, train loss: 1.03657, in 53.498s
+[117/200] 1 tree, 8 leaves, max depth = 7, train loss: 0.99556, in 69.003s
+[118/200] 1 tree, 9 leaves, max depth = 7, train loss: 0.95551, in 53.497s
+[119/200] 1 tree, 9 leaves, max depth = 7, train loss: 0.91712, in 58.202s
+[120/200] 1 tree, 8 leaves, max depth = 6, train loss: 0.87809, in 36.901s
+[121/200] 1 tree, 8 leaves, max depth = 5, train loss: 0.84616, in 62.596s
+[122/200] 1 tree, 8 leaves, max depth = 6, train loss: 0.81253, in 36.003s
+[123/200] 1 tree, 8 leaves, max depth = 7, train loss: 0.78068, in 26.297s
+[124/200] 1 tree, 8 leaves, max depth = 5, train loss: 0.75116, in 81.400s
+[125/200] 1 tree, 9 leaves, max depth = 8, train loss: 0.72143, in 26.600s
+[126/200] 1 tree, 9 leaves, max depth = 8, train loss: 0.69287, in 53.400s
+[127/200] 1 tree, 8 leaves, max depth = 7, train loss: 0.66556, in 27.200s
+[128/200] 1 tree, 8 leaves, max depth = 7, train loss: 0.63896, in 86.500s
+[129/200] 1 tree, 8 leaves, max depth = 6, train loss: 0.61392, in 79.300s
+[130/200] 1 tree, 8 leaves, max depth = 7, train loss: 0.58913, in 31.100s
+[131/200] 1 tree, 9 leaves, max depth = 7, train loss: 0.56601, in 94.500s
+[132/200] 1 tree, 10 leaves, max depth = 8, train loss: 0.54426, in 21.500s
+[133/200] 1 tree, 9 leaves, max depth = 8, train loss: 0.52331, in 36.000s
+[134/200] 1 tree, 7 leaves, max depth = 5, train loss: 0.50401, in 69.200s
+[135/200] 1 tree, 9 leaves, max depth = 7, train loss: 0.48411, in 50.600s
+[136/200] 1 tree, 8 leaves, max depth = 7, train loss: 0.46525, in 23.201s
+[137/200] 1 tree, 8 leaves, max depth = 6, train loss: 0.44739, in 67.798s
+Fit 137 trees in 6824.793 s, (1140 total leaves)
+Time spent computing histograms: 2658.044s
+Time spent finding best splits:  1028.934s
+Time spent applying splits:      2292.302s
+Time spent predicting:           110.988s
+_____________ test_early_stopping_regression[None-None-None-None] ______________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 122.203 s
+Fitting gradient boosted rounds:
+[1/200] 1 tree, 8 leaves, max depth = 4, in 25.597s
+[2/200] 1 tree, 8 leaves, max depth = 4, in 82.100s
+[3/200] 1 tree, 8 leaves, max depth = 4, in 61.301s
+[4/200] 1 tree, 8 leaves, max depth = 4, in 6.700s
+[5/200] 1 tree, 8 leaves, max depth = 4, in 29.302s
+[6/200] 1 tree, 7 leaves, max depth = 4, in 64.597s
+[7/200] 1 tree, 7 leaves, max depth = 5, in 68.300s
+[8/200] 1 tree, 8 leaves, max depth = 4, in 61.401s
+[9/200] 1 tree, 7 leaves, max depth = 5, in 41.599s
+[10/200] 1 tree, 8 leaves, max depth = 6, in 36.103s
+[11/200] 1 tree, 8 leaves, max depth = 5, in 28.697s
+[12/200] 1 tree, 8 leaves, max depth = 7, in 13.502s
+[13/200] 1 tree, 8 leaves, max depth = 5, in 53.798s
+[14/200] 1 tree, 8 leaves, max depth = 4, in 76.200s
+[15/200] 1 tree, 7 leaves, max depth = 5, in 70.200s
+[16/200] 1 tree, 8 leaves, max depth = 5, in 14.400s
+[17/200] 1 tree, 8 leaves, max depth = 4, in 64.802s
+[18/200] 1 tree, 7 leaves, max depth = 5, in 68.098s
+[19/200] 1 tree, 8 leaves, max depth = 5, in 81.400s
+[20/200] 1 tree, 9 leaves, max depth = 5, in 44.402s
+[21/200] 1 tree, 9 leaves, max depth = 6, in 36.800s
+[22/200] 1 tree, 8 leaves, max depth = 5, in 68.698s
+[23/200] 1 tree, 7 leaves, max depth = 6, in 29.203s
+[24/200] 1 tree, 9 leaves, max depth = 6, in 48.300s
+[25/200] 1 tree, 8 leaves, max depth = 5, in 68.097s
+[26/200] 1 tree, 8 leaves, max depth = 5, in 63.800s
+[27/200] 1 tree, 8 leaves, max depth = 5, in 15.802s
+[28/200] 1 tree, 9 leaves, max depth = 6, in 76.598s
+[29/200] 1 tree, 8 leaves, max depth = 5, in 67.100s
+[30/200] 1 tree, 9 leaves, max depth = 5, in 55.302s
+[31/200] 1 tree, 8 leaves, max depth = 6, in 32.300s
+[32/200] 1 tree, 9 leaves, max depth = 6, in 47.198s
+[33/200] 1 tree, 9 leaves, max depth = 7, in 62.002s
+[34/200] 1 tree, 8 leaves, max depth = 5, in 71.199s
+[35/200] 1 tree, 8 leaves, max depth = 5, in 73.198s
+[36/200] 1 tree, 8 leaves, max depth = 7, in 27.400s
+[37/200] 1 tree, 9 leaves, max depth = 6, in 41.603s
+[38/200] 1 tree, 8 leaves, max depth = 7, in 32.397s
+[39/200] 1 tree, 8 leaves, max depth = 5, in 25.202s
+[40/200] 1 tree, 7 leaves, max depth = 4, in 53.597s
+[41/200] 1 tree, 8 leaves, max depth = 6, in 15.604s
+[42/200] 1 tree, 8 leaves, max depth = 6, in 35.400s
+[43/200] 1 tree, 8 leaves, max depth = 7, in 28.401s
+[44/200] 1 tree, 9 leaves, max depth = 6, in 51.401s
+[45/200] 1 tree, 8 leaves, max depth = 7, in 8.600s
+[46/200] 1 tree, 7 leaves, max depth = 6, in 2.401s
+[47/200] 1 tree, 8 leaves, max depth = 6, in 44.197s
+[48/200] 1 tree, 8 leaves, max depth = 7, in 87.800s
+[49/200] 1 tree, 8 leaves, max depth = 7, in 50.600s
+[50/200] 1 tree, 9 leaves, max depth = 7, in 82.000s
+[51/200] 1 tree, 9 leaves, max depth = 7, in 80.600s
+[52/200] 1 tree, 9 leaves, max depth = 7, in 93.500s
+[53/200] 1 tree, 7 leaves, max depth = 5, in 17.003s
+[54/200] 1 tree, 9 leaves, max depth = 8, in 69.999s
+[55/200] 1 tree, 9 leaves, max depth = 6, in 49.201s
+[56/200] 1 tree, 9 leaves, max depth = 7, in 59.196s
+[57/200] 1 tree, 8 leaves, max depth = 6, in 42.303s
+[58/200] 1 tree, 8 leaves, max depth = 6, in 58.098s
+[59/200] 1 tree, 8 leaves, max depth = 7, in 60.501s
+[60/200] 1 tree, 9 leaves, max depth = 6, in 21.200s
+[61/200] 1 tree, 9 leaves, max depth = 7, in 60.297s
+[62/200] 1 tree, 8 leaves, max depth = 7, in 87.400s
+[63/200] 1 tree, 9 leaves, max depth = 7, in 68.702s
+[64/200] 1 tree, 8 leaves, max depth = 7, in 32.198s
+[65/200] 1 tree, 8 leaves, max depth = 7, in 14.900s
+[66/200] 1 tree, 8 leaves, max depth = 7, in 37.100s
+[67/200] 1 tree, 9 leaves, max depth = 7, in 49.600s
+[68/200] 1 tree, 8 leaves, max depth = 7, in 59.403s
+[69/200] 1 tree, 9 leaves, max depth = 8, in 51.301s
+[70/200] 1 tree, 7 leaves, max depth = 6, in 39.299s
+[71/200] 1 tree, 9 leaves, max depth = 8, in 78.403s
+[72/200] 1 tree, 8 leaves, max depth = 6, in 31.100s
+[73/200] 1 tree, 8 leaves, max depth = 6, in 41.600s
+[74/200] 1 tree, 9 leaves, max depth = 7, in 37.997s
+[75/200] 1 tree, 8 leaves, max depth = 7, in 87.400s
+[76/200] 1 tree, 8 leaves, max depth = 6, in 59.702s
+[77/200] 1 tree, 9 leaves, max depth = 7, in 64.297s
+[78/200] 1 tree, 8 leaves, max depth = 6, in 70.904s
+[79/200] 1 tree, 10 leaves, max depth = 8, in 56.700s
+[80/200] 1 tree, 9 leaves, max depth = 7, in 32.700s
+[81/200] 1 tree, 9 leaves, max depth = 7, in 34.402s
+[82/200] 1 tree, 8 leaves, max depth = 6, in 41.698s
+[83/200] 1 tree, 9 leaves, max depth = 7, in 35.803s
+[84/200] 1 tree, 8 leaves, max depth = 7, in 42.300s
+[85/200] 1 tree, 9 leaves, max depth = 6, in 47.099s
+[86/200] 1 tree, 8 leaves, max depth = 7, in 18.098s
+[87/200] 1 tree, 9 leaves, max depth = 7, in 21.599s
+[88/200] 1 tree, 9 leaves, max depth = 7, in 94.800s
+[89/200] 1 tree, 9 leaves, max depth = 6, in 40.602s
+[90/200] 1 tree, 9 leaves, max depth = 8, in 64.499s
+[91/200] 1 tree, 9 leaves, max depth = 7, in 81.300s
+[92/200] 1 tree, 8 leaves, max depth = 7, in 22.703s
+[93/200] 1 tree, 8 leaves, max depth = 6, in 59.797s
+[94/200] 1 tree, 8 leaves, max depth = 7, in 36.401s
+[95/200] 1 tree, 9 leaves, max depth = 7, in 50.399s
+[96/200] 1 tree, 9 leaves, max depth = 7, in 45.202s
+[97/200] 1 tree, 9 leaves, max depth = 7, in 73.798s
+[98/200] 1 tree, 8 leaves, max depth = 7, in 17.503s
+[99/200] 1 tree, 9 leaves, max depth = 7, in 49.099s
+[100/200] 1 tree, 9 leaves, max depth = 6, in 58.897s
+[101/200] 1 tree, 8 leaves, max depth = 6, in 77.904s
+[102/200] 1 tree, 9 leaves, max depth = 7, in 51.396s
+[103/200] 1 tree, 9 leaves, max depth = 7, in 39.803s
+[104/200] 1 tree, 8 leaves, max depth = 7, in 85.096s
+[105/200] 1 tree, 8 leaves, max depth = 6, in 79.103s
+[106/200] 1 tree, 8 leaves, max depth = 7, in 58.797s
+[107/200] 1 tree, 9 leaves, max depth = 8, in 98.501s
+[108/200] 1 tree, 8 leaves, max depth = 7, in 33.102s
+[109/200] 1 tree, 8 leaves, max depth = 5, in 41.998s
+[110/200] 1 tree, 9 leaves, max depth = 7, in 9.299s
+[111/200] 1 tree, 9 leaves, max depth = 7, in 33.302s
+[112/200] 1 tree, 8 leaves, max depth = 6, in 14.100s
+[113/200] 1 tree, 9 leaves, max depth = 8, in 74.898s
+[114/200] 1 tree, 8 leaves, max depth = 7, in 54.103s
+[115/200] 1 tree, 8 leaves, max depth = 7, in 63.497s
+[116/200] 1 tree, 9 leaves, max depth = 7, in 18.702s
+[117/200] 1 tree, 8 leaves, max depth = 7, in 66.998s
+[118/200] 1 tree, 9 leaves, max depth = 7, in 52.801s
+[119/200] 1 tree, 9 leaves, max depth = 7, in 16.301s
+[120/200] 1 tree, 8 leaves, max depth = 6, in 5.697s
+[121/200] 1 tree, 8 leaves, max depth = 5, in 64.203s
+[122/200] 1 tree, 8 leaves, max depth = 6, in 45.197s
+[123/200] 1 tree, 8 leaves, max depth = 7, in 42.000s
+[124/200] 1 tree, 8 leaves, max depth = 5, in 80.700s
+[125/200] 1 tree, 9 leaves, max depth = 8, in 89.000s
+[126/200] 1 tree, 9 leaves, max depth = 8, in 40.900s
+[127/200] 1 tree, 8 leaves, max depth = 7, in 76.100s
+[128/200] 1 tree, 8 leaves, max depth = 7, in 41.603s
+[129/200] 1 tree, 8 leaves, max depth = 6, in 17.196s
+[130/200] 1 tree, 8 leaves, max depth = 7, in 37.604s
+[131/200] 1 tree, 9 leaves, max depth = 7, in 68.397s
+[132/200] 1 tree, 10 leaves, max depth = 8, in 62.899s
+[133/200] 1 tree, 9 leaves, max depth = 8, in 64.200s
+[134/200] 1 tree, 7 leaves, max depth = 5, in 69.400s
+[135/200] 1 tree, 9 leaves, max depth = 7, in 76.900s
+[136/200] 1 tree, 8 leaves, max depth = 7, in 89.300s
+[137/200] 1 tree, 8 leaves, max depth = 6, in 24.500s
+[138/200] 1 tree, 9 leaves, max depth = 7, in 47.303s
+[139/200] 1 tree, 8 leaves, max depth = 6, in 48.497s
+[140/200] 1 tree, 8 leaves, max depth = 6, in 30.000s
+[141/200] 1 tree, 7 leaves, max depth = 6, in 31.000s
+[142/200] 1 tree, 8 leaves, max depth = 7, in 62.300s
+[143/200] 1 tree, 9 leaves, max depth = 7, in 47.200s
+[144/200] 1 tree, 8 leaves, max depth = 7, in 27.804s
+[145/200] 1 tree, 8 leaves, max depth = 5, in 68.196s
+[146/200] 1 tree, 9 leaves, max depth = 7, in 17.301s
+[147/200] 1 tree, 8 leaves, max depth = 6, in 26.299s
+[148/200] 1 tree, 9 leaves, max depth = 5, in 43.099s
+[149/200] 1 tree, 7 leaves, max depth = 5, in 68.000s
+[150/200] 1 tree, 9 leaves, max depth = 6, in 93.800s
+[151/200] 1 tree, 9 leaves, max depth = 8, in 96.000s
+[152/200] 1 tree, 9 leaves, max depth = 7, in 60.001s
+[153/200] 1 tree, 9 leaves, max depth = 7, in 63.098s
+[154/200] 1 tree, 9 leaves, max depth = 6, in 34.900s
+[155/200] 1 tree, 8 leaves, max depth = 6, in 51.900s
+[156/200] 1 tree, 9 leaves, max depth = 6, in 45.801s
+[157/200] 1 tree, 9 leaves, max depth = 8, in 40.402s
+[158/200] 1 tree, 9 leaves, max depth = 5, in 14.597s
+[159/200] 1 tree, 8 leaves, max depth = 5, in 31.099s
+[160/200] 1 tree, 8 leaves, max depth = 6, in 11.604s
+[161/200] 1 tree, 8 leaves, max depth = 5, in 15.400s
+[162/200] 1 tree, 8 leaves, max depth = 5, in 33.296s
+[163/200] 1 tree, 8 leaves, max depth = 5, in 75.100s
+[164/200] 1 tree, 9 leaves, max depth = 7, in 42.800s
+[165/200] 1 tree, 8 leaves, max depth = 7, in 87.400s
+[166/200] 1 tree, 9 leaves, max depth = 6, in 21.204s
+[167/200] 1 tree, 9 leaves, max depth = 5, in 12.004s
+[168/200] 1 tree, 8 leaves, max depth = 6, in 77.796s
+[169/200] 1 tree, 9 leaves, max depth = 5, in 30.603s
+[170/200] 1 tree, 8 leaves, max depth = 4, in 62.797s
+[171/200] 1 tree, 8 leaves, max depth = 5, in 37.501s
+[172/200] 1 tree, 8 leaves, max depth = 6, in 35.899s
+[173/200] 1 tree, 8 leaves, max depth = 5, in 67.202s
+[174/200] 1 tree, 8 leaves, max depth = 6, in 55.698s
+[175/200] 1 tree, 8 leaves, max depth = 6, in 48.500s
+[176/200] 1 tree, 8 leaves, max depth = 6, in 12.902s
+[177/200] 1 tree, 7 leaves, max depth = 5, in 30.798s
+[178/200] 1 tree, 8 leaves, max depth = 5, in 52.500s
+[179/200] 1 tree, 8 leaves, max depth = 6, in 82.700s
+[180/200] 1 tree, 9 leaves, max depth = 6, in 34.000s
+[181/200] 1 tree, 9 leaves, max depth = 5, in 86.200s
+[182/200] 1 tree, 9 leaves, max depth = 6, in 85.700s
+[183/200] 1 tree, 8 leaves, max depth = 7, in 35.500s
+[184/200] 1 tree, 7 leaves, max depth = 5, in 61.801s
+[185/200] 1 tree, 9 leaves, max depth = 5, in 43.499s
+[186/200] 1 tree, 9 leaves, max depth = 6, in 48.400s
+[187/200] 1 tree, 8 leaves, max depth = 5, in 54.700s
+[188/200] 1 tree, 8 leaves, max depth = 5, in 81.200s
+[189/200] 1 tree, 8 leaves, max depth = 5, in 24.903s
+[190/200] 1 tree, 8 leaves, max depth = 5, in 57.496s
+[191/200] 1 tree, 9 leaves, max depth = 6, in 40.000s
+[192/200] 1 tree, 8 leaves, max depth = 5, in 37.203s
+[193/200] 1 tree, 8 leaves, max depth = 6, in 40.499s
+[194/200] 1 tree, 8 leaves, max depth = 5, in 67.498s
+[195/200] 1 tree, 9 leaves, max depth = 5, in 38.303s
+[196/200] 1 tree, 8 leaves, max depth = 5, in 24.901s
+[197/200] 1 tree, 8 leaves, max depth = 5, in 64.097s
+[198/200] 1 tree, 8 leaves, max depth = 5, in 55.101s
+[199/200] 1 tree, 8 leaves, max depth = 5, in 31.699s
+[200/200] 1 tree, 8 leaves, max depth = 6, in 82.600s
+Fit 200 trees in 10070.297 s, (1663 total leaves)
+Time spent computing histograms: 3842.900s
+Time spent finding best splits:  1508.356s
+Time spent applying splits:      3433.732s
+Time spent predicting:           160.453s
+________ test_early_stopping_classification[accuracy-0.1-5-1e-07-data0] ________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 30.097 s
+Binning 0.000 GB of validation data: 6.700 s
+Fitting gradient boosted rounds:
+[1/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 0.001s
+[2/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 4.398s
+[3/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 3.102s
+[4/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 13.598s
+[5/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 9.200s
+[6/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 55.600s
+Fit 6 trees in 122.699 s, (18 total leaves)
+Time spent computing histograms: 6.301s
+Time spent finding best splits:  4.200s
+Time spent applying splits:      8.001s
+Time spent predicting:           2.600s
+________ test_early_stopping_classification[accuracy-0.1-5-1e-07-data1] ________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 30.799 s
+Binning 0.000 GB of validation data: 30.100 s
+Fitting gradient boosted rounds:
+[1/50] 3 trees, 9 leaves (3 on avg), max depth = 2, train score: 1.00000, val score: 1.00000, in 90.700s
+[2/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train score: 1.00000, val score: 1.00000, in 37.699s
+[3/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train score: 1.00000, val score: 1.00000, in 46.600s
+[4/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train score: 1.00000, val score: 1.00000, in 31.303s
+[5/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train score: 1.00000, val score: 1.00000, in 106.697s
+[6/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train score: 1.00000, val score: 1.00000, in 31.099s
+Fit 18 trees in 405.296 s, (74 total leaves)
+Time spent computing histograms: 61.402s
+Time spent finding best splits:  31.700s
+Time spent applying splits:      76.801s
+Time spent predicting:           7.000s
+________ test_early_stopping_classification[accuracy-None-5-0.1-data0] _________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 0.001 s
+Fitting gradient boosted rounds:
+[1/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96667, in 2.800s
+[2/50] 1 tree, 5 leaves, max depth = 3, train score: 0.96667, in 32.997s
+[3/50] 1 tree, 5 leaves, max depth = 3, train score: 0.96667, in 20.902s
+[4/50] 1 tree, 4 leaves, max depth = 3, train score: 0.96667, in 43.098s
+[5/50] 1 tree, 4 leaves, max depth = 3, train score: 0.96667, in 0.002s
+[6/50] 1 tree, 4 leaves, max depth = 3, train score: 0.96667, in 16.599s
+Fit 6 trees in 116.401 s, (25 total leaves)
+Time spent computing histograms: 37.099s
+Time spent finding best splits:  13.005s
+Time spent applying splits:      36.689s
+Time spent predicting:           5.100s
+________ test_early_stopping_classification[accuracy-None-5-0.1-data1] _________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 21.500 s
+Fitting gradient boosted rounds:
+[1/50] 3 trees, 9 leaves (3 on avg), max depth = 2, train score: 0.96667, in 47.300s
+[2/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train score: 1.00000, in 99.898s
+[3/50] 3 trees, 14 leaves (4 on avg), max depth = 3, train score: 1.00000, in 93.900s
+[4/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train score: 1.00000, in 7.302s
+[5/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train score: 1.00000, in 126.498s
+[6/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train score: 1.00000, in 27.802s
+Fit 18 trees in 424.203 s, (83 total leaves)
+Time spent computing histograms: 82.800s
+Time spent finding best splits:  44.702s
+Time spent applying splits:      114.296s
+Time spent predicting:           14.098s
+__________ test_early_stopping_classification[None-0.1-5-1e-07-data0] __________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 31.197 s
+Binning 0.000 GB of validation data: 30.900 s
+Fitting gradient boosted rounds:
+[1/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 13.600s
+[2/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 38.600s
+[3/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 43.600s
+[4/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 0.502s
+[5/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 0.001s
+[6/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96296, val score: 1.00000, in 40.900s
+Fit 6 trees in 199.502 s, (18 total leaves)
+Time spent computing histograms: 18.901s
+Time spent finding best splits:  11.700s
+Time spent applying splits:      28.601s
+Time spent predicting:           4.400s
+__________ test_early_stopping_classification[None-0.1-5-1e-07-data1] __________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 5.097 s
+Binning 0.000 GB of validation data: 0.001 s
+Fitting gradient boosted rounds:
+[1/50] 3 trees, 9 leaves (3 on avg), max depth = 2, train score: 1.00000, val score: 1.00000, in 31.099s
+[2/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train score: 1.00000, val score: 1.00000, in 90.700s
+[3/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train score: 1.00000, val score: 1.00000, in 87.802s
+[4/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train score: 1.00000, val score: 1.00000, in 111.598s
+[5/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train score: 1.00000, val score: 1.00000, in 24.701s
+[6/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train score: 1.00000, val score: 1.00000, in 22.898s
+Fit 18 trees in 373.898 s, (74 total leaves)
+Time spent computing histograms: 87.997s
+Time spent finding best splits:  39.598s
+Time spent applying splits:      113.296s
+Time spent predicting:           14.895s
+__________ test_early_stopping_classification[None-None-5-0.1-data0] ___________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 30.997 s
+Fitting gradient boosted rounds:
+[1/50] 1 tree, 3 leaves, max depth = 2, train score: 0.96667, in 40.600s
+[2/50] 1 tree, 5 leaves, max depth = 3, train score: 0.96667, in 49.400s
+[3/50] 1 tree, 5 leaves, max depth = 3, train score: 0.96667, in 20.301s
+[4/50] 1 tree, 4 leaves, max depth = 3, train score: 0.96667, in 0.002s
+[5/50] 1 tree, 4 leaves, max depth = 3, train score: 0.96667, in 26.797s
+[6/50] 1 tree, 4 leaves, max depth = 3, train score: 0.96667, in 51.500s
+Fit 6 trees in 219.598 s, (25 total leaves)
+Time spent computing histograms: 47.000s
+Time spent finding best splits:  20.301s
+Time spent applying splits:      47.697s
+Time spent predicting:           6.398s
+__________ test_early_stopping_classification[None-None-5-0.1-data1] ___________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 1.600 s
+Fitting gradient boosted rounds:
+[1/50] 3 trees, 9 leaves (3 on avg), max depth = 2, train score: 0.96667, in 56.298s
+[2/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train score: 1.00000, in 5.301s
+[3/50] 3 trees, 14 leaves (4 on avg), max depth = 3, train score: 1.00000, in 61.397s
+[4/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train score: 1.00000, in 57.802s
+[5/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train score: 1.00000, in 16.098s
+[6/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train score: 1.00000, in 78.800s
+Fit 18 trees in 277.298 s, (83 total leaves)
+Time spent computing histograms: 61.998s
+Time spent finding best splits:  29.803s
+Time spent applying splits:      71.802s
+Time spent predicting:           5.600s
+__________ test_early_stopping_classification[loss-0.1-5-1e-07-data0] __________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 19.097 s
+Binning 0.000 GB of validation data: 13.803 s
+Fitting gradient boosted rounds:
+[1/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.60873, val loss: 0.60857, in 9.898s
+[2/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.53978, val loss: 0.52797, in 0.001s
+[3/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.48224, val loss: 0.47117, in 0.001s
+[4/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.43351, val loss: 0.42283, in 0.397s
+[5/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.39175, val loss: 0.37226, in 32.100s
+[6/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.35583, val loss: 0.33742, in 28.400s
+[7/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.32455, val loss: 0.29887, in 32.300s
+[8/50] 1 tree, 4 leaves, max depth = 2, train loss: 0.29723, val loss: 0.26529, in 36.100s
+[9/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.27320, val loss: 0.23590, in 22.502s
+[10/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.25191, val loss: 0.22397, in 3.697s
+[11/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.23298, val loss: 0.19983, in 19.900s
+[12/50] 1 tree, 4 leaves, max depth = 2, train loss: 0.21610, val loss: 0.18537, in 14.601s
+[13/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.20088, val loss: 0.16576, in 0.001s
+[14/50] 1 tree, 4 leaves, max depth = 2, train loss: 0.18723, val loss: 0.15504, in 0.001s
+[15/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.17483, val loss: 0.15129, in 0.001s
+[16/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.16363, val loss: 0.13574, in 29.997s
+[17/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.15335, val loss: 0.12864, in 33.200s
+[18/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.14390, val loss: 0.12043, in 15.700s
+[19/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.13529, val loss: 0.10824, in 33.101s
+[20/50] 1 tree, 5 leaves, max depth = 3, train loss: 0.12236, val loss: 0.11017, in 5.803s
+[21/50] 1 tree, 5 leaves, max depth = 3, train loss: 0.11078, val loss: 0.12778, in 38.797s
+[22/50] 1 tree, 5 leaves, max depth = 3, train loss: 0.10049, val loss: 0.11531, in 0.002s
+[23/50] 1 tree, 5 leaves, max depth = 3, train loss: 0.09123, val loss: 0.12352, in 3.597s
+[24/50] 1 tree, 4 leaves, max depth = 3, train loss: 0.08331, val loss: 0.11163, in 13.700s
+Fit 24 trees in 406.698 s, (84 total leaves)
+Time spent computing histograms: 66.800s
+Time spent finding best splits:  40.204s
+Time spent applying splits:      99.009s
+Time spent predicting:           16.092s
+__________ test_early_stopping_classification[loss-0.1-5-1e-07-data1] __________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 30.699 s
+Binning 0.000 GB of validation data: 29.900 s
+Fitting gradient boosted rounds:
+[1/50] 3 trees, 9 leaves (3 on avg), max depth = 2, train loss: 0.86684, val loss: 0.88207, in 35.901s
+[2/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.70290, val loss: 0.72087, in 30.600s
+[3/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.57985, val loss: 0.59839, in 3.398s
+[4/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.48409, val loss: 0.50236, in 116.300s
+[5/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.40798, val loss: 0.42555, in 64.600s
+[6/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.34656, val loss: 0.36307, in 78.601s
+[7/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.29620, val loss: 0.31012, in 35.598s
+[8/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.25455, val loss: 0.26822, in 57.600s
+[9/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.21989, val loss: 0.23211, in 92.103s
+[10/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.19067, val loss: 0.20302, in 45.700s
+[11/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.16613, val loss: 0.17829, in 96.197s
+[12/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.14515, val loss: 0.15687, in 102.901s
+[13/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.12733, val loss: 0.13898, in 15.301s
+[14/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.11197, val loss: 0.12335, in 77.101s
+[15/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.09591, val loss: 0.11953, in 19.998s
+[16/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.08190, val loss: 0.10992, in 30.500s
+[17/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.07049, val loss: 0.10897, in 43.999s
+[18/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.06211, val loss: 0.09210, in 41.199s
+[19/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.05343, val loss: 0.09664, in 68.600s
+[20/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.04610, val loss: 0.09373, in 61.402s
+[21/50] 3 trees, 13 leaves (4 on avg), max depth = 4, train loss: 0.04035, val loss: 0.08539, in 95.398s
+[22/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.03494, val loss: 0.08207, in 112.603s
+[23/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.02985, val loss: 0.09083, in 82.997s
+[24/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.02581, val loss: 0.09533, in 78.201s
+[25/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.02265, val loss: 0.09196, in 63.299s
+[26/50] 3 trees, 13 leaves (4 on avg), max depth = 4, train loss: 0.01946, val loss: 0.09869, in 95.201s
+[27/50] 3 trees, 13 leaves (4 on avg), max depth = 3, train loss: 0.01687, val loss: 0.10491, in 30.999s
+Fit 81 trees in 1737.397 s, (347 total leaves)
+Time spent computing histograms: 410.096s
+Time spent finding best splits:  189.905s
+Time spent applying splits:      571.603s
+Time spent predicting:           59.088s
+__________ test_early_stopping_classification[loss-None-5-0.1-data0] ___________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 29.698 s
+Fitting gradient boosted rounds:
+[1/50] 1 tree, 3 leaves, max depth = 2, train loss: 0.60827, in 12.201s
+[2/50] 1 tree, 5 leaves, max depth = 3, train loss: 0.53845, in 0.001s
+[3/50] 1 tree, 5 leaves, max depth = 3, train loss: 0.48010, in 0.397s
+[4/50] 1 tree, 4 leaves, max depth = 3, train loss: 0.43070, in 5.201s
+[5/50] 1 tree, 4 leaves, max depth = 3, train loss: 0.38844, in 0.001s
+[6/50] 1 tree, 4 leaves, max depth = 3, train loss: 0.35196, in 2.697s
+[7/50] 1 tree, 4 leaves, max depth = 3, train loss: 0.32025, in 8.502s
+[8/50] 1 tree, 4 leaves, max depth = 3, train loss: 0.29255, in 0.001s
+[9/50] 1 tree, 5 leaves, max depth = 3, train loss: 0.26812, in 18.497s
+[10/50] 1 tree, 4 leaves, max depth = 3, train loss: 0.24655, in 41.700s
+[11/50] 1 tree, 4 leaves, max depth = 3, train loss: 0.22738, in 41.300s
+[12/50] 1 tree, 4 leaves, max depth = 3, train loss: 0.21019, in 24.000s
+[13/50] 1 tree, 4 leaves, max depth = 3, train loss: 0.19474, in 5.201s
+Fit 13 trees in 189.400 s, (54 total leaves)
+Time spent computing histograms: 35.897s
+Time spent finding best splits:  15.702s
+Time spent applying splits:      39.804s
+Time spent predicting:           6.298s
+__________ test_early_stopping_classification[loss-None-5-0.1-data1] ___________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 29.098 s
+Fitting gradient boosted rounds:
+[1/50] 3 trees, 9 leaves (3 on avg), max depth = 2, train loss: 0.86534, in 70.200s
+[2/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.69970, in 58.500s
+[3/50] 3 trees, 14 leaves (4 on avg), max depth = 3, train loss: 0.57532, in 97.702s
+[4/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.47824, in 70.597s
+[5/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.40121, in 26.604s
+[6/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.33889, in 8.400s
+[7/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.28811, in 30.604s
+[8/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.24613, in 112.998s
+[9/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.21127, in 39.800s
+[10/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.18188, in 49.000s
+[11/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.15714, in 18.999s
+[12/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.13606, in 39.400s
+[13/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.11815, in 54.103s
+[14/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.10278, in 20.200s
+[15/50] 3 trees, 15 leaves (5 on avg), max depth = 3, train loss: 0.08963, in 23.097s
+Fit 45 trees in 749.500 s, (218 total leaves)
+Time spent computing histograms: 176.211s
+Time spent finding best splits:  85.505s
+Time spent applying splits:      245.000s
+Time spent predicting:           21.594s
+________ test_early_stopping_classification[None-None-None-None-data0] _________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 31.300 s
+Fitting gradient boosted rounds:
+[1/50] 1 tree, 3 leaves, max depth = 2, in 38.099s
+[2/50] 1 tree, 5 leaves, max depth = 3, in 47.100s
+[3/50] 1 tree, 5 leaves, max depth = 3, in 46.000s
+[4/50] 1 tree, 4 leaves, max depth = 3, in 43.300s
+[5/50] 1 tree, 4 leaves, max depth = 3, in 13.103s
+[6/50] 1 tree, 4 leaves, max depth = 3, in 37.397s
+[7/50] 1 tree, 4 leaves, max depth = 3, in 0.001s
+[8/50] 1 tree, 4 leaves, max depth = 3, in 14.298s
+[9/50] 1 tree, 5 leaves, max depth = 3, in 30.401s
+[10/50] 1 tree, 4 leaves, max depth = 3, in 0.001s
+[11/50] 1 tree, 4 leaves, max depth = 3, in 0.001s
+[12/50] 1 tree, 4 leaves, max depth = 3, in 23.297s
+[13/50] 1 tree, 4 leaves, max depth = 3, in 6.704s
+[14/50] 1 tree, 4 leaves, max depth = 3, in 30.298s
+[15/50] 1 tree, 5 leaves, max depth = 3, in 0.001s
+[16/50] 1 tree, 5 leaves, max depth = 3, in 16.898s
+[17/50] 1 tree, 4 leaves, max depth = 3, in 23.602s
+[18/50] 1 tree, 5 leaves, max depth = 3, in 16.897s
+[19/50] 1 tree, 4 leaves, max depth = 3, in 14.001s
+[20/50] 1 tree, 5 leaves, max depth = 3, in 46.399s
+[21/50] 1 tree, 4 leaves, max depth = 3, in 0.001s
+[22/50] 1 tree, 4 leaves, max depth = 3, in 0.001s
+[23/50] 1 tree, 5 leaves, max depth = 3, in 10.197s
+[24/50] 1 tree, 5 leaves, max depth = 3, in 40.301s
+[25/50] 1 tree, 5 leaves, max depth = 3, in 0.002s
+[26/50] 1 tree, 5 leaves, max depth = 3, in 0.001s
+[27/50] 1 tree, 5 leaves, max depth = 3, in 12.299s
+[28/50] 1 tree, 5 leaves, max depth = 3, in 2.797s
+[29/50] 1 tree, 5 leaves, max depth = 3, in 44.800s
+[30/50] 1 tree, 4 leaves, max depth = 3, in 18.800s
+[31/50] 1 tree, 5 leaves, max depth = 3, in 33.402s
+[32/50] 1 tree, 5 leaves, max depth = 3, in 0.001s
+[33/50] 1 tree, 5 leaves, max depth = 3, in 17.698s
+[34/50] 1 tree, 4 leaves, max depth = 3, in 36.798s
+[35/50] 1 tree, 5 leaves, max depth = 3, in 13.002s
+[36/50] 1 tree, 5 leaves, max depth = 3, in 0.001s
+[37/50] 1 tree, 5 leaves, max depth = 3, in 30.000s
+[38/50] 1 tree, 5 leaves, max depth = 3, in 46.296s
+[39/50] 1 tree, 5 leaves, max depth = 3, in 47.099s
+[40/50] 1 tree, 5 leaves, max depth = 3, in 46.700s
+[41/50] 1 tree, 5 leaves, max depth = 3, in 19.603s
+[42/50] 1 tree, 5 leaves, max depth = 3, in 26.497s
+[43/50] 1 tree, 4 leaves, max depth = 3, in 23.001s
+[44/50] 1 tree, 5 leaves, max depth = 3, in 14.199s
+[45/50] 1 tree, 5 leaves, max depth = 3, in 45.603s
+[46/50] 1 tree, 5 leaves, max depth = 3, in 40.997s
+[47/50] 1 tree, 5 leaves, max depth = 3, in 45.502s
+[48/50] 1 tree, 5 leaves, max depth = 3, in 8.899s
+[49/50] 1 tree, 5 leaves, max depth = 3, in 0.001s
+[50/50] 1 tree, 5 leaves, max depth = 3, in 8.598s
+Fit 50 trees in 1112.597 s, (231 total leaves)
+Time spent computing histograms: 293.981s
+Time spent finding best splits:  147.700s
+Time spent applying splits:      355.311s
+Time spent predicting:           30.503s
+________ test_early_stopping_classification[None-None-None-None-data1] _________
+----------------------------- Captured stdout call -----------------------------
+Binning 0.000 GB of training data: 5.999 s
+Fitting gradient boosted rounds:
+[1/50] 3 trees, 9 leaves (3 on avg), max depth = 2, in 17.499s
+[2/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 64.500s
+[3/50] 3 trees, 14 leaves (4 on avg), max depth = 3, in 42.500s
+[4/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 50.902s
+[5/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 42.401s
+[6/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 46.897s
+[7/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 86.502s
+[8/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 48.799s
+[9/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 5.101s
+[10/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 47.300s
+[11/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 40.699s
+[12/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 4.600s
+[13/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 28.200s
+[14/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 50.099s
+[15/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 80.901s
+[16/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 26.798s
+[17/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 26.702s
+[18/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 10.901s
+[19/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 17.897s
+[20/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 23.800s
+[21/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 73.700s
+[22/50] 3 trees, 16 leaves (5 on avg), max depth = 4, in 62.200s
+[23/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 132.000s
+[24/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 68.800s
+[25/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 40.801s
+[26/50] 3 trees, 16 leaves (5 on avg), max depth = 4, in 33.001s
+[27/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 24.298s
+[28/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 83.800s
+[29/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 125.800s
+[30/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 13.404s
+[31/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 29.196s
+[32/50] 3 trees, 16 leaves (5 on avg), max depth = 4, in 73.602s
+[33/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 47.102s
+[34/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 53.298s
+[35/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 40.099s
+[36/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 28.799s
+[37/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 79.904s
+[38/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 103.196s
+[39/50] 3 trees, 16 leaves (5 on avg), max depth = 4, in 88.400s
+[40/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 31.603s
+[41/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 117.598s
+[42/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 20.703s
+[43/50] 3 trees, 14 leaves (4 on avg), max depth = 3, in 51.998s
+[44/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 59.898s
+[45/50] 3 trees, 14 leaves (4 on avg), max depth = 3, in 54.501s
+[46/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 10.502s
+[47/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 13.799s
+[48/50] 3 trees, 14 leaves (4 on avg), max depth = 3, in 60.099s
+[49/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 12.701s
+[50/50] 3 trees, 15 leaves (5 on avg), max depth = 3, in 58.299s
+Fit 150 trees in 2462.100 s, (744 total leaves)
+Time spent computing histograms: 680.704s
+Time spent finding best splits:  335.282s
+Time spent applying splits:      860.206s
+Time spent predicting:           76.686s
+=========================== short test summary info ============================
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params0-Loss blah is not supported for-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params0-Loss blah is not supported for-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params1-learning_rate=0 must be strictly positive-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params1-learning_rate=0 must be strictly positive-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params2-learning_rate=-1 must be strictly positive-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params2-learning_rate=-1 must be strictly positive-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params3-max_iter=0 must not be smaller than 1-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params3-max_iter=0 must not be smaller than 1-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params4-max_leaf_nodes=0 should not be smaller than 2-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params4-max_leaf_nodes=0 should not be smaller than 2-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params5-max_leaf_nodes=1 should not be smaller than 2-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params5-max_leaf_nodes=1 should not be smaller than 2-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params6-max_depth=0 should not be smaller than 2-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params6-max_depth=0 should not be smaller than 2-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params7-max_depth=1 should not be smaller than 2-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params7-max_depth=1 should not be smaller than 2-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params8-min_samples_leaf=0 should not be smaller-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params8-min_samples_leaf=0 should not be smaller-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params9-l2_regularization=-1 must be positive-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params9-l2_regularization=-1 must be positive-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params10-max_bins=1 should be no smaller than 2 and no larger-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params10-max_bins=1 should be no smaller than 2 and no larger-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params11-max_bins=256 should be no smaller than 2 and no-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params11-max_bins=256 should be no smaller than 2 and no-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params12-n_iter_no_change=-1 must be positive-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params12-n_iter_no_change=-1 must be positive-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params13-validation_fraction=-1 must be strictly-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params13-validation_fraction=-1 must be strictly-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params14-validation_fraction=0 must be strictly-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params14-validation_fraction=0 must be strictly-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params15-tol=-1 must not be smaller than 0-HistGradientBoostingClassifier-X0-y0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_init_parameters_validation[params15-tol=-1 must not be smaller than 0-HistGradientBoostingRegressor-X1-y1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_invalid_classification_loss
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_regression[neg_mean_squared_error-0.1-5-1e-07]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_regression[neg_mean_squared_error-None-5-0.1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_regression[None-0.1-5-1e-07]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_regression[None-None-5-0.1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_regression[loss-0.1-5-1e-07]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_regression[loss-None-5-0.1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_regression[None-None-None-None]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[accuracy-0.1-5-1e-07-data0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[accuracy-0.1-5-1e-07-data1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[accuracy-None-5-0.1-data0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[accuracy-None-5-0.1-data1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-0.1-5-1e-07-data0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-0.1-5-1e-07-data1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-None-5-0.1-data0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-None-5-0.1-data1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[loss-0.1-5-1e-07-data0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[loss-0.1-5-1e-07-data1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[loss-None-5-0.1-data0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[loss-None-5-0.1-data1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-None-None-None-data0]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-None-None-None-data1]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_should_stop[scores0-1-0.001-False]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_should_stop[scores1-5-0.001-False]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_should_stop[scores2-5-0.001-False]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_should_stop[scores3-5-0.001-False]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_should_stop[scores4-5-0.0-False]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_should_stop[scores5-5-0.999-False]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_should_stop[scores6-5-4.99999-False]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_should_stop[scores7-5-0.0-True]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_should_stop[scores8-5-0.001-True]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_should_stop[scores9-5-5-True]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_binning_train_validation_are_separated
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_missing_values_trivial
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_missing_values_resilience[0.1-0.97-0.89-classification]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_missing_values_resilience[0.1-0.97-0.89-regression]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_missing_values_resilience[0.2-0.93-0.81-classification]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_missing_values_resilience[0.2-0.93-0.81-regression]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_missing_values_resilience[0.5-0.79-0.52-classification]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_missing_values_resilience[0.5-0.79-0.52-regression]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_zero_division_hessians[binary_crossentropy]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_zero_division_hessians[categorical_crossentropy]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_small_trainset
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_missing_values_minmax_imputation
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_infinite_values
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_infinite_values_missing_values
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_string_target_early_stopping[None]
+PASSED sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_string_target_early_stopping[loss]
+============= 80 passed, 1 warning in 118514.85s (1 day, 8:55:14) ==============
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=0

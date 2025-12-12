@@ -1,0 +1,311 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ pytest -rA astropy/modeling/tests/test_separable.py
+<frozen importlib._bootstrap>:228: RuntimeWarning: numpy.ndarray size changed, may indicate binary incompatibility. Expected 80 from C header, got 96 from PyObject
+============================= test session starts ==============================
+platform linux -- Python 3.9.25, pytest-7.4.0, pluggy-1.3.0
+
+Running tests with Astropy version 5.1.dev624+g46b2c9f17.d20251211.
+Running tests in astropy/modeling/tests/test_separable.py.
+
+Date: 2025-12-11T15:22:24
+
+Platform: Linux-5.15.0-94-generic-x86_64-with-glibc2.35
+
+Executable: /opt/miniconda3/envs/testbed/bin/python
+
+Full Python Version: 
+3.9.25 (main, Nov  3 2025, 22:33:05) 
+[GCC 11.2.0]
+
+encodings: sys: utf-8, locale: UTF-8, filesystem: utf-8
+byteorder: little
+float info: dig: 15, mant_dig: 15
+
+Package versions: 
+Numpy: 1.25.2
+Scipy: not available
+Matplotlib: not available
+h5py: not available
+Pandas: not available
+PyERFA: 2.0.0.3
+Cython: not available
+Scikit-image: not available
+asdf: not available
+pyarrow: not available
+
+Using Astropy options: remote_data: none.
+
+ARCH_ON_CI: undefined
+IS_CRON: undefined
+
+rootdir: /testbed
+configfile: setup.cfg
+plugins: hypothesis-6.82.6, astropy-0.10.0, doctestplus-1.0.0, astropy-header-0.2.2, filter-subpackage-0.1.2, mock-3.11.1, xdist-3.3.1, openfiles-0.5.0, remotedata-0.4.0, cov-4.1.0, arraydiff-0.5.0
+collected 15 items
+
+astropy/modeling/tests/test_separable.py ....FFFF.FF..F.                 [100%]
+
+=================================== FAILURES ===================================
+___________________ test_separable[compound_model0-result0] ____________________
+
+compound_model = <CompoundModel(offset_1=1., angle_2=2., offset_3=1., offset_4=1., offset_5=2., offset_6=1.)>
+result = (array([False, False,  True]), array([[ True, False],
+       [ True, False],
+       [False,  True]]))
+
+    @pytest.mark.parametrize(('compound_model', 'result'), compound_models.values())
+    def test_separable(compound_model, result):
+        assert_allclose(is_separable(compound_model), result[0])
+>       assert_allclose(separability_matrix(compound_model), result[1])
+
+astropy/modeling/tests/test_separable.py:152: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0x153c1f6370d0>, array([[ True, False, False, False, False, False, Fals...se, False, False, False, False, False,  True]]), array([[ True, False],
+       [ True, False],
+       [False,  True]]))
+kwds = {'equal_nan': True, 'err_msg': '', 'header': 'Not equal to tolerance rtol=1e-07, atol=0', 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+E           AssertionError: 
+E           Not equal to tolerance rtol=1e-07, atol=0
+E           
+E           (shapes (9, 8), (3, 2) mismatch)
+E            x: array([[ True, False, False, False, False, False, False, False],
+E                  [ True, False, False, False, False, False, False, False],
+E                  [False,  True, False, False, False, False, False, False],...
+E            y: array([[ True, False],
+E                  [ True, False],
+E                  [False,  True]])
+
+/opt/miniconda3/envs/testbed/lib/python3.9/contextlib.py:79: AssertionError
+___________________ test_separable[compound_model1-result1] ____________________
+
+compound_model = <CompoundModel(offset_0=1., offset_1=2., angle_2=2., c0_0_4=0., c1_0_4=0., c0_1_4=0., c0_0_5=0., c1_0_5=0., c2_0_5=0., c0_1_5=0., c0_2_5=0., c1_1_5=0.)>
+result = (array([False, False]), array([[ True,  True],
+       [ True,  True]]))
+
+    @pytest.mark.parametrize(('compound_model', 'result'), compound_models.values())
+    def test_separable(compound_model, result):
+        assert_allclose(is_separable(compound_model), result[0])
+>       assert_allclose(separability_matrix(compound_model), result[1])
+
+astropy/modeling/tests/test_separable.py:152: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0x153c1f637700>, array([[ True, False, False, False, False, False, Fals...lse, False, False, False, False, False, False,  True,
+         True]]), array([[ True,  True],
+       [ True,  True]]))
+kwds = {'equal_nan': True, 'err_msg': '', 'header': 'Not equal to tolerance rtol=1e-07, atol=0', 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+E           AssertionError: 
+E           Not equal to tolerance rtol=1e-07, atol=0
+E           
+E           (shapes (10, 10), (2, 2) mismatch)
+E            x: array([[ True, False, False, False, False, False, False, False, False,
+E                   False],
+E                  [False,  True, False, False, False, False, False, False, False,...
+E            y: array([[ True,  True],
+E                  [ True,  True]])
+
+/opt/miniconda3/envs/testbed/lib/python3.9/contextlib.py:79: AssertionError
+___________________ test_separable[compound_model2-result2] ____________________
+
+compound_model = <CompoundModel(angle_1=2., factor_2=1.)>
+result = (array([False, False,  True]), array([[ True, False],
+       [ True, False],
+       [False,  True]]))
+
+    @pytest.mark.parametrize(('compound_model', 'result'), compound_models.values())
+    def test_separable(compound_model, result):
+        assert_allclose(is_separable(compound_model), result[0])
+>       assert_allclose(separability_matrix(compound_model), result[1])
+
+astropy/modeling/tests/test_separable.py:152: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0x153c1f637ee0>, array([[ True, False, False, False, False],
+       [ T...],
+       [False, False, False, False,  True]]), array([[ True, False],
+       [ True, False],
+       [False,  True]]))
+kwds = {'equal_nan': True, 'err_msg': '', 'header': 'Not equal to tolerance rtol=1e-07, atol=0', 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+E           AssertionError: 
+E           Not equal to tolerance rtol=1e-07, atol=0
+E           
+E           (shapes (6, 5), (3, 2) mismatch)
+E            x: array([[ True, False, False, False, False],
+E                  [ True, False, False, False, False],
+E                  [False,  True, False, False, False],...
+E            y: array([[ True, False],
+E                  [ True, False],
+E                  [False,  True]])
+
+/opt/miniconda3/envs/testbed/lib/python3.9/contextlib.py:79: AssertionError
+___________________ test_separable[compound_model3-result3] ____________________
+
+compound_model = <CompoundModel(offset_0=1., offset_1=2., angle_3=2., factor_4=1.)>
+result = (array([False, False,  True]), array([[ True, False],
+       [ True, False],
+       [False,  True]]))
+
+    @pytest.mark.parametrize(('compound_model', 'result'), compound_models.values())
+    def test_separable(compound_model, result):
+        assert_allclose(is_separable(compound_model), result[0])
+>       assert_allclose(separability_matrix(compound_model), result[1])
+
+astropy/modeling/tests/test_separable.py:152: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0x153c1f700f70>, array([[ True, False, False, False, False, False, Fals...se, False, False, False, False, False,  True]]), array([[ True, False],
+       [ True, False],
+       [False,  True]]))
+kwds = {'equal_nan': True, 'err_msg': '', 'header': 'Not equal to tolerance rtol=1e-07, atol=0', 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+E           AssertionError: 
+E           Not equal to tolerance rtol=1e-07, atol=0
+E           
+E           (shapes (8, 7), (3, 2) mismatch)
+E            x: array([[ True, False, False, False, False, False, False],
+E                  [False,  True, False, False, False, False, False],
+E                  [False, False,  True, False, False, False, False],...
+E            y: array([[ True, False],
+E                  [ True, False],
+E                  [False,  True]])
+
+/opt/miniconda3/envs/testbed/lib/python3.9/contextlib.py:79: AssertionError
+___________________ test_separable[compound_model5-result5] ____________________
+
+compound_model = <CompoundModel(c0_0_1=0., c1_0_1=0., c0_1_1=0., offset_2=1.)>
+result = (array([False,  True]), array([[ True, False],
+       [False,  True]]))
+
+    @pytest.mark.parametrize(('compound_model', 'result'), compound_models.values())
+    def test_separable(compound_model, result):
+        assert_allclose(is_separable(compound_model), result[0])
+>       assert_allclose(separability_matrix(compound_model), result[1])
+
+astropy/modeling/tests/test_separable.py:152: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0x153c1f664160>, array([[ True, False, False, False, False],
+       [ T...se,  True,  True, False],
+       [False, False, False, False,  True]]), array([[ True, False],
+       [False,  True]]))
+kwds = {'equal_nan': True, 'err_msg': '', 'header': 'Not equal to tolerance rtol=1e-07, atol=0', 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+E           AssertionError: 
+E           Not equal to tolerance rtol=1e-07, atol=0
+E           
+E           (shapes (5, 5), (2, 2) mismatch)
+E            x: array([[ True, False, False, False, False],
+E                  [ True, False, False, False, False],
+E                  [False,  True, False, False, False],...
+E            y: array([[ True, False],
+E                  [False,  True]])
+
+/opt/miniconda3/envs/testbed/lib/python3.9/contextlib.py:79: AssertionError
+___________________ test_separable[compound_model6-result6] ____________________
+
+compound_model = <CompoundModel(angle_0=2., offset_1=1., offset_2=2.)>
+result = (array([False, False,  True,  True]), array([[ True,  True, False, False],
+       [ True,  True, False, False],
+       [False, False,  True, False],
+       [False, False, False,  True]]))
+
+    @pytest.mark.parametrize(('compound_model', 'result'), compound_models.values())
+    def test_separable(compound_model, result):
+>       assert_allclose(is_separable(compound_model), result[0])
+
+astropy/modeling/tests/test_separable.py:151: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0x153c1f664550>, array([False, False, False, False]), array([False, False,  True,  True]))
+kwds = {'equal_nan': True, 'err_msg': '', 'header': 'Not equal to tolerance rtol=1e-07, atol=0', 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+E           AssertionError: 
+E           Not equal to tolerance rtol=1e-07, atol=0
+E           
+E           Mismatched elements: 2 / 4 (50%)
+E            x: array([False, False, False, False])
+E            y: array([False, False,  True,  True])
+
+/opt/miniconda3/envs/testbed/lib/python3.9/contextlib.py:79: AssertionError
+___________________ test_separable[compound_model9-result9] ____________________
+
+compound_model = <CompoundModel(angle_0=2., offset_1=1., factor_2=1., factor_3=2.)>
+result = (array([False, False,  True,  True,  True]), array([[ True,  True, False, False, False],
+       [ True,  True, False, ... False,  True, False, False],
+       [False, False, False,  True, False],
+       [False, False, False, False,  True]]))
+
+    @pytest.mark.parametrize(('compound_model', 'result'), compound_models.values())
+    def test_separable(compound_model, result):
+>       assert_allclose(is_separable(compound_model), result[0])
+
+astropy/modeling/tests/test_separable.py:151: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0x153c1f84f670>, array([False, False,  True, False, False]), array([False, False,  True,  True,  True]))
+kwds = {'equal_nan': True, 'err_msg': '', 'header': 'Not equal to tolerance rtol=1e-07, atol=0', 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+E           AssertionError: 
+E           Not equal to tolerance rtol=1e-07, atol=0
+E           
+E           Mismatched elements: 2 / 5 (40%)
+E            x: array([False, False,  True, False, False])
+E            y: array([False, False,  True,  True,  True])
+
+/opt/miniconda3/envs/testbed/lib/python3.9/contextlib.py:79: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED astropy/modeling/tests/test_separable.py::test_coord_matrix
+PASSED astropy/modeling/tests/test_separable.py::test_cdot
+PASSED astropy/modeling/tests/test_separable.py::test_cstack
+PASSED astropy/modeling/tests/test_separable.py::test_arith_oper
+PASSED astropy/modeling/tests/test_separable.py::test_separable[compound_model4-result4]
+PASSED astropy/modeling/tests/test_separable.py::test_separable[compound_model7-result7]
+PASSED astropy/modeling/tests/test_separable.py::test_separable[compound_model8-result8]
+PASSED astropy/modeling/tests/test_separable.py::test_custom_model_separable
+FAILED astropy/modeling/tests/test_separable.py::test_separable[compound_model0-result0]
+FAILED astropy/modeling/tests/test_separable.py::test_separable[compound_model1-result1]
+FAILED astropy/modeling/tests/test_separable.py::test_separable[compound_model2-result2]
+FAILED astropy/modeling/tests/test_separable.py::test_separable[compound_model3-result3]
+FAILED astropy/modeling/tests/test_separable.py::test_separable[compound_model5-result5]
+FAILED astropy/modeling/tests/test_separable.py::test_separable[compound_model6-result6]
+FAILED astropy/modeling/tests/test_separable.py::test_separable[compound_model9-result9]
+========================= 7 failed, 8 passed in 0.40s ==========================
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

@@ -1,0 +1,61 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ pytest -rA sklearn/utils/tests/test_set_output.py
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.25, pytest-8.4.2, pluggy-1.5.0
+rootdir: /testbed
+configfile: setup.cfg
+collected 15 items
+
+sklearn/utils/tests/test_set_output.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[31m                   [100%][0m
+
+=================================== FAILURES ===================================
+[31m[1m______________________ test_set_output_pandas_keep_index _______________________[0m
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mtest_set_output_pandas_keep_index[39;49;00m():[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Check that set_output does not override index.[39;49;00m
+    [33m[39;49;00m
+    [33m    Non-regression test for gh-25730.[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        pd = pytest.importorskip([33m"[39;49;00m[33mpandas[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+    [90m[39;49;00m
+        X = pd.DataFrame([[[94m1[39;49;00m, [94m2[39;49;00m, [94m3[39;49;00m], [[94m4[39;49;00m, [94m5[39;49;00m, [94m6[39;49;00m]], index=[[94m0[39;49;00m, [94m1[39;49;00m])[90m[39;49;00m
+        est = EstimatorWithSetOutputIndex().set_output(transform=[33m"[39;49;00m[33mpandas[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+        est.fit(X)[90m[39;49;00m
+    [90m[39;49;00m
+        X_trans = est.transform(X)[90m[39;49;00m
+>       assert_array_equal(X_trans.index, [[33m"[39;49;00m[33ms0[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33ms1[39;49;00m[33m"[39;49;00m])[90m[39;49;00m
+[1m[31mE       AssertionError: [0m
+[1m[31mE       Arrays are not equal[0m
+[1m[31mE       [0m
+[1m[31mE       Mismatched elements: 1 / 1 (100%)[0m
+[1m[31mE        x: array([0, 1])[0m
+[1m[31mE        y: array(['s0', 's1'], dtype='<U2')[0m
+
+[1m[31msklearn/utils/tests/test_set_output.py[0m:294: AssertionError
+==================================== PASSES ====================================
+[32m[1m_____________________ test__wrap_in_pandas_container_dense _____________________[0m
+---------------------------- Captured stdout setup -----------------------------
+I: Seeding RNGs with 180016706
+[36m[1m=========================== short test summary info ============================[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest__wrap_in_pandas_container_dense[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest__wrap_in_pandas_container_dense_update_columns_and_index[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest__wrap_in_pandas_container_error_validation[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest__safe_set_output[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest_set_output_mixin[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest__safe_set_output_error[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest_set_output_method[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest_set_output_method_error[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest__get_output_config[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest_get_output_auto_wrap_false[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest_auto_wrap_output_keys_errors_with_incorrect_input[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest_set_output_mixin_custom_mixin[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest__wrap_in_pandas_container_column_errors[0m
+[32mPASSED[0m sklearn/utils/tests/test_set_output.py::[1mtest_set_output_mro[0m
+[31mFAILED[0m sklearn/utils/tests/test_set_output.py::[1mtest_set_output_pandas_keep_index[0m - AssertionError: 
+[31m=================== [31m[1m1 failed[0m, [32m14 passed[0m, [33m1 warning[0m[31m in 0.22s[0m[31m ====================[0m
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

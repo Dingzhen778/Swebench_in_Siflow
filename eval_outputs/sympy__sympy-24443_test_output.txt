@@ -1,0 +1,25 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ PYTHONWARNINGS=ignore::UserWarning,ignore::SyntaxWarning
++ bin/test -C --verbose sympy/combinatorics/tests/test_homomorphisms.py
+============================= test process starts ==============================
+executable:         /opt/miniconda3/envs/testbed/bin/python  (3.9.25-final-0) [CPython]
+architecture:       64-bit
+cache:              no
+ground types:       python 
+numpy:              None
+random seed:        5710464
+hash randomization: on (PYTHONHASHSEED=983951546)
+
+sympy/combinatorics/tests/test_homomorphisms.py[3] 
+test_homomorphism ok
+test_isomorphisms ok
+test_check_homomorphism ok                                                  [OK]
+
+
+================== tests finished: 3 passed, in 0.34 seconds ===================
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=0

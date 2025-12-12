@@ -1,0 +1,44 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ pytest -rA sklearn/ensemble/tests/test_voting.py
+============================= test session starts ==============================
+platform linux -- Python 3.6.13, pytest-6.2.4, py-1.11.0, pluggy-0.13.1
+rootdir: /testbed, configfile: setup.cfg
+collected 20 items
+
+sklearn/ensemble/tests/test_voting.py ....................               [100%]
+
+==================================== PASSES ====================================
+______________________________ test_parallel_fit _______________________________
+----------------------------- Captured stderr call -----------------------------
+/testbed/sklearn/ensemble/forest.py:245: FutureWarning: The default value of n_estimators will change from 10 in version 0.20 to 100 in 0.22.
+  "10 in version 0.20 to 100 in 0.22.", FutureWarning)
+/testbed/sklearn/linear_model/logistic.py:432: FutureWarning: Default solver will be changed to 'lbfgs' in 0.22. Specify a solver to silence this warning.
+  FutureWarning)
+=========================== short test summary info ============================
+PASSED sklearn/ensemble/tests/test_voting.py::test_estimator_init
+PASSED sklearn/ensemble/tests/test_voting.py::test_predictproba_hardvoting
+PASSED sklearn/ensemble/tests/test_voting.py::test_notfitted
+PASSED sklearn/ensemble/tests/test_voting.py::test_majority_label_iris
+PASSED sklearn/ensemble/tests/test_voting.py::test_tie_situation
+PASSED sklearn/ensemble/tests/test_voting.py::test_weights_iris
+PASSED sklearn/ensemble/tests/test_voting.py::test_weights_regressor
+PASSED sklearn/ensemble/tests/test_voting.py::test_predict_on_toy_problem
+PASSED sklearn/ensemble/tests/test_voting.py::test_predict_proba_on_toy_problem
+PASSED sklearn/ensemble/tests/test_voting.py::test_multilabel
+PASSED sklearn/ensemble/tests/test_voting.py::test_gridsearch
+PASSED sklearn/ensemble/tests/test_voting.py::test_parallel_fit
+PASSED sklearn/ensemble/tests/test_voting.py::test_sample_weight
+PASSED sklearn/ensemble/tests/test_voting.py::test_sample_weight_kwargs
+PASSED sklearn/ensemble/tests/test_voting.py::test_set_params
+PASSED sklearn/ensemble/tests/test_voting.py::test_set_estimator_none
+PASSED sklearn/ensemble/tests/test_voting.py::test_estimator_weights_format
+PASSED sklearn/ensemble/tests/test_voting.py::test_transform
+PASSED sklearn/ensemble/tests/test_voting.py::test_none_estimator_with_weights[X0-y0-voter0]
+PASSED sklearn/ensemble/tests/test_voting.py::test_none_estimator_with_weights[X1-y1-voter1]
+======================== 20 passed, 1 warning in 2.87s =========================
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=0

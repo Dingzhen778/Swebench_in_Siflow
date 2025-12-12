@@ -1,0 +1,103 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ PYTHONWARNINGS=ignore::UserWarning,ignore::SyntaxWarning
++ bin/test -C --verbose sympy/parsing/tests/test_sympy_parser.py
+============================= test process starts ==============================
+executable:         /opt/miniconda3/envs/testbed/bin/python  (3.9.25-final-0) [CPython]
+architecture:       64-bit
+cache:              no
+ground types:       python 
+numpy:              None
+random seed:        56072714
+hash randomization: on (PYTHONHASHSEED=168611716)
+
+sympy/parsing/tests/test_sympy_parser.py[29] 
+test_sympy_parser ok
+test_rationalize ok
+test_factorial_fail ok
+test_repeated_fail ok
+test_repeated_dot_only ok
+test_local_dict ok
+test_local_dict_split_implmult ok
+test_local_dict_symbol_to_fcn ok
+test_global_dict ok
+test_no_globals ok
+test_issue_2515 ok
+test_issue_7663 E
+test_recursive_evaluate_false_10560 E
+test_function_evaluate_false E
+test_issue_10773 E
+test_split_symbols ok
+test_split_symbols_function ok
+test_functional_exponent ok
+test_match_parentheses_implicit_multiplication ok
+test_convert_equals_signs ok
+test_parse_function_issue_3539 ok
+test_issue_24288 E
+test_split_symbols_numeric ok
+test_unicode_names ok
+test_python3_features ok
+test_issue_19501 ok
+test_parsing_definitions ok
+test_builtins ok
+test_issue_22822 ok                                                       [FAIL]
+
+
+________________________________________________________________________________
+___________ sympy/parsing/tests/test_sympy_parser.py:test_issue_7663 ___________
+Traceback (most recent call last):
+  File "/testbed/sympy/parsing/tests/test_sympy_parser.py", line 182, in test_issue_7663
+    assert parse_expr(e, evaluate=0) == parse_expr(e, evaluate=False)
+  File "/testbed/sympy/parsing/sympy_parser.py", line 1075, in parse_expr
+    code = compile(evaluateFalse(code, evaluate=False), '<string>', 'eval')
+  File "/testbed/sympy/parsing/sympy_parser.py", line 1095, in evaluateFalse
+    transformed_node = EvaluateFalseTransformer(evaluate=evaluate).visit(node)
+TypeError: EvaluateFalseTransformer() takes no arguments
+________________________________________________________________________________
+_ sympy/parsing/tests/test_sympy_parser.py:test_recursive_evaluate_false_10560 _
+Traceback (most recent call last):
+  File "/testbed/sympy/parsing/tests/test_sympy_parser.py", line 193, in test_recursive_evaluate_false_10560
+    assert parse_expr(text, evaluate=False) == parse_expr(result, evaluate=False)
+  File "/testbed/sympy/parsing/sympy_parser.py", line 1075, in parse_expr
+    code = compile(evaluateFalse(code, evaluate=False), '<string>', 'eval')
+  File "/testbed/sympy/parsing/sympy_parser.py", line 1095, in evaluateFalse
+    transformed_node = EvaluateFalseTransformer(evaluate=evaluate).visit(node)
+TypeError: EvaluateFalseTransformer() takes no arguments
+________________________________________________________________________________
+____ sympy/parsing/tests/test_sympy_parser.py:test_function_evaluate_false _____
+Traceback (most recent call last):
+  File "/testbed/sympy/parsing/tests/test_sympy_parser.py", line 206, in test_function_evaluate_false
+    expr = parse_expr(case, evaluate=False)
+  File "/testbed/sympy/parsing/sympy_parser.py", line 1075, in parse_expr
+    code = compile(evaluateFalse(code, evaluate=False), '<string>', 'eval')
+  File "/testbed/sympy/parsing/sympy_parser.py", line 1095, in evaluateFalse
+    transformed_node = EvaluateFalseTransformer(evaluate=evaluate).visit(node)
+TypeError: EvaluateFalseTransformer() takes no arguments
+________________________________________________________________________________
+__________ sympy/parsing/tests/test_sympy_parser.py:test_issue_10773 ___________
+Traceback (most recent call last):
+  File "/testbed/sympy/parsing/tests/test_sympy_parser.py", line 218, in test_issue_10773
+    assert parse_expr(text, evaluate=False) == parse_expr(result, evaluate=False)
+  File "/testbed/sympy/parsing/sympy_parser.py", line 1075, in parse_expr
+    code = compile(evaluateFalse(code, evaluate=False), '<string>', 'eval')
+  File "/testbed/sympy/parsing/sympy_parser.py", line 1095, in evaluateFalse
+    transformed_node = EvaluateFalseTransformer(evaluate=evaluate).visit(node)
+TypeError: EvaluateFalseTransformer() takes no arguments
+________________________________________________________________________________
+__________ sympy/parsing/tests/test_sympy_parser.py:test_issue_24288 ___________
+Traceback (most recent call last):
+  File "/testbed/sympy/parsing/tests/test_sympy_parser.py", line 292, in test_issue_24288
+    assert parse_expr(text, evaluate=False) == result
+  File "/testbed/sympy/parsing/sympy_parser.py", line 1075, in parse_expr
+    code = compile(evaluateFalse(code, evaluate=False), '<string>', 'eval')
+  File "/testbed/sympy/parsing/sympy_parser.py", line 1095, in evaluateFalse
+    transformed_node = EvaluateFalseTransformer(evaluate=evaluate).visit(node)
+TypeError: EvaluateFalseTransformer() takes no arguments
+
+=========== tests finished: 24 passed, 5 exceptions, in 0.17 seconds ===========
+DO *NOT* COMMIT!
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

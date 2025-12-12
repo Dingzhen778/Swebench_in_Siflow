@@ -1,0 +1,1121 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ tox --current-env -epy39 -v -- tests/roots/test-linkcheck-localserver/conf.py tests/roots/test-linkcheck-localserver/index.rst tests/test_build_linkcheck.py
+py39: commands[0]> pytest -rA --durations 25 tests/roots/test-linkcheck-localserver/conf.py tests/roots/test-linkcheck-localserver/index.rst tests/test_build_linkcheck.py
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.25, pytest-8.4.2, pluggy-1.6.0
+cachedir: .tox/py39/.pytest_cache
+libraries: Sphinx-3.3.0+/268cbcd15, docutils-0.22.3
+base tempdir: /tmp/pytest-of-root/pytest-0
+rootdir: /testbed
+configfile: setup.cfg
+plugins: cov-7.0.0
+collected 6 items
+
+tests/test_build_linkcheck.py [31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31mE[0m[31m                                     [100%][0m
+
+==================================== ERRORS ====================================
+[31m[1m_______________________ ERROR at setup of test_defaults ________________________[0m
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'docutils.utils.roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:40: ModuleNotFoundError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff323a5df0>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff323a5970>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+>               mod = import_module(extname)[90m[39;49;00m
+
+[1m[31msphinx/registry.py[0m:416: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: in import_module
+    [0m[94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31msphinx/builders/latex/__init__.py[0m:39: in <module>
+    [0m[94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mwriters[39;49;00m[04m[96m.[39;49;00m[04m[96mlatex[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXWriter, LaTeXTranslator[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+        [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+    [94mexcept[39;49;00m [96mImportError[39;49;00m:[90m[39;49;00m
+        [90m# In Debain/Ubuntu, roman package is provided as roman, not as docutils.utils.roman[39;49;00m[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman  [90m# type: ignore[39;49;00m[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:43: ModuleNotFoundError
+
+[33mThe above exception was the direct cause of the following exception:[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['linkcheck'], kwargs={'freshenv': True, 'srcdir': path('/tmp/pytest-of-root/pytest-0/linkcheck')})
+make_app = <function make_app.<locals>.make at 0x14ff3239baf0>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x14ff323a58e0>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:181: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:240: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:398: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff323a5df0>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff323a5970>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+                mod = import_module(extname)[90m[39;49;00m
+            [94mexcept[39;49;00m [96mImportError[39;49;00m [94mas[39;49;00m err:[90m[39;49;00m
+                logger.verbose(__([33m'[39;49;00m[33mOriginal exception:[39;49;00m[33m\n[39;49;00m[33m'[39;49;00m) + traceback.format_exc())[90m[39;49;00m
+>               [94mraise[39;49;00m ExtensionError(__([33m'[39;49;00m[33mCould not import extension [39;49;00m[33m%s[39;49;00m[33m'[39;49;00m) % extname,[90m[39;49;00m
+                                     err) [94mfrom[39;49;00m[90m [39;49;00m[04m[96merr[39;49;00m[90m[39;49;00m
+[1m[31mE               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')[0m
+
+[1m[31msphinx/registry.py[0m:419: ExtensionError
+[31m[1m_____________________ ERROR at setup of test_defaults_json _____________________[0m
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'docutils.utils.roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:40: ModuleNotFoundError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff324c1580>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff324c17f0>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+>               mod = import_module(extname)[90m[39;49;00m
+
+[1m[31msphinx/registry.py[0m:416: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: in import_module
+    [0m[94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31msphinx/builders/latex/__init__.py[0m:39: in <module>
+    [0m[94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mwriters[39;49;00m[04m[96m.[39;49;00m[04m[96mlatex[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXWriter, LaTeXTranslator[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+        [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+    [94mexcept[39;49;00m [96mImportError[39;49;00m:[90m[39;49;00m
+        [90m# In Debain/Ubuntu, roman package is provided as roman, not as docutils.utils.roman[39;49;00m[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman  [90m# type: ignore[39;49;00m[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:43: ModuleNotFoundError
+
+[33mThe above exception was the direct cause of the following exception:[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['linkcheck'], kwargs={'freshenv': True, 'srcdir': path('/tmp/pytest-of-root/pytest-0/linkcheck')})
+make_app = <function make_app.<locals>.make at 0x14ff32097280>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x14ff327c83a0>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:181: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:240: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:398: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff324c1580>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff324c17f0>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+                mod = import_module(extname)[90m[39;49;00m
+            [94mexcept[39;49;00m [96mImportError[39;49;00m [94mas[39;49;00m err:[90m[39;49;00m
+                logger.verbose(__([33m'[39;49;00m[33mOriginal exception:[39;49;00m[33m\n[39;49;00m[33m'[39;49;00m) + traceback.format_exc())[90m[39;49;00m
+>               [94mraise[39;49;00m ExtensionError(__([33m'[39;49;00m[33mCould not import extension [39;49;00m[33m%s[39;49;00m[33m'[39;49;00m) % extname,[90m[39;49;00m
+                                     err) [94mfrom[39;49;00m[90m [39;49;00m[04m[96merr[39;49;00m[90m[39;49;00m
+[1m[31mE               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')[0m
+
+[1m[31msphinx/registry.py[0m:419: ExtensionError
+[31m[1m____________________ ERROR at setup of test_anchors_ignored ____________________[0m
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'docutils.utils.roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:40: ModuleNotFoundError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff31f43490>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff31f43370>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+>               mod = import_module(extname)[90m[39;49;00m
+
+[1m[31msphinx/registry.py[0m:416: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: in import_module
+    [0m[94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31msphinx/builders/latex/__init__.py[0m:39: in <module>
+    [0m[94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mwriters[39;49;00m[04m[96m.[39;49;00m[04m[96mlatex[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXWriter, LaTeXTranslator[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+        [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+    [94mexcept[39;49;00m [96mImportError[39;49;00m:[90m[39;49;00m
+        [90m# In Debain/Ubuntu, roman package is provided as roman, not as docutils.utils.roman[39;49;00m[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman  [90m# type: ignore[39;49;00m[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:43: ModuleNotFoundError
+
+[33mThe above exception was the direct cause of the following exception:[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['linkcheck'], kwargs={'freshenv': True, 'confoverrides': {'linkcheck_anchors_ignore': ['^!', '^top$']..., 'https://www.google.com/image2.png', 'path/to/notfound']}, 'srcdir': path('/tmp/pytest-of-root/pytest-0/linkcheck')})
+make_app = <function make_app.<locals>.make at 0x14ff31f46700>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x14ff31f43d00>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:181: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:240: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:398: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff31f43490>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff31f43370>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+                mod = import_module(extname)[90m[39;49;00m
+            [94mexcept[39;49;00m [96mImportError[39;49;00m [94mas[39;49;00m err:[90m[39;49;00m
+                logger.verbose(__([33m'[39;49;00m[33mOriginal exception:[39;49;00m[33m\n[39;49;00m[33m'[39;49;00m) + traceback.format_exc())[90m[39;49;00m
+>               [94mraise[39;49;00m ExtensionError(__([33m'[39;49;00m[33mCould not import extension [39;49;00m[33m%s[39;49;00m[33m'[39;49;00m) % extname,[90m[39;49;00m
+                                     err) [94mfrom[39;49;00m[90m [39;49;00m[04m[96merr[39;49;00m[90m[39;49;00m
+[1m[31mE               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')[0m
+
+[1m[31msphinx/registry.py[0m:419: ExtensionError
+[31m[1m_______________ ERROR at setup of test_raises_for_invalid_status _______________[0m
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'docutils.utils.roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:40: ModuleNotFoundError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff326a7a30>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff326a7160>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+>               mod = import_module(extname)[90m[39;49;00m
+
+[1m[31msphinx/registry.py[0m:416: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: in import_module
+    [0m[94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31msphinx/builders/latex/__init__.py[0m:39: in <module>
+    [0m[94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mwriters[39;49;00m[04m[96m.[39;49;00m[04m[96mlatex[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXWriter, LaTeXTranslator[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+        [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+    [94mexcept[39;49;00m [96mImportError[39;49;00m:[90m[39;49;00m
+        [90m# In Debain/Ubuntu, roman package is provided as roman, not as docutils.utils.roman[39;49;00m[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman  [90m# type: ignore[39;49;00m[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:43: ModuleNotFoundError
+
+[33mThe above exception was the direct cause of the following exception:[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['linkcheck'], kwargs={'freshenv': True, 'srcdir': path('/tmp/pytest-of-root/pytest-0/linkcheck-localserver')})
+make_app = <function make_app.<locals>.make at 0x14ff31e1d3a0>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x14ff326a75e0>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:181: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:240: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:398: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff326a7a30>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff326a7160>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+                mod = import_module(extname)[90m[39;49;00m
+            [94mexcept[39;49;00m [96mImportError[39;49;00m [94mas[39;49;00m err:[90m[39;49;00m
+                logger.verbose(__([33m'[39;49;00m[33mOriginal exception:[39;49;00m[33m\n[39;49;00m[33m'[39;49;00m) + traceback.format_exc())[90m[39;49;00m
+>               [94mraise[39;49;00m ExtensionError(__([33m'[39;49;00m[33mCould not import extension [39;49;00m[33m%s[39;49;00m[33m'[39;49;00m) % extname,[90m[39;49;00m
+                                     err) [94mfrom[39;49;00m[90m [39;49;00m[04m[96merr[39;49;00m[90m[39;49;00m
+[1m[31mE               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')[0m
+
+[1m[31msphinx/registry.py[0m:419: ExtensionError
+[31m[1m_________________________ ERROR at setup of test_auth __________________________[0m
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'docutils.utils.roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:40: ModuleNotFoundError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff31fb9250>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff31fb9130>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+>               mod = import_module(extname)[90m[39;49;00m
+
+[1m[31msphinx/registry.py[0m:416: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: in import_module
+    [0m[94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31msphinx/builders/latex/__init__.py[0m:39: in <module>
+    [0m[94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mwriters[39;49;00m[04m[96m.[39;49;00m[04m[96mlatex[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXWriter, LaTeXTranslator[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+        [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+    [94mexcept[39;49;00m [96mImportError[39;49;00m:[90m[39;49;00m
+        [90m# In Debain/Ubuntu, roman package is provided as roman, not as docutils.utils.roman[39;49;00m[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman  [90m# type: ignore[39;49;00m[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:43: ModuleNotFoundError
+
+[33mThe above exception was the direct cause of the following exception:[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['linkcheck'], kwargs={'freshenv': True, 'confoverrides': {'linkcheck_auth': [('.+google\\.com/image.+', 'authinfo1'), ('.+google\\.com.+', 'authinfo2')]}, 'srcdir': path('/tmp/pytest-of-root/pytest-0/linkcheck')})
+make_app = <function make_app.<locals>.make at 0x14ff32097430>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x14ff31fb99d0>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:181: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:240: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:398: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff31fb9250>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff31fb9130>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+                mod = import_module(extname)[90m[39;49;00m
+            [94mexcept[39;49;00m [96mImportError[39;49;00m [94mas[39;49;00m err:[90m[39;49;00m
+                logger.verbose(__([33m'[39;49;00m[33mOriginal exception:[39;49;00m[33m\n[39;49;00m[33m'[39;49;00m) + traceback.format_exc())[90m[39;49;00m
+>               [94mraise[39;49;00m ExtensionError(__([33m'[39;49;00m[33mCould not import extension [39;49;00m[33m%s[39;49;00m[33m'[39;49;00m) % extname,[90m[39;49;00m
+                                     err) [94mfrom[39;49;00m[90m [39;49;00m[04m[96merr[39;49;00m[90m[39;49;00m
+[1m[31mE               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')[0m
+
+[1m[31msphinx/registry.py[0m:419: ExtensionError
+[31m[1m_______________ ERROR at setup of test_linkcheck_request_headers _______________[0m
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'docutils.utils.roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:40: ModuleNotFoundError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff326301c0>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff32630790>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+>               mod = import_module(extname)[90m[39;49;00m
+
+[1m[31msphinx/registry.py[0m:416: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31m/opt/miniconda3/envs/testbed/lib/python3.9/importlib/__init__.py[0m:127: in import_module
+    [0m[94mreturn[39;49;00m _bootstrap._gcd_import(name[level:], package, level)[90m[39;49;00m
+[1m[31msphinx/builders/latex/__init__.py[0m:39: in <module>
+    [0m[94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mwriters[39;49;00m[04m[96m.[39;49;00m[04m[96mlatex[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXWriter, LaTeXTranslator[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    [0m[33m"""[39;49;00m
+    [33m    sphinx.writers.latex[39;49;00m
+    [33m    ~~~~~~~~~~~~~~~~~~~~[39;49;00m
+    [33m[39;49;00m
+    [33m    Custom docutils writer for LaTeX.[39;49;00m
+    [33m[39;49;00m
+    [33m    Much of this code is adapted from Dave Kuhlman's "docpy" writer from his[39;49;00m
+    [33m    docutils sandbox.[39;49;00m
+    [33m[39;49;00m
+    [33m    :copyright: Copyright 2007-2020 by the Sphinx team, see AUTHORS.[39;49;00m
+    [33m    :license: BSD, see LICENSE for details.[39;49;00m
+    [33m"""[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mre[39;49;00m[90m[39;49;00m
+    [94mimport[39;49;00m[90m [39;49;00m[04m[96mwarnings[39;49;00m[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mcollections[39;49;00m[90m [39;49;00m[94mimport[39;49;00m defaultdict[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mos[39;49;00m[90m [39;49;00m[94mimport[39;49;00m path[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Any, Dict, Iterable, Iterator, List, Tuple, Set, Union[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mtyping[39;49;00m[90m [39;49;00m[94mimport[39;49;00m cast[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m nodes, writers[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m Element, Node, Text[90m[39;49;00m
+    [90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m addnodes[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[90m [39;49;00m[94mimport[39;49;00m highlighting[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdeprecation[39;49;00m[90m [39;49;00m[94mimport[39;49;00m ([90m[39;49;00m
+        RemovedInSphinx40Warning, RemovedInSphinx50Warning, deprecated_alias[90m[39;49;00m
+    )[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[90m [39;49;00m[94mimport[39;49;00m IndexEntry[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mdomains[39;49;00m[04m[96m.[39;49;00m[04m[96mstd[39;49;00m[90m [39;49;00m[94mimport[39;49;00m StandardDomain[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96merrors[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxError[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mlocale[39;49;00m[90m [39;49;00m[94mimport[39;49;00m admonitionlabels, _, __[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[90m [39;49;00m[94mimport[39;49;00m split_into, logging, texescape[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mdocutils[39;49;00m[90m [39;49;00m[94mimport[39;49;00m SphinxTranslator[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mnodes[39;49;00m[90m [39;49;00m[94mimport[39;49;00m clean_astext, get_prev_node[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtemplate[39;49;00m[90m [39;49;00m[94mimport[39;49;00m LaTeXRenderer[90m[39;49;00m
+    [94mfrom[39;49;00m[90m [39;49;00m[04m[96msphinx[39;49;00m[04m[96m.[39;49;00m[04m[96mutil[39;49;00m[04m[96m.[39;49;00m[04m[96mtexescape[39;49;00m[90m [39;49;00m[94mimport[39;49;00m tex_replace_map[90m[39;49;00m
+    [90m[39;49;00m
+    [94mtry[39;49;00m:[90m[39;49;00m
+        [94mfrom[39;49;00m[90m [39;49;00m[04m[96mdocutils[39;49;00m[04m[96m.[39;49;00m[04m[96mutils[39;49;00m[04m[96m.[39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman[90m[39;49;00m
+    [94mexcept[39;49;00m [96mImportError[39;49;00m:[90m[39;49;00m
+        [90m# In Debain/Ubuntu, roman package is provided as roman, not as docutils.utils.roman[39;49;00m[90m[39;49;00m
+>       [94mfrom[39;49;00m[90m [39;49;00m[04m[96mroman[39;49;00m[90m [39;49;00m[94mimport[39;49;00m toRoman  [90m# type: ignore[39;49;00m[90m[39;49;00m
+[1m[31mE       ModuleNotFoundError: No module named 'roman'[0m
+
+[1m[31msphinx/writers/latex.py[0m:43: ModuleNotFoundError
+
+[33mThe above exception was the direct cause of the following exception:[0m
+
+test_params = {'shared_result': None}
+app_params = app_params(args=['linkcheck'], kwargs={'freshenv': True, 'confoverrides': {'linkcheck_request_headers': {'https://loca...t': 'application/json'}, '*': {'X-Secret': 'open sesami'}}}, 'srcdir': path('/tmp/pytest-of-root/pytest-0/linkcheck')})
+make_app = <function make_app.<locals>.make at 0x14ff31fc7dc0>
+shared_result = <sphinx.testing.fixtures.SharedResult object at 0x14ff3210eaf0>
+
+    [0m[37m@pytest[39;49;00m.fixture(scope=[33m'[39;49;00m[33mfunction[39;49;00m[33m'[39;49;00m)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mapp[39;49;00m(test_params: Dict, app_params: Tuple[Dict, Dict], make_app: Callable,[90m[39;49;00m
+            shared_result: SharedResult) -> Generator[SphinxTestApp, [94mNone[39;49;00m, [94mNone[39;49;00m]:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""[39;49;00m
+    [33m    provides sphinx.application.Sphinx object[39;49;00m
+    [33m    """[39;49;00m[90m[39;49;00m
+        args, kwargs = app_params[90m[39;49;00m
+>       app_ = make_app(*args, **kwargs)[90m[39;49;00m
+
+[1m[31msphinx/testing/fixtures.py[0m:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[1m[31msphinx/testing/fixtures.py[0m:181: in make
+    [0mapp_ = SphinxTestApp(*args, **kwargs)  [90m# type: Any[39;49;00m[90m[39;49;00m
+[1m[31msphinx/testing/util.py[0m:134: in __init__
+    [0m[96msuper[39;49;00m().[92m__init__[39;49;00m(srcdir, confdir, outdir, doctreedir,[90m[39;49;00m
+[1m[31msphinx/application.py[0m:240: in __init__
+    [0m[96mself[39;49;00m.setup_extension(extension)[90m[39;49;00m
+[1m[31msphinx/application.py[0m:398: in setup_extension
+    [0m[96mself[39;49;00m.registry.load_extension([96mself[39;49;00m, extname)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <sphinx.registry.SphinxComponentRegistry object at 0x14ff326301c0>
+app = <[AttributeError("'NoneType' object has no attribute 'name'") raised in repr()] SphinxTestApp object at 0x14ff32630790>
+extname = 'sphinx.builders.latex'
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mload_extension[39;49;00m([96mself[39;49;00m, app: [33m"[39;49;00m[33mSphinx[39;49;00m[33m"[39;49;00m, extname: [96mstr[39;49;00m) -> [94mNone[39;49;00m:[90m[39;49;00m
+    [90m    [39;49;00m[33m"""Load a Sphinx extension."""[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m app.extensions:  [90m# already loaded[39;49;00m[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+        [94mif[39;49;00m extname [95min[39;49;00m EXTENSION_BLACKLIST:[90m[39;49;00m
+            logger.warning(__([33m'[39;49;00m[33mthe extension [39;49;00m[33m%r[39;49;00m[33m was already merged with Sphinx since [39;49;00m[33m'[39;49;00m[90m[39;49;00m
+                              [33m'[39;49;00m[33mversion [39;49;00m[33m%s[39;49;00m[33m; this extension is ignored.[39;49;00m[33m'[39;49;00m),[90m[39;49;00m
+                           extname, EXTENSION_BLACKLIST[extname])[90m[39;49;00m
+            [94mreturn[39;49;00m[90m[39;49;00m
+    [90m[39;49;00m
+        [90m# update loading context[39;49;00m[90m[39;49;00m
+        prefix = __([33m'[39;49;00m[33mwhile setting up extension [39;49;00m[33m%s[39;49;00m[33m:[39;49;00m[33m'[39;49;00m) % extname[90m[39;49;00m
+        [94mwith[39;49;00m prefixed_warnings(prefix):[90m[39;49;00m
+            [94mtry[39;49;00m:[90m[39;49;00m
+                mod = import_module(extname)[90m[39;49;00m
+            [94mexcept[39;49;00m [96mImportError[39;49;00m [94mas[39;49;00m err:[90m[39;49;00m
+                logger.verbose(__([33m'[39;49;00m[33mOriginal exception:[39;49;00m[33m\n[39;49;00m[33m'[39;49;00m) + traceback.format_exc())[90m[39;49;00m
+>               [94mraise[39;49;00m ExtensionError(__([33m'[39;49;00m[33mCould not import extension [39;49;00m[33m%s[39;49;00m[33m'[39;49;00m) % extname,[90m[39;49;00m
+                                     err) [94mfrom[39;49;00m[90m [39;49;00m[04m[96merr[39;49;00m[90m[39;49;00m
+[1m[31mE               sphinx.errors.ExtensionError: Could not import extension sphinx.builders.latex (exception: No module named 'roman')[0m
+
+[1m[31msphinx/registry.py[0m:419: ExtensionError
+[33m=============================== warnings summary ===============================[0m
+sphinx/util/docutils.py:45
+  /testbed/sphinx/util/docutils.py:45: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+    __version_info__ = tuple(LooseVersion(docutils.__version__).version)
+
+sphinx/registry.py:22
+  /testbed/sphinx/registry.py:22: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+    from pkg_resources import iter_entry_points
+
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+../opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146
+  /opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:3146: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('sphinxcontrib')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+sphinx/directives/patches.py:15
+  /testbed/sphinx/directives/patches.py:15: DeprecationWarning: The `docutils.parsers.rst.directive.html` module will be removed in Docutils 2.0. Since Docutils 0.18, the "Meta" node is defined in `docutils.parsers.rst.directives.misc`.
+    from docutils.parsers.rst.directives import images, html, tables
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 25 durations =============================
+0.07s setup    tests/test_build_linkcheck.py::test_defaults
+
+(11 durations < 0.005s hidden.  Use -vv to show these durations.)
+[36m[1m=========================== short test summary info ============================[0m
+[31mERROR[0m tests/test_build_linkcheck.py::[1mtest_defaults[0m - sphinx.errors.ExtensionError: Could not import extension sphinx.builders.la...
+[31mERROR[0m tests/test_build_linkcheck.py::[1mtest_defaults_json[0m - sphinx.errors.ExtensionError: Could not import extension sphinx.builders.la...
+[31mERROR[0m tests/test_build_linkcheck.py::[1mtest_anchors_ignored[0m - sphinx.errors.ExtensionError: Could not import extension sphinx.builders.la...
+[31mERROR[0m tests/test_build_linkcheck.py::[1mtest_raises_for_invalid_status[0m - sphinx.errors.ExtensionError: Could not import extension sphinx.builders.la...
+[31mERROR[0m tests/test_build_linkcheck.py::[1mtest_auth[0m - sphinx.errors.ExtensionError: Could not import extension sphinx.builders.la...
+[31mERROR[0m tests/test_build_linkcheck.py::[1mtest_linkcheck_request_headers[0m - sphinx.errors.ExtensionError: Could not import extension sphinx.builders.la...
+[31m======================== [33m7 warnings[0m, [31m[1m6 errors[0m[31m in 0.56s[0m[31m =========================[0m
+py39: exit 1 (0.98 seconds) /testbed> pytest -rA --durations 25 tests/roots/test-linkcheck-localserver/conf.py tests/roots/test-linkcheck-localserver/index.rst tests/test_build_linkcheck.py pid=58
+  py39: FAIL code 1 (0.99=setup[0.01]+cmd[0.98] seconds)
+  evaluation failed :( (1.06 seconds)
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

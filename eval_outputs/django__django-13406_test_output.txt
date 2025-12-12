@@ -1,0 +1,70 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ ./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 queryset_pickle.tests
+Testing against Django installed in '/testbed/django'
+Importing application queryset_pickle
+Skipping setup of unused database(s): other.
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+Operations to perform:
+  Synchronize unmigrated apps: auth, contenttypes, messages, queryset_pickle, sessions, staticfiles
+  Apply all migrations: admin, sites
+Synchronizing apps without migrations:
+  Creating tables...
+    Creating table django_content_type
+    Creating table auth_permission
+    Creating table auth_group
+    Creating table auth_user
+    Creating table django_session
+    Creating table queryset_pickle_group
+    Creating table queryset_pickle_event
+    Creating table queryset_pickle_happening
+    Creating table queryset_pickle_somemodel
+    Creating table queryset_pickle_m2mmodel
+    Creating table queryset_pickle_myevent
+    Creating table queryset_pickle_edition
+    Running deferred SQL...
+Running migrations:
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying sites.0001_initial... OK
+  Applying sites.0002_alter_domain_unique... OK
+Traceback (most recent call last):
+  File "./tests/runtests.py", line 589, in <module>
+    options.timing,
+  File "./tests/runtests.py", line 320, in django_tests
+    extra_tests=extra_tests,
+  File "/testbed/django/test/runner.py", line 717, in run_tests
+    old_config = self.setup_databases(aliases=databases)
+  File "/testbed/django/test/runner.py", line 637, in setup_databases
+    debug_sql=self.debug_sql, parallel=self.parallel, **kwargs
+  File "/testbed/django/test/utils.py", line 183, in setup_databases
+    serialize=connection.settings_dict['TEST'].get('SERIALIZE', True),
+  File "/testbed/django/db/backends/base/creation.py", line 70, in create_test_db
+    run_syncdb=True,
+  File "/testbed/django/core/management/__init__.py", line 168, in call_command
+    return command.execute(*args, **defaults)
+  File "/testbed/django/core/management/base.py", line 394, in execute
+    output = self.handle(*args, **options)
+  File "/testbed/django/core/management/base.py", line 89, in wrapped
+    res = handle_func(*args, **kwargs)
+  File "/testbed/django/core/management/commands/migrate.py", line 246, in handle
+    fake_initial=fake_initial,
+  File "/testbed/django/db/migrations/executor.py", line 123, in migrate
+    self.check_replacements()
+  File "/testbed/django/db/migrations/executor.py", line 274, in check_replacements
+    applied = self.recorder.applied_migrations()
+  File "/testbed/django/db/migrations/recorder.py", line 78, in applied_migrations
+    return {(migration.app, migration.name): migration for migration in self.migration_qs}
+  File "/testbed/django/db/models/query.py", line 293, in __iter__
+    self._fetch_all()
+  File "/testbed/django/db/models/query.py", line 1311, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/testbed/django/db/models/query.py", line 58, in __iter__
+    model_fields_start, model_fields_end = select_fields[0], select_fields[-1] + 1 if select_fields else 0, 0
+ValueError: too many values to unpack (expected 2)
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1
