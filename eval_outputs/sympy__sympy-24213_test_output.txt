@@ -11,8 +11,8 @@ architecture:       64-bit
 cache:              no
 ground types:       python 
 numpy:              None
-random seed:        69112398
-hash randomization: on (PYTHONHASHSEED=1843453832)
+random seed:        35752339
+hash randomization: on (PYTHONHASHSEED=2460155331)
 
 sympy/physics/units/tests/test_quantities.py[34] 
 test_str_repr ok
@@ -24,7 +24,7 @@ test_print ok
 test_Quantity_eq ok
 test_add_sub ok
 test_quantity_abs ok
-test_check_unit_consistency E
+test_check_unit_consistency ok
 test_mul_div ok
 test_units ok
 test_issue_quart ok
@@ -46,35 +46,11 @@ test_issue_22164 ok
 test_issue_22819 ok
 test_issue_20288 ok
 test_issue_24062 ok
-test_issue_24211 E
+test_issue_24211 ok
 test_prefixed_property ok
-test_physics_constant ok                                                  [FAIL]
+test_physics_constant ok                                                    [OK]
 
 
-________________________________________________________________________________
-___ sympy/physics/units/tests/test_quantities.py:test_check_unit_consistency ___
-Traceback (most recent call last):
-  File "/testbed/sympy/physics/units/tests/test_quantities.py", line 191, in test_check_unit_consistency
-    raises(ValueError, lambda: check_unit_consistency(u + w))
-  File "/testbed/sympy/testing/pytest.py", line 116, in raises
-    code()
-  File "/testbed/sympy/physics/units/tests/test_quantities.py", line 191, in <lambda>
-    raises(ValueError, lambda: check_unit_consistency(u + w))
-  File "/testbed/sympy/physics/units/tests/test_quantities.py", line 189, in check_unit_consistency
-    SI._collect_factor_and_dimension(expr)
-  File "/testbed/sympy/physics/units/unitsystem.py", line 179, in _collect_factor_and_dimension
-    if not dim.as_base_dimensions() == addend_dim.as_base_dimensions():
-AttributeError: 'Dimension' object has no attribute 'as_base_dimensions'
-________________________________________________________________________________
-________ sympy/physics/units/tests/test_quantities.py:test_issue_24211 _________
-Traceback (most recent call last):
-  File "/testbed/sympy/physics/units/tests/test_quantities.py", line 578, in test_issue_24211
-    SI._collect_factor_and_dimension(expr)
-  File "/testbed/sympy/physics/units/unitsystem.py", line 179, in _collect_factor_and_dimension
-    if not dim.as_base_dimensions() == addend_dim.as_base_dimensions():
-AttributeError: 'Dimension' object has no attribute 'as_base_dimensions'
-
-= tests finished: 31 passed, 1 expected to fail, 2 exceptions, in 1.25 seconds =
-DO *NOT* COMMIT!
+======== tests finished: 33 passed, 1 expected to fail, in 1.11 seconds ========
 >>>>> End Test Output
-SWEBENCH_TEST_EXIT_CODE=1
+SWEBENCH_TEST_EXIT_CODE=0

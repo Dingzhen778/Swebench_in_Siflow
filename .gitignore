@@ -1,11 +1,14 @@
-# Python缓存
+# Python
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*.so
 
-# 日志文件
-nohup.out
+# Temporary files
+*.log
+*.pid
+*.tmp
 
-# 临时文件
-*.swp
-*~
+# Intermediate results (regenerate as needed)
+*_results.csv
+*_results.json
+*_instances.txt

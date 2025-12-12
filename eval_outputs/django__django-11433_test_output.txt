@@ -72,46 +72,46 @@ Running migrations:
   Applying sites.0001_initial... OK
   Applying sites.0002_alter_domain_unique... OK
 System check identified no issues (0 silenced).
-test_model_form_clean_applies_to_model (model_forms.tests.CustomCleanTests) ... ERROR
-test_override_clean (model_forms.tests.CustomCleanTests) ... ERROR
+test_model_form_clean_applies_to_model (model_forms.tests.CustomCleanTests) ... ok
+test_override_clean (model_forms.tests.CustomCleanTests) ... ok
 test_clean_false (model_forms.tests.FileAndImageFieldTests) ... ok
 test_clean_false_required (model_forms.tests.FileAndImageFieldTests) ... ok
-test_clear_and_file_contradiction (model_forms.tests.FileAndImageFieldTests) ... ERROR
-test_custom_file_field_save (model_forms.tests.FileAndImageFieldTests) ... ERROR
-test_file_field_data (model_forms.tests.FileAndImageFieldTests) ... ERROR
-test_file_field_multiple_save (model_forms.tests.FileAndImageFieldTests) ... ERROR
+test_clear_and_file_contradiction (model_forms.tests.FileAndImageFieldTests) ... ok
+test_custom_file_field_save (model_forms.tests.FileAndImageFieldTests) ... ok
+test_file_field_data (model_forms.tests.FileAndImageFieldTests) ... ok
+test_file_field_multiple_save (model_forms.tests.FileAndImageFieldTests) ... ok
 test_file_path_field_blank (model_forms.tests.FileAndImageFieldTests)
 FilePathField(blank=True) includes the empty option. ... ok
-test_filefield_required_false (model_forms.tests.FileAndImageFieldTests) ... ERROR
-test_full_clear (model_forms.tests.FileAndImageFieldTests) ... ERROR
-test_image_field (model_forms.tests.FileAndImageFieldTests) ... ERROR
+test_filefield_required_false (model_forms.tests.FileAndImageFieldTests) ... ok
+test_full_clear (model_forms.tests.FileAndImageFieldTests) ... ok
+test_image_field (model_forms.tests.FileAndImageFieldTests) ... ok
 test_render_empty_file_field (model_forms.tests.FileAndImageFieldTests) ... ok
 test_callable_called_each_time_form_is_instantiated (model_forms.tests.LimitChoicesToTests) ... ok
 test_custom_field_with_queryset_but_no_limit_choices_to (model_forms.tests.LimitChoicesToTests) ... ok
 test_fields_for_model_applies_limit_choices_to (model_forms.tests.LimitChoicesToTests) ... ok
 test_limit_choices_to_callable_for_fk_rel (model_forms.tests.LimitChoicesToTests) ... ok
 test_limit_choices_to_callable_for_m2m_rel (model_forms.tests.LimitChoicesToTests) ... ok
-test_model_form_applies_localize_to_all_fields (model_forms.tests.LocalizedModelFormTest) ... ERROR
-test_model_form_applies_localize_to_some_fields (model_forms.tests.LocalizedModelFormTest) ... ERROR
+test_model_form_applies_localize_to_all_fields (model_forms.tests.LocalizedModelFormTest) ... ok
+test_model_form_applies_localize_to_some_fields (model_forms.tests.LocalizedModelFormTest) ... ok
 test_model_form_refuses_arbitrary_string (model_forms.tests.LocalizedModelFormTest) ... ok
 test_article_form (model_forms.tests.ModelFormBaseTest) ... ok
 test_bad_form (model_forms.tests.ModelFormBaseTest) ... ok
 test_base_form (model_forms.tests.ModelFormBaseTest) ... ok
-test_blank_false_with_null_true_foreign_key_field (model_forms.tests.ModelFormBaseTest) ... ERROR
-test_blank_with_null_foreign_key_field (model_forms.tests.ModelFormBaseTest) ... ERROR
+test_blank_false_with_null_true_foreign_key_field (model_forms.tests.ModelFormBaseTest) ... ok
+test_blank_with_null_foreign_key_field (model_forms.tests.ModelFormBaseTest) ... ok
 test_confused_form (model_forms.tests.ModelFormBaseTest) ... ok
-test_default_filefield (model_forms.tests.ModelFormBaseTest) ... ERROR
-test_default_not_populated_on_checkboxselectmultiple (model_forms.tests.ModelFormBaseTest) ... ERROR
-test_default_not_populated_on_non_empty_value_in_cleaned_data (model_forms.tests.ModelFormBaseTest) ... ERROR
-test_default_not_populated_on_optional_checkbox_input (model_forms.tests.ModelFormBaseTest) ... ERROR
-test_default_not_populated_on_selectmultiple (model_forms.tests.ModelFormBaseTest) ... ERROR
-test_default_populated_on_optional_field (model_forms.tests.ModelFormBaseTest) ... ERROR
-test_default_selectdatewidget (model_forms.tests.ModelFormBaseTest) ... ERROR
-test_default_splitdatetime_field (model_forms.tests.ModelFormBaseTest) ... ERROR
+test_default_filefield (model_forms.tests.ModelFormBaseTest) ... ok
+test_default_not_populated_on_checkboxselectmultiple (model_forms.tests.ModelFormBaseTest) ... ok
+test_default_not_populated_on_non_empty_value_in_cleaned_data (model_forms.tests.ModelFormBaseTest) ... ok
+test_default_not_populated_on_optional_checkbox_input (model_forms.tests.ModelFormBaseTest) ... ok
+test_default_not_populated_on_selectmultiple (model_forms.tests.ModelFormBaseTest) ... ok
+test_default_populated_on_optional_field (model_forms.tests.ModelFormBaseTest) ... ok
+test_default_selectdatewidget (model_forms.tests.ModelFormBaseTest) ... ok
+test_default_splitdatetime_field (model_forms.tests.ModelFormBaseTest) ... ok
 test_empty_fields_on_modelform (model_forms.tests.ModelFormBaseTest) ... ok
-test_empty_fields_to_construct_instance (model_forms.tests.ModelFormBaseTest) ... ERROR
+test_empty_fields_to_construct_instance (model_forms.tests.ModelFormBaseTest) ... ok
 test_empty_fields_to_fields_for_model (model_forms.tests.ModelFormBaseTest) ... ok
-test_exclude_and_validation (model_forms.tests.ModelFormBaseTest) ... ERROR
+test_exclude_and_validation (model_forms.tests.ModelFormBaseTest) ... ok
 test_exclude_fields (model_forms.tests.ModelFormBaseTest) ... ok
 test_exclude_fields_with_string (model_forms.tests.ModelFormBaseTest) ... ok
 test_exclude_nonexistent_field (model_forms.tests.ModelFormBaseTest) ... ok
@@ -127,73 +127,73 @@ test_mixmodel_form (model_forms.tests.ModelFormBaseTest) ... ok
 test_no_model_class (model_forms.tests.ModelFormBaseTest) ... ok
 test_orderfields2_form (model_forms.tests.ModelFormBaseTest) ... ok
 test_orderfields_form (model_forms.tests.ModelFormBaseTest) ... ok
-test_override_field (model_forms.tests.ModelFormBaseTest) ... ERROR
-test_prefixed_form_with_default_field (model_forms.tests.ModelFormBaseTest) ... ERROR
+test_override_field (model_forms.tests.ModelFormBaseTest) ... ok
+test_prefixed_form_with_default_field (model_forms.tests.ModelFormBaseTest) ... ok
 test_renderer_kwarg (model_forms.tests.ModelFormBaseTest) ... ok
 test_replace_field (model_forms.tests.ModelFormBaseTest) ... ok
 test_replace_field_variant_2 (model_forms.tests.ModelFormBaseTest) ... ok
 test_replace_field_variant_3 (model_forms.tests.ModelFormBaseTest) ... ok
-test_save_blank_false_with_required_false (model_forms.tests.ModelFormBaseTest) ... ERROR
-test_save_blank_null_unique_charfield_saves_null (model_forms.tests.ModelFormBaseTest) ... ERROR
+test_save_blank_false_with_required_false (model_forms.tests.ModelFormBaseTest) ... ok
+test_save_blank_null_unique_charfield_saves_null (model_forms.tests.ModelFormBaseTest) ... ok
 test_subcategory_form (model_forms.tests.ModelFormBaseTest) ... ok
 test_subclassmeta_form (model_forms.tests.ModelFormBaseTest) ... ok
 test_auto_id (model_forms.tests.ModelFormBasicTests) ... ok
 test_base_form (model_forms.tests.ModelFormBasicTests) ... ok
-test_basic_creation (model_forms.tests.ModelFormBasicTests) ... ERROR
-test_custom_form_fields (model_forms.tests.ModelFormBasicTests) ... ERROR
-test_initial_values (model_forms.tests.ModelFormBasicTests) ... ERROR
-test_m2m_editing (model_forms.tests.ModelFormBasicTests) ... ERROR
+test_basic_creation (model_forms.tests.ModelFormBasicTests) ... ok
+test_custom_form_fields (model_forms.tests.ModelFormBasicTests) ... ok
+test_initial_values (model_forms.tests.ModelFormBasicTests) ... ok
+test_m2m_editing (model_forms.tests.ModelFormBasicTests) ... ok
 test_m2m_initial_callable (model_forms.tests.ModelFormBasicTests) ... ok
 test_multi_fields (model_forms.tests.ModelFormBasicTests) ... ok
-test_recleaning_model_form_instance (model_forms.tests.ModelFormBasicTests) ... ERROR
+test_recleaning_model_form_instance (model_forms.tests.ModelFormBasicTests) ... ok
 test_runtime_choicefield_populated (model_forms.tests.ModelFormBasicTests) ... ok
-test_save_commit_false (model_forms.tests.ModelFormBasicTests) ... ERROR
-test_save_with_data_errors (model_forms.tests.ModelFormBasicTests) ... ERROR
-test_subset_fields (model_forms.tests.ModelFormBasicTests) ... ERROR
+test_save_commit_false (model_forms.tests.ModelFormBasicTests) ... ok
+test_save_with_data_errors (model_forms.tests.ModelFormBasicTests) ... ok
+test_subset_fields (model_forms.tests.ModelFormBasicTests) ... ok
 test_clean_does_deduplicate_values (model_forms.tests.ModelMultipleChoiceFieldTests) ... ok
 test_model_multiple_choice_field (model_forms.tests.ModelMultipleChoiceFieldTests) ... ok
 test_model_multiple_choice_field_22745 (model_forms.tests.ModelMultipleChoiceFieldTests) ... ok
 test_model_multiple_choice_number_of_queries (model_forms.tests.ModelMultipleChoiceFieldTests) ... ok
 test_model_multiple_choice_required_false (model_forms.tests.ModelMultipleChoiceFieldTests) ... ok
 test_model_multiple_choice_run_validators (model_forms.tests.ModelMultipleChoiceFieldTests) ... ok
-test_model_multiple_choice_show_hidden_initial (model_forms.tests.ModelMultipleChoiceFieldTests) ... ERROR
+test_model_multiple_choice_show_hidden_initial (model_forms.tests.ModelMultipleChoiceFieldTests) ... ok
 test_show_hidden_initial_changed_queries_efficiently (model_forms.tests.ModelMultipleChoiceFieldTests) ... ok
 test_to_field_name_with_initial_data (model_forms.tests.ModelMultipleChoiceFieldTests) ... ok
-test_assignment_of_none (model_forms.tests.ModelOneToOneFieldTests) ... ERROR
-test_assignment_of_none_null_false (model_forms.tests.ModelOneToOneFieldTests) ... ERROR
+test_assignment_of_none (model_forms.tests.ModelOneToOneFieldTests) ... ok
+test_assignment_of_none_null_false (model_forms.tests.ModelOneToOneFieldTests) ... ok
 test_modelform_onetoonefield (model_forms.tests.ModelOneToOneFieldTests) ... ok
-test_modelform_subclassed_model (model_forms.tests.ModelOneToOneFieldTests) ... ERROR
-test_onetoonefield (model_forms.tests.ModelOneToOneFieldTests) ... ERROR
+test_modelform_subclassed_model (model_forms.tests.ModelOneToOneFieldTests) ... ok
+test_onetoonefield (model_forms.tests.ModelOneToOneFieldTests) ... ok
 test_many_to_many (model_forms.tests.ModelToDictTests)
 Data for a ManyToManyField is a list rather than a lazy QuerySet. ... ok
 test_callable_field_default (model_forms.tests.OtherModelFormTests) ... ok
 test_choices_type (model_forms.tests.OtherModelFormTests) ... ok
-test_foreignkeys_which_use_to_field (model_forms.tests.OtherModelFormTests) ... ERROR
+test_foreignkeys_which_use_to_field (model_forms.tests.OtherModelFormTests) ... ok
 test_iterable_model_m2m (model_forms.tests.OtherModelFormTests) ... ok
 test_media_on_modelform (model_forms.tests.OtherModelFormTests) ... ok
 test_model_field_that_returns_none_to_exclude_itself_with_explicit_fields (model_forms.tests.OtherModelFormTests) ... ok
 test_prefetch_related_queryset (model_forms.tests.OtherModelFormTests) ... ok
-test_abstract_inherited_unique (model_forms.tests.UniqueTest) ... ERROR
-test_abstract_inherited_unique_together (model_forms.tests.UniqueTest) ... ERROR
+test_abstract_inherited_unique (model_forms.tests.UniqueTest) ... ok
+test_abstract_inherited_unique_together (model_forms.tests.UniqueTest) ... ok
 test_explicitpk_unique (model_forms.tests.UniqueTest)
-Ensure keys and blank character strings are tested for uniqueness. ... ERROR
+Ensure keys and blank character strings are tested for uniqueness. ... ok
 test_explicitpk_unspecified (model_forms.tests.UniqueTest)
-Test for primary_key being in the form and failing validation. ... ERROR
-test_inherited_unique (model_forms.tests.UniqueTest) ... ERROR
-test_inherited_unique_for_date (model_forms.tests.UniqueTest) ... ERROR
-test_inherited_unique_together (model_forms.tests.UniqueTest) ... ERROR
-test_multiple_field_unique_together (model_forms.tests.UniqueTest) ... ERROR
-test_override_unique_for_date_message (model_forms.tests.UniqueTest) ... ERROR
-test_override_unique_message (model_forms.tests.UniqueTest) ... ERROR
-test_override_unique_together_message (model_forms.tests.UniqueTest) ... ERROR
-test_simple_unique (model_forms.tests.UniqueTest) ... ERROR
-test_unique_for_date (model_forms.tests.UniqueTest) ... ERROR
-test_unique_for_date_in_exclude (model_forms.tests.UniqueTest) ... ERROR
-test_unique_for_date_with_nullable_date (model_forms.tests.UniqueTest) ... ERROR
-test_unique_null (model_forms.tests.UniqueTest) ... ERROR
+Test for primary_key being in the form and failing validation. ... ok
+test_inherited_unique (model_forms.tests.UniqueTest) ... ok
+test_inherited_unique_for_date (model_forms.tests.UniqueTest) ... ok
+test_inherited_unique_together (model_forms.tests.UniqueTest) ... ok
+test_multiple_field_unique_together (model_forms.tests.UniqueTest) ... ok
+test_override_unique_for_date_message (model_forms.tests.UniqueTest) ... ok
+test_override_unique_message (model_forms.tests.UniqueTest) ... ok
+test_override_unique_together_message (model_forms.tests.UniqueTest) ... ok
+test_simple_unique (model_forms.tests.UniqueTest) ... ok
+test_unique_for_date (model_forms.tests.UniqueTest) ... ok
+test_unique_for_date_in_exclude (model_forms.tests.UniqueTest) ... ok
+test_unique_for_date_with_nullable_date (model_forms.tests.UniqueTest) ... ok
+test_unique_null (model_forms.tests.UniqueTest) ... ok
 test_unique_together (model_forms.tests.UniqueTest)
-ModelForm test of unique_together constraint ... ERROR
-test_unique_together_exclusion (model_forms.tests.UniqueTest) ... ERROR
+ModelForm test of unique_together constraint ... ok
+test_unique_together_exclusion (model_forms.tests.UniqueTest) ... ok
 test_modelform_factory_metaclass (model_forms.tests.CustomMetaclassTestCase) ... ok
 test_bad_callback (model_forms.tests.FormFieldCallbackTests) ... ok
 test_baseform_with_widgets_in_meta (model_forms.tests.FormFieldCallbackTests)
@@ -207,1129 +207,31 @@ test_modelform_factory_with_all_fields (model_forms.tests.FormFieldCallbackTests
 Regression for #19733 ... ok
 test_modelform_factory_without_fields (model_forms.tests.FormFieldCallbackTests)
 Regression for #19733 ... ok
-test_custom_error_messages (model_forms.tests.ModelFormCustomErrorTests) ... ERROR
-test_model_clean_error_messages (model_forms.tests.ModelFormCustomErrorTests) ... ERROR
+test_custom_error_messages (model_forms.tests.ModelFormCustomErrorTests) ... ok
+test_model_clean_error_messages (model_forms.tests.ModelFormCustomErrorTests) ... ok
 test_field_removal (model_forms.tests.ModelFormInheritanceTests) ... ok
 test_field_removal_name_clashes (model_forms.tests.ModelFormInheritanceTests) ... ok
 test_form_subclass_inheritance (model_forms.tests.ModelFormInheritanceTests) ... ok
-test_big_integer_field (model_forms.tests.ModelOtherFieldTests) ... ERROR
-test_http_prefixing (model_forms.tests.ModelOtherFieldTests) ... ERROR
+test_big_integer_field (model_forms.tests.ModelOtherFieldTests) ... ok
+test_http_prefixing (model_forms.tests.ModelOtherFieldTests) ... ok
 test_modelform_non_editable_field (model_forms.tests.ModelOtherFieldTests) ... ok
 test_url_on_modelform (model_forms.tests.ModelOtherFieldTests)
-Check basic URL field validation on model forms ... ERROR
-test_setattr_raises_validation_error_field_specific (model_forms.tests.StrictAssignmentTests) ... ERROR
-test_setattr_raises_validation_error_non_field (model_forms.tests.StrictAssignmentTests) ... ERROR
-test_error_messages_overrides (model_forms.tests.TestFieldOverridesByFormMeta) ... ERROR
+Check basic URL field validation on model forms ... ok
+test_setattr_raises_validation_error_field_specific (model_forms.tests.StrictAssignmentTests) ... ok
+test_setattr_raises_validation_error_non_field (model_forms.tests.StrictAssignmentTests) ... ok
+test_error_messages_overrides (model_forms.tests.TestFieldOverridesByFormMeta) ... ok
 test_field_type_overrides (model_forms.tests.TestFieldOverridesByFormMeta) ... ok
 test_help_text_overrides (model_forms.tests.TestFieldOverridesByFormMeta) ... ok
 test_label_overrides (model_forms.tests.TestFieldOverridesByFormMeta) ... ok
 test_widget_overrides (model_forms.tests.TestFieldOverridesByFormMeta) ... ok
-test_notrequired_overrides_notblank (model_forms.tests.ValidationTest) ... ERROR
-test_validates_with_replaced_field_excluded (model_forms.tests.ValidationTest) ... ERROR
-test_validates_with_replaced_field_not_specified (model_forms.tests.ValidationTest) ... ERROR
+test_notrequired_overrides_notblank (model_forms.tests.ValidationTest) ... ok
+test_validates_with_replaced_field_excluded (model_forms.tests.ValidationTest) ... ok
+test_validates_with_replaced_field_not_specified (model_forms.tests.ValidationTest) ... ok
 
-======================================================================
-ERROR: test_model_form_clean_applies_to_model (model_forms.tests.CustomCleanTests)
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2616, in test_model_form_clean_applies_to_model
-    category = form.save()
-  File "/testbed/django/forms/models.py", line 447, in save
-    if self.errors:
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
+Ran 144 tests in 0.243s
 
-======================================================================
-ERROR: test_override_clean (model_forms.tests.CustomCleanTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2595, in test_override_clean
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'IntegerField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_clear_and_file_contradiction (model_forms.tests.FileAndImageFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1984, in test_clear_and_file_contradiction
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'FileField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_custom_file_field_save (model_forms.tests.FileAndImageFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2112, in test_custom_file_field_save
-    form.save()
-  File "/testbed/django/forms/models.py", line 447, in save
-    if self.errors:
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'FileField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_file_field_data (model_forms.tests.FileAndImageFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2014, in test_file_field_data
-    self.assertFalse(f.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_file_field_multiple_save (model_forms.tests.FileAndImageFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2134, in test_file_field_multiple_save
-    p = form.save()
-  File "/testbed/django/forms/models.py", line 447, in save
-    if self.errors:
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_filefield_required_false (model_forms.tests.FileAndImageFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2075, in test_filefield_required_false
-    self.assertTrue(f.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_full_clear (model_forms.tests.FileAndImageFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1963, in test_full_clear
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'FileField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_image_field (model_forms.tests.FileAndImageFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2169, in test_image_field
-    self.assertTrue(f.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_model_form_applies_localize_to_all_fields (model_forms.tests.LocalizedModelFormTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2860, in test_model_form_applies_localize_to_all_fields
-    self.assertTrue(f.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'IntegerField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_model_form_applies_localize_to_some_fields (model_forms.tests.LocalizedModelFormTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2847, in test_model_form_applies_localize_to_some_fields
-    self.assertTrue(f.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'IntegerField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_blank_false_with_null_true_foreign_key_field (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 258, in test_blank_false_with_null_true_foreign_key_field
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_blank_with_null_foreign_key_field (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 232, in test_blank_with_null_foreign_key_field
-    self.assertTrue(f1.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'ModelChoiceField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_default_filefield (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 706, in test_default_filefield
-    self.assertEqual(mf1.errors, {})
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'FileField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_default_not_populated_on_checkboxselectmultiple (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 640, in test_default_not_populated_on_checkboxselectmultiple
-    self.assertEqual(mf1.errors, {})
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_default_not_populated_on_non_empty_value_in_cleaned_data (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 603, in test_default_not_populated_on_non_empty_value_in_cleaned_data
-    pub = pub_form.save(commit=False)
-  File "/testbed/django/forms/models.py", line 447, in save
-    if self.errors:
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_default_not_populated_on_optional_checkbox_input (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 623, in test_default_not_populated_on_optional_checkbox_input
-    self.assertEqual(mf1.errors, {})
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'BooleanField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_default_not_populated_on_selectmultiple (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 656, in test_default_not_populated_on_selectmultiple
-    self.assertEqual(mf1.errors, {})
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_default_populated_on_optional_field (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 577, in test_default_populated_on_optional_field
-    self.assertEqual(mf1.errors, {})
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_default_selectdatewidget (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 724, in test_default_selectdatewidget
-    self.assertEqual(mf1.errors, {})
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'DateField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_default_splitdatetime_field (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 690, in test_default_splitdatetime_field
-    self.assertEqual(mf1.errors, {})
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'SplitDateTimeField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_empty_fields_to_construct_instance (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 208, in test_empty_fields_to_construct_instance
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_exclude_and_validation (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 424, in test_exclude_and_validation
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'DecimalField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_override_field (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 372, in test_override_field
-    self.assertTrue(wf.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_prefixed_form_with_default_field (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 673, in test_prefixed_form_with_default_field
-    self.assertEqual(mf1.errors, {})
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'TypedChoiceField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_save_blank_false_with_required_false (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 269, in test_save_blank_false_with_required_false
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_save_blank_null_unique_charfield_saves_null (model_forms.tests.ModelFormBaseTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 278, in test_save_blank_null_unique_charfield_saves_null
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_basic_creation (model_forms.tests.ModelFormBasicTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1331, in test_basic_creation
-    self.assertTrue(f.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_custom_form_fields (model_forms.tests.ModelFormBasicTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1541, in test_custom_form_fields
-    self.assertEqual(form.save().name, 'Third')
-  File "/testbed/django/forms/models.py", line 447, in save
-    if self.errors:
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_initial_values (model_forms.tests.ModelFormBasicTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1285, in test_initial_values
-    self.assertEqual(f.errors, {})
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_m2m_editing (model_forms.tests.ModelFormBasicTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1486, in test_m2m_editing
-    new_art = f.save()
-  File "/testbed/django/forms/models.py", line 447, in save
-    if self.errors:
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_recleaning_model_form_instance (model_forms.tests.ModelFormBasicTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1612, in test_recleaning_model_form_instance
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'ModelChoiceField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_save_commit_false (model_forms.tests.ModelFormBasicTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1348, in test_save_commit_false
-    self.assertTrue(f.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_save_with_data_errors (model_forms.tests.ModelFormBasicTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1358, in test_save_with_data_errors
-    self.assertEqual(f.errors['name'], ['This field is required.'])
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_subset_fields (model_forms.tests.ModelFormBasicTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1463, in test_subset_fields
-    f.as_ul(),
-  File "/testbed/django/forms/forms.py", line 289, in as_ul
-    errors_on_separate_row=False,
-  File "/testbed/django/forms/forms.py", line 197, in _html_output
-    top_errors = self.non_field_errors()  # Errors that should be displayed above all fields.
-  File "/testbed/django/forms/forms.py", line 308, in non_field_errors
-    return self.errors.get(NON_FIELD_ERRORS, self.error_class(error_class='nonfield'))
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_model_multiple_choice_show_hidden_initial (model_forms.tests.ModelMultipleChoiceFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1750, in test_model_multiple_choice_show_hidden_initial
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'ModelMultipleChoiceField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_assignment_of_none (model_forms.tests.ModelOneToOneFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1907, in test_assignment_of_none
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'ModelChoiceField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_assignment_of_none_null_false (model_forms.tests.ModelOneToOneFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1924, in test_assignment_of_none_null_false
-    self.assertFalse(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_modelform_subclassed_model (model_forms.tests.ModelOneToOneFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1849, in test_modelform_subclassed_model
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_onetoonefield (model_forms.tests.ModelOneToOneFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1881, in test_onetoonefield
-    instance = form.save()
-  File "/testbed/django/forms/models.py", line 447, in save
-    if self.errors:
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'ModelChoiceField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_foreignkeys_which_use_to_field (model_forms.tests.OtherModelFormTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2447, in test_foreignkeys_which_use_to_field
-    core = form.save()
-  File "/testbed/django/forms/models.py", line 447, in save
-    if self.errors:
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'IntegerField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_abstract_inherited_unique (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 975, in test_abstract_inherited_unique
-    self.assertFalse(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_abstract_inherited_unique_together (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 990, in test_abstract_inherited_unique_together
-    self.assertFalse(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_explicitpk_unique (model_forms.tests.UniqueTest)
-Ensure keys and blank character strings are tested for uniqueness.
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1005, in test_explicitpk_unique
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_explicitpk_unspecified (model_forms.tests.UniqueTest)
-Test for primary_key being in the form and failing validation.
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1000, in test_explicitpk_unspecified
-    self.assertFalse(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_inherited_unique (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 953, in test_inherited_unique
-    self.assertFalse(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_inherited_unique_for_date (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1077, in test_inherited_unique_for_date
-    self.assertFalse(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_inherited_unique_together (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 960, in test_inherited_unique_together
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_multiple_field_unique_together (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 928, in test_multiple_field_unique_together
-    self.assertFalse(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'IntegerField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_override_unique_for_date_message (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1161, in test_override_unique_for_date_message
-    self.assertEqual(len(form.errors), 1)
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_override_unique_message (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1127, in test_override_unique_message
-    self.assertEqual(len(form.errors), 1)
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'SlugField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_override_unique_together_message (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1141, in test_override_unique_together_message
-    self.assertEqual(len(form.errors), 1)
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'DecimalField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_simple_unique (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 867, in test_simple_unique
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'SlugField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_unique_for_date (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1024, in test_unique_for_date
-    self.assertFalse(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_unique_for_date_in_exclude (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1063, in test_unique_for_date_in_exclude
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_unique_for_date_with_nullable_date (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 1107, in test_unique_for_date_with_nullable_date
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_unique_null (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/django/test/testcases.py", line 1229, in skip_wrapper
-    return test_func(*args, **kwargs)
-  File "/testbed/tests/model_forms/tests.py", line 937, in test_unique_null
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_unique_together (model_forms.tests.UniqueTest)
-ModelForm test of unique_together constraint
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 878, in test_unique_together
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'DecimalField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_unique_together_exclusion (model_forms.tests.UniqueTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 911, in test_unique_together_exclusion
-    self.assertTrue(form.is_valid(), form.errors)
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_custom_error_messages (model_forms.tests.ModelFormCustomErrorTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2547, in test_custom_error_messages
-    errors = CustomErrorMessageForm(data).errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_model_clean_error_messages (model_forms.tests.ModelFormCustomErrorTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2560, in test_model_clean_error_messages
-    self.assertFalse(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_big_integer_field (model_forms.tests.ModelOtherFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2314, in test_big_integer_field
-    self.assertTrue(bif.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'IntegerField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_http_prefixing (model_forms.tests.ModelOtherFieldTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2373, in test_http_prefixing
-    self.assertTrue(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'URLField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_url_on_modelform (model_forms.tests.ModelOtherFieldTests)
-Check basic URL field validation on model forms
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2340, in test_url_on_modelform
-    self.assertTrue(HomepageForm({'url': 'http://localhost'}).is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'URLField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_setattr_raises_validation_error_field_specific (model_forms.tests.StrictAssignmentTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2910, in test_setattr_raises_validation_error_field_specific
-    self.assertFalse(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_setattr_raises_validation_error_non_field (model_forms.tests.StrictAssignmentTests)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 2925, in test_setattr_raises_validation_error_non_field
-    self.assertFalse(form.is_valid())
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_error_messages_overrides (model_forms.tests.TestFieldOverridesByFormMeta)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 805, in test_error_messages_overrides
-    form.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_notrequired_overrides_notblank (model_forms.tests.ValidationTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 854, in test_notrequired_overrides_notblank
-    assert form.is_valid()
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_validates_with_replaced_field_excluded (model_forms.tests.ValidationTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 850, in test_validates_with_replaced_field_excluded
-    assert form.is_valid()
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-======================================================================
-ERROR: test_validates_with_replaced_field_not_specified (model_forms.tests.ValidationTest)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/model_forms/tests.py", line 846, in test_validates_with_replaced_field_not_specified
-    assert form.is_valid()
-  File "/testbed/django/forms/forms.py", line 180, in is_valid
-    return self.is_bound and not self.errors
-  File "/testbed/django/forms/forms.py", line 175, in errors
-    self.full_clean()
-  File "/testbed/django/forms/forms.py", line 376, in full_clean
-    self._clean_fields()
-  File "/testbed/django/forms/forms.py", line 396, in _clean_fields
-    self.cleaned_data[name] = field.get_default()
-AttributeError: 'CharField' object has no attribute 'get_default'
-
-----------------------------------------------------------------------
-Ran 144 tests in 0.149s
-
-FAILED (errors=70)
+OK
 Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
 >>>>> End Test Output
-SWEBENCH_TEST_EXIT_CODE=1
+SWEBENCH_TEST_EXIT_CODE=0

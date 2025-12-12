@@ -39,15 +39,15 @@ test_abstract_name (constraints.tests.CheckConstraintTests.test_abstract_name) .
 test_database_constraint (constraints.tests.CheckConstraintTests.test_database_constraint) ... ok
 test_database_constraint_unicode (constraints.tests.CheckConstraintTests.test_database_constraint_unicode) ... ok
 test_deconstruction (constraints.tests.CheckConstraintTests.test_deconstruction) ... ok
-test_eq (constraints.tests.CheckConstraintTests.test_eq) ... ERROR
+test_eq (constraints.tests.CheckConstraintTests.test_eq) ... ok
 test_invalid_check_types (constraints.tests.CheckConstraintTests.test_invalid_check_types) ... ok
 test_name (constraints.tests.CheckConstraintTests.test_name) ... ok
 test_repr (constraints.tests.CheckConstraintTests.test_repr) ... ok
-test_repr_with_violation_error_code (constraints.tests.CheckConstraintTests.test_repr_with_violation_error_code) ... ERROR
+test_repr_with_violation_error_code (constraints.tests.CheckConstraintTests.test_repr_with_violation_error_code) ... ok
 test_repr_with_violation_error_message (constraints.tests.CheckConstraintTests.test_repr_with_violation_error_message) ... ok
 test_validate (constraints.tests.CheckConstraintTests.test_validate) ... ok
 test_validate_boolean_expressions (constraints.tests.CheckConstraintTests.test_validate_boolean_expressions) ... ok
-test_validate_custom_error (constraints.tests.CheckConstraintTests.test_validate_custom_error) ... ERROR
+test_validate_custom_error (constraints.tests.CheckConstraintTests.test_validate_custom_error) ... ok
 test_validate_nullable_field_with_isnull (constraints.tests.CheckConstraintTests.test_validate_nullable_field_with_isnull) ... skipped 'Database has feature(s) supports_comparing_boolean_expr'
 test_validate_nullable_field_with_none (constraints.tests.CheckConstraintTests.test_validate_nullable_field_with_none) ... ok
 test_validate_rawsql_expressions_noop (constraints.tests.CheckConstraintTests.test_validate_rawsql_expressions_noop) ... ok
@@ -64,7 +64,7 @@ test_deferrable_with_condition (constraints.tests.UniqueConstraintTests.test_def
 test_deferrable_with_expressions (constraints.tests.UniqueConstraintTests.test_deferrable_with_expressions) ... ok
 test_deferrable_with_include (constraints.tests.UniqueConstraintTests.test_deferrable_with_include) ... ok
 test_deferrable_with_opclasses (constraints.tests.UniqueConstraintTests.test_deferrable_with_opclasses) ... ok
-test_eq (constraints.tests.UniqueConstraintTests.test_eq) ... ERROR
+test_eq (constraints.tests.UniqueConstraintTests.test_eq) ... ok
 test_eq_with_condition (constraints.tests.UniqueConstraintTests.test_eq_with_condition) ... ok
 test_eq_with_deferrable (constraints.tests.UniqueConstraintTests.test_eq_with_deferrable) ... ok
 test_eq_with_expressions (constraints.tests.UniqueConstraintTests.test_eq_with_expressions) ... ok
@@ -90,13 +90,13 @@ test_repr_with_deferrable (constraints.tests.UniqueConstraintTests.test_repr_wit
 test_repr_with_expressions (constraints.tests.UniqueConstraintTests.test_repr_with_expressions) ... ok
 test_repr_with_include (constraints.tests.UniqueConstraintTests.test_repr_with_include) ... ok
 test_repr_with_opclasses (constraints.tests.UniqueConstraintTests.test_repr_with_opclasses) ... ok
-test_repr_with_violation_error_code (constraints.tests.UniqueConstraintTests.test_repr_with_violation_error_code) ... ERROR
+test_repr_with_violation_error_code (constraints.tests.UniqueConstraintTests.test_repr_with_violation_error_code) ... ok
 test_repr_with_violation_error_message (constraints.tests.UniqueConstraintTests.test_repr_with_violation_error_message) ... ok
 test_requires_field_or_expression (constraints.tests.UniqueConstraintTests.test_requires_field_or_expression) ... ok
 test_requires_name (constraints.tests.UniqueConstraintTests.test_requires_name) ... ok
 test_validate (constraints.tests.UniqueConstraintTests.test_validate) ... ok
 test_validate_condition (constraints.tests.UniqueConstraintTests.test_validate_condition) ... ok
-test_validate_conditon_custom_error (constraints.tests.UniqueConstraintTests.test_validate_conditon_custom_error) ... FAIL
+test_validate_conditon_custom_error (constraints.tests.UniqueConstraintTests.test_validate_conditon_custom_error) ... ok
 test_validate_expression (constraints.tests.UniqueConstraintTests.test_validate_expression) ... ok
 test_validate_expression_condition (constraints.tests.UniqueConstraintTests.test_validate_expression_condition) ... ok
 test_validate_expression_str (constraints.tests.UniqueConstraintTests.test_validate_expression_str) ... ok
@@ -154,10 +154,10 @@ test_opclass_partial (postgres_tests.test_constraints.SchemaTests.test_opclass_p
 test_constraint_sql (constraints.tests.BaseConstraintTests.test_constraint_sql) ... ok
 test_contains_expressions (constraints.tests.BaseConstraintTests.test_contains_expressions) ... ok
 test_create_sql (constraints.tests.BaseConstraintTests.test_create_sql) ... ok
-test_custom_violation_code_message (constraints.tests.BaseConstraintTests.test_custom_violation_code_message) ... ERROR
+test_custom_violation_code_message (constraints.tests.BaseConstraintTests.test_custom_violation_code_message) ... ok
 test_custom_violation_error_message (constraints.tests.BaseConstraintTests.test_custom_violation_error_message) ... ok
 test_custom_violation_error_message_clone (constraints.tests.BaseConstraintTests.test_custom_violation_error_message_clone) ... ok
-test_deconstruction (constraints.tests.BaseConstraintTests.test_deconstruction) ... ERROR
+test_deconstruction (constraints.tests.BaseConstraintTests.test_deconstruction) ... ok
 test_default_violation_error_message (constraints.tests.BaseConstraintTests.test_default_violation_error_message) ... ok
 test_deprecation (constraints.tests.BaseConstraintTests.test_deprecation) ... ok
 test_name_required (constraints.tests.BaseConstraintTests.test_name_required) ... ok
@@ -165,82 +165,10 @@ test_positional_arguments (constraints.tests.BaseConstraintTests.test_positional
 test_remove_sql (constraints.tests.BaseConstraintTests.test_remove_sql) ... ok
 test_validate (constraints.tests.BaseConstraintTests.test_validate) ... ok
 
-======================================================================
-ERROR: test_eq (constraints.tests.CheckConstraintTests.test_eq)
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/constraints/tests.py", line 162, in test_eq
-    models.CheckConstraint(
-TypeError: CheckConstraint.__init__() got an unexpected keyword argument 'violation_error_code'
+Ran 128 tests in 0.036s
 
-======================================================================
-ERROR: test_repr_with_violation_error_code (constraints.tests.CheckConstraintTests.test_repr_with_violation_error_code)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/constraints/tests.py", line 199, in test_repr_with_violation_error_code
-    constraint = models.CheckConstraint(
-                 ^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: CheckConstraint.__init__() got an unexpected keyword argument 'violation_error_code'
-
-======================================================================
-ERROR: test_validate_custom_error (constraints.tests.CheckConstraintTests.test_validate_custom_error)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/constraints/tests.py", line 277, in test_validate_custom_error
-    constraint = models.CheckConstraint(
-                 ^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: CheckConstraint.__init__() got an unexpected keyword argument 'violation_error_code'
-
-======================================================================
-ERROR: test_eq (constraints.tests.UniqueConstraintTests.test_eq)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/constraints/tests.py", line 395, in test_eq
-    models.UniqueConstraint(
-TypeError: UniqueConstraint.__init__() got an unexpected keyword argument 'violation_error_code'
-
-======================================================================
-ERROR: test_repr_with_violation_error_code (constraints.tests.UniqueConstraintTests.test_repr_with_violation_error_code)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/constraints/tests.py", line 590, in test_repr_with_violation_error_code
-    constraint = models.UniqueConstraint(
-                 ^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: UniqueConstraint.__init__() got an unexpected keyword argument 'violation_error_code'
-
-======================================================================
-ERROR: test_custom_violation_code_message (constraints.tests.BaseConstraintTests.test_custom_violation_code_message)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/constraints/tests.py", line 81, in test_custom_violation_code_message
-    c = BaseConstraint(name="base_name", violation_error_code="custom_code")
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: BaseConstraint.__init__() got an unexpected keyword argument 'violation_error_code'
-
-======================================================================
-ERROR: test_deconstruction (constraints.tests.BaseConstraintTests.test_deconstruction)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/tests/constraints/tests.py", line 85, in test_deconstruction
-    constraint = BaseConstraint(
-                 ^^^^^^^^^^^^^^^
-TypeError: BaseConstraint.__init__() got an unexpected keyword argument 'violation_error_code'
-
-======================================================================
-FAIL: test_validate_conditon_custom_error (constraints.tests.UniqueConstraintTests.test_validate_conditon_custom_error)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/testbed/django/test/testcases.py", line 1428, in skip_wrapper
-    return test_func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/testbed/tests/constraints/tests.py", line 823, in test_validate_conditon_custom_error
-    self.assertEqual(cm.exception.code, "custom_code")
-AssertionError: None != 'custom_code'
-
-----------------------------------------------------------------------
-Ran 128 tests in 0.046s
-
-FAILED (failures=1, errors=7, skipped=54)
+OK (skipped=54)
 Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
 >>>>> End Test Output
-SWEBENCH_TEST_EXIT_CODE=1
+SWEBENCH_TEST_EXIT_CODE=0

@@ -11,12 +11,12 @@ architecture:       64-bit
 cache:              no
 ground types:       python 
 numpy:              None
-random seed:        36139967
-hash randomization: on (PYTHONHASHSEED=873068844)
+random seed:        1239075
+hash randomization: on (PYTHONHASHSEED=2424511939)
 
 sympy/functions/elementary/tests/test_miscellaneous.py[14] 
-test_Min E
-test_Max E
+test_Min ok
+test_Max ok
 test_minmax_assumptions ok
 test_issue_8413 ok
 test_root ok
@@ -28,27 +28,9 @@ test_issue_11099 ok
 test_issue_12638 ok
 test_instantiation_evaluation ok
 test_rewrite_as_Abs ok
-test_issue_14000 ok                                                       [FAIL]
+test_issue_14000 ok                                                         [OK]
 
 
-________________________________________________________________________________
-_______ sympy/functions/elementary/tests/test_miscellaneous.py:test_Min ________
-Traceback (most recent call last):
-  File "/testbed/sympy/functions/elementary/tests/test_miscellaneous.py", line 88, in test_Min
-    assert Min() == S.Infinity
-  File "/testbed/sympy/functions/elementary/miscellaneous.py", line 343, in __new__
-    raise ValueError("The Max/Min functions must have arguments.")
-ValueError: The Max/Min functions must have arguments.
-________________________________________________________________________________
-_______ sympy/functions/elementary/tests/test_miscellaneous.py:test_Max ________
-Traceback (most recent call last):
-  File "/testbed/sympy/functions/elementary/tests/test_miscellaneous.py", line 160, in test_Max
-    assert Max() == S.NegativeInfinity
-  File "/testbed/sympy/functions/elementary/miscellaneous.py", line 343, in __new__
-    raise ValueError("The Max/Min functions must have arguments.")
-ValueError: The Max/Min functions must have arguments.
-
-===== tests finished: 11 passed, 1 skipped, 2 exceptions, in 5.61 seconds ======
-DO *NOT* COMMIT!
+============ tests finished: 13 passed, 1 skipped, in 6.38 seconds =============
 >>>>> End Test Output
-SWEBENCH_TEST_EXIT_CODE=1
+SWEBENCH_TEST_EXIT_CODE=0
