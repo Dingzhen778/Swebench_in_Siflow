@@ -1,0 +1,68 @@
+```python
+### django/core/management/base.py
+<<<<<<< SEARCH
+class CommandParser(ArgumentParser):
+    """
+    Customized ArgumentParser class to improve some error messages and prevent
+    SystemExit in several occasions, as SystemExit is unacceptable when a
+    command is called programmatically.
+    """
+
+    def __init__(
+        self, *, missing_args_message=None, called_from_command_line=None, **kwargs
+    ):
+        self.missing_args_message = missing_args_message
+        self.called_from_command_line = called_from_command_line
+        super().__init__(**kwargs)
+
+    def parse_args(self, args=None, namespace=None):
+        # Catch missing argument for a better error message
+        if self.missing_args_message and not (
+            args or any(not arg.startswith("-") for arg in args)
+        ):
+            self.error(self.missing_args_message)
+        return super().parse_args(args, namespace)
+
+    def error(self, message):
+        if self.called_from_command_line:
+            super().error(message)
+        else:
+            raise CommandError("Error: %s" % message)
+=======
+class CommandParser(ArgumentParser):
+    """
+    Customized ArgumentParser class to improve some error messages and prevent
+    SystemExit in several occasions, as SystemExit is unacceptable when a
+    command is called programmatically.
+    """
+
+    def __init__(
+        self, *, missing_args_message=None, called_from_command_line=None, **kwargs
+    ):
+        self.missing_args_message = missing_args_message
+        self.called_from_command_line = called_from_command_line
+        super().__init__(**kwargs)
+
+    def add_subparsers(self, **kwargs):
+        # Ensure that subparsers inherit the custom error handling
+        subparsers = super().add_subparsers(**kwargs)
+        subparsers_class = type(subparsers)
+        subparsers_class._get_value = subparsers_class._get_value.__get__(subparsers, subparsers_class)
+        subparsers_class._parse_known_args = subparsers_class._parse_known_args.__get__(subparsers, subparsers_class)
+        return subparsers
+
+    def parse_args(self, args=None, namespace=None):
+        # Catch missing argument for a better error message
+        if self.missing_args_message and not (
+            args or any(not arg.startswith("-") for arg in args)
+        ):
+            self.error(self.missing_args_message)
+        return super().parse_args(args, namespace)
+
+    def error(self, message):
+        if self.called_from_command_line:
+            super().error(message)
+        else:
+            raise CommandError("Error: %s" % message)
+>>>>>>> REPLACE
+```

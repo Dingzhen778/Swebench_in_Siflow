@@ -1,0 +1,22 @@
+To address the issue where `AlterField` operations generate unnecessary SQL for SQLite when adding or changing choices, we need to modify the behavior of the `schema_editor.alter_field` method for SQLite. Specifically, we need to ensure that it does not generate any SQL if the only change is in the choices of a field.
+
+Here is the *SEARCH/REPLACE* edit to achieve this:
+
+```python
+### django/db/backends/sqlite3/schema.py
+<<<<<<< SEARCH
+    def alter_field(self, model, old_field, new_field, strict=False):
+        # Ensure the change can actually happen
+        self._alter_field(model, old_field, new_field, strict=strict)
+=======
+    def alter_field(self, model, old_field, new_field, strict=False):
+        # Check if the only change is in the choices
+        if old_field.choices != new_field.choices and old_field.db_type(connection=self.connection) == new_field.db_type(connection=self.connection):
+            # No SQL needed if only choices have changed
+            return
+        # Ensure the change can actually happen
+        self._alter_field(model, old_field, new_field, strict=strict)
+>>>>>>> REPLACE
+```
+
+This edit checks if the only difference between the old and new fields is in the `choices` attribute. If so, it skips generating any SQL, as the change is transparent at the database level. This ensures that the `AlterField` operation is a no-op for SQLite when only the choices are changed.

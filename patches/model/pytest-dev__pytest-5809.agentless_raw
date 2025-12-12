@@ -1,0 +1,29 @@
+```python
+### src/_pytest/pastebin.py
+<<<<<<< SEARCH
+    params = {
+        "code": contents,
+        "lexer": "python3" if sys.version_info[0] >= 3 else "python",
+        "expiry": "1week",
+    }
+=======
+    params = {
+        "code": contents,
+        "lexer": "text",
+        "expiry": "1week",
+    }
+>>>>>>> REPLACE
+```
+
+```python
+### testing/test_pastebin.py
+<<<<<<< SEARCH
+        assert "lexer=%s" % lexer in data.decode()
+        assert "code=full-paste-contents" in data.decode()
+        assert "expiry=1week" in data.decode()
+=======
+        assert "lexer=text" in data.decode()
+        assert "code=full-paste-contents" in data.decode()
+        assert "expiry=1week" in data.decode()
+>>>>>>> REPLACE
+```

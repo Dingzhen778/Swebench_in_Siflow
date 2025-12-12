@@ -1,0 +1,13 @@
+```python
+### sympy/utilities/iterables.py
+<<<<<<< SEARCH
+        if size:
+            yield sum(ms.values()), ms
+        else:
+            yield ms
+>>>>>>> REPLACE
+        if size:
+            yield sum(ms.values()), ms.copy()
+        else:
+            yield ms.copy()
+```

@@ -1,0 +1,8 @@
+```python
+### django/utils/dateparse.py
+<<<<<<< SEARCH
+r'((?:(?P<hours>-?\d+):)(?=\d+:\d+))?'
+=======
+r'((?:(?P<hours>-?\d+):)(?=-?\d+:-?\d+))?'
+>>>>>>> REPLACE
+```

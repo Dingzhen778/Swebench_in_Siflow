@@ -1,0 +1,22 @@
+```python
+### astropy/table/table.py
+<<<<<<< SEARCH
+        # Structured ndarray gets viewed as a mixin unless already a valid
+        # mixin class
+        if (not isinstance(data, Column) and not data_is_mixin
+                and isinstance(data, np.ndarray) and len(data.dtype) > 1):
+            data = data.view(NdarrayMixin)
+            data_is_mixin = True
+=======
+        # Structured ndarray gets viewed as a mixin unless already a valid
+        # mixin class. In the future (5.2), this will be changed to add the
+        # structured array as a Column directly.
+        if (not isinstance(data, Column) and not data_is_mixin
+                and isinstance(data, np.ndarray) and len(data.dtype) > 1):
+            import warnings
+            warnings.warn("In the future (5.2), structured arrays will be added as Columns directly. "
+                          "To avoid this warning, wrap your data in a Column.", FutureWarning)
+            data = data.view(NdarrayMixin)
+            data_is_mixin = True
+>>>>>>> REPLACE
+```

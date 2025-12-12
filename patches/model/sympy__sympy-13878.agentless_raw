@@ -1,0 +1,125 @@
+```python
+### sympy/stats/crv_types.py
+<<<<<<< SEARCH
+class ArcsinDistribution(SingleContinuousDistribution):
+    _argnames = ('a', 'b')
+
+    def pdf(self, x):
+        return 1/(pi*sqrt((x - self.a)*(self.b - x)))
+=======
+class ArcsinDistribution(SingleContinuousDistribution):
+    _argnames = ('a', 'b')
+
+    def pdf(self, x):
+        return 1/(pi*sqrt((x - self.a)*(self.b - x)))
+
+    def _cdf(self, x):
+        a, b = self.a, self.b
+        return (2/pi) * asin(sqrt((x - a) / (b - a)))
+>>>>>>> REPLACE
+```
+
+```python
+### sympy/stats/crv_types.py
+<<<<<<< SEARCH
+class DagumDistribution(SingleContinuousDistribution):
+    _argnames = ('p', 'a', 'b')
+
+    def pdf(self, x):
+        p, a, b = self.p, self.a, self.b
+        return a*p/x*((x/b)**(a*p)/(((x/b)**a + 1)**(p + 1)))
+=======
+class DagumDistribution(SingleContinuousDistribution):
+    _argnames = ('p', 'a', 'b')
+
+    def pdf(self, x):
+        p, a, b = self.p, self.a, self.b
+        return a*p/x*((x/b)**(a*p)/(((x/b)**a + 1)**(p + 1)))
+
+    def _cdf(self, x):
+        p, a, b = self.p, self.a, self.b
+        return 1 - (1 + (x/b)**(-a))**(-p)
+>>>>>>> REPLACE
+```
+
+```python
+### sympy/stats/crv_types.py
+<<<<<<< SEARCH
+class ErlangDistribution(SingleContinuousDistribution):
+    _argnames = ('k', 'l')
+
+    def pdf(self, x):
+        k, l = self.k, self.l
+        return l**k * x**(k - 1) * exp(-l*x) / gamma(k)
+=======
+class ErlangDistribution(SingleContinuousDistribution):
+    _argnames = ('k', 'l')
+
+    def pdf(self, x):
+        k, l = self.k, self.l
+        return l**k * x**(k - 1) * exp(-l*x) / gamma(k)
+
+    def _cdf(self, x):
+        k, l = self.k, self.l
+        return lowergamma(k, l*x) / gamma(k)
+>>>>>>> REPLACE
+```
+
+```python
+### sympy/stats/crv_types.py
+<<<<<<< SEARCH
+class FrechetDistribution(SingleContinuousDistribution):
+    _argnames = ('a', 's', 'm')
+
+    set = Interval(0, oo)
+
+    def __new__(cls, a, s=1, m=0):
+        a, s, m = list(map(sympify, (a, s, m)))
+        return Basic.__new__(cls, a, s, m)
+
+    def pdf(self, x):
+        a, s, m = self.a, self.s, self.m
+        return a/s * ((x-m)/s)**(-1-a) * exp(-((x-m)/s)**(-a))
+=======
+class FrechetDistribution(SingleContinuousDistribution):
+    _argnames = ('a', 's', 'm')
+
+    set = Interval(0, oo)
+
+    def __new__(cls, a, s=1, m=0):
+        a, s, m = list(map(sympify, (a, s, m)))
+        return Basic.__new__(cls, a, s, m)
+
+    def pdf(self, x):
+        a, s, m = self.a, self.s, self.m
+        return a/s * ((x-m)/s)**(-1-a) * exp(-((x-m)/s)**(-a))
+
+    def _cdf(self, x):
+        a, s, m = self.a, self.s, self.m
+        return exp(-((x-m)/s)**(-a))
+>>>>>>> REPLACE
+```
+
+```python
+### sympy/stats/crv_types.py
+<<<<<<< SEARCH
+class GammaDistribution(SingleContinuousDistribution):
+    _argnames = ('k', 'theta')
+
+    set = Interval(0, oo)
+
+    @staticmethod
+    def check(k, theta):
+        _value_check(k > 0, "k must be positive")
+        _value_check(theta > 0, "Theta must be positive")
+
+    def pdf(self, x):
+        k, theta = self.k, self.theta
+        return x**(k - 1) * exp(-x/theta) / (gamma(k)*theta**k)
+=======
+class GammaDistribution(SingleContinuousDistribution):
+    _argnames = ('k', 'theta')
+
+    set = Interval(0, oo)
+
+    @

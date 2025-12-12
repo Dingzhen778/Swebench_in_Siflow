@@ -1,0 +1,27 @@
+```python
+### lib/matplotlib/legend.py
+<<<<<<< SEARCH
+        if isinstance(parent, Axes):
+            self.isaxes = True
+            self.axes = parent
+            self.set_figure(parent.figure)
+        elif isinstance(parent, Figure):
+            self.isaxes = False
+            self.set_figure(parent)
+        else:
+            raise TypeError("Legend needs either Axes or Figure as parent")
+        self.parent = parent
+=======
+        from matplotlib.figure import FigureBase
+        if isinstance(parent, Axes):
+            self.isaxes = True
+            self.axes = parent
+            self.set_figure(parent.figure)
+        elif isinstance(parent, FigureBase):
+            self.isaxes = False
+            self.set_figure(parent)
+        else:
+            raise TypeError("Legend needs either Axes or Figure as parent")
+        self.parent = parent
+>>>>>>> REPLACE
+```

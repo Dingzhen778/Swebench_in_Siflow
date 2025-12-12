@@ -1,0 +1,16 @@
+```python
+### sympy/sets/sets.py
+<<<<<<< SEARCH
+            if syms != []:
+                return Complement(Union(intervals, evaluate=False),
+                        FiniteSet(*syms), evaluate=False)
+            else:
+                return Union(intervals, evaluate=False)
+=======
+            if syms != []:
+                return Complement(Union(intervals, evaluate=False),
+                                  FiniteSet(*syms), evaluate=False)
+            else:
+                return Complement(Union(intervals, evaluate=False), S.EmptySet, evaluate=False)
+>>>>>>> REPLACE
+```

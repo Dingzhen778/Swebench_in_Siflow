@@ -1,0 +1,34 @@
+```python
+### django/utils/numberformat.py
+<<<<<<< SEARCH
+        if abs(exponent) + len(digits) > 200:
+            number = '{:e}'.format(number)
+            coefficient, exponent = number.split('e')
+            # Format the coefficient.
+            coefficient = format(
+                coefficient, decimal_sep, decimal_pos, grouping,
+                thousand_sep, force_grouping, use_l10n,
+            )
+            return '{}e{}'.format(coefficient, exponent)
+        else:
+            str_number = '{:f}'.format(number)
+=======
+        if abs(exponent) + len(digits) > 200:
+            # Check if the number is smaller than the smallest representable number
+            # with the given number of decimal positions.
+            min_representable = Decimal('1') / (Decimal('10') ** decimal_pos)
+            if abs(number) < min_representable:
+                str_number = '0.' + ('0' * decimal_pos)
+            else:
+                number = '{:e}'.format(number)
+                coefficient, exponent = number.split('e')
+                # Format the coefficient.
+                coefficient = format(
+                    coefficient, decimal_sep, decimal_pos, grouping,
+                    thousand_sep, force_grouping, use_l10n,
+                )
+                return '{}e{}'.format(coefficient, exponent)
+        else:
+            str_number = '{:f}'.format(number)
+>>>>>>> REPLACE
+```

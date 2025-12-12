@@ -1,0 +1,25 @@
+```python
+### django/template/autoreload.py
+<<<<<<< SEARCH
+for directory in get_template_directories():
+    sender.watch_dir(directory, "**/*")
+=======
+for directory in filter(None, get_template_directories()):
+    sender.watch_dir(directory, "**/*")
+>>>>>>> REPLACE
+```
+
+```python
+### django/template/autoreload.py
+<<<<<<< SEARCH
+if template_dir in file_path.parents:
+    reset_loaders()
+    return True
+=======
+if template_dir and template_dir in file_path.parents:
+    reset_loaders()
+    return True
+>>>>>>> REPLACE
+```
+
+These *SEARCH/REPLACE* edits ensure that any empty strings in the `TEMPLATES_DIRS` environment variable are filtered out before being used in the `watch_dir` method and the `template_changed` function. This prevents the autoreload mechanism from breaking due to the presence of empty strings in the template directories list.

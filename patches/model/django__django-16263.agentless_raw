@@ -1,0 +1,48 @@
+```python
+### django/db/models/query.py
+<<<<<<< SEARCH
+    def count(self):
+        """
+        Perform a SELECT COUNT() and return the number of records as an
+        integer.
+
+        If the QuerySet is already fully cached, return the length of the
+        cached results set to avoid multiple SELECT COUNT(*) calls.
+        """
+        if self._result_cache is not None:
+            return len(self._result_cache)
+
+        return self.query.get_count(using=self.db)
+=======
+    def count(self):
+        """
+        Perform a SELECT COUNT() and return the number of records as an
+        integer.
+
+        If the QuerySet is already fully cached, return the length of the
+        cached results set to avoid multiple SELECT COUNT(*) calls.
+        """
+        if self._result_cache is not None:
+            return len(self._result_cache)
+
+        # Strip unused annotations before performing the count
+        self.query.clear_annotation_mask()
+        return self.query.get_count(using=self.db)
+>>>>>>> REPLACE
+```
+
+```python
+### django/db/models/sql/query.py
+<<<<<<< SEARCH
+    def clear_annotation_mask(self):
+        """Clear the mask of annotations to include in the SELECT clause."""
+        self.annotation_select_mask = ()
+=======
+    def clear_annotation_mask(self):
+        """Clear the mask of annotations to include in the SELECT clause."""
+        self.annotation_select_mask = ()
+        self.annotation_select = {}
+>>>>>>> REPLACE
+```
+
+These changes ensure that any unused annotations are stripped from the query when `count()` is called, which should address the issue described. The `clear_annotation_mask` method is modified to also clear the `annotation_select` dictionary, ensuring that no annotations are included in the final SQL query unless they are explicitly needed.

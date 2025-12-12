@@ -1,0 +1,16 @@
+Based on the issue description, the problem lies in the `catch_all_view` function where it redirects to a URL without including the `FORCE_SCRIPT_NAME`. The `request.path_info` does not include the script name, while `request.path` does. We need to modify the code to use `request.path` instead of `request.path_info`.
+
+However, the provided code segment does not contain the `catch_all_view` function. To properly address the issue, we need to locate the `catch_all_view` function and make the necessary changes.
+
+Assuming the `catch_all_view` function is located in a file such as `django/views/default.py`, here is the *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### django/views/default.py
+<<<<<<< SEARCH
+return redirect('%s/' % request.path_info)
+=======
+return redirect('%s/' % request.path)
+>>>>>>> REPLACE
+```
+
+If the `catch_all_view` function is located in a different file, please provide the correct file path, and I will adjust the *SEARCH/REPLACE* edit accordingly.

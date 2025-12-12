@@ -1,0 +1,30 @@
+```python
+### requests/sessions.py
+<<<<<<< SEARCH
+        p.prepare(
+            method=request.method.upper(),
+            url=request.url,
+            files=request.files,
+            data=request.data,
+            headers=merge_setting(request.headers, self.headers, dict_class=CaseInsensitiveDict),
+            params=merge_setting(request.params, self.params),
+            auth=merge_setting(auth, self.auth),
+            cookies=merged_cookies,
+            hooks=merge_setting(request.hooks, self.hooks),
+        )
+=======
+        p.prepare(
+            method=str(request.method).upper(),
+            url=request.url,
+            files=request.files,
+            data=request.data,
+            headers=merge_setting(request.headers, self.headers, dict_class=CaseInsensitiveDict),
+            params=merge_setting(request.params, self.params),
+            auth=merge_setting(auth, self.auth),
+            cookies=merged_cookies,
+            hooks=merge_setting(request.hooks, self.hooks),
+        )
+>>>>>>> REPLACE
+```
+
+This change ensures that the `method` parameter is always converted to a string before being passed to the `prepare` method, which should prevent the `UnicodeDecodeError` when using Unicode strings in Python 2.7.2.

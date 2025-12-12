@@ -1,0 +1,8 @@
+```python
+### sklearn/linear_model/logistic.py
+<<<<<<< SEARCH
+    log_reg = LogisticRegression(fit_intercept=fit_intercept)
+=======
+    log_reg = LogisticRegression(fit_intercept=fit_intercept, multi_class=multi_class)
+>>>>>>> REPLACE
+```

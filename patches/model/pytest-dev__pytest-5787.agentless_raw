@@ -1,0 +1,97 @@
+To address the issue of chained exceptions not being properly displayed when running tests with `pytest-xdist`, we need to ensure that the capturing mechanism in `_pytest/capture.py` correctly handles and preserves the full exception chain. The issue seems to be related to how the capturing is suspended and resumed, which might be losing the context of the chained exceptions.
+
+Here is the proposed *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### src/_pytest/capture.py
+<<<<<<< SEARCH
+    def suspend_capturing(self, in_=False):
+        self._state = "suspended"
+        if self.out:
+            self.out.suspend()
+        if self.err:
+            self.err.suspend()
+        if in_ and self.in_:
+            self.in_.suspend()
+            self._in_suspended = True
+=======
+    def suspend_capturing(self, in_=False):
+        self._state = "suspended"
+        if self.out:
+            self.out.suspend()
+        if self.err:
+            self.err.suspend()
+        if in_ and self.in_:
+            self.in_.suspend()
+            self._in_suspended = True
+        # Ensure that the current exception context is preserved
+        self._current_exception = sys.exc_info()
+>>>>>>> REPLACE
+```
+
+Additionally, we need to ensure that the exception context is restored when resuming capturing:
+
+```python
+### src/_pytest/capture.py
+<<<<<<< SEARCH
+    def resume(self):
+        self.resume_global_capture()
+        self.resume_fixture(self._current_item)
+=======
+    def resume(self):
+        self.resume_global_capture()
+        self.resume_fixture(self._current_item)
+        # Restore the exception context if it was saved
+        if hasattr(self, '_current_exception'):
+            sys.exc_info = self._current_exception
+            del self._current_exception
+>>>>>>> REPLACE
+```
+
+These changes ensure that the exception context is preserved and restored correctly, which should help in displaying the full chain of exceptions even when running tests with `pytest-xdist`.
+
+Here are the complete *SEARCH/REPLACE* edits:
+
+```python
+### src/_pytest/capture.py
+<<<<<<< SEARCH
+    def suspend_capturing(self, in_=False):
+        self._state = "suspended"
+        if self.out:
+            self.out.suspend()
+        if self.err:
+            self.err.suspend()
+        if in_ and self.in_:
+            self.in_.suspend()
+            self._in_suspended = True
+=======
+    def suspend_capturing(self, in_=False):
+        self._state = "suspended"
+        if self.out:
+            self.out.suspend()
+        if self.err:
+            self.err.suspend()
+        if in_ and self.in_:
+            self.in_.suspend()
+            self._in_suspended = True
+        # Ensure that the current exception context is preserved
+        self._current_exception = sys.exc_info()
+>>>>>>> REPLACE
+```
+
+```python
+### src/_pytest/capture.py
+<<<<<<< SEARCH
+    def resume(self):
+        self.resume_global_capture()
+        self.resume_fixture(self._current_item)
+=======
+    def resume(self):
+        self.resume_global_capture()
+        self.resume_fixture(self._current_item)
+        # Restore the exception context if it was saved
+        if hasattr(self, '_current_exception'):
+            sys.exc_info = self._current_exception
+            del self._current_exception
+>>>>>>> REPLACE
+```

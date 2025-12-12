@@ -1,0 +1,26 @@
+To address the issue of duplicate options in the form field when using `limit_choices_to` with a `ForeignKey` involving a join, we need to ensure that the queryset used to populate the choices does not include duplicates. This can be achieved by adding a `.distinct()` call to the queryset.
+
+Here is the *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### django/db/models/fields/related.py
+<<<<<<< SEARCH
+        return super().formfield(**{
+            'form_class': forms.ModelChoiceField,
+            'queryset': self.remote_field.model._default_manager.using(using),
+            'to_field_name': self.remote_field.field_name,
+            **kwargs,
+            'blank': self.blank,
+        })
+=======
+        return super().formfield(**{
+            'form_class': forms.ModelChoiceField,
+            'queryset': self.remote_field.model._default_manager.using(using).distinct(),
+            'to_field_name': self.remote_field.field_name,
+            **kwargs,
+            'blank': self.blank,
+        })
+>>>>>>> REPLACE
+```
+
+This edit ensures that the queryset used to populate the choices in the form field is distinct, preventing duplicate options from appearing.

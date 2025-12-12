@@ -1,0 +1,56 @@
+```python
+### django/utils/translation/trans_real.py
+<<<<<<< SEARCH
+for code in possible_lang_codes:
+    if code in supported_lang_codes and check_for_language(code):
+        return code
+if not strict:
+    # if fr-fr is not supported, try fr-ca.
+    for supported_code in supported_lang_codes:
+        if supported_code.startswith(generic_lang_code + '-'):
+            return supported_code
+raise LookupError(lang_code)
+=======
+for code in possible_lang_codes:
+    if code in supported_lang_codes and check_for_language(code):
+        return code
+if not strict:
+    # if fr-fr is not supported, try fr-ca.
+    for supported_code in supported_lang_codes:
+        if supported_code.lower().startswith(generic_lang_code.lower() + '-'):
+            return supported_code
+raise LookupError(lang_code)
+>>>>>>> REPLACE
+```
+
+```python
+### django/utils/translation/trans_real.py
+<<<<<<< SEARCH
+def get_language_from_path(path, strict=False):
+    """
+    Return the language code if there's a valid language code found in `path`.
+
+    If `strict` is False (the default), look for a country-specific variant
+    when neither the language code nor its generic variant is found.
+    """
+    regex_match = language_code_prefix_re.match(path)
+=======
+def get_language_from_path(path, strict=False):
+    """
+    Return the language code if there's a valid language code found in `path`.
+
+    If `strict` is False (the default), look for a country-specific variant
+    when neither the language code nor its generic variant is found.
+    """
+    regex_match = language_code_prefix_re.match(path)
+    if regex_match:
+        lang_code = regex_match.group(1).lower()
+        try:
+            return get_supported_language_variant(lang_code, strict=strict)
+        except LookupError:
+            pass
+    return None
+>>>>>>> REPLACE
+```
+
+These changes ensure that the language codes are compared in a case-insensitive manner, which should resolve the issue with locales containing both script and region.

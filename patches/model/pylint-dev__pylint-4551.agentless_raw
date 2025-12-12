@@ -1,0 +1,111 @@
+```python
+### pylint/pyreverse/inspector.py
+<<<<<<< SEARCH
+        for assignattrs in node.instance_attrs.values():
+            for assignattr in assignattrs:
+                if not isinstance(assignattr, astroid.Unknown):
+                    self.handle_assignattr_type(assignattr, node)
+        # resolve implemented interface
+        try:
+            node.implements = list(interfaces(node, self.inherited_interfaces))
+        except astroid.InferenceError:
+            node.implements = ()
+=======
+        for assignattrs in node.instance_attrs.values():
+            for assignattr in assignattrs:
+                if not isinstance(assignattr, astroid.Unknown):
+                    self.handle_assignattr_type(assignattr, node)
+        # resolve implemented interface
+        try:
+            node.implements = list(interfaces(node, self.inherited_interfaces))
+        except astroid.InferenceError:
+            node.implements = []
+        # Handle type hints for function arguments
+        if isinstance(node, astroid.ClassDef):
+            for method in node.mymethods():
+                self.handle_method_type_hints(method)
+        elif isinstance(node, astroid.FunctionDef):
+            self.handle_method_type_hints(node)
+
+    def handle_method_type_hints(self, node):
+        """Handle type hints for function arguments."""
+        if node.args.annotations:
+            for arg, annotation in zip(node.args.args, node.args.annotations):
+                if isinstance(annotation, astroid.Name):
+                    node.locals_type[arg.name].append(annotation.name)
+                elif isinstance(annotation, astroid.Subscript):
+                    node.locals_type[arg.name].append(str(annotation.value))
+                else:
+                    node.locals_type[arg.name].append(str(annotation))
+>>>>>>> REPLACE
+```
+
+```python
+### pylint/pyreverse/diadefslib.py
+<<<<<<< SEARCH
+class ClassDiadefGenerator(DiaDefGenerator):
+    """generate a class diagram definition including all classes related to a
+    given class
+    """
+
+    def __init__(self, linker, handler):
+        DiaDefGenerator.__init__(self, linker, handler)
+
+    def class_diagram(self, project, klass):
+        """return a class diagram definition for the given klass and its
+        related klasses
+        """
+
+        self.classdiagram = ClassDiagram(klass, self.config.mode)
+        if len(project.modules) > 1:
+            module, klass = klass.rsplit(".", 1)
+            module = project.get_module(module)
+        else:
+            module = project.modules[0]
+            klass = klass.split(".")[-1]
+        klass = next(module.ilookup(klass))
+
+        anc_level, association_level = self._get_levels()
+        self.extract_classes(klass, anc_level, association_level)
+        return self.classdiagram
+=======
+class ClassDiadefGenerator(DiaDefGenerator):
+    """generate a class diagram definition including all classes related to a
+    given class
+    """
+
+    def __init__(self, linker, handler):
+        DiaDefGenerator.__init__(self, linker, handler)
+
+    def class_diagram(self, project, klass):
+        """return a class diagram definition for the given klass and its
+        related klasses
+        """
+
+        self.classdiagram = ClassDiagram(klass, self.config.mode)
+        if len(project.modules) > 1:
+            module, klass = klass.rsplit(".", 1)
+            module = project.get_module(module)
+        else:
+            module = project.modules[0]
+            klass = klass.split(".")[-1]
+        klass = next(module.ilookup(klass))
+
+        anc_level, association_level = self._get_levels()
+        self.extract_classes(klass, anc_level, association_level)
+        
+        # Add type hints to the class diagram
+        for method in klass.mymethods():
+            self.add_method_type_hints(method)
+
+    def add_method_type_hints(self, method):
+        """Add type hints to the method in the class diagram."""
+        if method.locals_type:
+            for arg, types in method.locals_type.items():
+                if types:
+                    type_str = ", ".join(types)
+                    self.classdiagram.add_attribute(method.parent, f"{arg} : {type_str}")
+
+        return self.classdiagram
+>>>>>>> REPLACE
+```

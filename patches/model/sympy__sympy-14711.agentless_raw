@@ -1,0 +1,16 @@
+```python
+### sympy/physics/vector/vector.py
+<<<<<<< SEARCH
+def _check_vector(other):
+    if not isinstance(other, Vector):
+        raise TypeError('A Vector must be supplied')
+    return other
+=======
+def _check_vector(other):
+    if other == 0:
+        return Vector(0)
+    if not isinstance(other, Vector):
+        raise TypeError('A Vector must be supplied')
+    return other
+>>>>>>> REPLACE
+```

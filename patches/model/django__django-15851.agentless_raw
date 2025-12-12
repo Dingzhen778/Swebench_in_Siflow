@@ -1,0 +1,50 @@
+```python
+### django/db/backends/postgresql/client.py
+<<<<<<< SEARCH
+        args.extend(parameters)
+
+        env = {}
+        if passwd:
+            env["PGPASSWORD"] = str(passwd)
+        if service:
+            env["PGSERVICE"] = str(service)
+        if sslmode:
+            env["PGSSLMODE"] = str(sslmode)
+        if sslrootcert:
+            env["PGSSLROOTCERT"] = str(sslrootcert)
+        if sslcert:
+            env["PGSSLCERT"] = str(sslcert)
+        if sslkey:
+            env["PGSSLKEY"] = str(sslkey)
+        if passfile:
+            env["PGPASSFILE"] = str(passfile)
+        return args, (env or None)
+=======
+        # Extract the database name from the parameters
+        dbname = parameters.pop('dbname', None)
+        
+        # Extend the args list with the remaining parameters
+        args.extend(parameters)
+
+        # Add the database name at the end of the args list
+        if dbname:
+            args.append(dbname)
+
+        env = {}
+        if passwd:
+            env["PGPASSWORD"] = str(passwd)
+        if service:
+            env["PGSERVICE"] = str(service)
+        if sslmode:
+            env["PGSSLMODE"] = str(sslmode)
+        if sslrootcert:
+            env["PGSSLROOTCERT"] = str(sslrootcert)
+        if sslcert:
+            env["PGSSLCERT"] = str(sslcert)
+        if sslkey:
+            env["PGSSLKEY"] = str(sslkey)
+        if passfile:
+            env["PGPASSFILE"] = str(passfile)
+        return args, (env or None)
+>>>>>>> REPLACE
+```

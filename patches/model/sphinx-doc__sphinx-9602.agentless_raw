@@ -1,0 +1,81 @@
+```python
+### sphinx/ext/autodoc/typehints.py
+<<<<<<< SEARCH
+def process_docstring(app, what, name, obj, options, lines):
+    """Process the docstring of the given object."""
+    if what in ('class', 'exception'):
+        # skip processing for classes and exceptions
+        return
+    if what == 'attribute':
+        # skip processing for attributes
+        return
+    if what == 'method':
+        # skip processing for methods
+        return
+    if what == 'function':
+        # process function annotations
+        if hasattr(obj, '__annotations__'):
+            for arg, annotation in obj.__annotations__.items():
+                if arg == 'return':
+                    lines.append(':rtype: %s' % stringify(annotation))
+                else:
+                    lines.append(':type %s: %s' % (arg, stringify(annotation)))
+    if what == 'module':
+        # process module annotations
+        if hasattr(obj, '__annotations__'):
+            for arg, annotation in obj.__annotations__.items():
+                lines.append(':var %s: %s' % (arg, stringify(annotation)))
+                lines.append(':vartype %s: %s' % (arg, stringify(annotation)))
+=======
+def process_docstring(app, what, name, obj, options, lines):
+    """Process the docstring of the given object."""
+    if what in ('class', 'exception'):
+        # skip processing for classes and exceptions
+        return
+    if what == 'attribute':
+        # skip processing for attributes
+        return
+    if what == 'method':
+        # skip processing for methods
+        return
+    if what == 'function':
+        # process function annotations
+        if hasattr(obj, '__annotations__'):
+            for arg, annotation in obj.__annotations__.items():
+                if arg == 'return':
+                    lines.append(':rtype: %s' % stringify(annotation))
+                else:
+                    lines.append(':type %s: %s' % (arg, stringify(annotation)))
+    if what == 'module':
+        # process module annotations
+        if hasattr(obj, '__annotations__'):
+            for arg, annotation in obj.__annotations__.items():
+                lines.append(':var %s: %s' % (arg, stringify(annotation)))
+                lines.append(':vartype %s: %s' % (arg, stringify(annotation)))
+
+    # Handle Literal annotations specifically to avoid nitpick warnings
+    if what in ('function', 'method'):
+        if hasattr(obj, '__annotations__'):
+            for arg, annotation in obj.__annotations__.items():
+                if isinstance(annotation, typing.Literal):
+                    lines.append(':type %s: :obj:`%s`' % (arg, annotation))
+                    lines.append(':param %s: %s' % (arg, annotation))
+>>>>>>> REPLACE
+```
+
+```python
+### sphinx/util/typing.py
+<<<<<<< SEARCH
+elif qualname == 'Literal':
+    args = ', '.join(repr(a) for a in annotation.__args__)
+    return '%s[%s]' % (qualname, args)
+=======
+elif qualname == 'Literal':
+    args = ', '.join(repr(a) for a in annotation.__args__)
+    return '%s[%s]' % (qualname, args)
+else:
+    # Handle other cases where the annotation is not a class
+    if not isinstance(annotation, type):
+        return repr(annotation)
+>>>>>>> REPLACE
+```

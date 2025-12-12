@@ -1,0 +1,20 @@
+```python
+### sphinx/builders/gettext.py
+<<<<<<< SEARCH
+    def __init__(self, text: str, locations: List[Tuple[str, int]], uuids: List[str]):
+        self.text = text
+        self.locations = locations
+        self.uuids = uuids
+=======
+    def __init__(self, text: str, locations: List[Tuple[str, int]], uuids: List[str]):
+        self.text = text
+        self.locations = self.uniqueLocation(locations)
+        self.uuids = uuids
+
+    def uniqueLocation(self, locations: List[Tuple[str, int]]) -> List[Tuple[str, int]]:
+        loc_set = set(locations)
+        return list(loc_set)
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit adds the `uniqueLocation` method to the `Message` class and uses it to ensure that the `locations` list contains only unique entries. This should resolve the issue of duplicated locations in the `.pot` file.

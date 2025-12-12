@@ -1,0 +1,47 @@
+```python
+### lib/matplotlib/figure.py
+<<<<<<< SEARCH
+    def __getstate__(self):
+        state = super().__getstate__()
+
+        # The canvas cannot currently be pickled, but this has the benefit
+        # of meaning that a figure can be detached from one canvas, and
+        # re-attached to another.
+        state.pop("canvas")
+
+        # discard any changes to the dpi due to pixel ratio changes
+        state["_dpi"] = state.get('_original_dpi', state['_dpi'])
+
+        # add version information to the state
+        state['__mpl_version__'] = mpl.__version__
+
+        # check whether the figure manager (if any) is registered with pyplot
+        from matplotlib import _pylab_helpers
+        if self.canvas.manager in _pylab_helpers.Gcf.figs.values():
+            state['_restore_to_pylab'] = True
+        return state
+=======
+    def __getstate__(self):
+        state = super().__getstate__()
+
+        # The canvas cannot currently be pickled, but this has the benefit
+        # of meaning that a figure can be detached from one canvas, and
+        # re-attached to another.
+        state.pop("canvas")
+
+        # discard any changes to the dpi due to pixel ratio changes
+        state["_dpi"] = state.get('_original_dpi', state['_dpi'])
+
+        # add version information to the state
+        state['__mpl_version__'] = mpl.__version__
+
+        # check whether the figure manager (if any) is registered with pyplot
+        from matplotlib import _pylab_helpers
+        if self.canvas.manager in _pylab_helpers.Gcf.figs.values():
+            state['_restore_to_pylab'] = True
+
+        # Remove weak references to avoid pickling issues
+        state.pop("_label_aligner", None)
+        return state
+>>>>>>> REPLACE
+```

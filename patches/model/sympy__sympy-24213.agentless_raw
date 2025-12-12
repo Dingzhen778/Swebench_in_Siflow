@@ -1,0 +1,31 @@
+```python
+### sympy/physics/units/unitsystem.py
+<<<<<<< SEARCH
+        elif isinstance(expr, Add):
+            factor, dim = self._collect_factor_and_dimension(expr.args[0])
+            for addend in expr.args[1:]:
+                addend_factor, addend_dim = \
+                    self._collect_factor_and_dimension(addend)
+                if dim != addend_dim:
+                    raise ValueError(
+                        'Dimension of "{}" is {}, '
+                        'but it should be {}'.format(
+                            addend, addend_dim, dim))
+                factor += addend_factor
+            return factor, dim
+=======
+        elif isinstance(expr, Add):
+            factor, dim = self._collect_factor_and_dimension(expr.args[0])
+            for addend in expr.args[1:]:
+                addend_factor, addend_dim = self._collect_factor_and_dimension(addend)
+                if dim != addend_dim:
+                    # Check if the dimensions are equivalent by converting them to base dimensions
+                    if not dim.as_base_dimensions() == addend_dim.as_base_dimensions():
+                        raise ValueError(
+                            'Dimension of "{}" is {}, '
+                            'but it should be {}'.format(
+                                addend, addend_dim, dim))
+                factor += addend_factor
+            return factor, dim
+>>>>>>> REPLACE
+```

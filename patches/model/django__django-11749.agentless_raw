@@ -1,0 +1,23 @@
+```python
+### django/core/management/__init__.py
+<<<<<<< SEARCH
+    parse_args += [
+        '{}={}'.format(min(opt.option_strings), arg_options[opt.dest])
+        for opt in parser_actions if opt.required and opt.dest in options
+    ]
+=======
+    # Check if the option is part of a required mutually exclusive group
+    required_groups = [group for group in parser._mutually_exclusive_groups if group.required]
+    for group in required_groups:
+        for opt in group._group_actions:
+            if opt.dest in options:
+                parse_args.append('{}={}'.format(min(opt.option_strings), arg_options[opt.dest]))
+                break  # Only one option from the group should be added
+
+    # Add other required options
+    parse_args += [
+        '{}={}'.format(min(opt.option_strings), arg_options[opt.dest])
+        for opt in parser_actions if opt.required and opt.dest in options and not any(opt in group._group_actions for group in required_groups)
+    ]
+>>>>>>> REPLACE
+```

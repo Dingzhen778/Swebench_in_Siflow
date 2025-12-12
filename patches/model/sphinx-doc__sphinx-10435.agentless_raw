@@ -1,0 +1,18 @@
+```python
+### sphinx/writers/latex.py
+<<<<<<< SEARCH
+        hlcode = hlcode.replace(r'\begin{Verbatim}[commandchars=\\\{\}]',
+                                r'\sphinxcode{\sphinxupquote{')
+        # get consistent trailer
+        hlcode = hlcode.rstrip()[:-14]  # strip \end{Verbatim}
+        self.body.append(hlcode)
+        self.body.append('}}')
+=======
+        hlcode = hlcode.replace(r'\begin{Verbatim}[commandchars=\\\{\}]',
+                                r'\sphinxcode{\sphinxupquote{%')
+        # get consistent trailer
+        hlcode = hlcode.rstrip()[:-14]  # strip \end{Verbatim}
+        self.body.append(hlcode)
+        self.body.append('%}}')
+>>>>>>> REPLACE
+```

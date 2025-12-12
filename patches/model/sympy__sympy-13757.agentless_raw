@@ -1,0 +1,33 @@
+```python
+### sympy/core/mul.py
+<<<<<<< SEARCH
+            #  y    2y     3y
+            # x  * x   -> x
+            # We determine if two exponents have the same term by using
+            # as_coeff_Mul.
+            #
+            # Unfortunately, this isn't smart enough to consider combining into
+            # exponents that might already be adds, so things like:
+            #  z - y    y
+            # x      * x  will be left alone.  This is because checking every possible
+            # combination can slow things down.
+=======
+            #  y    2y     3y
+            # x  * x   -> x
+            # We determine if two exponents have the same term by using
+            # as_coeff_Mul.
+            #
+            # Unfortunately, this isn't smart enough to consider combining into
+            # exponents that might already be adds, so things like:
+            #  z - y    y
+            # x      * x  will be left alone.  This is because checking every possible
+            # combination can slow things down.
+            #
+            # Ensure that expressions like `x * Poly(x)` are evaluated correctly.
+            if isinstance(o, Poly) and b.is_Symbol:
+                c_part.append(o.mul(b))
+                continue
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit ensures that when a `Poly` object is multiplied by a symbol, the multiplication is evaluated correctly. The specific check for `Poly` and `Symbol` types is added to handle the issue described in the problem statement.

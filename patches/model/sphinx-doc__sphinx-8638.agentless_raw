@@ -1,0 +1,62 @@
+```python
+### sphinx/domains/python.py
+<<<<<<< SEARCH
+    def resolve_xref(self, env: BuildEnvironment, fromdocname: str, builder: Builder,
+                     type: str, target: str, node: pending_xref, contnode: Element
+                     ) -> Element:
+        modname = node.get('py:module')
+        clsname = node.get('py:class')
+        searchmode = 1 if node.hasattr('refspecific') else 0
+        matches = self.find_obj(env, modname, clsname, target,
+                                type, searchmode)
+
+        if not matches and type == 'attr':
+            # fallback to meth (for property)
+            matches = self.find_obj(env, modname, clsname, target, 'meth', searchmode)
+
+        if not matches:
+            return None
+        elif len(matches) > 1:
+            logger.warning(__('more than one target found for cross-reference %r: %s'),
+                           target, ', '.join(match[0] for match in matches),
+                           type='ref', subtype='python', location=node)
+        name, obj = matches[0]
+
+        if obj[2] == 'module':
+            return self._make_module_refnode(builder, fromdocname, name, contnode)
+        else:
+            return make_refnode(builder, fromdocname, obj[0], obj[1], contnode, name)
+=======
+    def resolve_xref(self, env: BuildEnvironment, fromdocname: str, builder: Builder,
+                     type: str, target: str, node: pending_xref, contnode: Element
+                     ) -> Element:
+        modname = node.get('py:module')
+        clsname = node.get('py:class')
+        searchmode = 1 if node.hasattr('refspecific') else 0
+        matches = self.find_obj(env, modname, clsname, target,
+                                type, searchmode)
+
+        if not matches and type == 'attr':
+            # fallback to meth (for property)
+            matches = self.find_obj(env, modname, clsname, target, 'meth', searchmode)
+
+        if not matches:
+            return None
+        elif len(matches) > 1:
+            # Filter out matches that are not in the same class or module
+            filtered_matches = [match for match in matches if match[0].startswith(modname + ('.' if modname else '') + (clsname + '.' if clsname else ''))]
+            if not filtered_matches:
+                logger.warning(__('more than one target found for cross-reference %r: %s'),
+                               target, ', '.join(match[0] for match in matches),
+                               type='ref', subtype='python', location=node)
+                return None
+            matches = filtered_matches
+
+        name, obj = matches[0]
+
+        if obj[2] == 'module':
+            return self._make_module_refnode(builder, fromdocname, name, contnode)
+        else:
+            return make_refnode(builder, fromdocname, obj[0], obj[1], contnode, name)
+>>>>>>> REPLACE
+```

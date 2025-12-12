@@ -1,0 +1,39 @@
+```python
+### sklearn/linear_model/ridge.py
+<<<<<<< SEARCH
+    def __init__(self, alphas=(0.1, 1.0, 10.0), fit_intercept=True,
+                 normalize=False, scoring=None, cv=None, class_weight=None):
+        super(RidgeClassifierCV, self).__init__(
+            alphas=alphas, fit_intercept=fit_intercept, normalize=normalize,
+            scoring=scoring, cv=cv)
+        self.class_weight = class_weight
+=======
+    def __init__(self, alphas=(0.1, 1.0, 10.0), fit_intercept=True,
+                 normalize=False, scoring=None, cv=None, class_weight=None, store_cv_values=False):
+        super(RidgeClassifierCV, self).__init__(
+            alphas=alphas, fit_intercept=fit_intercept, normalize=normalize,
+            scoring=scoring, cv=cv, store_cv_values=store_cv_values)
+        self.class_weight = class_weight
+        self.store_cv_values = store_cv_values
+>>>>>>> REPLACE
+```
+
+```python
+### sklearn/linear_model/ridge.py
+<<<<<<< SEARCH
+    cv_values_ : array, shape = [n_samples, n_alphas] or \
+    shape = [n_samples, n_responses, n_alphas], optional
+        Cross-validation values for each alpha (if `store_cv_values=True` and
+    `cv=None`). After `fit()` has been called, this attribute will contain \
+    the mean squared errors (by default) or the values of the \
+    `{loss,score}_func` function (if provided in the constructor).
+=======
+    cv_values_ : array, shape = [n_samples, n_alphas] or \
+    shape = [n_samples, n_responses, n_alphas], optional
+        Cross-validation values for each alpha (if `store_cv_values=True` and
+    `cv=None`). After `fit()` has been called, this attribute will contain \
+    the mean squared errors (by default) or the values of the \
+    `{loss,score}_func` function (if provided in the constructor). This attribute \
+    is available only if `store_cv_values` is set to `True`.
+>>>>>>> REPLACE
+```

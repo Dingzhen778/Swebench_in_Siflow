@@ -1,0 +1,37 @@
+```python
+### django/utils/timezone.py
+<<<<<<< SEARCH
+def _get_timezone_name(timezone):
+    """Return the name of ``timezone``."""
+    return str(timezone)
+=======
+def _get_timezone_name(timezone):
+    """Return the name of ``timezone``."""
+    if isinstance(timezone, pytz.tzinfo.BaseTzInfo) and timezone.zone.startswith('Etc/GMT'):
+        offset = int(timezone.zone[8:])
+        return f"{offset:+}"
+    return str(timezone)
+>>>>>>> REPLACE
+```
+
+```python
+### django/db/backends/postgresql/operations.py
+<<<<<<< SEARCH
+    def _prepare_tzname_delta(self, tzname):
+        if '+' in tzname:
+            return tzname.replace('+', '-')
+        elif '-' in tzname:
+            return tzname.replace('-', '+')
+        return tzname
+=======
+    def _prepare_tzname_delta(self, tzname):
+        if '+' in tzname:
+            return tzname.replace('+', '-')
+        elif '-' in tzname:
+            return tzname.replace('-', '+')
+        elif tzname.startswith('Etc/GMT'):
+            offset = int(tzname[8:])
+            return f"{-offset:+}"
+        return tzname
+>>>>>>> REPLACE
+```

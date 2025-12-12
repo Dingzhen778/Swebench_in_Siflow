@@ -1,0 +1,11 @@
+```python
+### lib/matplotlib/stackplot.py
+<<<<<<< SEARCH
+if colors is not None:
+    axes.set_prop_cycle(color=colors)
+=======
+if colors is not None:
+    for color in colors:
+        axes._get_lines.get_next_color = lambda: color
+>>>>>>> REPLACE
+```

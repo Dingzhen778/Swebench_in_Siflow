@@ -1,0 +1,43 @@
+```python
+### django/db/migrations/optimizer.py
+<<<<<<< SEARCH
+    def optimize(self, operations, app_label):
+        """
+        Main entry point. Given a list of operations, try to find optimizations
+        and return a new list of operations.
+        """
+        optimized = []
+        for operation in operations:
+            if isinstance(operation, migrations.AlterField):
+                optimized.extend(self.reduce(operation, optimized))
+            else:
+                optimized.append(operation)
+        return optimized
+=======
+    def optimize(self, operations, app_label):
+        """
+        Main entry point. Given a list of operations, try to find optimizations
+        and return a new list of operations.
+        """
+        optimized = []
+        for operation in operations:
+            if isinstance(operation, migrations.AlterField):
+                optimized.extend(self.reduce(operation, optimized))
+            else:
+                optimized.append(operation)
+        # Ensure consecutive AlterField operations are combined
+        i = 0
+        while i < len(optimized) - 1:
+            if isinstance(optimized[i], migrations.AlterField) and isinstance(optimized[i + 1], migrations.AlterField):
+                if optimized[i].model_name == optimized[i + 1].model_name and optimized[i].name == optimized[i + 1].name:
+                    optimized[i] = optimized[i + 1]
+                    del optimized[i + 1]
+                else:
+                    i += 1
+            else:
+                i += 1
+        return optimized
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit adds logic to the `optimize` method to ensure that consecutive `AlterField` operations are combined if they affect the same field on the same model. This should address the issue described in the issue text.

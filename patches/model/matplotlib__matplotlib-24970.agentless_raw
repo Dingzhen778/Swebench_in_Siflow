@@ -1,0 +1,19 @@
+```python
+### lib/matplotlib/colors.py
+<<<<<<< SEARCH
+        # Set the over-range indices before the under-range;
+        # otherwise the under-range values get converted to over-range.
+        xa[xa > self.N - 1] = self._i_over
+        xa[xa < 0] = self._i_under
+        xa[mask_bad] = self._i_bad
+=======
+        # Set the over-range indices before the under-range;
+        # otherwise the under-range values get converted to over-range.
+        xa[xa > self.N - 1] = self._i_over
+        xa[xa < 0] = self._i_under
+        xa[mask_bad] = self._i_bad
+
+        # Ensure values are within the valid range for uint8
+        xa = np.clip(xa, 0, 255).astype(np.uint8)
+>>>>>>> REPLACE
+```

@@ -1,0 +1,39 @@
+```python
+### django/utils/html.py
+<<<<<<< SEARCH
+_html_escapes = {
+    ord('&'): '&amp;',
+    ord('<'): '&lt;',
+    ord('>'): '&gt;',
+    ord('"'): '&quot;',
+    ord("'"): '&#39;',
+}
+
+
+@keep_lazy(str, SafeString)
+def escape(text):
+    """
+    Return the given text with ampersands, quotes and angle brackets encoded
+    for use in HTML.
+
+    Always escape input, even if it's already escaped and marked as such.
+    This may result in double-escaping. If this is a concern, use
+    conditional_escape() instead.
+    """
+    return mark_safe(str(text).translate(_html_escapes))
+=======
+import html
+
+@keep_lazy(str, SafeString)
+def escape(text):
+    """
+    Return the given text with ampersands, quotes and angle brackets encoded
+    for use in HTML.
+
+    Always escape input, even if it's already escaped and marked as such.
+    This may result in double-escaping. If this is a concern, use
+    conditional_escape() instead.
+    """
+    return mark_safe(html.escape(str(text), quote=True))
+>>>>>>> REPLACE
+```

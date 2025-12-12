@@ -1,0 +1,10 @@
+```python
+### requests/auth.py
+<<<<<<< SEARCH
+if qop:
+    base += ', qop=auth, nc=%s, cnonce="%s"' % (ncvalue, cnonce)
+=======
+if qop:
+    base += ', qop="auth", nc=%s, cnonce="%s"' % (ncvalue, cnonce)
+>>>>>>> REPLACE
+```

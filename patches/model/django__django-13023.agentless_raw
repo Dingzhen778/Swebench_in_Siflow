@@ -1,0 +1,40 @@
+```python
+### django/db/models/fields/__init__.py
+<<<<<<< SEARCH
+    def to_python(self, value):
+        if value is None:
+            return value
+        if isinstance(value, float):
+            return self.context.create_decimal_from_float(value)
+        try:
+            return decimal.Decimal(value)
+        except decimal.InvalidOperation:
+            raise exceptions.ValidationError(
+                self.error_messages['invalid'],
+                code='invalid',
+                params={'value': value},
+            )
+=======
+    def to_python(self, value):
+        if value is None:
+            return value
+        if isinstance(value, float):
+            return self.context.create_decimal_from_float(value)
+        try:
+            if isinstance(value, dict):
+                raise ValueError("Invalid type for DecimalField: expected a string or number, got a dictionary.")
+            return decimal.Decimal(value)
+        except decimal.InvalidOperation:
+            raise exceptions.ValidationError(
+                self.error_messages['invalid'],
+                code='invalid',
+                params={'value': value},
+            )
+        except ValueError as e:
+            raise exceptions.ValidationError(
+                str(e),
+                code='invalid',
+                params={'value': value},
+            )
+>>>>>>> REPLACE
+```

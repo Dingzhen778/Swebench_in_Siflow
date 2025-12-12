@@ -1,0 +1,35 @@
+```python
+### sympy/concrete/products.py
+<<<<<<< SEARCH
+        elif term.is_Add:
+            p, q = term.as_numer_denom()
+            q = self._eval_product(q, (k, a, n))
+            if q.is_Number:
+
+                # There is expression, which couldn't change by
+                # as_numer_denom(). E.g. n**(2/3) + 1 --> (n**(2/3) + 1, 1).
+                # We have to catch this case.
+
+                p = sum([self._eval_product(i, (k, a, n)) for i in p.as_coeff_Add()])
+            else:
+                p = self._eval_product(p, (k, a, n))
+            return p / q
+=======
+        elif term.is_Add:
+            p, q = term.as_numer_denom()
+            q = self._eval_product(q, (k, a, n))
+            if q.is_Number:
+                # There is an expression that couldn't change by as_numer_denom().
+                # E.g., n**(2/3) + 1 --> (n**(2/3) + 1, 1). We have to catch this case.
+                p = sum([self._eval_product(i, (k, a, n)) for i in p.as_coeff_Add()])
+            else:
+                p = self._eval_product(p, (k, a, n))
+            return p / q
+
+        # Handle the specific case of the product involving the q-Pochhammer symbol
+        if term.is_Add and term.has(1 / 2**k):
+            from sympy.functions.combinatorial.qnumbers import QPochhammer
+            base = term - 1 / 2**k
+            return QPochhammer(base, 1/2, n)
+>>>>>>> REPLACE
+```

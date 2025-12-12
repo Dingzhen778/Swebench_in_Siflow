@@ -1,0 +1,16 @@
+```python
+### src/_pytest/runner.py
+<<<<<<< SEARCH
+def pytest_runtest_makereport(item: Item, call: CallInfo[None]) -> TestReport:
+    return TestReport.from_item_and_call(item, call)
+=======
+def pytest_runtest_makereport(item: Item, call: CallInfo[None]) -> TestReport:
+    report = TestReport.from_item_and_call(item, call)
+    if call.when == "call":
+        xfail_mark = item.get_closest_marker("xfail")
+        if xfail_mark and call.excinfo is not None:
+            report.outcome = "xfailed"
+            report.wasxfail = f"reason: {xfail_mark.kwargs.get('reason', '')}"
+    return report
+>>>>>>> REPLACE
+```

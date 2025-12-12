@@ -1,0 +1,17 @@
+```python
+### xarray/core/combine.py
+<<<<<<< SEARCH
+                if not (indexes.is_monotonic_increasing
+                        or indexes.is_monotonic_decreasing):
+                    raise ValueError("Resulting object does not have monotonic"
+                                     " global indexes along dimension {}"
+                                     .format(dim))
+=======
+                # Skip the monotonicity check for dimensions that are not being concatenated
+                if dim in concat_dims and not (indexes.is_monotonic_increasing
+                                               or indexes.is_monotonic_decreasing):
+                    raise ValueError("Resulting object does not have monotonic"
+                                     " global indexes along dimension {}"
+                                     .format(dim))
+>>>>>>> REPLACE
+```

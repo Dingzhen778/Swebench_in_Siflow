@@ -1,0 +1,28 @@
+```python
+### sympy/printing/pycode.py
+<<<<<<< SEARCH
+for k in PythonCodePrinter._kf:
+    setattr(PythonCodePrinter, '_print_%s' % k, _print_known_func)
+
+for k in _known_constants_math:
+    setattr(PythonCodePrinter, '_print_%s' % k, _print_known_const)
+
+
+def pycode(expr, **settings):
+...
+=======
+for k in PythonCodePrinter._kf:
+    setattr(PythonCodePrinter, '_print_%s' % k, _print_known_func)
+
+for k in _known_constants_math:
+    setattr(PythonCodePrinter, '_print_%s' % k, _print_known_const)
+
+def _print_Indexed(self, expr):
+    base, *index = expr.args
+    return "{}[{}]".format(str(base), ", ".join([self._print(ind) for ind in index]))
+
+
+def pycode(expr, **settings):
+...
+>>>>>>> REPLACE
+```

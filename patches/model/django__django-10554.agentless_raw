@@ -1,0 +1,31 @@
+```python
+### django/db/models/sql/compiler.py
+<<<<<<< SEARCH
+                else:
+                    raise DatabaseError('ORDER BY term does not match any column in the result set.')
+            sql, params = self.compile(resolved)
+            # Don't add the same column twice, but the order direction is
+            # not taken into account so we strip it. When this entire method
+            # is refactored into expressions, then we can check each part as we
+            # generate it.
+            without_ordering = self.ordering_parts.search(sql).group(1)
+            params_hash = make_hashable(params)
+            if (without_ordering, params_hash) in seen:
+=======
+                else:
+                    raise DatabaseError('ORDER BY term does not match any column in the result set.')
+            sql, params = self.compile(resolved)
+            # Don't add the same column twice, but the order direction is
+            # not taken into account so we strip it. When this entire method
+            # is refactored into expressions, then we can check each part as we
+            # generate it.
+            without_ordering = self.ordering_parts.search(sql).group(1)
+            params_hash = make_hashable(params)
+            if (without_ordering, params_hash) in seen:
+                continue
+            result.append((sql, params))
+            seen.add((without_ordering, params_hash))
+>>>>>>> REPLACE
+```
+
+This change ensures that the `ORDER BY` terms are only added once to the SQL query, which should prevent the `ProgrammingError` caused by referencing a column that is not in the select list. The `continue` statement skips adding duplicate `ORDER BY` terms, and the `result.append((sql, params))` line ensures that valid `ORDER BY` terms are included in the final query.

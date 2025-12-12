@@ -1,0 +1,24 @@
+```python
+### src/_pytest/capture.py
+<<<<<<< SEARCH
+        if self.out:
+            out = self.out.snap()
+        else:
+            out = ""
+        if self.err:
+            err = self.err.snap()
+        else:
+            err = ""
+        return CaptureResult(out, err)
+=======
+        if self.out:
+            out = self.out.snap().replace('\r', '\r')
+        else:
+            out = ""
+        if self.err:
+            err = self.err.snap().replace('\r', '\r')
+        else:
+            err = ""
+        return CaptureResult(out, err)
+>>>>>>> REPLACE
+```

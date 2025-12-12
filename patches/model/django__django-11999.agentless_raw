@@ -1,0 +1,27 @@
+To address the issue of overriding `get_FIELD_display` in Django 2.2+, we need to ensure that the custom method defined in the model takes precedence over the default method provided by Django. The problem arises because Django 2.2+ uses a private method `_get_FIELD_display` to handle the display of choices, which bypasses any custom `get_FIELD_display` methods defined in the model.
+
+To fix this, we can modify the `Model` class in `django/db/models/base.py` to check for a custom `get_FIELD_display` method before falling back to the default behavior.
+
+Here is the *SEARCH/REPLACE* edit to achieve this:
+
+```python
+### django/db/models/base.py
+<<<<<<< SEARCH
+    def _get_FIELD_display(self, field):
+        value = getattr(self, field.attname)
+        # force_str() to coerce lazy strings.
+        return force_str(dict(field.flatchoices).get(value, value), strings_only=True)
+=======
+    def _get_FIELD_display(self, field):
+        # Check if a custom get_FIELD_display method exists
+        custom_method_name = f'get_{field.name}_display'
+        if hasattr(self, custom_method_name):
+            return getattr(self, custom_method_name)()
+        
+        value = getattr(self, field.attname)
+        # force_str() to coerce lazy strings.
+        return force_str(dict(field.flatchoices).get(value, value), strings_only=True)
+>>>>>>> REPLACE
+```
+
+This edit ensures that if a custom `get_FIELD_display` method is defined in the model, it will be called instead of the default behavior. This should resolve the issue of being unable to override `get_FIELD_display` in Django 2.2+.

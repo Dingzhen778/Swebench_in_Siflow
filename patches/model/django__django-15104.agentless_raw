@@ -1,0 +1,10 @@
+```python
+### django/db/migrations/autodetector.py
+<<<<<<< SEARCH
+            if field.remote_field and field.remote_field.model:
+                del deconstruction[2]['to']
+=======
+            if field.remote_field and field.remote_field.model:
+                deconstruction[2].pop('to', None)
+>>>>>>> REPLACE
+```

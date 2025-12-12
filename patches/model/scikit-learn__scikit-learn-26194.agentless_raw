@@ -1,0 +1,16 @@
+```python
+### sklearn/metrics/_ranking.py
+<<<<<<< SEARCH
+    # Add an extra threshold position
+    # to make sure that the curve starts at (0, 0)
+    tps = np.r_[0, tps]
+    fps = np.r_[0, fps]
+    thresholds = np.r_[thresholds[0] + 1, thresholds]
+=======
+    # Add an extra threshold position
+    # to make sure that the curve starts at (0, 0)
+    tps = np.r_[0, tps]
+    fps = np.r_[0, fps]
+    thresholds = np.r_[min(1, thresholds[0] + 1), thresholds]
+>>>>>>> REPLACE
+```

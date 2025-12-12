@@ -1,0 +1,17 @@
+```python
+### django/http/response.py
+<<<<<<< SEARCH
+        else:
+            content = self.make_bytes(value)
+        # Create a list of properly encoded bytestrings to support write().
+...
+=======
+        else:
+            if isinstance(value, memoryview):
+                content = value.tobytes()
+            else:
+                content = self.make_bytes(value)
+        # Create a list of properly encoded bytestrings to support write().
+...
+>>>>>>> REPLACE
+```

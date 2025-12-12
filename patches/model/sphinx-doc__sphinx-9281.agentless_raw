@@ -1,0 +1,55 @@
+```python
+### sphinx/ext/autodoc/preserve_defaults.py
+<<<<<<< SEARCH
+from sphinx.pycode.ast import unparse as ast_unparse
+from sphinx.util import logging
+
+logger = logging.getLogger(__name__)
+
+
+class DefaultValue:
+    def __init__(self, name: str) -> None:
+        self.name = name
+
+    def __repr__(self) -> str:
+        return self.name
+
+
+def get_function_def(obj: Any) -> ast.FunctionDef:
+    """Get FunctionDef object from living object.
+    This tries to parse original code for living object and returns
+    AST node for given *obj*.
+    """
+    try:
+        source = inspect.getsource(obj)
+        if source.startswith((' ', r'\t')):
+=======
+from sphinx.pycode.ast import unparse as ast_unparse
+from sphinx.util import logging
+
+logger = logging.getLogger(__name__)
+
+
+class DefaultValue:
+    def __init__(self, value: Any) -> None:
+        if isinstance(value, enum.Enum):
+            self.name = f"{value.__class__.__name__}.{value.name}"
+        else:
+            self.name = repr(value)
+
+    def __repr__(self) -> str:
+        return self.name
+
+
+def get_function_def(obj: Any) -> ast.FunctionDef:
+    """Get FunctionDef object from living object.
+    This tries to parse original code for living object and returns
+    AST node for given *obj*.
+    """
+    try:
+        source = inspect.getsource(obj)
+        if source.startswith((' ', r'\t')):
+>>>>>>> REPLACE
+```
+
+This change ensures that when `DefaultValue` is initialized with an `Enum` value, it will store and represent the value in a more readable format, such as `MyEnum.ValueA`, instead of the default representation `<MyEnum.ValueA: 10>`.

@@ -1,0 +1,10 @@
+```python
+### src/_pytest/python.py
+<<<<<<< SEARCH
+        s = ".".join(parts)
+        return s.replace(".[", "[")
+=======
+        s = ".".join(parts)
+        return s
+>>>>>>> REPLACE
+```

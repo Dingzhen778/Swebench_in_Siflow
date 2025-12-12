@@ -1,0 +1,35 @@
+The issue described in the problem statement is due to the way Django handles updates for models with multiple inheritance. Specifically, the `update` method is not correctly identifying the primary key of the `Child` model, leading to updates being applied to the wrong parent model (`OtherBase`).
+
+To fix this, we need to ensure that the `update` method correctly identifies the primary key of the `Child` model. This can be achieved by modifying the `update` method in `django/db/models/query.py` to use the correct primary key for the model being updated.
+
+Here is the *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### django/db/models/query.py
+<<<<<<< SEARCH
+        query = self.query.chain(sql.UpdateQuery)
+        query.add_update_values(kwargs)
+        # Clear any annotations so that they won't be present in subqueries.
+        query.annotations = {}
+        with transaction.mark_for_rollback_on_error(using=self.db):
+            rows = query.get_compiler(self.db).execute_sql(CURSOR)
+        self._result_cache = None
+        return rows
+=======
+        query = self.query.chain(sql.UpdateQuery)
+        query.add_update_values(kwargs)
+        # Ensure the correct primary key is used for the model being updated
+        if self.model._meta.parents:
+            for parent in self.model._meta.parents.keys():
+                if parent._meta.pk.name in self.query.alias_map:
+                    query.where.add(Q(**{parent._meta.pk.name: F(parent._meta.pk.name)}), Q.AND)
+        # Clear any annotations so that they won't be present in subqueries.
+        query.annotations = {}
+        with transaction.mark_for_rollback_on_error(using=self.db):
+            rows = query.get_compiler(self.db).execute_sql(CURSOR)
+        self._result_cache = None
+        return rows
+>>>>>>> REPLACE
+```
+
+This edit ensures that the `update` method correctly identifies the primary key of the `Child` model by checking the parent models and adding the appropriate primary key condition to the query. This should prevent the update from affecting the wrong parent model.

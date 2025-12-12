@@ -1,0 +1,10 @@
+```python
+### django/db/models/expressions.py
+<<<<<<< SEARCH
+        if isinstance(condition, Q) and not condition:
+            raise ValueError("An empty Q() can't be used as a When() condition.")
+=======
+        if isinstance(condition, Q) and not condition.children:
+            raise ValueError("An empty Q() can't be used as a When() condition.")
+>>>>>>> REPLACE
+```

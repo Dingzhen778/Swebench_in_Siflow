@@ -1,0 +1,14 @@
+```python
+### astropy/io/fits/card.py
+<<<<<<< SEARCH
+        if m.group("strg") is not None:
+            value = re.sub("''", "'", m.group("strg"))
+=======
+        if m.group("strg") is not None:
+            value = m.group("strg")
+            if value == "''":
+                value = "''"
+            else:
+                value = re.sub("''", "'", value)
+>>>>>>> REPLACE
+```

@@ -1,0 +1,14 @@
+```python
+### requests/models.py
+<<<<<<< SEARCH
+        if headers:
+            self.headers = CaseInsensitiveDict((to_native_string(name), value) for name, value in headers.items())
+        else:
+            self.headers = CaseInsensitiveDict()
+=======
+        if headers:
+            self.headers = CaseInsensitiveDict((name, value) for name, value in headers.items())
+        else:
+            self.headers = CaseInsensitiveDict()
+>>>>>>> REPLACE
+```

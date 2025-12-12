@@ -1,0 +1,18 @@
+```python
+### sympy/physics/quantum/operator.py
+<<<<<<< SEARCH
+    def __mul__(self, other):
+
+        if isinstance(other, Operator):
+            return other
+
+        return Mul(self, other)
+=======
+    def __mul__(self, other):
+
+        if isinstance(other, Operator) or isinstance(other, Dagger):
+            return other
+
+        return Mul(self, other)
+>>>>>>> REPLACE
+```

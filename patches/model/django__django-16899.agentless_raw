@@ -1,0 +1,39 @@
+```python
+### django/contrib/admin/checks.py
+<<<<<<< SEARCH
+            else:
+                return [
+                    checks.Error(
+                        "The value of '%s' is not a callable, an attribute of "
+                        "'%s', or an attribute of '%s'."
+                        % (
+                            label,
+                            obj.__class__.__name__,
+                            obj.model._meta.label,
+                        ),
+                        obj=obj.__class__,
+                        id="admin.E035",
+                    )
+                ]
+            else:
+                return []
+=======
+            else:
+                return [
+                    checks.Error(
+                        "The value of '%s' ('%s') is not a callable, an attribute of "
+                        "'%s', or an attribute of '%s'."
+                        % (
+                            label,
+                            field_name,
+                            obj.__class__.__name__,
+                            obj.model._meta.label,
+                        ),
+                        obj=obj.__class__,
+                        id="admin.E035",
+                    )
+                ]
+            else:
+                return []
+>>>>>>> REPLACE
+```

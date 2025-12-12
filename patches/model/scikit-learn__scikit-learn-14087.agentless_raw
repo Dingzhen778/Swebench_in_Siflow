@@ -1,0 +1,12 @@
+```python
+### sklearn/linear_model/logistic.py
+<<<<<<< SEARCH
+                else:
+                    w = np.mean([coefs_paths[:, i, best_indices[i], :]
+                                 for i in range(len(folds))], axis=0)
+=======
+                else:
+                    w = np.mean([coefs_paths[:, i, best_indices[i], :].reshape(-1, X.shape[1])
+                                 for i in range(len(folds))], axis=0)
+>>>>>>> REPLACE
+```

@@ -1,0 +1,12 @@
+```python
+### xarray/core/dataset.py
+<<<<<<< SEARCH
+    def __len__(self) -> int:
+        return len(self._dataset._variables) - len(self._dataset._coord_names)
+=======
+    def __len__(self) -> int:
+        return max(0, len(self._dataset._variables) - len(self._dataset._coord_names))
+>>>>>>> REPLACE
+```
+
+This change ensures that the length calculation does not return a negative value, which is causing the `ValueError: __len__() should return >= 0` error. By using `max(0, ...)` we guarantee that the length is always non-negative.

@@ -1,0 +1,18 @@
+```python
+### sympy/polys/factortools.py
+<<<<<<< SEARCH
+    for i, (factor, _) in enumerate(factors):
+        h = dup_convert(factor, K.dom, K)
+        h, _, g = dup_inner_gcd(h, g, K)
+        h = dup_shift(h, H, K)
+        factors[i] = h
+=======
+    for i, (factor, _) in enumerate(factors):
+        h = dup_convert(factor, K.dom, K)
+        h, _, g = dup_inner_gcd(h, g, K)
+        h = dup_shift(h, H, K)
+        factors[i] = (h, _)
+>>>>>>> REPLACE
+```
+
+This change ensures that the factor and its multiplicity are both preserved when converting and processing the factors. The original code was dropping the multiplicity, which led to the loss of the `y-1` factor.

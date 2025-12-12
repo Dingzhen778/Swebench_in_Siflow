@@ -1,0 +1,24 @@
+```python
+### xarray/core/dataset.py
+<<<<<<< SEARCH
+                idx = index_cls.stack(product_vars, new_dim)
+                new_indexes[new_dim] = idx
+                new_indexes.update({k: idx for k in product_vars})
+                idx_vars = idx.create_variables(product_vars)
+                # keep consistent multi-index coordinate order
+                for k in idx_vars:
+                    new_variables.pop(k, None)
+                new_variables.update(idx_vars)
+                new_coord_names.update(idx_vars)
+=======
+                idx = index_cls.stack(product_vars, new_dim)
+                new_indexes[new_dim] = idx
+                new_indexes.update({k: idx for k in product_vars})
+                idx_vars = idx.create_variables(product_vars, preserve_dtype=True)
+                # keep consistent multi-index coordinate order
+                for k in idx_vars:
+                    new_variables.pop(k, None)
+                new_variables.update(idx_vars)
+                new_coord_names.update(idx_vars)
+>>>>>>> REPLACE
+```

@@ -1,0 +1,44 @@
+```python
+### astropy/io/ascii/rst.py
+<<<<<<< SEARCH
+    def __init__(self):
+        super().__init__(delimiter_pad=None, bookend=False)
+=======
+    def __init__(self, header_rows=None):
+        super().__init__(delimiter_pad=None, bookend=False)
+        self.header_rows = header_rows
+>>>>>>> REPLACE
+```
+
+```python
+### astropy/io/ascii/rst.py
+<<<<<<< SEARCH
+    def write(self, lines):
+        lines = super().write(lines)
+        lines = [lines[1]] + lines + [lines[1]]
+        return lines
+=======
+    def write(self, lines):
+        lines = super().write(lines)
+        
+        if self.header_rows:
+            header_lines = []
+            for row in self.header_rows:
+                header_lines.append(' '.join(f'{col:<{width}}' for col, width in zip(row, self.col_widths)))
+            lines = header_lines + ['=' * sum(self.col_widths)] + lines
+        
+        lines = [lines[1]] + lines + [lines[1]]
+        return lines
+>>>>>>> REPLACE
+```
+
+```python
+### astropy/io/ascii/core.py
+<<<<<<< SEARCH
+    writer_kwargs = {k: v for k, v in kwargs.items() if k not in extra_writer_pars}
+    writer = Writer(**writer_kwargs)
+=======
+    writer_kwargs = {k: v for k, v in kwargs.items() if k not in extra_writer_pars}
+    writer = Writer(header_rows=kwargs.get('header_rows', None), **writer_kwargs)
+>>>>>>> REPLACE
+```

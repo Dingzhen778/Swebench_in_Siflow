@@ -1,0 +1,40 @@
+Based on the issue description, the problem lies in the `get_session_auth_hash` method of the `AbstractBaseUser` class. Specifically, the method does not pass the `SECRET_KEY_FALLBACKS` to the `salted_hmac` function, which means it only uses the current `SECRET_KEY`. To fix this, we need to modify the `get_session_auth_hash` method to use the `SECRET_KEY_FALLBACKS` if the current `SECRET_KEY` is not sufficient.
+
+Here is the *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### django/contrib/auth/base_user.py
+<<<<<<< SEARCH
+    def get_session_auth_hash(self):
+        """
+        Return an HMAC of the password field.
+        """
+        key_salt = "django.contrib.auth.models.AbstractBaseUser.get_session_auth_hash"
+        return salted_hmac(
+            key_salt,
+            self.password,
+            algorithm="sha256",
+        ).hexdigest()
+=======
+    def get_session_auth_hash(self):
+        """
+        Return an HMAC of the password field.
+        """
+        key_salt = "django.contrib.auth.models.AbstractBaseUser.get_session_auth_hash"
+        from django.conf import settings
+        secret_keys = [settings.SECRET_KEY] + list(settings.SECRET_KEY_FALLBACKS)
+        for secret_key in secret_keys:
+            try:
+                return salted_hmac(
+                    key_salt,
+                    self.password,
+                    secret=secret_key,
+                    algorithm="sha256",
+                ).hexdigest()
+            except ValueError:
+                continue
+        raise ValueError("No valid secret key found for session auth hash generation.")
+>>>>>>> REPLACE
+```
+
+This edit ensures that the `get_session_auth_hash` method tries each secret key in the `SECRET_KEY_FALLBACKS` list if the current `SECRET_KEY` fails to generate a valid HMAC. This should prevent users from being logged out after rotating the secret key.

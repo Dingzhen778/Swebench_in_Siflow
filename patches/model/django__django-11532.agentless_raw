@@ -1,0 +1,35 @@
+```python
+### django/core/mail/utils.py
+<<<<<<< SEARCH
+class CachedDnsName:
+    def __str__(self):
+        return self.get_fqdn()
+
+    def get_fqdn(self):
+        if not hasattr(self, '_fqdn'):
+            self._fqdn = socket.getfqdn()
+        return self._fqdn
+=======
+class CachedDnsName:
+    def __str__(self):
+        return self.get_fqdn()
+
+    def get_fqdn(self):
+        if not hasattr(self, '_fqdn'):
+            self._fqdn = socket.getfqdn().encode('idna').decode('ascii')
+        return self._fqdn
+>>>>>>> REPLACE
+```
+
+```python
+### django/core/mail/message.py
+<<<<<<< SEARCH
+if 'message-id' not in header_names:
+    # Use cached DNS_NAME for performance
+    msg['Message-ID'] = make_msgid(domain=DNS_NAME)
+=======
+if 'message-id' not in header_names:
+    # Use cached DNS_NAME for performance
+    msg['Message-ID'] = make_msgid(domain=str(DNS_NAME))
+>>>>>>> REPLACE
+```

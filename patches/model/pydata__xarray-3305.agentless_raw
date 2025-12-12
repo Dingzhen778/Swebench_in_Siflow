@@ -1,0 +1,12 @@
+```python
+### xarray/core/dataarray.py
+<<<<<<< SEARCH
+        ds = self._to_temp_dataset().quantile(
+            q, dim=dim, keep_attrs=keep_attrs, interpolation=interpolation
+        )
+=======
+        ds = self._to_temp_dataset().quantile(
+            q, dim=dim, interpolation=interpolation, keep_attrs=keep_attrs
+        )
+>>>>>>> REPLACE
+```

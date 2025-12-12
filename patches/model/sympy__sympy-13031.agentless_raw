@@ -1,0 +1,48 @@
+```python
+### sympy/matrices/common.py
+<<<<<<< SEARCH
+    def hstack(*args):
+        """
+        Return a matrix formed by joining args horizontally (i.e., by
+        joining them along the columns).
+
+        Examples
+        ========
+
+        >>> from sympy.matrices import Matrix, eye
+        >>> Matrix.hstack(eye(2), 2*eye(2))
+        Matrix([
+        [1, 0, 2, 0],
+        [0, 1, 0, 2]])
+        """
+        if len(args) == 0:
+            return cls._new()
+
+        kls = type(args[0])
+        return reduce(kls.row_join, args)
+=======
+    def hstack(*args):
+        """
+        Return a matrix formed by joining args horizontally (i.e., by
+        joining them along the columns).
+
+        Examples
+        ========
+
+        >>> from sympy.matrices import Matrix, eye
+        >>> Matrix.hstack(eye(2), 2*eye(2))
+        Matrix([
+        [1, 0, 2, 0],
+        [0, 1, 0, 2]])
+        """
+        if len(args) == 0:
+            return cls._new()
+
+        kls = type(args[0])
+        if any(arg.shape[0] == 0 for arg in args):
+            # Handle the case where one or more matrices have zero rows
+            total_cols = sum(arg.shape[1] for arg in args)
+            return kls.zeros(0, total_cols)
+        return reduce(kls.row_join, args)
+>>>>>>> REPLACE
+```

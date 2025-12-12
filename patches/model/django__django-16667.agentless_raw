@@ -1,0 +1,33 @@
+```python
+### django/forms/widgets.py
+<<<<<<< SEARCH
+            if y is not None and m is not None and d is not None:
+                input_format = get_format("DATE_INPUT_FORMATS")[0]
+                input_format = formats.sanitize_strftime_format(input_format)
+                try:
+                    date_value = datetime.date(int(y), int(m), int(d))
+                except ValueError:
+                    # Return pseudo-ISO dates with zeros for any unselected values,
+                    # e.g. '2017-0-23'.
+                    return "%s-%s-%s" % (y or 0, m or 0, d or 0)
+                return date_value.strftime(input_format)
+            return data.get(name)
+=======
+            if y is not None and m is not None and d is not None:
+                input_format = get_format("DATE_INPUT_FORMATS")[0]
+                input_format = formats.sanitize_strftime_format(input_format)
+                try:
+                    y_int = int(y)
+                    m_int = int(m)
+                    d_int = int(d)
+                    if y_int > 9999 or m_int < 1 or m_int > 12 or d_int < 1 or d_int > 31:
+                        raise ValueError("Invalid date components")
+                    date_value = datetime.date(y_int, m_int, d_int)
+                except ValueError:
+                    # Return pseudo-ISO dates with zeros for any unselected values,
+                    # e.g. '2017-0-23'.
+                    return "%s-%s-%s" % (y or 0, m or 0, d or 0)
+                return date_value.strftime(input_format)
+            return data.get(name)
+>>>>>>> REPLACE
+```

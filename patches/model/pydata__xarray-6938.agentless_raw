@@ -1,0 +1,36 @@
+```python
+### xarray/core/dataset.py
+<<<<<<< SEARCH
+            if k in result_dims:
+                var = v.to_index_variable()
+                var.dims = dims
+                if k in self._indexes:
+                    indexes[k] = self._indexes[k]
+                    variables[k] = var
+                else:
+                    index, index_vars = create_default_index_implicit(var)
+                    indexes.update({name: index for name in index_vars})
+                    variables.update(index_vars)
+                    coord_names.update(index_vars)
+            else:
+                var = v.to_base_variable()
+                var.dims = dims
+                variables[k] = var
+=======
+            if k in result_dims:
+                var = v.to_index_variable()
+                var.dims = dims
+                if k in self._indexes:
+                    indexes[k] = self._indexes[k]
+                    variables[k] = var.copy()
+                else:
+                    index, index_vars = create_default_index_implicit(var)
+                    indexes.update({name: index for name in index_vars})
+                    variables.update({name: var.copy() for name, var in index_vars.items()})
+                    coord_names.update(index_vars)
+            else:
+                var = v.to_base_variable()
+                var.dims = dims
+                variables[k] = var.copy()
+>>>>>>> REPLACE
+```

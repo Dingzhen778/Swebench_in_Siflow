@@ -1,0 +1,34 @@
+```python
+### astropy/units/quantity.py
+<<<<<<< SEARCH
+        # Call our superclass's __array_ufunc__
+        result = super().__array_ufunc__(function, method, *arrays, **kwargs)
+        # If unit is None, a plain array is expected (e.g., comparisons), which
+        # means we're done.
+        # We're also done if the result was None (for method 'at') or
+        # NotImplemented, which can happen if other inputs/outputs override
+        # __array_ufunc__; hopefully, they can then deal with us.
+        if unit is None or result is None or result is NotImplemented:
+            return result
+=======
+        # Call our superclass's __array_ufunc__
+        result = super().__array_ufunc__(function, method, *arrays, **kwargs)
+        # If unit is None, a plain array is expected (e.g., comparisons), which
+        # means we're done.
+        # We're also done if the result was None (for method 'at').
+        if unit is None or result is None:
+            return result
+
+        # If the result is NotImplemented, it means the operation is not supported
+        # by the other operand. In this case, we should return NotImplemented
+        # to allow the other operand to handle the operation.
+        if result is NotImplemented:
+            return NotImplemented
+
+        # If the result is a ValueError, it means the units are incompatible.
+        # In this case, we should return NotImplemented to allow the other operand
+        # to handle the operation.
+        if isinstance(result, ValueError):
+            return NotImplemented
+>>>>>>> REPLACE
+```

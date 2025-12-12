@@ -1,0 +1,82 @@
+```python
+### sphinx/ext/autodoc/directive.py
+<<<<<<< SEARCH
+        if name not in documenter.option_spec:
+            continue
+        else:
+            negated = options.pop('no-' + name, True) is None
+            if name in config.autodoc_default_options and not negated:
+                options[name] = config.autodoc_default_options[name]
+
+    return Options(assemble_option_dict(options.items(), documenter.option_spec))
+=======
+        if name not in documenter.option_spec:
+            continue
+        else:
+            negated = options.pop('no-' + name, True) is None
+            if name in config.autodoc_default_options and not negated:
+                options[name] = config.autodoc_default_options[name]
+
+    return Options(assemble_option_dict(options.items(), documenter.option_spec))
+
+def process_signature(app, what, name, obj, options, signature, return_annotation):
+    if signature and '(' in signature and ')' in signature:
+        start, end = signature.index('('), signature.index(')')
+        args = signature[start+1:end]
+        args = args.replace(', ', ',')
+        args = args.replace('=', ' = ')
+        signature = f'{signature[:start+1]}{args}{signature[end:]}'
+    return signature, return_annotation
+>>>>>>> REPLACE
+```
+
+```python
+### sphinx/ext/autodoc/__init__.py
+<<<<<<< SEARCH
+def setup(app):
+    app.add_autodocumenter(ModuleDocumenter)
+    app.add_autodocumenter(ClassDocumenter)
+    app.add_autodocumenter(ExceptionDocumenter)
+    app.add_autodocumenter(FunctionDocumenter)
+    app.add_autodocumenter(MethodDocumenter)
+    app.add_autodocumenter(AttributeDocumenter)
+    app.add_autodocumenter(DataDocumenter)
+    app.connect('autodoc-process-docstring', process_docstring)
+    app.connect('autodoc-skip-member', skip_member)
+    app.add_config_value('autodoc_member_order', 'alphabetical', 'env')
+    app.add_config_value('autodoc_default_flags', [], 'env')
+    app.add_config_value('autodoc_mock_imports', [], 'env')
+    app.add_directive_to_domain('py', 'module', PyModule)
+    app.add_directive_to_domain('py', 'currentmodule', PyCurrentModule)
+    app.add_directive_to_domain('py', 'class', PyClass)
+    app.add_directive_to_domain('py', 'function', PyFunction)
+    app.add_directive_to_domain('py', 'method', PyMethod)
+    app.add_directive_to_domain('py', 'attribute', PyAttribute)
+    app.add_directive_to_domain('py', 'data', PyData)
+    app.add_role_to_domain('py', 'obj', PyXRefRole())
+    app.add_role_to_domain('py', 'class', PyXRefRole())
+    app.add_role_to_domain('py', 'func', PyXRefRole())
+    app.add_role_to_domain('py', 'meth', PyXRefRole())
+    app.add_role_to_domain('py', 'attr', PyXRefRole())
+    app.add_role_to_domain('py', 'data', PyXRefRole())
+    app.add_role_to_domain('py', 'exc', PyXRefRole())
+    app.add_role_to_domain('py', 'mod', PyXRefRole())
+    app.add_role_to_domain('py', 'const', PyXRefRole())
+    app.add_role_to_domain('py', 'ref', PyXRefRole())
+    app.add_role_to_domain('py', 'any', PyXRefRole())
+    app.add_role_to_domain('py', 'class', PyXRefRole())
+    app.add_role_to_domain('py', 'func', PyXRefRole())
+    app.add_role_to_domain('py', 'meth', PyXRefRole())
+    app.add_role_to_domain('py', 'attr', PyXRefRole())
+    app.add_role_to_domain('py', 'data', PyXRefRole())
+    app.add_role_to_domain('py', 'exc', PyXRefRole())
+    app.add_role_to_domain('py', 'mod', PyXRefRole())
+    app.add_role_to_domain('py', 'const', PyXRefRole())
+    app.add_role_to_domain('py', 'ref', PyXRefRole())
+    app.add_role_to_domain('py', 'any', PyXRefRole())
+    app.add_role_to_domain('py', 'class', PyXRefRole())
+    app.add_role_to_domain('py', 'func', PyXRefRole())
+    app.add_role_to_domain('py', 'meth', PyXRefRole())
+    app.add_role_to_domain('py', 'attr', PyXRefRole())
+    app.add_role_to_domain('py', 'data', PyXRefRole())
+    app.add_role_to_domain('py', 'exc', Py

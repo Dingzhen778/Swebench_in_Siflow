@@ -1,0 +1,41 @@
+```python
+### pylint/checkers/similar.py
+<<<<<<< SEARCH
+    def set_option(self, optname, value, action=None, optdict=None):
+        """method called to set an option (registered in the options list)
+
+        Overridden to report options setting to Similar
+        """
+        BaseChecker.set_option(self, optname, value, action, optdict)
+        if optname == "min-similarity-lines":
+            self.min_lines = self.config.min_similarity_lines
+        elif optname == "ignore-comments":
+            self.ignore_comments = self.config.ignore_comments
+        elif optname == "ignore-docstrings":
+            self.ignore_docstrings = self.config.ignore_docstrings
+        elif optname == "ignore-imports":
+            self.ignore_imports = self.config.ignore_imports
+        elif optname == "ignore-signatures":
+            self.ignore_signatures = self.config.ignore_signatures
+=======
+    def set_option(self, optname, value, action=None, optdict=None):
+        """method called to set an option (registered in the options list)
+
+        Overridden to report options setting to Similar
+        """
+        BaseChecker.set_option(self, optname, value, action, optdict)
+        if optname == "min-similarity-lines":
+            if value == 0:
+                self.min_lines = float('inf')
+            else:
+                self.min_lines = value
+        elif optname == "ignore-comments":
+            self.ignore_comments = self.config.ignore_comments
+        elif optname == "ignore-docstrings":
+            self.ignore_docstrings = self.config.ignore_docstrings
+        elif optname == "ignore-imports":
+            self.ignore_imports = self.config.ignore_imports
+        elif optname == "ignore-signatures":
+            self.ignore_signatures = self.config.ignore_signatures
+>>>>>>> REPLACE
+```

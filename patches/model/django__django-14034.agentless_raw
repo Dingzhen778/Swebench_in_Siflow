@@ -1,0 +1,48 @@
+```python
+### django/forms/fields.py
+<<<<<<< SEARCH
+            if field_value in self.empty_values:
+                if self.require_all_fields:
+                    # Raise a 'required' error if the MultiValueField is
+                    # required and any field is empty.
+                    if self.required:
+                        raise ValidationError(self.error_messages['required'], code='required')
+                elif field.required:
+                    # Otherwise, add an 'incomplete' error to the list of
+                    # collected errors and skip field cleaning, if a required
+                    # field is empty.
+                    if field.error_messages['incomplete'] not in errors:
+                        errors.append(field.error_messages['incomplete'])
+                    continue
+            try:
+                clean_data.append(field.clean(field_value))
+            except ValidationError as e:
+                # Collect all validation errors in a single list, which we'll
+                # raise at the end of clean(), rather than raising a single
+                # exception for the first error we encounter. Skip duplicates.
+                errors.extend(m for m in e.error_list if m not in errors)
+=======
+            if field_value in self.empty_values:
+                if self.require_all_fields:
+                    # Raise a 'required' error if the MultiValueField is
+                    # required and any field is empty.
+                    if self.required:
+                        raise ValidationError(self.error_messages['required'], code='required')
+                elif field.required:
+                    # Add an 'incomplete' error to the list of collected errors and skip field cleaning, if a required field is empty.
+                    if field.error_messages['incomplete'] not in errors:
+                        errors.append(field.error_messages['incomplete'])
+                    continue
+                else:
+                    # If the field is not required, append the empty value to clean_data.
+                    clean_data.append(field_value)
+            else:
+                try:
+                    clean_data.append(field.clean(field_value))
+                except ValidationError as e:
+                    # Collect all validation errors in a single list, which we'll
+                    # raise at the end of clean(), rather than raising a single
+                    # exception for the first error we encounter. Skip duplicates.
+                    errors.extend(m for m in e.error_list if m not in errors)
+>>>>>>> REPLACE
+```

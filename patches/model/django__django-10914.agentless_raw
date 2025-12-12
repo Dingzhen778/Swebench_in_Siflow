@@ -1,0 +1,8 @@
+```python
+### django/conf/global_settings.py
+<<<<<<< SEARCH
+FILE_UPLOAD_PERMISSIONS = None
+=======
+FILE_UPLOAD_PERMISSIONS = 0o644
+>>>>>>> REPLACE
+```

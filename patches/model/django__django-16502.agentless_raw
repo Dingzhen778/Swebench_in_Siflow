@@ -1,0 +1,48 @@
+```python
+### django/core/servers/basehttp.py
+<<<<<<< SEARCH
+class ServerHandler(simple_server.ServerHandler):
+    http_version = "1.1"
+
+    def __init__(self, stdin, stdout, stderr, environ, **kwargs):
+        """
+        Use a LimitedStream so that unread request data will be ignored at
+        the end of the request. WSGIRequest uses a LimitedStream but it
+        shouldn't discard the data since the upstream servers usually do this.
+        This fix applies only for testserver/runserver.
+        """
+        try:
+            content_length = int(environ.get("CONTENT_LENGTH"))
+        except (ValueError, TypeError):
+            content_length = 0
+        super().__init__(
+            LimitedStream(stdin, content_length), stdout, stderr, environ, **kwargs
+        )
+=======
+class ServerHandler(simple_server.ServerHandler):
+    http_version = "1.1"
+
+    def __init__(self, stdin, stdout, stderr, environ, **kwargs):
+        """
+        Use a LimitedStream so that unread request data will be ignored at
+        the end of the request. WSGIRequest uses a LimitedStream but it
+        shouldn't discard the data since the upstream servers usually do this.
+        This fix applies only for testserver/runserver.
+        """
+        try:
+            content_length = int(environ.get("CONTENT_LENGTH"))
+        except (ValueError, TypeError):
+            content_length = 0
+        super().__init__(
+            LimitedStream(stdin, content_length), stdout, stderr, environ, **kwargs
+        )
+
+    def send_response(self, status, headers, content):
+        if self.command != 'HEAD':
+            super().send_response(status, headers, content)
+        else:
+            super().send_response(status, headers, b'')
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit adds a method `send_response` to the `ServerHandler` class. This method checks if the request method is `HEAD`. If it is, it sends an empty response body, ensuring compliance with RFC 2616. If the request method is not `HEAD`, it calls the superclass method to send the response as usual.

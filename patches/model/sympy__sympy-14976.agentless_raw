@@ -1,0 +1,10 @@
+```python
+### sympy/utilities/lambdify.py
+<<<<<<< SEARCH
+        funcbody.append('return ({})'.format(self._exprrepr(expr)))
+=======
+        funcbody.append('return ({})'.format(self._exprrepr(expr.evalf(prec))))
+>>>>>>> REPLACE
+```
+
+This change ensures that the expression is evaluated at the specified precision before being returned by the generated function, which should resolve the issue of reduced precision results from `nsolve`.

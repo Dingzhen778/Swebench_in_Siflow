@@ -1,0 +1,42 @@
+```python
+### django/db/models/query.py
+<<<<<<< SEARCH
+        del_query = self._chain()
+
+        # The delete is actually 2 queries - one to find related objects,
+        # and one to delete. Make sure that the discovery of related
+        # objects is performed on the same database as the deletion.
+        del_query._for_write = True
+
+        # Disable non-supported fields.
+        del_query.query.select_for_update = False
+        del_query.query.select_related = False
+        del_query.query.clear_ordering(force_empty=True)
+
+        collector = Collector(using=del_query.db)
+        collector.collect(del_query)
+        deleted, _rows_count = collector.delete()
+=======
+        if self.model._meta.managed and not self.model._meta.proxy:
+            # For managed models, use the optimized delete query
+            query = sql.DeleteQuery(self.model)
+            query.delete_batch([], self._db)
+            deleted, _rows_count = query.get_compiler(self._db).execute_sql(CURSOR)
+        else:
+            del_query = self._chain()
+
+            # The delete is actually 2 queries - one to find related objects,
+            # and one to delete. Make sure that the discovery of related
+            # objects is performed on the same database as the deletion.
+            del_query._for_write = True
+
+            # Disable non-supported fields.
+            del_query.query.select_for_update = False
+            del_query.query.select_related = False
+            del_query.query.clear_ordering(force_empty=True)
+
+            collector = Collector(using=del_query.db)
+            collector.collect(del_query)
+            deleted, _rows_count = collector.delete()
+>>>>>>> REPLACE
+```

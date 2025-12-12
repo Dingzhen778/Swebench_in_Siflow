@@ -1,0 +1,17 @@
+```python
+### django/db/backends/mysql/operations.py
+<<<<<<< SEARCH
+    def _convert_field_to_tz(self, field_name, tzname):
+        if settings.USE_TZ:
+            field_name = "CONVERT_TZ(%s, 'UTC', '%s')" % (field_name, tzname)
+        return field_name
+=======
+    def _convert_field_to_tz(self, field_name, tzname):
+        if settings.USE_TZ:
+            db_timezone = self.connection.settings_dict.get('TIME_ZONE', settings.TIME_ZONE)
+            field_name = "CONVERT_TZ(%s, '%s', '%s')" % (field_name, db_timezone, tzname)
+        return field_name
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit addresses the issue by ensuring that the `CONVERT_TZ` function uses the correct time zone from the database settings (`db_timezone`) instead of always using 'UTC'. This should resolve the problem where the conversion is incorrectly from UTC to the application's time zone, rather than from the database's time zone to the application's time zone.

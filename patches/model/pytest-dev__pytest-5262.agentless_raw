@@ -1,0 +1,16 @@
+```python
+### src/_pytest/capture.py
+<<<<<<< SEARCH
+    else:
+        newfd = os.dup(fd)
+        if "b" not in mode:
+            mode += "b"
+        f = os.fdopen(newfd, mode, 0)  # no buffering
+    return EncodedFile(f, encoding or default_encoding)
+=======
+    else:
+        newfd = os.dup(fd)
+        f = os.fdopen(newfd, mode, 0)  # no buffering
+    return EncodedFile(f, encoding or default_encoding)
+>>>>>>> REPLACE
+```

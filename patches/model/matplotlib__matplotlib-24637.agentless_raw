@@ -1,0 +1,22 @@
+```python
+### lib/matplotlib/offsetbox.py
+<<<<<<< SEARCH
+    def draw(self, renderer):
+        # docstring inherited
+        self.image.draw(renderer)
+        # bbox_artist(self, renderer, fill=False, props=dict(pad=0.))
+        self.stale = False
+=======
+    def draw(self, renderer):
+        # docstring inherited
+        self.image.draw(renderer)
+        if self.get_gid():
+            renderer.open_group(self.get_gid(), gid=self.get_gid())
+        # bbox_artist(self, renderer, fill=False, props=dict(pad=0.))
+        self.stale = False
+        if self.get_gid():
+            renderer.close_group(self.get_gid())
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit adds the necessary calls to `open_group` and `close_group` in the `draw` method of the `AnnotationBbox` class. This ensures that the `gid` is properly included in the SVG output when the figure is saved.

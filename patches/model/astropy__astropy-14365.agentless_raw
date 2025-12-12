@@ -1,0 +1,8 @@
+```python
+### astropy/io/ascii/qdp.py
+<<<<<<< SEARCH
+    _command_re = r"READ [TS]ERR(\s+[0-9]+)+"
+=======
+    _command_re = r"(READ|read) [TS]ERR(\s+[0-9]+)+"
+>>>>>>> REPLACE
+```

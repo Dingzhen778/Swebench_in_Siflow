@@ -1,0 +1,33 @@
+```python
+### django/db/backends/mysql/base.py
+<<<<<<< SEARCH
+        if settings_dict['NAME']:
+            kwargs['db'] = settings_dict['NAME']
+        if settings_dict['PASSWORD']:
+            kwargs['passwd'] = settings_dict['PASSWORD']
+=======
+        if settings_dict['NAME']:
+            kwargs['database'] = settings_dict['NAME']
+        if settings_dict['PASSWORD']:
+            kwargs['password'] = settings_dict['PASSWORD']
+>>>>>>> REPLACE
+```
+
+```python
+### django/db/backends/mysql/client.py
+<<<<<<< SEARCH
+        db = settings_dict['OPTIONS'].get('db', settings_dict['NAME'])
+        user = settings_dict['OPTIONS'].get('user', settings_dict['USER'])
+        password = settings_dict['OPTIONS'].get(
+            'password',
+            settings_dict['OPTIONS'].get('passwd', settings_dict['PASSWORD'])
+        )
+=======
+        db = settings_dict['OPTIONS'].get('database', settings_dict['NAME'])
+        user = settings_dict['OPTIONS'].get('user', settings_dict['USER'])
+        password = settings_dict['OPTIONS'].get(
+            'password',
+            settings_dict['PASSWORD']
+        )
+>>>>>>> REPLACE
+```

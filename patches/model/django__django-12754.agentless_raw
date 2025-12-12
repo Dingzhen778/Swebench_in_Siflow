@@ -1,0 +1,22 @@
+```python
+### django/db/migrations/autodetector.py
+<<<<<<< SEARCH
+            # we use a stable sort for deterministic tests & general behavior
+            self.generated_operations[app_label] = stable_topological_sort(ops, dependency_graph)
+=======
+            # Ensure that RemoveField operations are placed before CreateModel operations
+            # to avoid FieldError when a field is moved to a new model subclass.
+            def sort_key(operation):
+                if isinstance(operation, migrations.RemoveField):
+                    return 0
+                elif isinstance(operation, migrations.CreateModel):
+                    return 1
+                return 2
+
+            ops = sorted(ops, key=sort_key)
+            # we use a stable sort for deterministic tests & general behavior
+            self.generated_operations[app_label] = stable_topological_sort(ops, dependency_graph)
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit ensures that `RemoveField` operations are placed before `CreateModel` operations in the migration, which should prevent the `FieldError` when a field is moved to a new model subclass.

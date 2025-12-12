@@ -1,0 +1,26 @@
+```python
+### astropy/io/fits/diff.py
+<<<<<<< SEARCH
+            if "P" in col.format:
+                diffs = (
+                    [
+                        idx
+                        for idx in range(len(arra))
+                        if not np.allclose(
+                            arra[idx], arrb[idx], rtol=self.rtol, atol=self.atol
+                        )
+                    ],
+                )
+            else:
+                diffs = np.where(arra != arrb)
+=======
+            if "P" in col.format:
+                diffs = [
+                    idx
+                    for idx in range(len(arra))
+                    if not np.array_equal(arra[idx], arrb[idx])
+                ]
+            else:
+                diffs = np.where(arra != arrb)
+>>>>>>> REPLACE
+```

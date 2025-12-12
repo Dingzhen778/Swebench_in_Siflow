@@ -1,0 +1,36 @@
+To address the issue, we need to ensure that the `annotate` method correctly handles the subtraction of `DateTimeField` and the addition of a `timedelta` object. The error indicates that the expression contains mixed types, and we need to specify the `output_field` to resolve this.
+
+Here is the *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### your_app/models.py
+<<<<<<< SEARCH
+Experiment.objects.annotate(
+    delta=F('end') - F('start') + Value(datetime.timedelta(), output_field=DurationField())
+)
+=======
+from django.db.models import F, Value, DurationField
+from datetime import timedelta
+
+Experiment.objects.annotate(
+    delta=(F('end') - F('start')) + Value(timedelta(), output_field=DurationField())
+)
+>>>>>>> REPLACE
+```
+
+This edit ensures that the `delta` annotation is correctly computed by specifying the `output_field` for the `Value` expression. The `timedelta` object is also correctly wrapped in a `Value` expression with the appropriate `output_field`.
+
+Additionally, ensure that the necessary imports are included at the top of the file:
+
+```python
+### your_app/models.py
+<<<<<<< SEARCH
+from django.db import models
+=======
+from django.db import models
+from django.db.models import F, Value, DurationField
+from datetime import timedelta
+>>>>>>> REPLACE
+```
+
+These changes should resolve the `FieldError` and allow the temporal subtraction to work correctly without using `ExpressionWrapper`.

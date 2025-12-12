@@ -1,0 +1,40 @@
+```python
+### lib/matplotlib/figure.py
+<<<<<<< SEARCH
+    def __getstate__(self):
+        state = super().__getstate__()
+
+        # The canvas cannot currently be pickled, but this has the benefit
+        # of meaning that a figure can be detached from one canvas, and
+        # re-attached to another.
+        state.pop("canvas")
+
+        # discard any changes to the dpi due to pixel ratio changes
+        state["_dpi"] = state.get('_original_dpi', state['_dpi'])
+
+        # add version information to the state
+        state['__mpl_version__'] = mpl.__version__
+=======
+    def __getstate__(self):
+        state = super().__getstate__()
+
+        # The canvas cannot currently be pickled, but this has the benefit
+        # of meaning that a figure can be detached from one canvas, and
+        # re-attached to another.
+        state.pop("canvas", None)
+
+        # Remove draggable objects which are not picklable
+        if "legend" in state:
+            legend = state["legend"]
+            if legend and legend.get_draggable():
+                legend._draggable = None
+
+        # discard any changes to the dpi due to pixel ratio changes
+        state["_dpi"] = state.get('_original_dpi', state['_dpi'])
+
+        # add version information to the state
+        state['__mpl_version__'] = mpl.__version__
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit ensures that the draggable legend's `_draggable` attribute is removed before pickling, which should resolve the `TypeError: cannot pickle 'FigureCanvasQTAgg' object` issue.

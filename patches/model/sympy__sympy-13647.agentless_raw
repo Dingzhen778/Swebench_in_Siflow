@@ -1,0 +1,31 @@
+```python
+### sympy/matrices/common.py
+<<<<<<< SEARCH
+        if not self:
+            return type(self)(other)
+...
+            pos = self.cols + pos
+        if pos < 0:
+            pos = 0
+        elif pos > self.cols:
+            pos = self.cols
+
+        if self.rows != other.rows:
+            raise ShapeError(
+                "self and other must have the same number of rows.")
+=======
+        if not self:
+            return type(self)(other)
+
+        if pos < 0:
+            pos = self.cols + pos
+        if pos < 0:
+            pos = 0
+        elif pos > self.cols:
+            pos = self.cols
+
+        if self.rows != other.rows:
+            raise ShapeError(
+                "self and other must have the same number of rows.")
+>>>>>>> REPLACE
+```

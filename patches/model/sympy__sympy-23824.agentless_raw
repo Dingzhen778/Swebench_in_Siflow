@@ -1,0 +1,12 @@
+```python
+### sympy/physics/hep/gamma_matrices.py
+<<<<<<< SEARCH
+            expr1 = prepend_indices
+            expr2 = list(reversed(prepend_indices))
+...
+=======
+            expr1 = prepend_indices
+            expr2 = prepend_indices
+...
+>>>>>>> REPLACE
+```

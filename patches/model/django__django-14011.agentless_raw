@@ -1,0 +1,39 @@
+To address the issue of `ThreadedWSGIServer` not closing database connections after each thread, we need to ensure that the database connections are properly closed when the server is shut down. This can be achieved by overriding the `shutdown` method in the `LiveServerThread` class to explicitly close the database connections.
+
+Here is the *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### django/test/testcases.py
+<<<<<<< SEARCH
+class LiveServerThread(threading.Thread):
+    """Thread for running a live HTTP server while the tests are running."""
+
+    def __init__(self, host, possible_ports, connections_override=None):
+        self.host = host
+        self.possible_ports = possible_ports
+        self.ready = threading.Event()
+        self.error = None
+        self.connections_override = connections_override
+        super().__init__()
+=======
+class LiveServerThread(threading.Thread):
+    """Thread for running a live HTTP server while the tests are running."""
+
+    def __init__(self, host, possible_ports, connections_override=None):
+        self.host = host
+        self.possible_ports = possible_ports
+        self.ready = threading.Event()
+        self.error = None
+        self.connections_override = connections_override
+        super().__init__()
+
+    def shutdown(self):
+        from django.db import connections
+        # Close all database connections
+        for alias in connections:
+            connections[alias].close()
+        super().shutdown()
+>>>>>>> REPLACE
+```
+
+This edit adds a `shutdown` method to the `LiveServerThread` class that explicitly closes all database connections before shutting down the server. This should help prevent the `OperationalError` caused by unclosed database connections.

@@ -1,0 +1,27 @@
+```python
+### sphinx/domains/python.py
+<<<<<<< SEARCH
+elif isinstance(node, ast.Subscript):
+    result = unparse(node.value)
+    result.append(addnodes.desc_sig_punctuation('', '['))
+    result.extend(unparse(node.slice))
+    result.append(addnodes.desc_sig_punctuation('', ']'))
+    return result
+=======
+elif isinstance(node, ast.Subscript):
+    result = unparse(node.value)
+    result.append(addnodes.desc_sig_punctuation('', '['))
+    
+    if isinstance(node.slice, ast.Tuple):
+        for elem in node.slice.elts:
+            result.extend(unparse(elem))
+            result.append(addnodes.desc_sig_punctuation('', ', '))
+        if len(node.slice.elts) > 0:
+            result.pop()  # Remove the last comma
+    else:
+        result.extend(unparse(node.slice))
+    
+    result.append(addnodes.desc_sig_punctuation('', ']'))
+    return result
+>>>>>>> REPLACE
+```

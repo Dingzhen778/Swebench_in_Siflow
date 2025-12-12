@@ -1,0 +1,23 @@
+```python
+### django/db/migrations/executor.py
+<<<<<<< SEARCH
+            elif migration in applied_migrations:
+                # Only mutate the state if the migration is actually applied
+                # to make sure the resulting state doesn't include changes
+                # from unrelated migrations.
+                migration.mutate_state(state, preserve=False)
+=======
+            elif migration in applied_migrations:
+                # Only mutate the state if the migration is actually applied
+                # to make sure the resulting state doesn't include changes
+                # from unrelated migrations.
+                if not migration.replaces:
+                    migration.mutate_state(state, preserve=False)
+                else:
+                    for replaced_migration in migration.replaces:
+                        if replaced_migration in applied_migrations:
+                            replaced_migration.mutate_state(state, preserve=False)
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit ensures that when a squashed migration is being processed, it does not mark the squashed migration as unapplied if the replaced migrations are still around and have been applied. Instead, it only mutates the state for the replaced migrations.

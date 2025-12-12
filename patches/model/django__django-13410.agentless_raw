@@ -1,0 +1,26 @@
+```python
+### django/core/files/locks.py
+<<<<<<< SEARCH
+        def lock(f, flags):
+            ret = fcntl.flock(_fd(f), flags)
+            return ret == 0
+
+        def unlock(f):
+            ret = fcntl.flock(_fd(f), fcntl.LOCK_UN)
+            return ret == 0
+=======
+        def lock(f, flags):
+            try:
+                fcntl.flock(_fd(f), flags)
+                return True
+            except OSError:
+                return False
+
+        def unlock(f):
+            try:
+                fcntl.flock(_fd(f), fcntl.LOCK_UN)
+                return True
+            except OSError:
+                return False
+>>>>>>> REPLACE
+```

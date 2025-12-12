@@ -1,0 +1,11 @@
+```python
+### django/core/management/commands/runserver.py
+<<<<<<< SEARCH
+                "Starting development server at %(protocol)s://%(addr)s:%(port)s/\n"
+=======
+                "Starting development server at %(protocol)s://%(addr)s:%(port)s/\n"
+                % {
+                    "addr": "0.0.0.0" if self.addr == "0" else self.addr,
+                }
+>>>>>>> REPLACE
+```

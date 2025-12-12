@@ -1,0 +1,12 @@
+```python
+### requests/models.py
+<<<<<<< SEARCH
+            self.prepare_content_length(body)
+=======
+            if self.method != 'GET':
+                self.prepare_content_length(body)
+            else:
+                if 'Content-Length' in self.headers:
+                    del self.headers['Content-Length']
+>>>>>>> REPLACE
+```

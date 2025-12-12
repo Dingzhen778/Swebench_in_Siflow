@@ -1,0 +1,22 @@
+The issue described is due to the combination of `select_related` and `only` in the custom manager. When Django tries to serialize the many-to-many relationship, it encounters a conflict because the field is both deferred (using `only`) and traversed (using `select_related`). To resolve this, we can modify the custom manager to avoid using `select_related` in a way that conflicts with serialization.
+
+Here is the *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### test/models.py
+<<<<<<< SEARCH
+class TestTagManager(Manager):
+	def get_queryset(self):
+		qs = super().get_queryset()
+		qs = qs.select_related("master") # follow master when retrieving object by default
+		return qs
+=======
+class TestTagManager(Manager):
+	def get_queryset(self):
+		qs = super().get_queryset()
+		# Avoid using select_related in a way that conflicts with serialization
+		return qs
+>>>>>>> REPLACE
+```
+
+This change removes the `select_related` call from the custom manager, which should prevent the `FieldError` during serialization. If you need to optimize queries, consider using `select_related` or `prefetch_related` explicitly when querying the objects, rather than in the manager.

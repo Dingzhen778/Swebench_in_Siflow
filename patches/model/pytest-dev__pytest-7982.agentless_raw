@@ -1,0 +1,44 @@
+Based on the issue description, the problem lies in the fact that symlinks are not being followed when collecting test directories. The specific change that introduced this regression was the addition of `follow_symlinks=False` in the `get_dirs_from_args` function. To fix this, we need to remove the `follow_symlinks=False` parameter.
+
+Here is the *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### src/_pytest/config/findpaths.py
+<<<<<<< SEARCH
+    def safe_exists(path: Path) -> bool:
+        # This can throw on paths that contain characters unrepresentable at the OS level,
+        # or with invalid syntax on Windows (https://bugs.python.org/issue35306)
+        try:
+            return path.exists()
+        except OSError:
+            return False
+
+    # These look like paths but may not exist
+    possible_paths = (
+        absolutepath(get_file_part_from_node_id(arg))
+        for arg in args
+        if not is_option(arg)
+    )
+
+    return [get_dir_from_path(path) for path in possible_paths if safe_exists(path)]
+=======
+    def safe_exists(path: Path) -> bool:
+        # This can throw on paths that contain characters unrepresentable at the OS level,
+        # or with invalid syntax on Windows (https://bugs.python.org/issue35306)
+        try:
+            return path.exists()
+        except OSError:
+            return False
+
+    # These look like paths but may not exist
+    possible_paths = (
+        absolutepath(get_file_part_from_node_id(arg))
+        for arg in args
+        if not is_option(arg)
+    )
+
+    return [get_dir_from_path(path) for path in possible_paths if safe_exists(path.resolve())]
+>>>>>>> REPLACE
+```
+
+In this edit, we have replaced `safe_exists(path)` with `safe_exists(path.resolve())` to ensure that symlinks are followed when checking for the existence of paths. This should restore the previous behavior where symlinks were followed and collected as usual.

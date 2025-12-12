@@ -1,0 +1,20 @@
+```python
+### django/db/migrations/loader.py
+<<<<<<< SEARCH
+                if getattr(module, '__file__', None) is None:
+                    self.unmigrated_apps.add(app_config.label)
+                    continue
+                # Module is not a package (e.g. migrations.py).
+                if not hasattr(module, '__path__'):
+                    self.unmigrated_apps.add(app_config.label)
+                    continue
+=======
+                if getattr(module, '__file__', None) is None and not isinstance(module.__path__, list):
+                    self.unmigrated_apps.add(app_config.label)
+                    continue
+                # Module is not a package (e.g. migrations.py).
+                if not hasattr(module, '__path__'):
+                    self.unmigrated_apps.add(app_config.label)
+                    continue
+>>>>>>> REPLACE
+```

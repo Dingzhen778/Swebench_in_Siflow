@@ -1,0 +1,22 @@
+```python
+### astropy/timeseries/core.py
+<<<<<<< SEARCH
+            elif self.colnames[:len(required_columns)] != required_columns:
+
+                raise ValueError("{} object is invalid - expected '{}' "
+                                 "as the first column{} but found '{}'"
+                                 .format(self.__class__.__name__, required_columns[0], plural, self.colnames[0]))
+=======
+            elif set(self.colnames).isdisjoint(set(required_columns)):
+
+                missing_columns = set(required_columns) - set(self.colnames)
+                missing_columns_str = "', '".join(missing_columns)
+                raise ValueError("{} object is invalid - required column{} '{}' missing"
+                                 .format(self.__class__.__name__, plural, missing_columns_str))
+            elif self.colnames[:len(required_columns)] != required_columns:
+
+                raise ValueError("{} object is invalid - expected '{}' "
+                                 "as the first column{} but found '{}'"
+                                 .format(self.__class__.__name__, required_columns[0], plural, self.colnames[0]))
+>>>>>>> REPLACE
+```

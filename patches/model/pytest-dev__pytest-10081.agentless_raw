@@ -1,0 +1,55 @@
+```python
+### src/_pytest/unittest.py
+<<<<<<< SEARCH
+    def _inject_setup_teardown_fixtures(self, cls: type) -> None:
+        """Injects a hidden auto-use fixture to invoke setUpClass/setup_method and corresponding
+        teardown functions (#517)."""
+        class_fixture = _make_xunit_fixture(
+            cls,
+            "setUpClass",
+            "tearDownClass",
+            "doClassCleanups",
+            scope=Scope.Class,
+            pass_self=False,
+        )
+        if class_fixture:
+            cls.__pytest_class_setup = class_fixture  # type: ignore[attr-defined]
+
+        method_fixture = _make_xunit_fixture(
+            cls,
+            "setup_method",
+            "teardown_method",
+            None,
+            scope=Scope.Function,
+            pass_self=True,
+        )
+        if method_fixture:
+            cls.__pytest_method_setup = method_fixture  # type: ignore[attr-defined]
+=======
+    def _inject_setup_teardown_fixtures(self, cls: type) -> None:
+        """Injects a hidden auto-use fixture to invoke setUpClass/setup_method and corresponding
+        teardown functions (#517)."""
+        if not getattr(cls, "__unittest_skip__", False):
+            class_fixture = _make_xunit_fixture(
+                cls,
+                "setUpClass",
+                "tearDownClass",
+                "doClassCleanups",
+                scope=Scope.Class,
+                pass_self=False,
+            )
+            if class_fixture:
+                cls.__pytest_class_setup = class_fixture  # type: ignore[attr-defined]
+
+            method_fixture = _make_xunit_fixture(
+                cls,
+                "setup_method",
+                "teardown_method",
+                None,
+                scope=Scope.Function,
+                pass_self=True,
+            )
+            if method_fixture:
+                cls.__pytest_method_setup = method_fixture  # type: ignore[attr-defined]
+>>>>>>> REPLACE
+```

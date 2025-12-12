@@ -1,0 +1,66 @@
+```python
+### astropy/coordinates/builtin_frames/itrs.py
+<<<<<<< SEARCH
+    obstime = TimeAttribute(default=DEFAULT_OBSTIME)
+=======
+    obstime = TimeAttribute(default=None)
+>>>>>>> REPLACE
+```
+
+```python
+### astropy/coordinates/transformations.py
+<<<<<<< SEARCH
+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, ITRS, AltAz)
+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, ITRS, HADec)
+def itrs_to_observed(itrs_coo, observed_frame):
+    # Trying to synchronize the obstimes here makes no sense. In fact,
+    # it's a real gotcha as doing an ITRS->ITRS transform references 
+    # ITRS coordinates, which should be tied to the Earth, to the SSB.
+    # Instead, we treat ITRS coordinates as time invariant here.
+
+    # form the Topocentric ITRS position
+    topocentric_itrs_repr = (itrs_coo.cartesian
+                             - observed_frame.location.get_itrs().cartesian)
+    rep = topocentric_itrs_repr.transform(itrs_to_observed_mat(observed_frame))
+    return observed_frame.realize_frame(rep)
+=======
+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, ITRS, AltAz)
+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, ITRS, HADec)
+def itrs_to_observed(itrs_coo, observed_frame):
+    # Treat ITRS coordinates as time invariant here.
+    # Form the Topocentric ITRS position
+    topocentric_itrs_repr = (itrs_coo.cartesian
+                             - observed_frame.location.get_itrs().cartesian)
+    rep = topocentric_itrs_repr.transform(itrs_to_observed_mat(observed_frame))
+    return observed_frame.realize_frame(rep)
+>>>>>>> REPLACE
+```
+
+```python
+### astropy/coordinates/transformations.py
+<<<<<<< SEARCH
+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, AltAz, ITRS)
+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, HADec, ITRS)
+def observed_to_itrs(observed_coo, itrs_frame):
+                                              
+    # form the Topocentric ITRS position
+    topocentric_itrs_repr = observed_coo.cartesian.transform(matrix_transpose(
+                            itrs_to_observed_mat(observed_coo)))
+    # form the Geocentric ITRS position
+    rep = topocentric_itrs_repr + observed_coo.location.get_itrs().cartesian
+    return itrs_frame.realize_frame(rep)
+=======
+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, AltAz, ITRS)
+@frame_transform_graph.transform(FunctionTransformWithFiniteDifference, HADec, ITRS)
+def observed_to_itrs(observed_coo, itrs_frame):
+                                              
+    # Form the Topocentric ITRS position
+    topocentric_itrs_repr = observed_coo.cartesian.transform(matrix_transpose(
+                            itrs_to_observed_mat(observed_coo)))
+    # Form the Geocentric ITRS position
+    rep = topocentric_itrs_repr + observed_coo.location.get_itrs().cartesian
+    return itrs_frame.realize_frame(rep)
+>>>>>>> REPLACE
+```
+
+These changes ensure that the `obstime` attribute of the `ITRS` frame is set to `None` by default, aligning with the new approach of treating ITRS coordinates as time-invariant. Additionally, the comments and code structure in the transformation functions are slightly adjusted for clarity.

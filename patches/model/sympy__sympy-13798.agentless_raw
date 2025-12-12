@@ -1,0 +1,53 @@
+```python
+### sympy/printing/latex.py
+<<<<<<< SEARCH
+                if self.order not in ('old', 'none'):
+                    args = expr.as_ordered_factors()
+                else:
+                    args = expr.args
+
+                for i, term in enumerate(args):
+                    term_tex = self._print(term)
+
+                    if self._needs_mul_brackets(term, first=(i == 0),
+                                                last=(i == len(args) - 1)):
+                        term_tex = r"\left(%s\right)" % term_tex
+
+                    if _between_two_numbers_p[0].search(last_term_tex) and \
+                            _between_two_numbers_p[1].match(term_tex):
+                        # between two numbers
+                        _tex += numbersep
+                    elif _tex:
+                        _tex += separator
+
+                    _tex += term_tex
+                    last_term_tex = term_tex
+                return _tex
+=======
+                if self.order not in ('old', 'none'):
+                    args = expr.as_ordered_factors()
+                else:
+                    args = expr.args
+
+                for i, term in enumerate(args):
+                    term_tex = self._print(term)
+
+                    if self._needs_mul_brackets(term, first=(i == 0),
+                                                last=(i == len(args) - 1)):
+                        term_tex = r"\left(%s\right)" % term_tex
+
+                    if _between_two_numbers_p[0].search(last_term_tex) and \
+                            _between_two_numbers_p[1].match(term_tex):
+                        # between two numbers
+                        _tex += numbersep
+                    elif _tex:
+                        if self._settings.get('mul_symbol', None) == r'\,':
+                            _tex += r'\,'
+                        else:
+                            _tex += separator
+
+                    _tex += term_tex
+                    last_term_tex = term_tex
+                return _tex
+>>>>>>> REPLACE
+```

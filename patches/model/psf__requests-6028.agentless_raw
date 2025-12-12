@@ -1,0 +1,25 @@
+Based on the issue description, the problem seems to be related to how the `Proxy-Authorization` header is being handled in Python 3.8.12. The issue mentions that using any other version of Python works fine, which suggests a change in behavior in Python 3.8.12 that affects the handling of proxy authentication.
+
+The `proxy_headers` method in `requests/adapters.py` is responsible for adding the `Proxy-Authorization` header. It appears that the `get_auth_from_url` function might not be correctly extracting the username and password from the proxy URL in Python 3.8.12.
+
+To address this, we can ensure that the `get_auth_from_url` function is correctly extracting the credentials and that the `Proxy-Authorization` header is being set properly.
+
+Here is the *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### requests/adapters.py
+<<<<<<< SEARCH
+        username, password = get_auth_from_url(proxy)
+
+        if username:
+            headers['Proxy-Authorization'] = _basic_auth_str(username,
+                                                             password)
+=======
+        auth = get_auth_from_url(proxy)
+        if auth:
+            username, password = auth
+            headers['Proxy-Authorization'] = _basic_auth_str(username, password)
+>>>>>>> REPLACE
+```
+
+This edit ensures that the `get_auth_from_url` function returns a tuple, and we correctly unpack it to set the `Proxy-Authorization` header. This should resolve the issue with the 407 status code.

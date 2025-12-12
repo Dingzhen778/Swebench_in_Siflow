@@ -1,0 +1,18 @@
+```python
+### django/urls/resolvers.py
+<<<<<<< SEARCH
+@functools.lru_cache(maxsize=None)
+def get_resolver(urlconf=None):
+    if urlconf is None:
+        urlconf = settings.ROOT_URLCONF
+    return URLResolver(RegexPattern(r'^/'), urlconf)
+=======
+@functools.lru_cache(maxsize=None)
+def get_resolver(urlconf=None):
+    if urlconf is None:
+        urlconf = get_urlconf()
+    return URLResolver(RegexPattern(r'^/'), urlconf)
+>>>>>>> REPLACE
+```
+
+This change ensures that `get_resolver` always uses the current URL configuration, whether it is `settings.ROOT_URLCONF` or a custom URL configuration set by `set_urlconf`. This should prevent the construction of multiple `URLResolver` instances and the associated redundant calls to `URLResolver._populate`.

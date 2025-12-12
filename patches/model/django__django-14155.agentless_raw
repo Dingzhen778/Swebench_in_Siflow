@@ -1,0 +1,25 @@
+```python
+### django/urls/resolvers.py
+<<<<<<< SEARCH
+        if not hasattr(func, '__name__'):
+            # A class-based view
+            self._func_path = func.__class__.__module__ + '.' + func.__class__.__name__
+        else:
+            # A function-based view
+            self._func_path = func.__module__ + '.' + func.__name__
+=======
+        if isinstance(func, functools.partial):
+            # Unwrap functools.partial to get the underlying function
+            self.func = func.func
+            self.args = func.args + args
+            self.kwargs.update(func.keywords or {})
+            func = self.func
+
+        if not hasattr(func, '__name__'):
+            # A class-based view
+            self._func_path = func.__class__.__module__ + '.' + func.__class__.__name__
+        else:
+            # A function-based view
+            self._func_path = func.__module__ + '.' + func.__name__
+>>>>>>> REPLACE
+```

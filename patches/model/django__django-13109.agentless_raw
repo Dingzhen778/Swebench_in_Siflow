@@ -1,0 +1,12 @@
+```python
+### django/db/models/fields/related.py
+<<<<<<< SEARCH
+        qs = self.remote_field.model._default_manager.using(using).filter(
+            **{self.remote_field.field_name: value}
+        )
+=======
+        qs = self.remote_field.model._base_manager.using(using).filter(
+            **{self.remote_field.field_name: value}
+        )
+>>>>>>> REPLACE
+```

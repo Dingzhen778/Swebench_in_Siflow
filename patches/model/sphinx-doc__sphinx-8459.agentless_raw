@@ -1,0 +1,24 @@
+```python
+### sphinx/ext/autodoc/typehints.py
+<<<<<<< SEARCH
+            if app.config.autodoc_typehints != 'description':
+                return
+=======
+            if app.config.autodoc_typehints == 'none':
+                return
+>>>>>>> REPLACE
+```
+
+```python
+### sphinx/ext/autodoc/__init__.py
+<<<<<<< SEARCH
+        if self.config.autodoc_typehints in ('none', 'description'):
+            kwargs.setdefault('show_annotation', False)
+=======
+        if self.config.autodoc_typehints == 'none':
+            kwargs.setdefault('show_annotation', False)
+        elif self.config.autodoc_typehints == 'description':
+            kwargs['show_annotation'] = True
+            kwargs['annotation_formatter'] = lambda x: x
+>>>>>>> REPLACE
+```

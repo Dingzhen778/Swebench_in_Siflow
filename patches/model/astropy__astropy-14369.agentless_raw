@@ -1,0 +1,14 @@
+```python
+### astropy/io/ascii/cds.py
+<<<<<<< SEARCH
+                if unit == "---":
+                    col.unit = None  # "---" is the marker for no unit in CDS/MRT table
+                else:
+                    col.unit = Unit(unit, format="cds", parse_strict="warn")
+=======
+                if unit == "---":
+                    col.unit = None  # "---" is the marker for no unit in CDS/MRT table
+                else:
+                    col.unit = Unit(unit.replace('/', '*').replace('^', '**'), format="cds", parse_strict="warn")
+>>>>>>> REPLACE
+```

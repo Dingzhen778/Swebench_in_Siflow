@@ -1,0 +1,15 @@
+```python
+### astropy/coordinates/sky_coordinate.py
+<<<<<<< SEARCH
+        raise AttributeError(
+            f"'{self.__class__.__name__}' object has no attribute '{attr}'"
+        )
+=======
+        try:
+            return super().__getattr__(attr)
+        except AttributeError as e:
+            raise AttributeError(
+                f"'{self.__class__.__name__}' object has no attribute '{attr}'"
+            ) from e
+>>>>>>> REPLACE
+```

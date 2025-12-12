@@ -1,0 +1,10 @@
+```python
+### seaborn/_core/scales.py
+<<<<<<< SEARCH
+        else:
+            formatter = ScalarFormatter()
+=======
+        else:
+            formatter = ScalarFormatter(useOffset=True)
+>>>>>>> REPLACE
+```

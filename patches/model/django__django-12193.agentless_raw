@@ -1,0 +1,18 @@
+```python
+### django/forms/widgets.py
+<<<<<<< SEARCH
+    def get_context(self, name, value, attrs):
+        if self.check_test(value):
+            if attrs is None:
+                attrs = {}
+            attrs['checked'] = True
+        return super().get_context(name, value, attrs)
+=======
+    def get_context(self, name, value, attrs):
+        if attrs is None:
+            attrs = {}
+        if self.check_test(value):
+            attrs['checked'] = True
+        return super().get_context(name, value, attrs)
+>>>>>>> REPLACE
+```

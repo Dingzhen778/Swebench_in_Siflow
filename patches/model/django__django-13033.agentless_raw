@@ -1,0 +1,105 @@
+```python
+### django/db/models/sql/compiler.py
+<<<<<<< SEARCH
+            if not self.query.extra or col not in self.query.extra:
+                # 'col' is of the form 'field' or 'field1__field2' or
+                # '-field1__field2__field', etc.
+                order_by.extend(self.find_ordering_name(
+                    field, self.query.get_meta(), default_order=asc))
+            else:
+                if col not in self.query.extra_select:
+                    order_by.append((
+                        OrderBy(RawSQL(*self.query.extra[col]), descending=descending),
+                        False))
+                else:
+                    order_by.append((
+                        OrderBy(Ref(col, RawSQL(*self.query.extra[col])), descending=descending),
+                        True))
+=======
+            if not self.query.extra or col not in self.query.extra:
+                # 'col' is of the form 'field' or 'field1__field2' or
+                # '-field1__field2__field', etc.
+                order_by.extend(self.find_ordering_name(
+                    field, self.query.get_meta(), default_order=asc, ignore_meta_ordering=self.query.ignore_meta_ordering))
+            else:
+                if col not in self.query.extra_select:
+                    order_by.append((
+                        OrderBy(RawSQL(*self.query.extra[col]), descending=descending),
+                        False))
+                else:
+                    order_by.append((
+                        OrderBy(Ref(col, RawSQL(*self.query.extra[col])), descending=descending),
+                        True))
+>>>>>>> REPLACE
+```
+
+```python
+### django/db/models/query.py
+<<<<<<< SEARCH
+    def order_by(self, *field_names):
+        """
+        Returns a new QuerySet instance with the ordering changed.
+        """
+        assert self.query.can_filter(), "Cannot reorder a query once a slice has been taken."
+        obj = self._clone()
+        obj.query.clear_ordering(force_empty=False)
+        obj.query.add_ordering(*field_names)
+        return obj
+=======
+    def order_by(self, *field_names):
+        """
+        Returns a new QuerySet instance with the ordering changed.
+        """
+        assert self.query.can_filter(), "Cannot reorder a query once a slice has been taken."
+        obj = self._clone()
+        obj.query.clear_ordering(force_empty=False)
+        obj.query.add_ordering(*field_names)
+        obj.query.ignore_meta_ordering = bool(field_names)
+        return obj
+>>>>>>> REPLACE
+```
+
+```python
+### django/db/models/sql/query.py
+<<<<<<< SEARCH
+    def add_ordering(self, *ordering):
+        """
+        Adds the given list of fields to the ordering.
+        """
+        if not ordering:
+            return
+        if self.default_ordering and not self.order_by:
+            self.order_by = self.model._meta.ordering
+        for o in ordering:
+            if o == '?':
+                self.random = True
+                continue
+            if LOOKUP_SEP in o:
+                self.add_extra_order_by(o)
+                continue
+            if o.startswith('-'):
+                self.order_by.append((o[1:], False))
+            else:
+                self.order_by.append((o, True))
+=======
+    def add_ordering(self, *ordering):
+        """
+        Adds the given list of fields to the ordering.
+        """
+        if not ordering:
+            return
+        if self.default_ordering and not self.order_by and not self.ignore_meta_ordering:
+            self.order_by = self.model._meta.ordering
+        for o in ordering:
+            if o == '?':
+                self.random = True
+                continue
+            if LOOKUP_SEP in o:
+                self.add_extra_order_by(o)
+                continue
+            if o.startswith('-'):
+                self.order_by.append((o[1:], False))
+            else:
+                self.order_by.append((o, True))
+>>>>>>> REPLACE
+```

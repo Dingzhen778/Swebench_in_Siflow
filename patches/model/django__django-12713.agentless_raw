@@ -1,0 +1,15 @@
+```python
+### django/contrib/admin/options.py
+<<<<<<< SEARCH
+            kwargs['widget'] = widgets.FilteredSelectMultiple(
+                db_field.verbose_name,
+                db_field.name in self.filter_vertical
+            )
+=======
+            if 'widget' not in kwargs:
+                kwargs['widget'] = widgets.FilteredSelectMultiple(
+                    db_field.verbose_name,
+                    db_field.name in self.filter_vertical
+                )
+>>>>>>> REPLACE
+```

@@ -1,0 +1,28 @@
+```python
+### django/db/models/lookups.py
+<<<<<<< SEARCH
+        return (
+            '%s',
+            [get_db_prep_value(v, connection, prepared=True) for v in value]
+            if self.get_db_prep_lookup_value_is_iterable else
+            [get_db_prep_value(value, connection, prepared=True)]
+        )
+=======
+        if self.get_db_prep_lookup_value_is_iterable:
+            if isinstance(value, list):
+                return (
+                    '%s',
+                    [get_db_prep_value(v, connection, prepared=True) for v in value]
+                )
+            elif isinstance(value, tuple):
+                return (
+                    '%s',
+                    tuple(get_db_prep_value(v, connection, prepared=True) for v in value)
+                )
+        else:
+            return (
+                '%s',
+                [get_db_prep_value(value, connection, prepared=True)]
+            )
+>>>>>>> REPLACE
+```

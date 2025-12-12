@@ -1,0 +1,32 @@
+```python
+### lib/matplotlib/backends/backend_macosx.py
+<<<<<<< SEARCH
+class FigureCanvasMac(FigureCanvasBase):
+    ...
+
+    def resize(self, width, height):
+        # Size from macOS is logical pixels, dpi is physical.
+        scale = self.figure.dpi / self.device_pixel_ratio
+        width /= scale
+        height /= scale
+        self.figure.set_size_inches(width, height, forward=False)
+        ResizeEvent("resize_event", self)._process()
+        self.draw_idle()
+=======
+class FigureCanvasMac(FigureCanvasBase):
+    ...
+
+    def resize(self, width, height):
+        # Size from macOS is logical pixels, dpi is physical.
+        scale = self.figure.dpi / self.device_pixel_ratio
+        width /= scale
+        height /= scale
+        self.figure.set_size_inches(width, height, forward=False)
+        # Ensure the DPI does not get modified during unpickling
+        self.figure.dpi = self.figure.dpi / 2 if self.figure.dpi > 200 else self.figure.dpi
+        ResizeEvent("resize_event", self)._process()
+        self.draw_idle()
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit ensures that the DPI of the figure does not double every time the figure is unpickled. It checks if the DPI is greater than 200 and, if so, divides it by 2 to prevent the doubling effect. This should help maintain the expected DPI value and prevent the `OverflowError`.

@@ -1,0 +1,124 @@
+Based on the issue statement, the problem lies in the implementation of the `Min` and `Max` functions. These functions should return `oo` and `-oo` respectively when called with no arguments, instead of raising a `ValueError`.
+
+To fix this, we need to modify the `Min` and `Max` functions in the appropriate file. Let's assume the `Min` and `Max` functions are defined in `sympy/functions/elementary/miscellaneous.py`.
+
+Here are the *SEARCH/REPLACE* edits to fix the issue:
+
+```python
+### sympy/functions/elementary/miscellaneous.py
+<<<<<<< SEARCH
+def Min(*args, evaluate=True):
+    """Return, if possible, the minimum value of the list.
+
+    It is named Min and not min to avoid conflicts with the built-in function min.
+
+    Examples
+    ========
+
+    >>> from sympy import Min, Symbol, oo
+    >>> from sympy.abc import x, y
+    >>> p = Symbol('p', positive=True)
+    >>> n = Symbol('n', negative=True)
+
+    >>> Min(x, -2)
+    Min(-2, x)
+    >>> Min(x, -2).subs(x, 3)
+    -2
+    >>> Min(p, -3)
+    -3
+    >>> Min(x, y)
+    Min(x, y)
+    >>> Min(n, 8, p, -7, p, oo)
+    Min(n, -7)
+    >>> Min []
+    ValueError: The Min function must have arguments.
+    """
+    from sympy.sets.sets import FiniteSet
+    from sympy.core.relational import Relational
+    from sympy.core.function import expand_complex
+    from sympy.core.compatibility import as_int
+    from sympy.core.expr import Expr
+    from sympy.core.numbers import Infinity, NegativeInfinity
+    from sympy.core.sympify import sympify
+
+    if not args:
+        raise ValueError("The Min function must have arguments.")
+    if len(args) == 1 and iterable(args[0], exclude=string_types):
+        args = args[0]
+    if evaluate:
+        return _min(*args)
+    return Min(*args, evaluate=False)
+
+def Max(*args, evaluate=True):
+    """Return, if possible, the maximum value of the list.
+
+    It is named Max and not max to avoid conflicts with the built-in function max.
+
+    Examples
+    ========
+
+    >>> from sympy import Max, Symbol, oo
+    >>> from sympy.abc import x, y
+    >>> p = Symbol('p', positive=True)
+    >>> n = Symbol('n', negative=True)
+
+    >>> Max(x, 2)
+    Max(2, x)
+    >>> Max(x, 2).subs(x, 3)
+    3
+    >>> Max(p, -3)
+    p
+    >>> Max(x, y)
+    Max(x, y)
+    >>> Max(n, 8, p, -7, p, -oo)
+    Max(8, p)
+    >>> Max []
+    ValueError: The Max function must have arguments.
+    """
+    from sympy.sets.sets import FiniteSet
+    from sympy.core.relational import Relational
+    from sympy.core.function import expand_complex
+    from sympy.core.compatibility import as_int
+    from sympy.core.expr import Expr
+    from sympy.core.numbers import Infinity, NegativeInfinity
+    from sympy.core.sympify import sympify
+
+    if not args:
+        raise ValueError("The Max function must have arguments.")
+    if len(args) == 1 and iterable(args[0], exclude=string_types):
+        args = args[0]
+    if evaluate:
+        return _max(*args)
+    return Max(*args, evaluate=False)
+=======
+def Min(*args, evaluate=True):
+    """Return, if possible, the minimum value of the list.
+
+    It is named Min and not min to avoid conflicts with the built-in function min.
+
+    Examples
+    ========
+
+    >>> from sympy import Min, Symbol, oo
+    >>> from sympy.abc import x, y
+    >>> p = Symbol('p', positive=True)
+    >>> n = Symbol('n', negative=True)
+
+    >>> Min(x, -2)
+    Min(-2, x)
+    >>> Min(x, -2).subs(x, 3)
+    -2
+    >>> Min(p, -3)
+    -3
+    >>> Min(x, y)
+    Min(x, y)
+    >>> Min(n, 8, p, -7, p, oo)
+    Min(n, -7)
+    >>> Min()
+    oo
+    """
+    from sympy.sets.sets import FiniteSet
+    from sympy.core.relational import Relational
+    from sympy.core.function import expand_complex
+    from sympy.core.compatibility import as_int
+    from symp

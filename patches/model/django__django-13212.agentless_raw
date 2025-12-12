@@ -1,0 +1,114 @@
+```python
+### django/core/validators.py
+<<<<<<< SEARCH
+            raise ValidationError(self.message, code=self.code)
+=======
+            raise ValidationError(self.message % {'value': value}, code=self.code)
+>>>>>>> REPLACE
+```
+
+```python
+### django/core/validators.py
+<<<<<<< SEARCH
+            raise ValidationError(self.message, code=self.code)
+=======
+            raise ValidationError(self.message % {'value': value}, code=self.code)
+>>>>>>> REPLACE
+```
+
+```python
+### django/core/validators.py
+<<<<<<< SEARCH
+            raise ValidationError(self.message, code=self.code)
+=======
+            raise ValidationError(self.message % {'value': value}, code=self.code)
+>>>>>>> REPLACE
+```
+
+```python
+### django/core/validators.py
+<<<<<<< SEARCH
+            raise ValidationError(self.message, code=self.code)
+=======
+            raise ValidationError(self.message % {'value': value}, code=self.code)
+>>>>>>> REPLACE
+```
+
+```python
+### django/core/validators.py
+<<<<<<< SEARCH
+            raise ValidationError(self.message, code=self.code)
+=======
+            raise ValidationError(self.message % {'value': value}, code=self.code)
+>>>>>>> REPLACE
+```
+
+```python
+### django/core/validators.py
+<<<<<<< SEARCH
+            raise ValidationError(self.message, code=self.code)
+=======
+            raise ValidationError(self.message % {'value': value}, code=self.code)
+>>>>>>> REPLACE
+```
+
+```python
+### django/core/validators.py
+<<<<<<< SEARCH
+            raise ValidationError(self.message, code=self.code)
+=======
+            raise ValidationError(self.message % {'value': value}, code=self.code)
+>>>>>>> REPLACE
+```
+
+```python
+### django/core/validators.py
+<<<<<<< SEARCH
+            raise ValidationError(self.message, code=self.code)
+=======
+            raise ValidationError(self.message % {'value': value}, code=self.code)
+>>>>>>> REPLACE
+```
+
+```python
+### django/core/validators.py
+<<<<<<< SEARCH
+            raise ValidationError(self.message, code=self.code)
+=======
+            raise ValidationError(self.message % {'value': value}, code=self.code)
+>>>>>>> REPLACE
+```
+
+```python
+### django/contrib/postgres/validators.py
+<<<<<<< SEARCH
+            raise ValidationError(
+                self.messages['missing_keys'],
+                code='missing_keys',
+                params={'keys': ', '.join(missing_keys)},
+            )
+=======
+            raise ValidationError(
+                self.messages['missing_keys'] % {'value': value},
+                code='missing_keys',
+                params={'keys': ', '.join(missing_keys)},
+            )
+>>>>>>> REPLACE
+```
+
+```python
+### django/contrib/postgres/validators.py
+<<<<<<< SEARCH
+            raise ValidationError(
+                self.messages['extra_keys'],
+                code='extra_keys',
+                params={'keys': ', '.join(extra_keys)},
+            )
+=======
+            raise ValidationError(
+                self.messages['extra_keys'] % {'value': value},
+                code='extra_keys',
+                params={'keys': ', '.join(extra_keys)},
+            )
+>>>>>>> REPLACE
+```

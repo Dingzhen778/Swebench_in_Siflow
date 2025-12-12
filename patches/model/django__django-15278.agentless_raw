@@ -1,0 +1,52 @@
+The issue described is related to adding a `OneToOneField` with a `UNIQUE` constraint to an existing table in SQLite. SQLite does not support adding a `UNIQUE` column with `NULL` values directly using the `ALTER TABLE` command. Instead, the table needs to be recreated with the new column.
+
+To fix this, we need to ensure that the `add_field` method in the SQLite schema editor handles this case correctly by remaking the table instead of trying to alter it directly.
+
+Here is the *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### django/db/backends/sqlite3/schema.py
+<<<<<<< SEARCH
+        else:
+            # Delete the table (and only that)
+            self.execute(self.sql_delete_table % {
+                "table": self.quote_name(model._meta.db_table),
+            })
+            # Remove all deferred statements referencing the deleted table.
+            for sql in list(self.deferred_sql):
+                if isinstance(sql, Statement) and sql.references_table(model._meta.db_table):
+                    self.deferred_sql.remove(sql)
+
+    def add_field(self, model, field):
+        """Create a field on a model."""
+        # Fields with default values cannot by handled by ALTER TABLE ADD
+        # COLUMN statement because DROP DEFAULT is not supported in
+        # ALTER TABLE.
+        if not field.null or self.effective_default(field) is not None:
+            self._remake_table(model, create_field=field)
+        else:
+            super().add_field(model, field)
+=======
+        else:
+            # Delete the table (and only that)
+            self.execute(self.sql_delete_table % {
+                "table": self.quote_name(model._meta.db_table),
+            })
+            # Remove all deferred statements referencing the deleted table.
+            for sql in list(self.deferred_sql):
+                if isinstance(sql, Statement) and sql.references_table(model._meta.db_table):
+                    self.deferred_sql.remove(sql)
+
+    def add_field(self, model, field):
+        """Create a field on a model."""
+        # Fields with default values or unique constraints cannot be handled by ALTER TABLE ADD
+        # COLUMN statement because DROP DEFAULT and adding UNIQUE columns with NULL values are not supported in
+        # ALTER TABLE.
+        if not field.null or self.effective_default(field) is not None or field.unique:
+            self._remake_table(model, create_field=field)
+        else:
+            super().add_field(model, field)
+>>>>>>> REPLACE
+```
+
+This change ensures that if the field being added is unique and allows `NULL` values, the table will be remade instead of attempting to alter it directly. This should resolve the `OperationalError` when adding the `OneToOneField` to the `oauth2_provider_accesstoken` table.

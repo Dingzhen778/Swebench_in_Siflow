@@ -1,0 +1,12 @@
+```python
+### django/db/models/manager.py
+<<<<<<< SEARCH
+            manager_method.__name__ = method.__name__
+            manager_method.__doc__ = method.__doc__
+            return manager_method
+=======
+            from functools import wraps
+            manager_method = wraps(method)(manager_method)
+            return manager_method
+>>>>>>> REPLACE
+```

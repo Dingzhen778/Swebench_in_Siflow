@@ -1,0 +1,10 @@
+```python
+### astropy/units/core.py
+<<<<<<< SEARCH
+        elif s is None:
+            raise TypeError("None is not a valid Unit")
+=======
+        elif s is None:
+            return False
+>>>>>>> REPLACE
+```

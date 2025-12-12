@@ -19,7 +19,10 @@
 │   ├── apply_agentless.py        # Agentless格式应用
 │   └── agentless_parser.py       # Agentless格式解析
 ├── model_patch_logs/         # Model Patch评测日志 (500个)
-├── gold_patch_logs/          # Gold Patch评测日志 (需重新生成)
+├── patches/                  # Patch文件
+│   ├── gold/                 # Gold Patch (500个, 来自SWE-bench_Verified)
+│   ├── test/                 # Test Patch (500个, 来自SWE-bench_Verified)
+│   └── model/                # Model Patch (477个, Agentless生成)
 ├── siflow_config.py          # SiFlow配置
 ├── siflow_utils.py           # SiFlow工具函数
 ├── requirements.txt          # Python依赖

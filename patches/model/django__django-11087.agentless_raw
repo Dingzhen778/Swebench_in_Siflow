@@ -1,0 +1,31 @@
+```python
+### django/db/models/deletion.py
+<<<<<<< SEARCH
+            for field in model._meta.private_fields:
+                if hasattr(field, 'bulk_related_objects'):
+                    # It's something like generic foreign key.
+                    sub_objs = field.bulk_related_objects(new_objs, self.using)
+                    self.collect(sub_objs, source=model, nullable=True)
+=======
+            for field in model._meta.private_fields:
+                if hasattr(field, 'bulk_related_objects'):
+                    # It's something like generic foreign key.
+                    sub_objs = field.bulk_related_objects(new_objs, self.using)
+                    if sub_objs:
+                        self.collect(sub_objs, source=model, nullable=True)
+>>>>>>> REPLACE
+```
+
+```python
+### django/db/models/query.py
+<<<<<<< SEARCH
+        del_query.query.select_for_update = False
+        del_query.query.select_related = False
+        del_query.query.clear_ordering(force_empty=True)
+=======
+        del_query.query.select_for_update = False
+        del_query.query.select_related = False
+        del_query.query.clear_ordering(force_empty=True)
+        del_query.query.set_select_fields(['pk'])
+>>>>>>> REPLACE
+```

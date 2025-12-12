@@ -1,0 +1,29 @@
+```python
+### django/core/management/base.py
+<<<<<<< SEARCH
+        parser.add_argument(
+            '--force-color', action='store_true',
+            help='Force colorization of the command output.',
+        )
+=======
+        parser.add_argument(
+            '--force-color', action='store_true',
+            help='Force colorization of the command output.',
+        )
+        parser.add_argument(
+            '--skip-checks', action='store_true',
+            help='Skip system checks.',
+        )
+>>>>>>> REPLACE
+```
+
+```python
+### django/core/management/base.py
+<<<<<<< SEARCH
+        if self.requires_system_checks and not options.get('skip_checks'):
+            self.check()
+=======
+        if self.requires_system_checks and not options.get('skip_checks', False):
+            self.check()
+>>>>>>> REPLACE
+```

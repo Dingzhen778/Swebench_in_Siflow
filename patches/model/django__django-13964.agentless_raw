@@ -1,0 +1,19 @@
+```python
+### django/db/models/fields/related_descriptors.py
+<<<<<<< SEARCH
+        # Set the values of the related field.
+        else:
+            for lh_field, rh_field in self.field.related_fields:
+                setattr(instance, lh_field.attname, getattr(value, rh_field.attname))
+=======
+        # Set the values of the related field.
+        else:
+            for lh_field, rh_field in self.field.related_fields:
+                if hasattr(value, rh_field.attname):
+                    setattr(instance, lh_field.attname, getattr(value, rh_field.attname))
+                else:
+                    setattr(instance, lh_field.attname, None)
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit ensures that the `setattr` call only attempts to set the attribute if the related object has the attribute. This prevents the `product_id` from being set to an empty string when the `sku` is not yet defined on the `Product` instance.

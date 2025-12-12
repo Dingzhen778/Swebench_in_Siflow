@@ -1,0 +1,20 @@
+```python
+### django/db/models/query_utils.py
+<<<<<<< SEARCH
+        if len(self.children) == 1 and not isinstance(self.children[0], Q):
+            child = self.children[0]
+            kwargs = {child[0]: child[1]}
+        else:
+            args = tuple(self.children)
+            if self.connector != self.default:
+                kwargs = {'_connector': self.connector}
+=======
+        if len(self.children) == 1 and isinstance(self.children[0], (tuple, list)) and len(self.children[0]) == 2:
+            child = self.children[0]
+            kwargs = {child[0]: child[1]}
+        else:
+            args = tuple(self.children)
+            if self.connector != self.default:
+                kwargs['_connector'] = self.connector
+>>>>>>> REPLACE
+```

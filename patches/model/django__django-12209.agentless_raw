@@ -1,0 +1,23 @@
+```python
+### django/db/models/base.py
+<<<<<<< SEARCH
+        # Skip an UPDATE when adding an instance and primary key has a default.
+        if (
+            not force_insert and
+            self._state.adding and
+            self._meta.pk.default and
+            self._meta.pk.default is not NOT_PROVIDED
+        ):
+            force_insert = True
+=======
+        # Skip an UPDATE when adding an instance and primary key has a default, but only if the pk is not explicitly set.
+        if (
+            not force_insert and
+            self._state.adding and
+            self._meta.pk.default and
+            self._meta.pk.default is not NOT_PROVIDED and
+            not pk_set
+        ):
+            force_insert = True
+>>>>>>> REPLACE
+```

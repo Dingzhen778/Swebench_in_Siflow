@@ -1,0 +1,12 @@
+```python
+### sympy/matrices/expressions/blockmatrix.py
+<<<<<<< SEARCH
+    @property
+    def colblocksizes(self):
+        return [self.blocks[0, i].cols for i in range(self.blockshape[1])]
+=======
+    @property
+    def colblocksizes(self):
+        return [self.blocks[0, i].cols if hasattr(self.blocks[0, i], 'cols') else 0 for i in range(self.blockshape[1])]
+>>>>>>> REPLACE
+```

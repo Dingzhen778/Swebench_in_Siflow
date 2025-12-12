@@ -1,0 +1,23 @@
+```python
+### django/db/models/query.py
+<<<<<<< SEARCH
+    def _values(self, *fields, **expressions):
+        clone = self._chain()
+        if expressions:
+            clone = clone.annotate(**expressions)
+        clone._fields = fields
+        clone.query.set_values(fields)
+        return clone
+=======
+    def _values(self, *fields, **expressions):
+        clone = self._chain()
+        if expressions:
+            clone = clone.annotate(**expressions)
+        clone._fields = fields
+        clone.query.clear_select_fields()
+        clone.query.set_values(fields)
+        return clone
+>>>>>>> REPLACE
+```
+
+This change ensures that the `clear_select_fields` method is called before setting the new values, which should prevent the issue where the sub-select returns more columns than expected.

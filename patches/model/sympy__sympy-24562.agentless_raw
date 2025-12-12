@@ -1,0 +1,9 @@
+```python
+### sympy/core/numbers.py
+<<<<<<< SEARCH
+                    else:
+                        return Rational(p.numerator, p.denominator, 1)
+>>>>>>> REPLACE
+                    else:
+                        return Rational(p.numerator, p.denominator)
+```

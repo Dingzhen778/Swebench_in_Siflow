@@ -1,0 +1,28 @@
+The issue arises because `HttpResponseNotAllowed` is not an asynchronous response, but it is being treated as one when the `as_view` method of the `View` class is called for an unsupported HTTP method (in this case, a GET request).
+
+To fix this, we need to ensure that the `HttpResponseNotAllowed` is returned synchronously, even when the view methods are asynchronous.
+
+Here is the *SEARCH/REPLACE* edit to fix the issue:
+
+```python
+### django/views/generic/base.py
+<<<<<<< SEARCH
+            if hasattr(self, http_method):
+                return getattr(self, http_method)(request, *args, **kwargs)
+            else:
+                allowed_methods = [m for m in self.http_method_names if hasattr(self, m)]
+                response = self.http_method_not_allowed(request, *args, **kwargs)
+                return response
+=======
+            if hasattr(self, http_method):
+                return getattr(self, http_method)(request, *args, **kwargs)
+            else:
+                allowed_methods = [m for m in self.http_method_names if hasattr(self, m)]
+                response = self.http_method_not_allowed(request, *args, **kwargs)
+                if asyncio.iscoroutine(response):
+                    response = await response
+                return response
+>>>>>>> REPLACE
+```
+
+This change ensures that if the `http_method_not_allowed` method returns a coroutine (which it does not in the current implementation), it will be awaited. However, since `HttpResponseNotAllowed` is not a coroutine, this change will not affect the current behavior but will handle any future changes where `http_method_not_allowed` might return a coroutine.

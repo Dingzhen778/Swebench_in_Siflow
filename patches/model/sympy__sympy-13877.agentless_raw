@@ -1,0 +1,18 @@
+```python
+### sympy/matrices/matrices.py
+<<<<<<< SEARCH
+        def entry(i, j):
+            ret = (pivot_val*tmp_mat[i, j + 1] - mat[pivot_pos, j + 1]*tmp_mat[i, 0]) / cumm
+            if not ret.is_Atom:
+                cancel(ret)
+            return ret
+=======
+        def entry(i, j):
+            ret = (pivot_val*tmp_mat[i, j + 1] - mat[pivot_pos, j + 1]*tmp_mat[i, 0]) / cumm
+            if not ret.is_Atom:
+                ret = cancel(ret)
+            return ret
+>>>>>>> REPLACE
+```
+
+This change ensures that the `ret` value is properly canceled before being returned, which should prevent the invalid NaN comparison error. The original code was attempting to call `cancel` on `ret` without assigning the result back to `ret`, leading to potential issues with symbolic expressions containing NaN values.

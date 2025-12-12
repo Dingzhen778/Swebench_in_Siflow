@@ -1,0 +1,24 @@
+```python
+### sklearn/tree/export.py
+<<<<<<< SEARCH
+if (feature_names is not None and
+            len(feature_names) != tree_.n_features):
+        raise ValueError("feature_names must contain "
+                         "%d elements, got %d" % (tree_.n_features,
+                                                  len(feature_names)))
+=======
+if (feature_names is not None and
+            len(feature_names) != tree_.n_features):
+        raise ValueError("feature_names must contain "
+                         "%d elements, got %d" % (tree_.n_features,
+                                                  len(feature_names)))
+
+if tree_.n_features == 1:
+    feature_names_ = ["feature_0"]
+else:
+    if feature_names:
+        feature_names_ = [feature_names[i] for i in tree_.feature]
+    else:
+        feature_names_ = ["feature_{}".format(i) for i in tree_.feature]
+>>>>>>> REPLACE
+```

@@ -1,0 +1,42 @@
+```python
+### sympy/simplify/radsimp.py
+<<<<<<< SEARCH
+def _split_gcd(*a):
+    """
+    split the list of integers ``a`` into a list of integers, ``a1`` having
+    ``g = gcd(a1)``, and a list ``a2`` whose elements are not divisible by
+    ``g``.  Returns ``g, a1, a2``
+    ...
+    g = a[0]
+    b1 = [g]
+    b2 = []
+    for x in a[1:]:
+        g1 = gcd(g, x)
+        if g1 == 1:
+            b2.append(x)
+        else:
+            g = g1
+            b1.append(x)
+    return g, b1, b2
+=======
+def _split_gcd(*a):
+    """
+    split the list of integers ``a`` into a list of integers, ``a1`` having
+    ``g = gcd(a1)``, and a list ``a2`` whose elements are not divisible by
+    ``g``.  Returns ``g, a1, a2``
+    ...
+    if not a:
+        return 1, [], list(a)
+    g = a[0]
+    b1 = [g]
+    b2 = []
+    for x in a[1:]:
+        g1 = gcd(g, x)
+        if g1 == 1:
+            b2.append(x)
+        else:
+            g = g1
+            b1.append(x)
+    return g, b1, b2
+>>>>>>> REPLACE
+```

@@ -1,0 +1,10 @@
+```python
+### sympy/core/basic.py
+<<<<<<< SEARCH
+            except SympifyError:
+                return False    # sympy != other
+=======
+            except SympifyError:
+                return NotImplemented  # sympy != other
+>>>>>>> REPLACE
+```

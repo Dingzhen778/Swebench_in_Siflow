@@ -1,0 +1,67 @@
+```python
+### django/template/library.py
+<<<<<<< SEARCH
+        if kwargs:
+            raise TemplateSyntaxError(
+                "'%s' received some positional argument(s) after some "
+                "keyword argument(s)" % name)
+        else:
+            # Record the positional argument
+            args.append(parser.compile_filter(bit))
+            try:
+                # Consume from the list of expected positional arguments
+                unhandled_params.pop(0)
+            except IndexError:
+                if varargs is None:
+                    raise TemplateSyntaxError(
+                        "'%s' received too many positional arguments" %
+                        name)
+=======
+        if kwargs and not kwonly:
+            raise TemplateSyntaxError(
+                "'%s' received some positional argument(s) after some "
+                "keyword argument(s)" % name)
+        else:
+            # Record the positional argument
+            args.append(parser.compile_filter(bit))
+            try:
+                # Consume from the list of expected positional arguments
+                unhandled_params.pop(0)
+            except IndexError:
+                if varargs is None:
+                    raise TemplateSyntaxError(
+                        "'%s' received too many positional arguments" %
+                        name)
+>>>>>>> REPLACE
+```
+
+```python
+### django/template/library.py
+<<<<<<< SEARCH
+    if defaults is not None:
+        # Consider the last n params handled, where n is the
+        # number of defaults.
+        unhandled_params = unhandled_params[:-len(defaults)]
+    if unhandled_params or unhandled_kwargs:
+        # Some positional arguments were not supplied
+        raise TemplateSyntaxError(
+            "'%s' did not receive value(s) for the argument(s): %s" %
+            (name, ", ".join("'%s'" % p for p in unhandled_params + unhandled_kwargs)))
+=======
+    if defaults is not None:
+        # Consider the last n params handled, where n is the
+        # number of defaults.
+        unhandled_params = unhandled_params[:-len(defaults)]
+    if unhandled_params or unhandled_kwargs:
+        # Some positional arguments were not supplied
+        missing_args = [p for p in unhandled_params + unhandled_kwargs if p not in kwargs]
+        if missing_args:
+            raise TemplateSyntaxError(
+                "'%s' did not receive value(s) for the argument(s): %s" %
+                (name, ", ".join("'%s'" % p for p in missing_args)))
+        elif unhandled_kwargs:
+            raise TemplateSyntaxError(
+                "'%s' received multiple values for keyword argument '%s'" %
+                (name, unhandled_kwargs[0]))
+>>>>>>> REPLACE
+```

@@ -1,0 +1,20 @@
+```python
+### sympy/utilities/lambdify.py
+<<<<<<< SEARCH
+funcstr = funcprinter.doprint(funcname, iterable_args, _expr, cses=cses)
+=======
+funcstr = funcprinter.doprint(funcname, iterable_args, _expr, cses=cses, ensure_tuple=True)
+>>>>>>> REPLACE
+```
+
+```python
+### sympy/printing/lambdarepr.py
+<<<<<<< SEARCH
+def doprint(self, funcname, args, expr, cses=()):
+=======
+def doprint(self, funcname, args, expr, cses=(), ensure_tuple=False):
+    if ensure_tuple and isinstance(expr, (list, tuple)) and len(expr) == 1:
+        expr = (expr[0],)
+    return super().doprint(funcname, args, expr, cses=cses)
+>>>>>>> REPLACE
+```

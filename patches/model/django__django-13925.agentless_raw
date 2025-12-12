@@ -1,0 +1,184 @@
+To address the issue described, we need to ensure that the `DEFAULT_AUTO_FIELD` setting is correctly configured in your Django project settings. Additionally, we need to ensure that the `default_auto_field` attribute is set in the `AppConfig` classes for the apps where the models are defined.
+
+Here are the necessary *SEARCH/REPLACE* edits:
+
+### 1. Update the `settings.py` file to set `DEFAULT_AUTO_FIELD`
+
+```python
+### settings.py
+<<<<<<< SEARCH
+# Internationalization
+# https://docs.djangoproject.com/en/3.2/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+=======
+# Internationalization
+# https://docs.djangoproject.com/en/3.2/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+>>>>>>> REPLACE
+```
+
+### 2. Update the `AppConfig` classes in the respective `apps.py` files
+
+#### For `accounts` app
+
+```python
+### accounts/apps.py
+<<<<<<< SEARCH
+from django.apps import AppConfig
+
+
+class SpeedyCoreAccountsConfig(AppConfig):
+    name = 'accounts'
+=======
+from django.apps import AppConfig
+
+
+class SpeedyCoreAccountsConfig(AppConfig):
+    name = 'accounts'
+    default_auto_field = 'django.db.models.BigAutoField'
+>>>>>>> REPLACE
+```
+
+#### For `blocks` app
+
+```python
+### blocks/apps.py
+<<<<<<< SEARCH
+from django.apps import AppConfig
+
+
+class BlocksConfig(AppConfig):
+    name = 'blocks'
+=======
+from django.apps import AppConfig
+
+
+class BlocksConfig(AppConfig):
+    name = 'blocks'
+    default_auto_field = 'django.db.models.BigAutoField'
+>>>>>>> REPLACE
+```
+
+#### For `contact_by_form` app
+
+```python
+### contact_by_form/apps.py
+<<<<<<< SEARCH
+from django.apps import AppConfig
+
+
+class SpeedyCoreContactByFormConfig(AppConfig):
+    name = 'contact_by_form'
+=======
+from django.apps import AppConfig
+
+
+class SpeedyCoreContactByFormConfig(AppConfig):
+    name = 'contact_by_form'
+    default_auto_field = 'django.db.models.BigAutoField'
+>>>>>>> REPLACE
+```
+
+#### For `core_messages` app
+
+```python
+### core_messages/apps.py
+<<<<<<< SEARCH
+from django.apps import AppConfig
+
+
+class SpeedyCoreMessagesConfig(AppConfig):
+    name = 'core_messages'
+=======
+from django.apps import AppConfig
+
+
+class SpeedyCoreMessagesConfig(AppConfig):
+    name = 'core_messages'
+    default_auto_field = 'django.db.models.BigAutoField'
+>>>>>>> REPLACE
+```
+
+#### For `friendship` app
+
+```python
+### friendship/apps.py
+<<<<<<< SEARCH
+from django.apps import AppConfig
+
+
+class FriendshipConfig(AppConfig):
+    name = 'friendship'
+=======
+from django.apps import AppConfig
+
+
+class FriendshipConfig(AppConfig):
+    name = 'friendship'
+    default_auto_field = 'django.db.models.BigAutoField'
+>>>>>>> REPLACE
+```
+
+#### For `likes` app
+
+```python
+### likes/apps.py
+<<<<<<< SEARCH
+from django.apps import AppConfig
+
+
+class LikesConfig(AppConfig):
+    name = 'likes'
+=======
+from django.apps import AppConfig
+
+
+class LikesConfig(AppConfig):
+    name = 'likes'
+    default_auto_field = 'django.db.models.BigAutoField'
+>>>>>>> REPLACE
+```
+
+#### For `uploads` app
+
+```python
+### uploads/apps.py
+<<<<<<< SEARCH
+from django.apps import AppConfig
+
+
+class UploadsConfig(AppConfig):
+    name = 'uploads'
+=======
+from django.apps import AppConfig
+
+
+class UploadsConfig(AppConfig):
+    name = 'uploads'
+    default_auto_field = 'django.db.models.BigAutoField'
+>>>>>>> REPLACE
+```
+
+These changes will ensure that the primary key type is explicitly defined for all models, which should resolve the `models.W042` warnings in Django 3.2.

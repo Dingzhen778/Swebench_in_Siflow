@@ -1,0 +1,98 @@
+```python
+### sympy/core/assumptions.py
+<<<<<<< SEARCH
+    def __init__(self, facts=None):
+        # save a copy of the facts dict
+        if not facts:
+            self._generator = {}
+        elif not isinstance(facts, FactKB):
+            self._generator = facts.copy()
+        else:
+            self._generator = facts.generator
+        if facts:
+            self.deduce_all_facts(facts)
+=======
+    def __init__(self, facts=None):
+        # save a copy of the facts dict
+        if not facts:
+            self._generator = {}
+        elif not isinstance(facts, FactKB):
+            self._generator = facts.copy()
+        else:
+            self._generator = facts.generator
+        if facts:
+            self.deduce_all_facts(facts)
+        # Ensure that the 'finite' assumption is preserved
+        if 'finite' in facts:
+            self._generator['finite'] = facts['finite']
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit ensures that the `finite` assumption is preserved when creating a new `StdFactKB` object. However, this alone might not be sufficient to fix the issue with `posify`. We need to ensure that `posify` itself preserves the `finite` assumption.
+
+Let's also modify the `posify` function in `sympy/core/expr.py` to preserve the `finite` assumption.
+
+```python
+### sympy/core/expr.py
+<<<<<<< SEARCH
+def posify(expr):
+    """Return the argument with any non-positive numbers replaced by symbols.
+
+    Any symbol that is already positive is passed through unchanged. If
+    `expr` is not a number or a symbol then it will be returned unchanged.
+    """
+    from sympy.core.symbol import Dummy
+    from sympy.core.relational import Relational
+    from sympy.core.function import AppliedUndef
+    from sympy.core.numbers import Number
+
+    if isinstance(expr, Expr) and not expr.is_positive:
+        if isinstance(expr, Number) and expr.is_zero:
+            return Dummy(positive=True), {Dummy(positive=True): expr}
+        elif isinstance(expr, Symbol):
+            if expr.is_nonpositive:
+                p = Dummy(positive=True)
+                return p, {p: expr}
+            else:
+                return expr, {}
+        elif isinstance(expr, Relational):
+            return expr.xreplace(dict(posify(arg) for arg in expr.args)), {}
+        elif isinstance(expr, AppliedUndef):
+            return expr.func(*[posify(arg)[0] for arg in expr.args]), {}
+        else:
+            return expr.func(*[posify(arg)[0] for arg in expr.args]), {}
+    else:
+        return expr, {}
+=======
+def posify(expr):
+    """Return the argument with any non-positive numbers replaced by symbols.
+
+    Any symbol that is already positive is passed through unchanged. If
+    `expr` is not a number or a symbol then it will be returned unchanged.
+    """
+    from sympy.core.symbol import Dummy
+    from sympy.core.relational import Relational
+    from sympy.core.function import AppliedUndef
+    from sympy.core.numbers import Number
+
+    if isinstance(expr, Expr) and not expr.is_positive:
+        if isinstance(expr, Number) and expr.is_zero:
+            return Dummy(positive=True), {Dummy(positive=True): expr}
+        elif isinstance(expr, Symbol):
+            if expr.is_nonpositive:
+                p = Dummy(positive=True, finite=expr.is_finite)
+                return p, {p: expr}
+            else:
+                return expr, {}
+        elif isinstance(expr, Relational):
+            return expr.xreplace(dict(posify(arg) for arg in expr.args)), {}
+        elif isinstance(expr, AppliedUndef):
+            return expr.func(*[posify(arg)[0] for arg in expr.args]), {}
+        else:
+            return expr.func(*[posify(arg)[0] for arg in expr.args]), {}
+    else:
+        return expr, {}
+>>>>>>> REPLACE
+```
+
+This *SEARCH/REPLACE* edit ensures that the `finite` assumption is preserved when creating a new dummy symbol in the `posify` function. This should address the issue where `posify` removes the `finite` assumption from a symbol.
