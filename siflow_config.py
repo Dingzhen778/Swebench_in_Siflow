@@ -43,3 +43,11 @@ QUERY_MAX_ERRORS = 5
 DEFAULT_MAX_WORKERS = 5
 DEFAULT_BATCH_DELAY = 2.0
 DEFAULT_BATCH_SIZE = 10
+
+# 项目根目录配置
+# 可以通过环境变量 SWEBENCH_PROJECT_ROOT 覆盖
+# 默认使用当前配置文件所在目录（3-layer-test目录）
+import os
+PROJECT_ROOT = os.environ.get("SWEBENCH_PROJECT_ROOT", 
+                               os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.abspath(PROJECT_ROOT)  # 确保是绝对路径

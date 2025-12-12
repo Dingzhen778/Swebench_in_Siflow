@@ -9,12 +9,16 @@ import sys
 import argparse
 from pathlib import Path
 
+# 添加父目录到路径
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 # 导入run_gold_eval的核心函数
 from run_gold_eval_fixed import (
     get_image_version_for_instance,
     run_gold_eval_for_instance
 )
 from method_config import get_method_config, DEFAULT_METHOD, list_methods
+from siflow_config import PROJECT_ROOT
 
 
 def find_patch_file(instance_id: str, method_config: dict) -> Path:
@@ -28,9 +32,8 @@ def find_patch_file(instance_id: str, method_config: dict) -> Path:
     Returns:
         patch文件路径，如果不存在则返回None
     """
-    # 优先从patches/{method_name}/目录查找（使用绝对路径）
-    base_dir = Path("/volume/ai-infra/rhjiang/SWE-bench-cc/siflow/3-layer-test")
-    patch_dir = base_dir / f"patches/{method_config['name']}"
+    # 优先从patches/{method_name}/目录查找（使用配置的项目根目录）
+    patch_dir = Path(PROJECT_ROOT) / f"patches/{method_config['name']}"
     
     for ext in method_config['file_extensions']:
         candidate = patch_dir / f"{instance_id}{ext}"
