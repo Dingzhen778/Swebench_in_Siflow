@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from siflow.types import TaskVolume, TaskEnv, TaskUserSelectedInstance
 from siflow_utils import create_siflow_client, get_image_registry_url
-from siflow_config import RESOURCE_POOL, INSTANCE_TYPE, PROJECT_ROOT
+from siflow_config import RESOURCE_POOL, INSTANCE_TYPE, PROJECT_ROOT, VOLUME_MOUNT_DIR, VOLUME_ID
 from swebench.harness.constants import MAP_REPO_VERSION_TO_SPECS, FAIL_TO_PASS, PASS_TO_PASS, START_TEST_OUTPUT, END_TEST_OUTPUT
 from swebench.harness.test_spec.python import get_test_directives, get_modified_files
 from swebench.harness.test_spec.test_spec import TestSpec, make_test_spec
@@ -30,7 +30,6 @@ from swebench.harness.grading import get_eval_tests_report, get_resolution_statu
 from swebench.harness.log_parsers import MAP_REPO_TO_PARSER
 from build.fix_build_issues import should_apply_fix
 from method_config import get_method_config, DEFAULT_METHOD
-from patch_processors import get_processor
 
 
 def get_image_version_for_instance(instance_id: str) -> str:
@@ -54,19 +53,16 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
     Args:
         instance: dataset instance
         specs: 配置规范
-        patch_file_path: patch文件路径 (.diff或.agentless_raw) - 可以是绝对路径或相对路径
-        test_patch_file_path: test patch文件路径 - 可以是绝对路径或相对路径
-        method_config: 方法配置（如果为None，则自动检测）
+        patch_file_path: patch文件路径 (.diff)
+        test_patch_file_path: test patch文件路径
+        method_config: 方法配置
 
     关键顺序:
-    0. (如果是.agentless_raw) 应用SEARCH/REPLACE并生成diff
     1. 应用patch到源代码
     2. 重新安装仓库
     3. 重置测试文件到 base_commit
     4. 应用 test patch
     5. 运行测试
-    
-    注意: 脚本中使用$PROJECT_ROOT环境变量来引用项目根目录
     """
     instance_id = instance['instance_id']
     repo = instance['repo']
@@ -92,7 +88,7 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
         log_dir = "eval_outputs"
     
     # 输出文件路径（使用配置的项目根目录，在脚本中使用变量）
-    test_output_file = f"${{PROJECT_ROOT}}/{log_dir}/{instance_id}_test_output.txt"
+    test_output_file = f'"{PROJECT_ROOT}/{log_dir}/{instance_id}_test_output.txt"'
 
     # 生成脚本 - 严格按照SWE-bench的顺序
     # 使用单引号包裹整个bash命令，避免双引号嵌套问题
@@ -105,61 +101,13 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
         'echo "========================================" &&',
         'source /opt/miniconda3/bin/activate &&',
         f'conda activate {env_name} &&',
-        f'PROJECT_ROOT="{PROJECT_ROOT}" &&',  # 设置项目根目录环境变量
-        f'mkdir -p "${{PROJECT_ROOT}}/{log_dir}" &&',  # 使用环境变量创建日志目录
+        f'mkdir -p "{PROJECT_ROOT}/{log_dir}" &&',  # 直接使用绝对路径创建日志目录
         f'cd {repo_directory} &&',
         '',
     ]
 
-    # 检测patch格式并处理
-    patch_file = Path(patch_file_path)
-    format_type = None
-    if method_config:
-        processor = get_processor(method_config['format_type'])
-        if processor and processor.can_handle(patch_file):
-            format_type = method_config['format_type']
-    
-    # 向后兼容：如果没有method_config，使用文件扩展名判断
-    if format_type is None:
-        if '.agentless_raw' in str(patch_file_path):
-            format_type = "agentless"
-        else:
-            format_type = "diff"
-    
-    # 如果是agentless格式，先转换
-    if format_type == "agentless":
-        # 转换路径为基于$PROJECT_ROOT的相对路径
-        if patch_file_path.startswith(PROJECT_ROOT):
-            patch_rel = patch_file_path[len(PROJECT_ROOT)+1:]
-            patch_script_path = f'"${{PROJECT_ROOT}}/{patch_rel}"'
-        else:
-            patch_script_path = f'"{patch_file_path}"'
-        
-        converted_patch = '"${PROJECT_ROOT}/tmp_patch_converted.diff"'
-        apply_script_path = '"${PROJECT_ROOT}/eval/apply_agentless.py"'
-        parser_script_path = '"${PROJECT_ROOT}/eval/agentless_parser.py"'
-
-        script_lines.extend([
-            'echo "" &&',
-            'echo "========================================" &&',
-            'echo "Step 0.5: Convert Agentless SEARCH/REPLACE to diff" &&',
-            'echo "========================================" &&',
-            f'cp {parser_script_path} ./agentless_parser.py &&',
-            f'python3 {apply_script_path} {patch_script_path} &&',
-            f'git diff > {converted_patch} &&',
-            'git checkout . &&',
-            f'echo "✓ Generated unified diff: {converted_patch}" &&',
-            '',
-        ])
-        # 使用转换后的diff
-        actual_patch = converted_patch
-    else:
-        # 转换patch路径为基于$PROJECT_ROOT的相对路径
-        if patch_file_path.startswith(PROJECT_ROOT):
-            patch_rel = patch_file_path[len(PROJECT_ROOT)+1:]
-            actual_patch = f'"${{PROJECT_ROOT}}/{patch_rel}"'
-        else:
-            actual_patch = f'"{patch_file_path}"'
+    # 使用diff格式patch
+    actual_patch = f'"{patch_file_path}"'
 
     script_lines.extend([
         'echo "" &&',
@@ -220,13 +168,8 @@ def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file
     else:
         script_lines.append('echo "No test file modifications detected" &&')
 
-    # 将test patch路径转换为基于$PROJECT_ROOT的相对路径
-    if test_patch_file_path.startswith(PROJECT_ROOT):
-        test_patch_rel = test_patch_file_path[len(PROJECT_ROOT)+1:]  # +1 for /
-        test_patch_script_path = f'"${{PROJECT_ROOT}}/{test_patch_rel}"'
-    else:
-        # 如果已经是相对路径，直接使用
-        test_patch_script_path = f'"{test_patch_file_path}"'
+    # 使用绝对路径（类似成功命令的方式）
+    test_patch_script_path = f'"{test_patch_file_path}"'
     
     script_lines.extend([
         '',
@@ -372,16 +315,6 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
                 break
         
         if not patch_file_path:
-            # 向后兼容：检查旧路径
-            old_model_dir = Path("/volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model")
-            for ext in method_config['file_extensions']:
-                candidate = old_model_dir / f"{instance_id}{ext}"
-                if candidate.exists():
-                    patch_file_path = str(candidate)
-                    print(f"  ✓ 找到patch文件（旧路径）: {candidate.name}")
-                    break
-        
-        if not patch_file_path:
             print(f"  ❌ 找不到 {display_name} patch文件")
             print(f"     查找路径: {patch_dir}/")
             print(f"     支持的扩展名: {method_config['file_extensions']}")
@@ -433,18 +366,25 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
     # 7. 创建评测任务
     print(f"\n🚀 创建 SiFlow 评测任务...")
 
-    timestamp = int(time.time())
-    short_id = instance_id.split('__')[-1] if '__' in instance_id else instance_id[:10]
-    short_ts = str(timestamp)[-6:]
-
-    # 根据方法配置设置任务前缀
+    # 构建任务名称：SiFlow限制35字符
+    # 格式: eval-{short_id}-{method}
+    # 例如: eval-django-11066-agentless
+    short_id = instance_id.split('__')[-1] if '__' in instance_id else instance_id
     prefix_code = method_config['task_prefix']
 
-    # 构建任务名称：如果有suffix则不加时间戳，否则加时间戳
+    # 计算可用长度: 35 - 5(eval-) - len(prefix_code) - 1(dash)
+    max_id_len = 35 - 5 - len(prefix_code) - 1
+    if len(short_id) > max_id_len:
+        short_id = short_id[:max_id_len]
+
     if task_name_suffix:
         task_name_prefix = f"eval-{short_id}-{prefix_code}-{task_name_suffix}"
     else:
-        task_name_prefix = f"eval-{short_id}-{prefix_code}-{short_ts}"
+        task_name_prefix = f"eval-{short_id}-{prefix_code}"
+
+    # 最终检查并截断
+    if len(task_name_prefix) > 35:
+        task_name_prefix = task_name_prefix[:35]
 
     print(f"  ✓ 任务名称前缀: {task_name_prefix} (method: {method_name})")
 
@@ -479,7 +419,7 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
             ],
             task_env=task_env_list,
             volumes=[
-                TaskVolume(mount_dir="/volume/ai-infra", volume_id=1)
+                TaskVolume(mount_dir=VOLUME_MOUNT_DIR, volume_id=VOLUME_ID)
             ]
         )
 

@@ -103,7 +103,7 @@ def build_instance_image(instance_id: str,
     pre_install = specs.get('pre_install', [])
 
     # 应用已知问题的补丁（如果需要）
-    from fix_build_issues import should_apply_fix, get_install_cmd_fix, get_pre_install_fix, get_env_vars
+    from fix_build_issues import should_apply_fix, get_install_cmd_fix, get_pre_install_fix, get_env_vars, uses_archive_download, uses_setup_py_install
     env_vars = {}
     if should_apply_fix(instance_id):
         install_cmd = get_install_cmd_fix(instance_id, install_cmd)
@@ -172,43 +172,66 @@ def build_instance_image(instance_id: str,
     env_name = "testbed"
     repo_directory = f"/{env_name}"
 
-    # 获取 branch (如果有) - 按2.1.0逻辑，使用--single-branch
-    branch = REPO_BASE_COMMIT_BRANCH.get(repo, {}).get(base_commit, "")
-    clone_options = f"--branch {branch} --single-branch" if branch else ""
+    # 检查是否需要使用archive下载（大仓库超时问题）
+    use_archive = uses_archive_download(instance_id)
+    use_setup_py = uses_setup_py_install(instance_id)
 
     setup_commands = [
         "#!/bin/bash",
         "set -euxo pipefail",
         "",
-        "# 克隆仓库",
-        f"git clone -o origin {clone_options} https://github.com/{repo} {repo_directory}",
-        f"chmod -R 777 {repo_directory}",
-        f"cd {repo_directory}",
-        f"git reset --hard {base_commit}",
-        "",
     ]
 
-    # 删除远程和未来的 tags (在install之前，按2.1.0逻辑)
-    setup_commands.extend([
-        "# 删除远程和未来的 tags",
-        "git remote remove origin",
-        f"TARGET_TIMESTAMP=$(git show -s --format=%ci {base_commit})",
-        """git tag -l | while read tag; do
+    if use_archive:
+        # 使用GitHub archive下载（解决大仓库git clone超时问题）
+        archive_url = f"https://github.com/{repo}/archive/{base_commit}.tar.gz"
+        setup_commands.extend([
+            "# 使用archive下载（避免git clone超时）",
+            f"mkdir -p {repo_directory}",
+            f"cd {repo_directory}",
+            f"wget --timeout=300 --tries=3 -O archive.tar.gz '{archive_url}'",
+            "tar -xzf archive.tar.gz --strip-components=1",
+            "rm archive.tar.gz",
+            "",
+            "# 初始化git仓库",
+            "git init",
+            "git config --global user.email setup@swebench.config",
+            "git config --global user.name SWE-bench",
+            "git add -A",
+            f"git commit -m 'Initial commit at {base_commit}'",
+            f"chmod -R 777 {repo_directory}",
+            "",
+        ])
+    else:
+        # 标准git clone方式
+        branch = REPO_BASE_COMMIT_BRANCH.get(repo, {}).get(base_commit, "")
+        clone_options = f"--branch {branch} --single-branch" if branch else ""
+        setup_commands.extend([
+            "# 克隆仓库",
+            f"git clone -o origin {clone_options} https://github.com/{repo} {repo_directory}",
+            f"chmod -R 777 {repo_directory}",
+            f"cd {repo_directory}",
+            f"git reset --hard {base_commit}",
+            "",
+            "# 删除远程和未来的 tags",
+            "git remote remove origin",
+            f"TARGET_TIMESTAMP=$(git show -s --format=%ci {base_commit})",
+            """git tag -l | while read tag; do
     TAG_COMMIT=$(git rev-list -n 1 "$tag")
     TAG_TIME=$(git show -s --format=%ci "$TAG_COMMIT")
     if [[ "$TAG_TIME" > "$TARGET_TIMESTAMP" ]]; then
         git tag -d "$tag"
     fi
 done""",
-        "git reflog expire --expire=now --all",
-        "git gc --prune=now --aggressive",
-        "",
-        "# 验证未来的 commits 不可见",
-        """AFTER_TIMESTAMP=$(date -d "$TARGET_TIMESTAMP + 1 second" '+%Y-%m-%d %H:%M:%S')""",
-        """COMMIT_COUNT=$(git log --oneline --all --since="$AFTER_TIMESTAMP" | wc -l)""",
-        """[ "$COMMIT_COUNT" -eq 0 ] || exit 1""",
-        "",
-    ])
+            "git reflog expire --expire=now --all",
+            "git gc --prune=now --aggressive",
+            "",
+            "# 验证未来的 commits 不可见",
+            """AFTER_TIMESTAMP=$(date -d "$TARGET_TIMESTAMP + 1 second" '+%Y-%m-%d %H:%M:%S')""",
+            """COMMIT_COUNT=$(git log --oneline --all --since="$AFTER_TIMESTAMP" | wc -l)""",
+            """[ "$COMMIT_COUNT" -eq 0 ] || exit 1""",
+            "",
+        ])
 
     # 激活环境并安装项目 (按2.1.0逻辑，在base_commit上直接安装)
     setup_commands.extend([
@@ -234,7 +257,11 @@ done""",
 
     # 添加 install 命令
     setup_commands.append("# Install project")
-    setup_commands.append(install_cmd)
+    if use_setup_py:
+        # 使用setup.py develop代替pip install（解决pip安装失败问题）
+        setup_commands.append("python setup.py develop")
+    else:
+        setup_commands.append(install_cmd)
     setup_commands.append("")
 
     # 清理 Python 缓存

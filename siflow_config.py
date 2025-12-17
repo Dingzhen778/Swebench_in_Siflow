@@ -1,6 +1,14 @@
 """
 SiFlow 配置常量
 """
+import os
+
+# 项目根目录配置
+# 可以通过环境变量 SWEBENCH_PROJECT_ROOT 覆盖
+# 默认使用当前配置文件所在目录（3-layer-test目录）
+PROJECT_ROOT = os.environ.get("SWEBENCH_PROJECT_ROOT",
+                               os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.abspath(PROJECT_ROOT)  # 确保是绝对路径
 
 # SiFlow 连接配置
 REGION = "cn-shanghai"
@@ -12,13 +20,11 @@ RESOURCE_POOL = "cn-shanghai-hercules-ai-infra-ondemand-shared"
 # 实例类型
 INSTANCE_TYPE = "sci.c23-2"
 
-# Dockerfiles 路径
-DOCKERFILE_BASE_DIR = "/volume/ai-infra/rhjiang/SWE-bench-cc/docker_build/dockerfiles"
-DOCKERFILE_BASE_PATH = f"{DOCKERFILE_BASE_DIR}/base/Dockerfile"
-DOCKERFILE_ENV_DIR = f"{DOCKERFILE_BASE_DIR}/env"
-DOCKERFILE_VERIFIED_DIR = f"{DOCKERFILE_BASE_DIR}/verified"  # SWE-bench Verified 专用
-DOCKERFILE_INSTANCE_DIR = f"{DOCKERFILE_BASE_DIR}/instance"
-INSTANCE_ENV_MAPPING_FILE = f"{DOCKERFILE_BASE_DIR}/instance_env_mapping.json"
+# 存储卷配置 (需要根据你的SiFlow账户配置修改)
+# VOLUME_MOUNT_DIR: 存储卷在容器内的挂载路径
+# VOLUME_ID: SiFlow平台上的存储卷ID
+VOLUME_MOUNT_DIR = "/volume/ai-infra"
+VOLUME_ID = 1
 
 # 镜像命名规范
 IMAGE_NAME_BASE = "swebench-base"
@@ -44,10 +50,3 @@ DEFAULT_MAX_WORKERS = 5
 DEFAULT_BATCH_DELAY = 2.0
 DEFAULT_BATCH_SIZE = 10
 
-# 项目根目录配置
-# 可以通过环境变量 SWEBENCH_PROJECT_ROOT 覆盖
-# 默认使用当前配置文件所在目录（3-layer-test目录）
-import os
-PROJECT_ROOT = os.environ.get("SWEBENCH_PROJECT_ROOT", 
-                               os.path.dirname(os.path.abspath(__file__)))
-PROJECT_ROOT = os.path.abspath(PROJECT_ROOT)  # 确保是绝对路径

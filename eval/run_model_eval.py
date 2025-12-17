@@ -40,13 +40,6 @@ def find_patch_file(instance_id: str, method_config: dict) -> Path:
         if candidate.exists():
             return candidate
     
-    # 向后兼容：检查旧路径
-    old_model_dir = Path("/volume/ai-infra/rhjiang/SWE-bench-cc/predictions/model")
-    for ext in method_config['file_extensions']:
-        candidate = old_model_dir / f"{instance_id}{ext}"
-        if candidate.exists():
-            return candidate
-    
     return None
 
 

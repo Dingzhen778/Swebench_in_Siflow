@@ -1,8 +1,0 @@
-```python
-### django/contrib/auth/forms.py
-<<<<<<< SEARCH
-    username = UsernameField(widget=forms.TextInput(attrs={'autofocus': True}))
-=======
-    username = UsernameField(widget=forms.TextInput(attrs={'autofocus': True, 'maxlength': '254'}))
->>>>>>> REPLACE
-```

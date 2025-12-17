@@ -1,8 +1,0 @@
-```python
-### django/contrib/admin/options.py
-<<<<<<< SEARCH
-        pk_pattern = re.compile(r'{}-\d+-{}$'.format(prefix, self.model._meta.pk.name))
-=======
-        pk_pattern = re.compile(r'{}-\d+-{}$'.format(re.escape(prefix), self.model._meta.pk.name))
->>>>>>> REPLACE
-```

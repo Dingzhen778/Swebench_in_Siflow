@@ -224,42 +224,6 @@ def wait_for_image_build(
     }
 
 
-def load_instance_env_mapping() -> Dict[str, str]:
-    """加载实例到环境的映射关系"""
-    from siflow_config import INSTANCE_ENV_MAPPING_FILE
-
-    with open(INSTANCE_ENV_MAPPING_FILE, 'r') as f:
-        return json.load(f)
-
-
-def get_all_env_keys() -> List[str]:
-    """获取所有环境配置的key"""
-    from siflow_config import DOCKERFILE_ENV_DIR
-
-    env_dir = Path(DOCKERFILE_ENV_DIR)
-    env_keys = []
-
-    for item in sorted(env_dir.iterdir()):
-        if item.is_dir() and (item / "Dockerfile").exists():
-            env_keys.append(item.name)
-
-    return env_keys
-
-
-def get_all_instance_ids() -> List[str]:
-    """获取所有实例ID"""
-    from siflow_config import DOCKERFILE_INSTANCE_DIR
-
-    instance_dir = Path(DOCKERFILE_INSTANCE_DIR)
-    instance_ids = []
-
-    for item in sorted(instance_dir.iterdir()):
-        if item.is_dir() and (item / "Dockerfile").exists():
-            instance_ids.append(item.name)
-
-    return instance_ids
-
-
 def filter_instances_by_keyword(instances: List[str], keyword: str) -> List[str]:
     """
     按关键词过滤实例列表

@@ -1,8 +1,0 @@
-```python
-### django/conf/global_settings.py
-<<<<<<< SEARCH
-SECURE_REFERRER_POLICY = None
-=======
-SECURE_REFERRER_POLICY = 'same-origin'
->>>>>>> REPLACE
-```

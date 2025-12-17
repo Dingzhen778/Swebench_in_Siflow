@@ -1,0 +1,19 @@
+>>>>> Start Test Output
++ export PYTHONPATH=/testbed:
++ PYTHONPATH=/testbed:
++ echo PYTHONPATH=/testbed:
+PYTHONPATH=/testbed:
++ ./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 cache.tests deprecation.test_middleware_mixin runtests
+Traceback (most recent call last):
+  File "./tests/runtests.py", line 23, in <module>
+    from django.test import TestCase, TransactionTestCase
+  File "/testbed/django/test/__init__.py", line 3, in <module>
+    from django.test.client import (
+  File "/testbed/django/test/client.py", line 15, in <module>
+    from django.core.handlers.asgi import ASGIRequest
+  File "/testbed/django/core/handlers/asgi.py", line 140
+    if asyncio.iscoroutine(response):
+    ^
+IndentationError: unexpected indent
+>>>>> End Test Output
+SWEBENCH_TEST_EXIT_CODE=1

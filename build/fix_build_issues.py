@@ -6,6 +6,8 @@
 1. pip_too_old: 旧版本pip不支持--no-use-pep517参数
 2. unicode_error: UnicodeEncodeError（容器默认ASCII编码）
 3. p2p_env_issue: PASS_TO_PASS测试因环境差异失败
+4. large_repo_clone: 大仓库git clone超时，需要用archive下载
+5. setup_py_install: pip install失败，需要用setup.py develop
 """
 
 # 需要特殊处理的instance和对应的修复方案
@@ -44,18 +46,19 @@ INSTANCE_FIXES = {
     #     "fix": "remove_no_use_pep517"
     # },
 
-    # astropy instances (2个) - 需要pip修复 + NumPy兼容性修复
+    # astropy 3.1 instances (2个) - git clone超时 + pip install失败
+    # 解决方案: 用GitHub archive下载 + setup.py develop安装
     "astropy__astropy-8872": {
-        "issue": "pip_too_old + numpy_compat",
-        "fix": "remove_no_use_pep517",
+        "issue": "large_repo_clone + setup_py_install + numpy_compat",
+        "fix": "use_archive_and_setup_py",
         "additional_fixes": ["inject_numpy_compat"],
-        "note": "Issue #484: NumPy 1.24+ removed type aliases + distutils deprecation"
+        "note": "astropy 3.1: git clone timeout, pip install fails, use archive + setup.py develop"
     },
     "astropy__astropy-8707": {
-        "issue": "pip_too_old + numpy_compat",
-        "fix": "remove_no_use_pep517",
+        "issue": "large_repo_clone + setup_py_install + numpy_compat",
+        "fix": "use_archive_and_setup_py",
         "additional_fixes": ["inject_numpy_compat", "fix_pytest_setup"],
-        "note": "Issue #484: NumPy 1.24+ removed type aliases + pytest 7.4+ nose compatibility"
+        "note": "astropy 3.1: git clone timeout, pip install fails, use archive + setup.py develop"
     },
 
     # pylint instance (1个) - 需要pip修复 (测试参数问题在dataset层面)
@@ -280,6 +283,22 @@ def should_apply_fix(instance_id: str) -> bool:
 def get_fix_info(instance_id: str) -> dict:
     """获取补丁信息"""
     return INSTANCE_FIXES.get(instance_id, {})
+
+
+def uses_archive_download(instance_id: str) -> bool:
+    """检查是否需要用GitHub archive下载代替git clone（大仓库超时问题）"""
+    if instance_id not in INSTANCE_FIXES:
+        return False
+    fix_info = INSTANCE_FIXES[instance_id]
+    return fix_info.get("fix") == "use_archive_and_setup_py"
+
+
+def uses_setup_py_install(instance_id: str) -> bool:
+    """检查是否需要用setup.py develop代替pip install"""
+    if instance_id not in INSTANCE_FIXES:
+        return False
+    fix_info = INSTANCE_FIXES[instance_id]
+    return fix_info.get("fix") == "use_archive_and_setup_py"
 
 
 def get_test_patch_fix(instance_id: str, original_test_patch: str) -> str:

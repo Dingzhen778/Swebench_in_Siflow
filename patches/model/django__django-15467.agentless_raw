@@ -1,8 +1,0 @@
-```python
-### django/contrib/admin/options.py
-<<<<<<< SEARCH
-kwargs["empty_label"] = _("None") if db_field.blank else None
-=======
-kwargs["empty_label"] = (kwargs.get('empty_label') or _('None')) if db_field.blank else None
->>>>>>> REPLACE
-```

@@ -12,3 +12,10 @@ __pycache__/
 *_results.csv
 *_results.json
 *_instances.txt
+
+# Patch logs and patches
+*_patch_logs/
+patches/
+
+# Raw outputs (原始生成结果，通常较大，建议使用Git LFS)
+raw_outputs/

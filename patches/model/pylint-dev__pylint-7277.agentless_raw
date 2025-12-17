@@ -1,9 +1,0 @@
-```python
-### pylint/__init__.py
-<<<<<<< SEARCH
-    sys.path.pop(0)
-=======
-    if sys.path[0] in ("", ".", os.getcwd()):
-        sys.path.pop(0)
->>>>>>> REPLACE
-```
