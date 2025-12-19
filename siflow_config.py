@@ -2,6 +2,10 @@
 SiFlow 配置常量
 """
 import os
+from dotenv import load_dotenv
+
+# 加载 .env 文件
+load_dotenv()
 
 # 项目根目录配置
 # 可以通过环境变量 SWEBENCH_PROJECT_ROOT 覆盖
@@ -11,11 +15,11 @@ PROJECT_ROOT = os.environ.get("SWEBENCH_PROJECT_ROOT",
 PROJECT_ROOT = os.path.abspath(PROJECT_ROOT)  # 确保是绝对路径
 
 # SiFlow 连接配置
-REGION = "cn-shanghai"
-CLUSTER = "hercules"
-ACCESS_KEY_ID = "7d84eb9a-1b36-4729-94d7-75a9fc5c093e"
-ACCESS_KEY_SECRET = "UIjoX0ianEdQWGPR2r"
-RESOURCE_POOL = "cn-shanghai-hercules-ai-infra-ondemand-shared"
+REGION = os.environ.get("SIFLOW_REGION", "cn-shanghai")
+CLUSTER = os.environ.get("SIFLOW_CLUSTER", "hercules")
+ACCESS_KEY_ID = os.environ.get("SIFLOW_ACCESS_KEY_ID", "")
+ACCESS_KEY_SECRET = os.environ.get("SIFLOW_ACCESS_KEY_SECRET", "")
+RESOURCE_POOL = os.environ.get("SIFLOW_RESOURCE_POOL", "cn-shanghai-hercules-ai-infra-ondemand-shared")
 
 # 实例类型
 INSTANCE_TYPE = "sci.c23-2"

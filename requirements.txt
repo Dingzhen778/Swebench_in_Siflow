@@ -1,5 +1,8 @@
 # SWE-bench SiFlow评估系统依赖
 
+# 环境变量管理
+python-dotenv>=1.0.0
+
 # HuggingFace datasets
 datasets>=2.14.0
 

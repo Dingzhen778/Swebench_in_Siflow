@@ -45,6 +45,9 @@ Layer 3: Instance (swebench-instance-{instance_id}:2.0.0)
 
 ## 快速开始
 
+### 0.初始化
+参考.env.template，配置好.env，使用siflow上的key，具体资源参考官方文档
+
 ### 1. 构建镜像
 
 ```bash
