@@ -378,9 +378,9 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
         short_id = short_id[:max_id_len]
 
     if task_name_suffix:
-        task_name_prefix = f"eval-{short_id}-{prefix_code}-{task_name_suffix}"
+        task_name_prefix = f"sieval-{short_id}-{prefix_code}-{task_name_suffix}"
     else:
-        task_name_prefix = f"eval-{short_id}-{prefix_code}"
+        task_name_prefix = f"sieval-{short_id}-{prefix_code}"
 
     # 最终检查并截断
     if len(task_name_prefix) > 35:
