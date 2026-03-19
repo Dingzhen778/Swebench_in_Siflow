@@ -48,6 +48,19 @@ Layer 3: Instance (swebench-instance-{instance_id}:2.0.0)
 ### 0.初始化
 参考.env.template，配置好.env，使用siflow上的key，具体资源参考官方文档
 
+安装 SiFlow SDK（建议 0.2.9）：
+
+```bash
+wget https://oss-cn-shanghai.siflow.cn/ai-infra-download/siflow-public/siflow-0.2.9-py3-none-any.whl
+pip install siflow-0.2.9-py3-none-any.whl
+```
+
+如果脚本使用 `.vendor_siflow`（本项目很多脚本是这样），还需要同步安装到 vendor 目录：
+
+```bash
+pip install -U --target ./.vendor_siflow siflow-0.2.9-py3-none-any.whl
+```
+
 ### 1. 构建镜像
 
 ```bash
