@@ -11,9 +11,11 @@
 6. 解析结果
 """
 
+import os
 import sys
 import json
 import time
+import base64
 from pathlib import Path
 from datasets import load_dataset
 
@@ -22,7 +24,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from siflow.types import TaskVolume, TaskEnv, TaskUserSelectedInstance
 from siflow_utils import create_siflow_client, get_image_registry_url
-from siflow_config import RESOURCE_POOL, INSTANCE_TYPE, PROJECT_ROOT, VOLUME_MOUNT_DIR, VOLUME_ID
+from siflow_config import RESOURCE_POOL, INSTANCE_TYPE, PROJECT_ROOT, VOLUME_MOUNT_DIR, VOLUME_ID, CLUSTER
 from swebench.harness.constants import MAP_REPO_VERSION_TO_SPECS, FAIL_TO_PASS, PASS_TO_PASS, START_TEST_OUTPUT, END_TEST_OUTPUT
 from swebench.harness.test_spec.python import get_test_directives, get_modified_files
 from swebench.harness.test_spec.test_spec import TestSpec, make_test_spec
@@ -44,6 +46,201 @@ def get_image_version_for_instance(instance_id: str) -> str:
     if should_apply_fix(instance_id):
         return "2.1.0"  # 修复后的镜像（临时）
     return "2.0.0"  # 原始镜像
+
+
+def generate_eval_script_inline(instance, specs, model_patch_text, test_patch_text):
+    """生成 aries 无 volume 模式评测脚本（和已验证 smoke 逻辑一致）。"""
+    base_commit = instance['base_commit']
+    env_name = "testbed"
+    repo_directory = f"/{env_name}"
+
+    test_directives = get_test_directives(instance)
+    test_command = specs.get('test_cmd', 'pytest')
+    test_targets = ' '.join(test_directives) if test_directives else ''
+    test_files = get_modified_files(test_patch_text)
+    install_cmd = specs.get('install', 'python -m pip install -e .')
+
+    model_patch_b64 = base64.b64encode(model_patch_text.encode('utf-8')).decode('ascii')
+    test_patch_b64 = base64.b64encode(test_patch_text.encode('utf-8')).decode('ascii')
+    reset_cmd = f"git checkout {base_commit} {' '.join(test_files)}" if test_files else 'true'
+    restore_cmd = reset_cmd if test_files else 'true'
+
+    return f"""bash -lc '
+set -euxo pipefail
+source /opt/miniconda3/bin/activate
+conda activate {env_name}
+cd {repo_directory}
+
+python - <<"PY"
+import base64, pathlib
+pathlib.Path("/tmp/model.patch").write_bytes(base64.b64decode("{model_patch_b64}"))
+pathlib.Path("/tmp/test.patch").write_bytes(base64.b64decode("{test_patch_b64}"))
+PY
+
+git apply --verbose /tmp/model.patch || patch --batch --fuzz=5 -p1 -i /tmp/model.patch
+{install_cmd}
+{reset_cmd}
+git apply -v /tmp/test.patch || patch --batch --fuzz=5 -p1 -i /tmp/test.patch
+
+export PYTHONPATH={repo_directory}:${{PYTHONPATH:-}}
+echo "{START_TEST_OUTPUT}"
+{test_command} {test_targets}
+TEST_EXIT_CODE=$?
+echo "{END_TEST_OUTPUT}"
+echo "SWEBENCH_TEST_EXIT_CODE=$TEST_EXIT_CODE"
+
+{restore_cmd}
+exit $TEST_EXIT_CODE
+'"""
+def run_gold_eval_for_instance_aries(
+    instance_id,
+    image_version=None,
+    timeout=1800,
+    wait=True,
+    patch_type="gold",
+    task_name_suffix="",
+    method_name=None,
+    method_config=None,
+    display_name="gold",
+):
+    """aries 专用：不挂 volume，使用 inline patch 执行评测。"""
+    print(f"\n{'='*70}")
+    print(f"运行 {display_name} 评测 (aries inline): {instance_id}")
+    print(f"{'='*70}\n")
+
+    ds = load_dataset("princeton-nlp/SWE-bench_Verified", split="test")
+    instance = [x for x in ds if x['instance_id'] == instance_id][0]
+    repo = instance['repo']
+    version = instance['version']
+
+    if repo not in MAP_REPO_VERSION_TO_SPECS or version not in MAP_REPO_VERSION_TO_SPECS[repo]:
+        return {"success": False, "error": "Config not found"}
+    specs = MAP_REPO_VERSION_TO_SPECS[repo][version]
+
+    if image_version is None:
+        image_version = get_image_version_for_instance(instance_id)
+
+    if method_name == "gold":
+        model_patch_text = instance['patch']
+    else:
+        patch_dir = Path(PROJECT_ROOT) / f"patches/{method_config['name']}"
+        patch_file = None
+        for ext in method_config['file_extensions']:
+            candidate = patch_dir / f"{instance_id}{ext}"
+            if candidate.exists():
+                patch_file = candidate
+                break
+        if patch_file is None:
+            return {"success": False, "error": f"Patch file not found for method {method_name}"}
+        model_patch_text = patch_file.read_text()
+
+    test_patch_text = instance['test_patch']
+
+    print("\n📌 初始化 SiFlow 客户端...")
+    client = create_siflow_client()
+    from siflow_utils import sanitize_image_name
+    instance_image_name = sanitize_image_name(f"swebench-instance-{instance_id}")
+
+    print(f"🔍 正在查询 instance 镜像: {instance_image_name}:{image_version}")
+    instance_image_url = get_image_registry_url(client, instance_image_name, image_version)
+    if not instance_image_url:
+        return {"success": False, "error": "Instance image not found"}
+
+    eval_script = generate_eval_script_inline(instance, specs, model_patch_text, test_patch_text)
+
+    from build.fix_build_issues import get_env_vars
+    env_vars = get_env_vars(instance_id)
+
+    short_id = instance_id.split('__')[-1] if '__' in instance_id else instance_id
+    prefix_code = method_config['task_prefix']
+    max_id_len = 35 - 5 - len(prefix_code) - 1
+    if len(short_id) > max_id_len:
+        short_id = short_id[:max_id_len]
+    if task_name_suffix:
+        task_name_prefix = f"sieval-{short_id}-{prefix_code}-{task_name_suffix}"
+    else:
+        task_name_prefix = f"sieval-{short_id}-{prefix_code}"
+    if len(task_name_prefix) > 35:
+        task_name_prefix = task_name_prefix[:35]
+
+    task_env_list = [
+        TaskEnv(env_key="INSTANCE_ID", env_value=instance_id, hide=False),
+        TaskEnv(env_key="PATCH_TYPE", env_value=patch_type, hide=False),
+        TaskEnv(env_key="METHOD_NAME", env_value=method_name, hide=False),
+        TaskEnv(env_key="EVAL_VERSION", env_value="inline-no-volume", hide=False),
+    ]
+    if env_vars:
+        for key, value in env_vars.items():
+            task_env_list.append(TaskEnv(env_key=key, env_value=value, hide=False))
+
+    try:
+        task_uuid = client.tasks.create(
+            name_prefix=task_name_prefix,
+            image=instance_image_name,
+            image_version=image_version,
+            image_url=instance_image_url,
+            image_type="custom",
+            type="pytorchjob",
+            priority="medium",
+            cmd=eval_script,
+            workers=0,
+            resource_pool=RESOURCE_POOL,
+            instances=[TaskUserSelectedInstance(name=INSTANCE_TYPE, count_per_pod=1)],
+            task_env=task_env_list,
+        )
+    except Exception as e:
+        return {"success": False, "error": str(e), "instance_id": instance_id}
+
+    if not wait:
+        return {
+            "success": True,
+            "task_uuid": task_uuid,
+            "instance_id": instance_id,
+            "status": "submitted",
+            "mode": "aries-inline",
+        }
+
+    start_time = time.time()
+    last_status = None
+    check_interval = 30
+
+    while time.time() - start_time < timeout:
+        task = client.tasks.get(uuid=task_uuid)
+        if task.status != last_status:
+            elapsed = int(time.time() - start_time)
+            print(f"   [{elapsed//60:02d}:{elapsed%60:02d}] 状态: {task.status}")
+            last_status = task.status
+
+        if task.status == "Succeeded":
+            return {
+                "success": True,
+                "instance_id": instance_id,
+                "task_uuid": task_uuid,
+                "resolved": True,
+                "resolution_status": "RESOLVED_FULL_BY_TASK_EXIT",
+                "execution_time": int(time.time() - start_time),
+                "mode": "aries-inline",
+            }
+        if task.status in ["Failed", "Error", "Stopped"]:
+            return {
+                "success": False,
+                "instance_id": instance_id,
+                "task_uuid": task_uuid,
+                "resolved": False,
+                "resolution_status": "UNRESOLVED_BY_TASK_EXIT",
+                "status": task.status,
+                "error": getattr(task, "status_msg", "Task failed"),
+                "mode": "aries-inline",
+            }
+        time.sleep(check_interval)
+
+    return {
+        "success": False,
+        "instance_id": instance_id,
+        "task_uuid": task_uuid,
+        "status": "timeout",
+        "mode": "aries-inline",
+    }
 
 
 def generate_eval_script_fixed(instance, specs, patch_file_path, test_patch_file_path, method_config=None):
@@ -257,6 +454,21 @@ def run_gold_eval_for_instance(instance_id, image_version=None, timeout=1800, wa
         method_config = get_method_config(DEFAULT_METHOD)
     
     display_name = method_config.get('display_name', method_name)
+
+    active_cluster = os.environ.get('SIFLOW_CLUSTER', CLUSTER)
+    if active_cluster == 'aries':
+        return run_gold_eval_for_instance_aries(
+            instance_id=instance_id,
+            image_version=image_version,
+            timeout=timeout,
+            wait=wait,
+            patch_type=patch_type,
+            task_name_suffix=task_name_suffix,
+            method_name=method_name,
+            method_config=method_config,
+            display_name=display_name,
+        )
+
     print(f"\n{'='*70}")
     print(f"运行 {display_name} 评测: {instance_id}")
     print(f"{'='*70}\n")

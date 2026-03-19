@@ -55,6 +55,27 @@ cd build/
 python build_all_images.py --layer all --version 2.0.0
 ```
 
+### 1.1 在 SciTix(aries) 继续构建（先 env，再分批 instance）
+
+推荐使用 `build_docker_in_scitix/continue_build_with_progress.py`，特点：
+- 固定 `ap-southeast/aries`
+- 先提交 env，再分批提交 instance
+- 单次新增 instance 提交数强制不超过 `24`
+- 进度写入 `build_docker_in_scitix/build_progress.md`
+
+示例：
+
+```bash
+cd build_docker_in_scitix
+/minconda3/envs/swebench_scitix/bin/python continue_build_with_progress.py \
+  --image-version 1.0.0 \
+  --env-version 1.0.0 \
+  --max-new 24 \
+  --batch-size 8 \
+  --delay 1 \
+  --preferred-repo django/django
+```
+
 ### 2. 运行评测
 
 ```bash
@@ -65,6 +86,26 @@ python run_model_eval.py <instance_id> --method model
 
 # Gold Patch评测
 python run_model_eval.py <instance_id> --method gold
+```
+
+### 2.1 集群差异（cetus vs aries）
+
+`eval/run_gold_eval_fixed.py` 已内置集群分支：
+- `cetus`（或非 aries）：沿用原流程，使用 volume 挂载（读取/写入宿主路径）
+- `aries`：自动走 inline-no-volume 流程（不挂 volume，patch 以 base64 内联后写入容器 `/tmp/*.patch`）
+
+因此在 `aries` 上只需要设置：
+
+```bash
+SIFLOW_REGION=ap-southeast
+SIFLOW_CLUSTER=aries
+SIFLOW_RESOURCE_POOL=ap-southeast-aries-hisys-ondemand-shared
+```
+
+然后直接运行：
+
+```bash
+python eval/run_gold_eval_fixed.py django__django-12754 --version 1.0.0 --wait
 ```
 
 ## 评测结果
