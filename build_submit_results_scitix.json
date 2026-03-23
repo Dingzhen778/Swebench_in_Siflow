@@ -1,0 +1,19 @@
+{
+  "env": {
+    "success": true,
+    "submitted": 1,
+    "failed": 0,
+    "details": [
+      {
+        "repo": "pydata/xarray",
+        "version": "0.12",
+        "instance_id": "pydata__xarray-2905",
+        "image_name": "swebench-env-pydata-xarray-0.12",
+        "success": true,
+        "status": "building",
+        "image_id": null,
+        "error": null
+      }
+    ]
+  }
+}

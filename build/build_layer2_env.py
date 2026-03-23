@@ -52,7 +52,8 @@ def build_env_image(instance_id: str,
                     image_version: str = "2.0.0",
                     base_image_name: str = "swebench-base",
                     base_image_version: str = "2.0.0",
-                    wait: bool = True):
+                    wait: bool = True,
+                    commit_id: str = "v1"):
     """
     构建 Layer 2 (Environment) 镜像
 
@@ -311,7 +312,7 @@ RUN echo "source /opt/miniconda3/etc/profile.d/conda.sh && conda activate testbe
 """
 
         image_build_config = ImageBuildConfigRequest(
-            commit_id="v1",
+            commit_id=commit_id,
             build_method="baseDockerfile",
             basic_image_type="custom",
             basic_image_url=base_image_url,

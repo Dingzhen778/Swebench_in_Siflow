@@ -20,7 +20,16 @@ METHOD_CONFIGS = {
         "log_dir": "logs/gold_patch",
         "task_prefix": "gp",
         "description": "SWE-bench官方gold patch"
-    }
+    },
+    "qwen3_30b": {
+        "name": "qwen3_30b",
+        "display_name": "Qwen3-30B-A3B (mini-swe-agent)",
+        "file_extensions": [".diff"],
+        "format_type": "diff",
+        "log_dir": "logs/qwen3_30b_patch",
+        "task_prefix": "q3",
+        "description": "Qwen3-30B-A3B 通过 mini-swe-agent 生成的 patch"
+    },
 }
 
 DEFAULT_METHOD = "model"

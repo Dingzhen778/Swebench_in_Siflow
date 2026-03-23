@@ -1,0 +1,54 @@
+Metadata-Version: 2.4
+Name: siflow
+Version: 0.2.4
+Summary: Python client library for the siflow platform
+Project-URL: Homepage, https://console.scitix.ai/siflow/home
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Requires-Python: >=3.8.1
+Requires-Dist: anyio<4,>=3.5.0
+Requires-Dist: distro<2,>=1.7.0
+Requires-Dist: fastapi<1.0.0,>=0.104.0
+Requires-Dist: httpx<0.28.0,>=0.23.0
+Requires-Dist: openai<2.0.0,>=1.0.0
+Requires-Dist: pydantic<3,>=1.9.0
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: tqdm>4
+Requires-Dist: typing-extensions<5,>=4.5
+Requires-Dist: uvicorn[standard]<1.0.0,>=0.24.0
+Provides-Extra: datalib
+Requires-Dist: numpy>=1; extra == 'datalib'
+Requires-Dist: pandas-stubs>=1.1.0.11; extra == 'datalib'
+Requires-Dist: pandas>=1.2.3; extra == 'datalib'
+Provides-Extra: train
+Requires-Dist: sftrain@ https://oss-ap-southeast.scitix.ai/siflow/sftrain-0.0.1-py3-none-any.whl ; extra == 'train'
+Description-Content-Type: text/markdown
+
+# Python SDK
+
+## Examples
+
+```Python
+
+from siflow import Siflow
+
+client = Siflow(
+    endpoint="https://console.scitix.ai",
+    access_key_id="xxxx",
+    access_key_secret="xxxx"
+)
+
+task = client.tasks.create()
+```

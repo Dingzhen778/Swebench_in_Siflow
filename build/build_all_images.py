@@ -66,7 +66,7 @@ def build_base(image_version="2.0.0", force=False):
     return result
 
 
-def build_environments(image_version="2.0.0", force=False, delay=2, filter_repo=None, instances_file=None):
+def build_environments(image_version="2.0.0", base_image_version=None, force=False, delay=2, filter_repo=None, instances_file=None):
     """
     批量构建Environment镜像 - 不等待
 
@@ -175,6 +175,7 @@ def build_environments(image_version="2.0.0", force=False, delay=2, filter_repo=
             result = build_env_image(
                 instance_id=instance_id,
                 image_version=image_version,
+                base_image_version=base_image_version or image_version,
                 wait=False  # 不等待
             )
 
@@ -478,6 +479,7 @@ def main():
     if args.layer in ['env', 'all']:
         env_result = build_environments(
             image_version=args.env_version,
+            base_image_version=args.version,
             force=args.force,
             delay=args.delay,
             filter_repo=args.repo,
