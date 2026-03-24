@@ -1,5 +1,6 @@
-# Environment variables
+# Environment variables & secrets
 .env
+.claude/
 
 # Python
 __pycache__/
