@@ -1,6 +1,6 @@
 # Environment variables & secrets
 .env
-.claude/
+.claude/settings.json
 
 # Python
 __pycache__/
